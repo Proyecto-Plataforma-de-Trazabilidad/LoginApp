@@ -3,4 +3,6 @@
     <string name="sign">Inicia Sesión</string>
     <string name="username">Usuario</string>
     <string name="passname">Contraseña</string>
+    <string name="acceder">Acceder</string>
+    <string name="forgot">¿Olvidaste tu contraseña?</string>
 </resources>

@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/hd_wallpaper_avocado_green"
-    >
+    android:background="@drawable/hd_wallpaper_avocado_green">
 
     <RelativeLayout
         android:orientation="vertical"
@@ -14,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:id="@+id/linearLayout1"
-        android:background="#66FFFFFF">
+        android:background="#70FFFFFF">
 
         <TextView
             android:id="@+id/singtext"
@@ -60,8 +59,24 @@
             android:drawableStart="@drawable/outline_https_24"
             android:drawablePadding="20sp"
             />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonacceder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/passname"
+            android:text="@string/acceder"
+            android:backgroundTint="#558B2F"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonacceder"
+            android:layout_marginTop="25dp"
+            android:text="@string/forgot"
+            android:layout_centerHorizontal="true"
+            />
 
     </RelativeLayout>
-
-
 </RelativeLayout>
