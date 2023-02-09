@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    //---------------------------------------Metodo de validacion-----------------------------------------
     private void Login() {
         u = username.getText().toString();
         c = passname.getText().toString();
@@ -75,8 +75,27 @@ public class MainActivity extends AppCompatActivity {
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
                 @Override
-                public void onResponse(String response) {
+                public void onResponse(String serverResponse) {
+                    try{
+                        //Crear objeto Json el cual va a obtener los valores que tenga de parte del webservice en ejecución
+                        JSONObject obj = new JSONObject(serverResponse);
 
+                        //Interpretar los valores que retorne por medio de obj
+                        Boolean error=obj.getBoolean("Error");
+                        //Obtener el mensaje
+                        String mensaje=obj.getString("mensaje");
+
+                        //Interpretar los dos valores, si error es == true entonces datos incorrectos
+                        if(error==true){
+                            Toast.makeText(getApplicationContext(), mensaje,Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
