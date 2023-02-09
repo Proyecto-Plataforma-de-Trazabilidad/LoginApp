@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String serverResponse) {
+                    //Quitar el progressDialog porque ya recibimos la respuesta y ocultamos el progressDialog
+                    progressDialog.dismiss();
+
                     try{
                         //Crear objeto Json el cual va a obtener los valores que tenga de parte del webservice en ejecución
                         JSONObject obj = new JSONObject(serverResponse);
