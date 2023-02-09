@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LoginApp</string>
+    <string name="sign">Inicia Sesión</string>
+    <string name="username">usuario</string>
 </resources>
