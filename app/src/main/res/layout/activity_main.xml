@@ -41,7 +41,6 @@
             android:textStyle="bold"
             android:padding="20sp"
             android:background="#90FFFFFF"
-
             android:drawableStart="@drawable/outline_assignment_ind_24"
             android:drawablePadding="20sp"/>
 
@@ -57,7 +56,10 @@
             android:textSize="17sp"
             android:textStyle="bold"
             android:padding="20sp"
-            android:background="#90FFFFFF"/>
+            android:background="#90FFFFFF"
+            android:drawableStart="@drawable/outline_https_24"
+            android:drawablePadding="20sp"
+            />
 
     </RelativeLayout>
 
