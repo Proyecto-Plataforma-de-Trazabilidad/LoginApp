@@ -89,12 +89,11 @@ public class MainActivity extends AppCompatActivity {
                         //Obtener el mensaje
                         String mensaje=obj.getString("mensaje");
 
-                        //Interpretar los dos valores, si error es == true entonces datos incorrectos
-                        if(error==true){
+                        if (error)//Datos incorrectos
                             Toast.makeText(getApplicationContext(), mensaje,Toast.LENGTH_LONG).show();
-                        }
                         else{
                             Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
+                                    //Presentar otra activity....
                         }
                     }
                     catch (JSONException e) {
