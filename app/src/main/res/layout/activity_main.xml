@@ -58,6 +58,7 @@
             android:background="#90FFFFFF"
             android:drawableStart="@drawable/outline_https_24"
             android:drawablePadding="20sp"
+            android:inputType="textPassword"
             />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonacceder"
