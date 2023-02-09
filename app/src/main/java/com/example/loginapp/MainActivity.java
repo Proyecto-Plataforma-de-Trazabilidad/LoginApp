@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private void Login() {
         u = username.getText().toString();
         c = passname.getText().toString();
+
         if (u.isEmpty() || c.isEmpty()) {
             //vacio
             Toast.makeText(getApplicationContext(), "Debes introducir los datos en los dos campos", Toast.LENGTH_LONG).show();
