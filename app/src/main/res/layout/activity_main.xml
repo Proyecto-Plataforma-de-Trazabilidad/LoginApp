@@ -27,12 +27,12 @@
             android:layout_margin="50dp"
             />
 
-        <TextView
+        <EditText
             android:id="@+id/username"
             android:layout_width="310sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/singtext"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true"
             android:text="@string/username"
             android:textColor="@color/black"
@@ -43,7 +43,7 @@
             android:drawableStart="@drawable/outline_assignment_ind_24"
             android:drawablePadding="20sp"/>
 
-        <TextView
+        <EditText
             android:id="@+id/passname"
             android:layout_width="310sp"
             android:layout_height="wrap_content"

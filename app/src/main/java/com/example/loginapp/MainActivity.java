@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       username=(TextView) findViewById(R.id.username);
-       passname=(TextView) findViewById(R.id.passname);
+       username=(EditText) findViewById(R.id.username);
+       passname=(EditText) findViewById(R.id.passname);
 
        loginbtn=(MaterialButton) findViewById(R.id.buttonacceder);
 
