@@ -79,6 +79,7 @@
             android:layout_below="@+id/buttonacceder"
             android:layout_marginTop="25dp"
             android:text="@string/forgot"
+            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             />
 
