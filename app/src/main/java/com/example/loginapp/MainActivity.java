@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     //Cuando mandamos petición, se debe enviar string con muchos elementos para ejecutar volley
     RequestQueue requestQueue;
-    String httpURI = "https://proyectoapejal.000webhostapp.com/agenda/usuario.php";
+    String httpURI = "https://proyectoapejal.000webhostapp.com/agenda/usuario.php";//servidor en 000webhost
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
