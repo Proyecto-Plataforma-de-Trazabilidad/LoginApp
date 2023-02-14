@@ -98,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
                         else{
                             Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
                                     //Presentar otra activity....
-                            Intent i=new Intent(MainActivity.this, MainActivity2.class);
-                            startActivity(i);
+                            //Intent i=new Intent(MainActivity.this, MainActivity2.class);
+                            //startActivity(i);
                         }
                     }
                     catch (JSONException e) {
