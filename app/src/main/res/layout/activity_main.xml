@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:id="@+id/linearLayout1"
-        android:background="#88FFFFFF">
+        android:background="#70FFFFFF">
 
         <TextView
             android:id="@+id/singtext"
@@ -36,7 +36,7 @@
             android:layout_centerHorizontal="true"
             android:hint="@string/username"
             android:textColorHint="@color/black"
-            android:background="#99FFFFFF"
+            android:background="#90FFFFFF"
             android:drawableStart="@drawable/outline_assignment_ind_24"
             android:inputType="textEmailAddress"
             android:padding="20sp"
@@ -56,7 +56,7 @@
             android:textColorHint="@color/black"
             android:textColor="@color/black"
             android:padding="20sp"
-            android:background="#99FFFFFF"
+            android:background="#90FFFFFF"
             android:drawableStart="@drawable/outline_https_24"
             android:drawablePadding="20sp"
             android:inputType="textPassword"
