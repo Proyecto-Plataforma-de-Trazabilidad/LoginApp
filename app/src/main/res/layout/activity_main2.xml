@@ -8,10 +8,10 @@
     android:background="@drawable/desktop_wallpaper_simple_mobile_calm_simple"
     android:id="@+id/contenedorP">
 
-    <GridLayout
+    <android.support.v7.widget.GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </GridLayout>
+    </android.support.v7.widget.GridLayout>
 
 </FrameLayout>
