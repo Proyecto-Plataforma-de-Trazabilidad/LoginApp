@@ -2,6 +2,7 @@ package com.example.loginapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -55,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Login();
+
+
             }
+
         });
 
 
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                         else{
                             Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
                                     //Presentar otra activity....
+                            Intent i=new Intent(MainActivity.this, MainActivity2.class);
+                            startActivity(i);
                         }
                     }
                     catch (JSONException e) {
