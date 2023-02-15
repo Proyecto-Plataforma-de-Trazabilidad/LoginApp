@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">LoginApp</string>
+
     <string name="sign">Inicia Sesión</string>
     <string name="username">Usuario</string>
     <string name="passname">Contraseña</string>
     <string name="acceder">Acceder</string>
     <string name="forgot">¿Olvidaste tu contraseña?</string>
+    <string name="btnMap">Mapa CAT</string>
+    <string name="btnconm">Consulta CAT</string>
+
     <string name="title_activity_menu">Menu</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

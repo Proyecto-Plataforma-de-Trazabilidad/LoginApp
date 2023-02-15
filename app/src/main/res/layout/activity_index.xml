@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Index">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnmapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/btnMap"
+        android:backgroundTint="#558B2F"
+        android:layout_centerHorizontal="true" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnconscat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/btnconm"
+        android:layout_below="@+id/btnmapa"
+        android:backgroundTint="#558B2F"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
