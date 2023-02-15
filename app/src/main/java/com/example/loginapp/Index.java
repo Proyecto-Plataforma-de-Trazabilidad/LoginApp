@@ -2,6 +2,7 @@ package com.example.loginapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,6 +22,8 @@ public class Index extends AppCompatActivity {
         btnmapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent mapa= new Intent(Index.this,Mapa.class);
+                startActivity(mapa);
             }
         });//fin evento boton btnmapa
 
