@@ -8,6 +8,10 @@
     <string name="forgot">¿Olvidaste tu contraseña?</string>
     <string name="btnMap">Mapa CAT</string>
     <string name="btnconm">Consulta CAT</string>
+    <string name="btnconxm">Consulta Municipio CAT</string>
+    <string name="btnconxe">Consulta Estado CAT</string>
+
+    <string name="basic">Selecciona un estado:</string>
 
     <string name="title_activity_menu">Menu</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

@@ -24,6 +24,24 @@
         android:layout_below="@+id/btnmapa"
         android:backgroundTint="#558B2F"
         android:layout_centerHorizontal="true" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnconscatxm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/btnconxm"
+        android:layout_below="@+id/btnconscat"
+        android:backgroundTint="#558B2F"
+        android:layout_centerHorizontal="true" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnconscatxe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/btnconxe"
+        android:layout_below="@+id/btnconscatxm"
+        android:backgroundTint="#558B2F"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

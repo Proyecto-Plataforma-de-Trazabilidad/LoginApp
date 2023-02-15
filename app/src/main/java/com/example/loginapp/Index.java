@@ -10,7 +10,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class Index extends AppCompatActivity {
 
-    MaterialButton btnmapa,btnconsul;
+    MaterialButton btnmapa,btnconsul,btnconxm,btnconxe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,8 @@ public class Index extends AppCompatActivity {
 
         btnmapa= (MaterialButton) findViewById(R.id.btnmapa);
         btnconsul= (MaterialButton) findViewById(R.id.btnconscat);
+        btnconxm= (MaterialButton) findViewById(R.id.btnconscatxm);
+        btnconxe= (MaterialButton) findViewById(R.id.btnconscatxe);
 
         btnmapa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,21 @@ public class Index extends AppCompatActivity {
             public void onClick(View v) {
             }
         });//fin evento btnconsul
+
+        btnconxm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });//fin evento btnconxm
+
+        btnconxe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent consulxe= new Intent(Index.this,SpinnerEstado.class);
+                startActivity(consulxe);
+            }
+        });//fin evento btnconxe
+
 
     }//oncreate
 }//main
