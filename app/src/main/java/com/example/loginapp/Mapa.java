@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,6 +22,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,7 +36,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
 
     private GoogleMap mMap;
 
-
+    MaterialButton btnvolver;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -51,6 +54,16 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
         requestQueue= Volley.newRequestQueue(Mapa.this);
         //Indicar dónde se ejecutará progressdialog
         progressDialog=new ProgressDialog(Mapa.this);
+
+        btnvolver= (MaterialButton) findViewById(R.id.btnregresar);
+
+        btnvolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent volver= new Intent(Mapa.this,Index.class);
+                startActivity(volver);
+            }
+        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
