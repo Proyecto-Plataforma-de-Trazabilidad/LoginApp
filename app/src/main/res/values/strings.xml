@@ -11,8 +11,11 @@
     <string name="btnconxm">Consulta Municipio CAT</string>
     <string name="btnconxe">Consulta Estado CAT</string>
 
+    <string name="tit">Consula Por Estado </string>
+    <string name="CAT">Centro De Acopio Temporal</string>
     <string name="basic">Selecciona un estado:</string>
     <string name="Regresar">Volver</string>
+    <string name="Consultar">Consulta</string>
 
 
 

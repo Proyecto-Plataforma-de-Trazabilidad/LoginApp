@@ -1,25 +1,24 @@
 package com.example.loginapp;
 
 public class estados {
-
-    private String HorarioDiasLaborales;
+    private String Estado;
 
     public estados(){
     }
 
-    public estados(String HorarioDiasLaborales){
-        this.HorarioDiasLaborales=HorarioDiasLaborales;
+    public estados(String Estado){
+        this.Estado=Estado;
     }
 
     public String getHorarioDiasLaborales() {
-        return HorarioDiasLaborales;
+        return Estado;
     }
 
-    public void setHorarioDiasLaborales(String HorarioDiasLaborales){
-        this.HorarioDiasLaborales=HorarioDiasLaborales;
+    public void setHorarioDiasLaborales(String Estado){
+        this.Estado=Estado;
     }
 
     public String toString(){
-        return HorarioDiasLaborales;
+        return Estado;
     }
 }
