@@ -9,8 +9,8 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="1"
-        android:textColor="@color/white"
-        android:background="@color/teal_700"
+        android:textColor="@color/black"
+        android:background="@color/gris"
         android:text="TextView" />
 
     <TextView
@@ -18,8 +18,8 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="1"
-        android:textColor="@color/white"
-        android:background="@color/purple_200"
+        android:textColor="@color/black"
+        android:background="@color/gris"
         android:text="TextView" />
 
 </TableRow>
