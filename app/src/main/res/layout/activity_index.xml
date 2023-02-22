@@ -5,43 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Index"
-    android:background="@drawable/pngtree_avocado_wallpaper_background_elements_hand_drawn_png_image_4270140">
+    android:background="@drawable/fondo">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnmapa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/btnMap"
-        android:backgroundTint="#558B2F"
-        android:layout_centerHorizontal="true" />
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnconscat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/btnconm"
-        android:layout_below="@+id/btnmapa"
-        android:backgroundTint="#558B2F"
-        android:layout_centerHorizontal="true" />
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnconscatxm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/btnconxm"
-        android:layout_below="@+id/btnconscat"
-        android:backgroundTint="#558B2F"
-        android:layout_centerHorizontal="true" />
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnconscatxe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/btnconxe"
-        android:layout_below="@+id/btnconscatxm"
-        android:backgroundTint="#558B2F"
-        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/apejal"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            app:srcCompat="@drawable/apeajal2" />
+
+        <ImageView
+            android:id="@+id/asica"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            android:layout_alignLeft="@+id/apejal"
+            app:srcCompat="@drawable/asica"
+           android:layout_alignParentRight="true"/>
+
+        <ImageView
+            android:id="@+id/Amocali"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/fidaixbm_400x400"
+            android:layout_alignParentRight="true"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnmapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/apejal"
+            android:backgroundTint="#558B2F"
+            android:text="@string/btnMap" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnconscat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnmapa"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#558B2F"
+            android:text="@string/btnconm" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnconscatxm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnconscat"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#558B2F"
+            android:text="@string/btnconxm" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnconscatxe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnconscatxm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:backgroundTint="#558B2F"
+            android:text="@string/btnconxe" />
+    </RelativeLayout>
+
+
 
 
 </RelativeLayout>
