@@ -4,22 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+
     <TextView
         android:id="@+id/columnaname"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="1"
-        android:textColor="@color/black"
         android:background="@color/gris"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/coemail"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="1"
-        android:textColor="@color/black"
         android:background="@color/gris"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black" />
 
 </TableRow>
