@@ -3,6 +3,7 @@ package com.example.loginapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -64,12 +65,16 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent regresa= new Intent(SpinnerMunicipio.this,Index.class);
+                startActivity(regresa);
             }
         });
 
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent conxe= new Intent(SpinnerMunicipio.this,MapaEstado.class);
+                startActivity(conxe);
             }
         });
 
@@ -125,7 +130,7 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
     private void CargarTabla() {
 
         //tabla
-        tbtusarios=findViewById(R.id.tablacxe);
+        tbtusarios=findViewById(R.id.tablacxm);
         tbtusarios.removeAllViews();//remueve columnas
 
 
@@ -179,7 +184,7 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
 
-                parametros.put("Estado",e);
+                parametros.put("Municipio",e);
                 return parametros;
             }
         };

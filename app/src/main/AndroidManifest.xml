@@ -23,6 +23,10 @@
             android:name=".SpinnerEstado"
             android:exported="false" />
 
+        <activity
+            android:name=".SpinnerMunicipio"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDK08zMPQwhKuLcm2S833wd67vzQsxcSEA" />
