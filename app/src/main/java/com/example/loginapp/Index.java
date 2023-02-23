@@ -38,6 +38,8 @@ public class Index extends AppCompatActivity {
         btnconxm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent consulxM = new Intent(Index.this, SpinnerMunicipio.class);
+                startActivity(consulxM);
             }
         });//fin evento btnconxm
 
