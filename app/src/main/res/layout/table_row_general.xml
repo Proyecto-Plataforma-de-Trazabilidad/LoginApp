@@ -3,10 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/tbtCG">
+
     <TextView
         android:id="@+id/col1"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
         android:text="TextView"
@@ -15,7 +16,7 @@
     <TextView
         android:id="@+id/col2"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
         android:text="TextView"
@@ -23,7 +24,7 @@
     <TextView
         android:id="@+id/col3"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
         android:text="TextView"
@@ -31,7 +32,7 @@
     <TextView
         android:id="@+id/col4"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
         android:text="TextView"
