@@ -75,6 +75,7 @@ public class SpinnerEstado extends AppCompatActivity implements AdapterView.OnIt
             @Override
             public void onClick(View v) {
                Intent conxe= new Intent(SpinnerEstado.this,MapaEstado.class);
+                conxe.putExtra("Estado",e);//envia el valor del select a el mapa
                startActivity(conxe);
             }
         });
