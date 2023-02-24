@@ -17,12 +17,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ConsultaGeneral"
+            android:exported="false" />
+        <activity
             android:name=".MapaEstado"
             android:exported="false" />
         <activity
             android:name=".SpinnerEstado"
             android:exported="false" />
-
         <activity
             android:name=".SpinnerMunicipio"
             android:exported="false" />

@@ -32,6 +32,8 @@ public class Index extends AppCompatActivity {
         btnconsul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent consulG = new Intent(Index.this, ConsultaGeneral.class);
+                startActivity(consulG);
             }
         });//fin evento btnconsul
 
