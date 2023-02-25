@@ -61,7 +61,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tit" />
 
         <Spinner
-            android:id="@+id/cbomunicipio"
+            android:id="@+id/cbomunicipiodis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/background_footer"

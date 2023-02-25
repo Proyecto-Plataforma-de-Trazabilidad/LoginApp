@@ -103,7 +103,7 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
             JSONArray jsonArreglo=new JSONArray(respuesta);
             for(int i=0; i<jsonArreglo.length(); i++){
                 municipios mun=new municipios();
-                mun.setHorarioDiasLaborales(jsonArreglo.getJSONObject(i).getString("Municipio"));
+                mun.setMunicipio(jsonArreglo.getJSONObject(i).getString("Municipio"));
                 lista.add(mun);
             }
             ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
