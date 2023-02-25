@@ -11,6 +11,8 @@ import com.google.android.material.button.MaterialButton;
 public class Index extends AppCompatActivity {
 
     MaterialButton btnmapa,btnconsul,btnconxm,btnconxe;
+    MaterialButton btncontene,btnconteneM,btndistri,btndistriM,btndest,btndestM,btnReco,btnRecoM;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,18 @@ public class Index extends AppCompatActivity {
         btnconsul= (MaterialButton) findViewById(R.id.btnconscat);
         btnconxm= (MaterialButton) findViewById(R.id.btnconscatxm);
         btnconxe= (MaterialButton) findViewById(R.id.btnconscatxe);
+
+        btncontene = (MaterialButton) findViewById(R.id.btnconsC);
+        btnconteneM= (MaterialButton) findViewById(R.id.btnconsCM);
+
+        btndistri= (MaterialButton) findViewById(R.id.btnconsDis);
+        btndistriM= (MaterialButton) findViewById(R.id.btnconsDisM);
+
+        btndest= (MaterialButton) findViewById(R.id.btnconsDes);
+        btndestM= (MaterialButton) findViewById(R.id.btnconsDesM);
+
+        btnReco= (MaterialButton) findViewById(R.id.btnconsPriv);
+        btnRecoM= (MaterialButton) findViewById(R.id.btnconsPrivM);
 
         btnmapa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +67,58 @@ public class Index extends AppCompatActivity {
             }
         });//fin evento btnconxe
 
+        btncontene.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton contenedores
+        btnconteneM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton contenedores muni
+
+
+        btndistri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton dris
+        btndistriM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton dris muni
+
+        btndest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton dest
+        btndestM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton dest muni
+
+        btnReco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton reco
+        btnRecoM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton reco
 
     }//oncreate
 }//main
