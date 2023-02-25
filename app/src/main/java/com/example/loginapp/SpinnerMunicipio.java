@@ -74,6 +74,7 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View v) {
                 Intent conxe= new Intent(SpinnerMunicipio.this,MapaEstado.class);
+                conxe.putExtra("Municipio",e);//envia el valor del select a el mapa
                 startActivity(conxe);
             }
         });
