@@ -73,7 +73,7 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(SpinnerMunicipio.this,MapaEstado.class);
+                Intent conxe= new Intent(SpinnerMunicipio.this,MapaMunicipio.class);
                 startActivity(conxe);
             }
         });

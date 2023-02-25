@@ -20,6 +20,9 @@
             android:name=".ConsultaGeneral"
             android:exported="false" />
         <activity
+            android:name=".MapaMunicipio"
+            android:exported="false" />
+        <activity
             android:name=".MapaEstado"
             android:exported="false" />
         <activity
