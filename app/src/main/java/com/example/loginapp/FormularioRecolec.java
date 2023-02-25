@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,7 +21,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
-import com.loopj.android.http.*;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,45 +32,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.os.Bundle;
-import android.widget.TableLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import cz.msebera.android.httpclient.Header;
 
-public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class FormularioRecolec extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consultaMun.php";
+    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/consulMuniReco.php";
+
     String e;
-    TableLayout tbtusarios;
+    TableLayout tbtreco;
 
     MaterialButton btnregresa,btnconsulta;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.municipio);
+        setContentView(R.layout.activity_formulario_recolec);
 
         cliente=new AsyncHttpClient();
-        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipio);
+        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiore);
         llenarspinner();
 
-        requestQueue= Volley.newRequestQueue(SpinnerMunicipio.this);
-        progressDialog=new ProgressDialog(SpinnerMunicipio.this);
+        requestQueue= Volley.newRequestQueue(FormularioRecolec.this);
+        progressDialog=new ProgressDialog(FormularioRecolec.this);
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnregresar);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultar);
+        btnregresa= (MaterialButton) findViewById(R.id.btnregresarR);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultarR);
 
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(SpinnerMunicipio.this,Index.class);
+                Intent regresa= new Intent(FormularioRecolec.this,Index.class);
                 startActivity(regresa);
             }
         });
@@ -73,15 +73,16 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(SpinnerMunicipio.this,MapaMunicipio.class);
-                startActivity(conxe);
+                Intent conxe= new Intent(FormularioRecolec.this,MapaMuniRecolectores.class);
+                 conxe.putExtra("Municipio",e);
+                  startActivity(conxe);
             }
         });
 
-    }
+    }//fin
 
     private void llenarspinner(){
-        String url="https://proyectoapejal.000webhostapp.com/agenda/cboMunicipio.php";
+        String url="https://proyectoapejal.000webhostapp.com/agenda/cbomuniRecole.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -89,13 +90,12 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
                     cargarspinner(new String(responseBody));
                 }
             }
-
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
             }
         });
-    }
+    }//fin llenar spinner
 
     private void cargarspinner(String respuesta){
         ArrayList<municipios> lista= new ArrayList<municipios>();
@@ -114,24 +114,21 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
         catch(Exception e){
             e.printStackTrace();
         }
-
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         e = parent.getSelectedItem().toString();
         CargarTabla();
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {}
 
     private void CargarTabla() {
 
         //tabla
-        tbtusarios=findViewById(R.id.tablacxm);
-        tbtusarios.removeAllViews();//remueve columnas
+        tbtreco=findViewById(R.id.tablacxmre);
+        tbtreco.removeAllViews();//remueve columnas
 
 
         //------------
@@ -157,12 +154,12 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
                         //nombre.append(jsonObject.getString("NombreCentro"));
                         //email.append(jsonObject.getString("Domicilio"));
 
-                        String name=jsonObject.getString("NombreCentro");
+                        String name=jsonObject.getString("Nombre");
                         String emails=jsonObject.getString("Domicilio");
                         nombre.setText(name);
                         email.setText(emails);
 
-                        tbtusarios.addView(registro);
+                        tbtreco.addView(registro);
                         i++;
 
                     }

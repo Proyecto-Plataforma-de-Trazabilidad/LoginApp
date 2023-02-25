@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,7 +21,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
-import com.loopj.android.http.*;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,45 +32,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.os.Bundle;
-import android.widget.TableLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import cz.msebera.android.httpclient.Header;
 
-public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class FormularioDistri extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consultaMun.php";
+    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/consulMuniDistri.php";
+
     String e;
-    TableLayout tbtusarios;
+    TableLayout tbtdistri;
 
     MaterialButton btnregresa,btnconsulta;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.municipio);
+        setContentView(R.layout.activity_formulario_distri);
 
         cliente=new AsyncHttpClient();
-        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipio);
+        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiodis);
         llenarspinner();
 
-        requestQueue= Volley.newRequestQueue(SpinnerMunicipio.this);
-        progressDialog=new ProgressDialog(SpinnerMunicipio.this);
+        requestQueue= Volley.newRequestQueue(FormularioDistri.this);
+        progressDialog=new ProgressDialog(FormularioDistri.this);
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnregresar);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultar);
+        btnregresa= (MaterialButton) findViewById(R.id.btnregresard);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultard);
 
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(SpinnerMunicipio.this,Index.class);
+                Intent regresa= new Intent(FormularioDistri.this,Index.class);
                 startActivity(regresa);
             }
         });
@@ -73,15 +73,14 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(SpinnerMunicipio.this,MapaMunicipio.class);
-                startActivity(conxe);
+                Intent conxe= new Intent(FormularioDistri.this,MapaMuniDistribuidores.class);
+                conxe.putExtra("Municipio",e);
+                 startActivity(conxe);
             }
         });
-
-    }
-
+    }//fin
     private void llenarspinner(){
-        String url="https://proyectoapejal.000webhostapp.com/agenda/cboMunicipio.php";
+        String url="https://proyectoapejal.000webhostapp.com/agenda/cbomunidistr.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -95,7 +94,7 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
 
             }
         });
-    }
+    }//fin llenar
 
     private void cargarspinner(String respuesta){
         ArrayList<municipios> lista= new ArrayList<municipios>();
@@ -114,24 +113,21 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
         catch(Exception e){
             e.printStackTrace();
         }
-
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         e = parent.getSelectedItem().toString();
         CargarTabla();
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {}
 
     private void CargarTabla() {
 
         //tabla
-        tbtusarios=findViewById(R.id.tablacxm);
-        tbtusarios.removeAllViews();//remueve columnas
+        tbtdistri=findViewById(R.id.tablacxmd);
+        tbtdistri.removeAllViews();//remueve columnas
 
 
         //------------
@@ -157,12 +153,12 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
                         //nombre.append(jsonObject.getString("NombreCentro"));
                         //email.append(jsonObject.getString("Domicilio"));
 
-                        String name=jsonObject.getString("NombreCentro");
+                        String name=jsonObject.getString("Nombre");
                         String emails=jsonObject.getString("Domicilio");
                         nombre.setText(name);
                         email.setText(emails);
 
-                        tbtusarios.addView(registro);
+                        tbtdistri.addView(registro);
                         i++;
 
                     }
@@ -190,4 +186,4 @@ public class SpinnerMunicipio extends AppCompatActivity implements AdapterView.O
         };
         requestQueue.add(stringRequest);
     }
-}
+}//fin clas
