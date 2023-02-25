@@ -70,12 +70,16 @@ public class Index extends AppCompatActivity {
         btncontene.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent conteGen= new Intent(Index.this,ConsulGeneConte.class);
+                startActivity(conteGen);
 
             }
         });//fin evento boton contenedores
         btnconteneM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent conteOriGen= new Intent(Index.this,FormularioConte.class);
+                startActivity(conteOriGen);
 
             }
         });//fin evento boton contenedores muni
@@ -84,6 +88,8 @@ public class Index extends AppCompatActivity {
         btndest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent empresagen= new Intent(Index.this,ConsulGeneEmpresas.class);
+                startActivity(empresagen);
 
             }
         });//fin evento boton dest

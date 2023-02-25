@@ -35,13 +35,22 @@
             android:name=".FormularioDistri"
             android:exported="false" />
         <activity
+            android:name=".FormularioConte"
+            android:exported="false" />
+        <activity
             android:name=".ConsulGeneRecolectora"
             android:exported="false" />
         <activity
             android:name=".ConsulGeneDistr"
             android:exported="false" />
         <activity
+            android:name=".ConsulGeneConte"
+            android:exported="false" />
+        <activity
             android:name=".ConsultaGeneral"
+            android:exported="false" />
+        <activity
+            android:name=".ConsulGeneEmpresas"
             android:exported="false" />
         <activity
             android:name=".MapaMunicipio"
