@@ -81,19 +81,6 @@ public class Index extends AppCompatActivity {
         });//fin evento boton contenedores muni
 
 
-        btndistri.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });//fin evento boton dris
-        btndistriM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });//fin evento boton dris muni
-
         btndest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +93,20 @@ public class Index extends AppCompatActivity {
 
             }
         });//fin evento boton dest muni
+
+        btndistri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent distri= new Intent(Index.this,ConsulGeneDistr.class);
+                startActivity(distri);
+            }
+        });//fin evento boton dris
+        btndistriM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });//fin evento boton dris muni
 
         btnReco.setOnClickListener(new View.OnClickListener() {
             @Override
