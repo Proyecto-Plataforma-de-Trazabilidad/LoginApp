@@ -73,9 +73,9 @@ public class FormularioRecolec extends AppCompatActivity implements AdapterView.
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent conxe= new Intent(FormularioDistri.this,MapaEstado.class);
-                //  conxe.putExtra("Estado",e);
-                // startActivity(conxe);
+                Intent conxe= new Intent(FormularioRecolec.this,MapaMuniRecolectores.class);
+                 conxe.putExtra("Municipio",e);
+                  startActivity(conxe);
             }
         });
 
