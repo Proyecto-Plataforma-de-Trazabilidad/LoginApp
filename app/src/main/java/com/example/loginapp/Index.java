@@ -111,7 +111,8 @@ public class Index extends AppCompatActivity {
         btnReco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent reco= new Intent(Index.this,ConsulGeneRecolectora.class);
+                startActivity(reco);
             }
         });//fin evento boton reco
         btnRecoM.setOnClickListener(new View.OnClickListener() {
