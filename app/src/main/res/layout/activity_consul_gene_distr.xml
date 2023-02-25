@@ -105,7 +105,7 @@
 
 
         <TableLayout
-            android:id="@+id/tablaG"
+            android:id="@+id/tablaGD"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             tools:layout_editor_absoluteX="0dp"
