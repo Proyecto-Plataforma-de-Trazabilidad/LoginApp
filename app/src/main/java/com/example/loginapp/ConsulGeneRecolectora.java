@@ -56,8 +56,9 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(ConsulGeneRecolectora.this,Mapa.class);
+                Intent conxe= new Intent(ConsulGeneRecolectora.this,MapaRecolectores.class);
                 startActivity(conxe);
+
             }
         });
         CargarTabla();
