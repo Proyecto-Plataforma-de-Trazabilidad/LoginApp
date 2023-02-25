@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".MapaDistribuidores"
+            android:exported="false" />
+        <activity
             android:name=".FormularioRecolec"
             android:exported="false" />
         <activity

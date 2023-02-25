@@ -56,8 +56,9 @@ public class ConsulGeneDistr extends AppCompatActivity {
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(ConsulGeneDistr.this,Mapa.class);
+                Intent conxe= new Intent(ConsulGeneDistr.this,MapaDistribuidores.class);
                 startActivity(conxe);
+
             }
         });
         CargarTabla();

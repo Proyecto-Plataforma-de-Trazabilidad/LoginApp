@@ -73,9 +73,9 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent conxe= new Intent(FormularioDistri.this,MapaEstado.class);
-              //  conxe.putExtra("Estado",e);
-               // startActivity(conxe);
+                /*Intent conxe= new Intent(FormularioDistri.this,MapaDistribuidores.class);
+                conxe.putExtra("Estado",e);
+                 startActivity(conxe);*/
             }
         });
     }//fin
