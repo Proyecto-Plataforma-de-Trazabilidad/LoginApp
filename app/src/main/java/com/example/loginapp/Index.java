@@ -104,7 +104,8 @@ public class Index extends AppCompatActivity {
         btndistriM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent Fdis= new Intent(Index.this,FormularioDistri.class);
+                startActivity(Fdis);
             }
         });//fin evento boton dris muni
 
@@ -118,7 +119,8 @@ public class Index extends AppCompatActivity {
         btnRecoM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent Freco= new Intent(Index.this,FormularioRecolec.class);
+                startActivity(Freco);
             }
         });//fin evento boton reco
 

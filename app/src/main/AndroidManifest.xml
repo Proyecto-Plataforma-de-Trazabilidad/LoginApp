@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".FormularioRecolec"
+            android:exported="false" />
+        <activity
+            android:name=".FormularioDistri"
+            android:exported="false" />
+        <activity
             android:name=".ConsulGeneRecolectora"
             android:exported="false" />
         <activity
