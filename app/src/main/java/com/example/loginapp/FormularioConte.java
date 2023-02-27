@@ -37,13 +37,13 @@ import cz.msebera.android.httpclient.Header;
 public class FormularioConte extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
-    Spinner cbomunicipio;
+    Spinner cbocontenedor;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/consulOrigenContenedor.php";
+    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/consulContenedor.php";
 
     String e;
-    TableLayout tbtdistri;
+    TableLayout tbtcontenedor;
 
     MaterialButton btnregresa,btnconsulta;
 
@@ -53,7 +53,7 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
         setContentView(R.layout.activity_formulario_conte);
 
         cliente=new AsyncHttpClient();
-        cbomunicipio=(Spinner) findViewById(R.id.cboorigenconte);
+        cbocontenedor =(Spinner) findViewById(R.id.cboorigenconte);
         llenarspinner();
 
         requestQueue= Volley.newRequestQueue(FormularioConte.this);
@@ -73,7 +73,7 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(FormularioConte.this,MapaMuniDistribuidores.class);
+                Intent conxe= new Intent(FormularioConte.this,MapaContenedores.class);
                 conxe.putExtra("Origen",e);
                  startActivity(conxe);
             }
@@ -97,17 +97,17 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
     }//fin llenar
 
     private void cargarspinner(String respuesta){
-        ArrayList<municipios> lista= new ArrayList<municipios>();
+        ArrayList<origen> lista= new ArrayList<origen>();
         try{
             JSONArray jsonArreglo=new JSONArray(respuesta);
             for(int i=0; i<jsonArreglo.length(); i++){
-                municipios mun=new municipios();
-                mun.setMunicipio(jsonArreglo.getJSONObject(i).getString("Origen"));
-                lista.add(mun);
+                origen ori=new origen();
+                ori.setOrigen(jsonArreglo.getJSONObject(i).getString("origen"));
+                lista.add(ori);
             }
             ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
-            cbomunicipio.setAdapter(a);
-            cbomunicipio.setOnItemSelectedListener(this);
+            cbocontenedor.setAdapter(a);
+            cbocontenedor.setOnItemSelectedListener(this);
 
         }
         catch(Exception e){
@@ -126,8 +126,8 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
     private void CargarTabla() {
 
         //tabla
-        tbtdistri=findViewById(R.id.tablacxmd);
-        tbtdistri.removeAllViews();//remueve columnas
+        tbtcontenedor =findViewById(R.id.tablaconte);
+        tbtcontenedor.removeAllViews();//remueve columnas
 
 
         //------------
@@ -151,12 +151,13 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
                         TextView email=registro.findViewById(R.id.coemail);
 
 
-                        String tipo=jsonObject.getString("Tipo");
+                        String tipo=jsonObject.getString("Concepto");
                         String capacidad=jsonObject.getString("Capacidad");
+
                         nombre.setText(tipo);
                         email.setText(capacidad);
 
-                        tbtdistri.addView(registro);
+                        tbtcontenedor.addView(registro);
                         i++;
 
                     }
@@ -178,7 +179,7 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
 
-                parametros.put("Municipio",e);
+                parametros.put("origen",e);
                 return parametros;
             }
         };

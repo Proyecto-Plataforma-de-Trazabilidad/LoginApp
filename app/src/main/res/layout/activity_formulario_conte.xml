@@ -102,7 +102,7 @@
         </TableLayout>
 
         <TableLayout
-            android:id="@+id/tablacxmd"
+            android:id="@+id/tablaconte"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             tools:layout_editor_absoluteX="0dp"
