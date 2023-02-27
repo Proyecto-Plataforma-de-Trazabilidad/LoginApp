@@ -56,7 +56,7 @@ public class ConsulGeneConte extends AppCompatActivity {
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(ConsulGeneConte.this,MapaDistribuidores.class);
+                Intent conxe= new Intent(ConsulGeneConte.this,MapaContenedores.class);
                 startActivity(conxe);
 
             }

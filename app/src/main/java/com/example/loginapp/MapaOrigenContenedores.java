@@ -1,13 +1,13 @@
 package com.example.loginapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,36 +32,43 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapaContenedores extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-
+public class MapaOrigenContenedores extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private GoogleMap mMap;
 
-    MaterialButton btnvolver;
+    MaterialButton btnregresar;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresContenedores.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consulContenedor.php";
 
-    ArrayList<marcadoresContenedores> listaPuntos = new ArrayList<>();
+    ArrayList<marcadoresContenedores> listaPuntosE = new ArrayList<>();
+    String dato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mapa_contenedores);
+        setContentView(R.layout.activity_mapa_origen_contenedores2);
 
+        //para traer el valor dela combo
+        Bundle bundle= getIntent().getExtras();//se trae lo que se mando en el extra en el evento al consultar
+        dato= bundle.getString("origen");//dato rescata el string del identificador(osea el valor del estado seleccionado)
+        Toast.makeText(this,dato, Toast.LENGTH_SHORT).show();//imprime nomas para asegurarce
 
-        requestQueue= Volley.newRequestQueue(MapaContenedores.this);
+        //inciializar el boton para volver
+        btnregresar= (MaterialButton) findViewById(R.id.btnregresarConte);
+
+        //para los valores del mapa y llamada al servidor
+        requestQueue= Volley.newRequestQueue(MapaOrigenContenedores.this);
         //Indicar dónde se ejecutará progressdialog
-        progressDialog=new ProgressDialog(MapaContenedores.this);
+        progressDialog=new ProgressDialog(MapaOrigenContenedores.this);
 
-        btnvolver= (MaterialButton) findViewById(R.id.btnregresardi);
-
-        btnvolver.setOnClickListener(new View.OnClickListener() {
+        //evento del boton
+        btnregresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(MapaContenedores.this,ConsulGeneConte.class);
-                startActivity(volver);
+                Intent regresa= new Intent(MapaOrigenContenedores.this,FormularioConte.class);
+                startActivity(regresa);
             }
         });
 
@@ -69,10 +76,19 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
 
-    }//fin protectec
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
 
-    private void TraerMarcadores(){
+        // Add a marker in Sydney and move the camera, valor defaul inicial
+        LatLng sydney = new LatLng(19.525772, -103.36180);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        TraerMarcadores();
+    }
+    private void TraerMarcadores(){//aqui consulta los datos en la BD
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
 
@@ -83,16 +99,16 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
                         progressDialog.dismiss();
                         try{
                             JSONArray result=new JSONArray(response);
-                            listaPuntos = new ArrayList<>();
+                            listaPuntosE = new ArrayList<>();
                             //JSONObject obj = new JSONObject(response);
 
                             if (result != null) {
                                 for (int i = 0; i < result.length(); i++) {
                                     JSONObject jsonObject = result.getJSONObject(i);
                                     marcadoresContenedores marcadores = new marcadoresContenedores(jsonObject);
-                                    listaPuntos.add(marcadores);
+                                    listaPuntosE.add(marcadores);
                                 }
-                                CargarPuntosAMapa();
+                                CargarPuntosAMapa();//se los manda para que los ponga en el mapa
                             }
                         }
                         catch (JSONException e) {
@@ -109,20 +125,23 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                //Parámetros que se esperan en el webservice
+                parametros.put("origen",dato);//dato es el valor que recogio el valor del combo
                 return parametros;
             }
         };
         //requestQueue ejecute la cadena
         requestQueue.add(stringRequest);
-    }
+    }//fin traer marcadores
 
-    private void CargarPuntosAMapa(){
-        mMap.clear();
-        if (listaPuntos.size() > 0) {
-            for (int i = 0; i < listaPuntos.size(); i++) {
+    private void CargarPuntosAMapa(){//aqui repinta los marcadores segun los datos recibidos en el mapa
+        mMap.clear();//limpia el valor default
 
-                LatLng marker = new LatLng((Double.parseDouble(listaPuntos.get(i).getLat())), (Double.parseDouble(listaPuntos.get(i).getLon())));
-                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntos.get(i).getOrigen()).snippet(listaPuntos.get(i).getConcepto()));
+        if (listaPuntosE.size() > 0) {//carga cada punto
+            for (int i = 0; i < listaPuntosE.size(); i++) {
+
+                LatLng marker = new LatLng((Double.parseDouble(listaPuntosE.get(i).getLat())), (Double.parseDouble(listaPuntosE.get(i).getLon())));
+                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntosE.get(i).getOrigen()).snippet(listaPuntosE.get(i).getConcepto()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
             }
@@ -130,13 +149,14 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
         else {
             Toast.makeText(this, "Lo sentimos, no tenemos agentes en la Unidad Seleccionada", Toast.LENGTH_SHORT).show();
         }
+        //estilos del mapa y zoom para verlos mas de cerca
         mMap.setOnMarkerClickListener(this);
         mMap.setMinZoomPreference(8.0f);
         mMap.setMaxZoomPreference(16.0f);
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);//tipo de mapa
+        mMap.getUiSettings().setZoomControlsEnabled(true);//habilitar botones para zoom
 
-    }
+    }//fin cargar puntos
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
@@ -152,15 +172,6 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
         return false;
     }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(19.525772, -103.36180);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        TraerMarcadores();
-    }
 }

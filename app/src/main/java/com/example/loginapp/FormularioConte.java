@@ -73,8 +73,8 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(FormularioConte.this,MapaContenedores.class);
-                conxe.putExtra("Origen",e);
+                Intent conxe= new Intent(FormularioConte.this,MapaOrigenContenedores.class);
+                conxe.putExtra("origen",e);
                  startActivity(conxe);
             }
         });
