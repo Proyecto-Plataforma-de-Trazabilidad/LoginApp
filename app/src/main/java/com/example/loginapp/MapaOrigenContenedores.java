@@ -1,13 +1,13 @@
 package com.example.loginapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,35 +32,43 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-
+public class MapaOrigenContenedores extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private GoogleMap mMap;
 
-    MaterialButton btnvolver;
+    MaterialButton btnregresar;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresEmpresas.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consulContenedor.php";
 
-    ArrayList<marcadores2> listaPuntos = new ArrayList<>();
+    ArrayList<marcadoresContenedores> listaPuntosE = new ArrayList<>();
+    String dato;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mapa_empresas);
+        setContentView(R.layout.activity_mapa_origen_contenedores2);
 
-        requestQueue= Volley.newRequestQueue(MapaEmpresas.this);
+        //para traer el valor dela combo
+        Bundle bundle= getIntent().getExtras();//se trae lo que se mando en el extra en el evento al consultar
+        dato= bundle.getString("origen");//dato rescata el string del identificador(osea el valor del estado seleccionado)
+        Toast.makeText(this,dato, Toast.LENGTH_SHORT).show();//imprime nomas para asegurarce
+
+        //inciializar el boton para volver
+        btnregresar= (MaterialButton) findViewById(R.id.btnregresarConte);
+
+        //para los valores del mapa y llamada al servidor
+        requestQueue= Volley.newRequestQueue(MapaOrigenContenedores.this);
         //Indicar dónde se ejecutará progressdialog
-        progressDialog=new ProgressDialog(MapaEmpresas.this);
+        progressDialog=new ProgressDialog(MapaOrigenContenedores.this);
 
-        btnvolver= (MaterialButton) findViewById(R.id.btnregresardi);
-
-        btnvolver.setOnClickListener(new View.OnClickListener() {
+        //evento del boton
+        btnregresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(MapaEmpresas.this,Index.class);
-                startActivity(volver);
+                Intent regresa= new Intent(MapaOrigenContenedores.this,FormularioConte.class);
+                startActivity(regresa);
             }
         });
 
@@ -68,10 +76,19 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
 
-    }//fin protectec
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
 
-    private void TraerMarcadores(){
+        // Add a marker in Sydney and move the camera, valor defaul inicial
+        LatLng sydney = new LatLng(19.525772, -103.36180);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        TraerMarcadores();
+    }
+    private void TraerMarcadores(){//aqui consulta los datos en la BD
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
 
@@ -82,16 +99,16 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
                         progressDialog.dismiss();
                         try{
                             JSONArray result=new JSONArray(response);
-                            listaPuntos = new ArrayList<>();
+                            listaPuntosE = new ArrayList<>();
                             //JSONObject obj = new JSONObject(response);
 
                             if (result != null) {
                                 for (int i = 0; i < result.length(); i++) {
                                     JSONObject jsonObject = result.getJSONObject(i);
-                                    marcadores2 marcadores = new marcadores2(jsonObject);
-                                    listaPuntos.add(marcadores);
+                                    marcadoresContenedores marcadores = new marcadoresContenedores(jsonObject);
+                                    listaPuntosE.add(marcadores);
                                 }
-                                CargarPuntosAMapa();
+                                CargarPuntosAMapa();//se los manda para que los ponga en el mapa
                             }
                         }
                         catch (JSONException e) {
@@ -108,20 +125,23 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                //Parámetros que se esperan en el webservice
+                parametros.put("origen",dato);//dato es el valor que recogio el valor del combo
                 return parametros;
             }
         };
         //requestQueue ejecute la cadena
         requestQueue.add(stringRequest);
-    }
+    }//fin traer marcadores
 
-    private void CargarPuntosAMapa(){
-        mMap.clear();
-        if (listaPuntos.size() > 0) {
-            for (int i = 0; i < listaPuntos.size(); i++) {
+    private void CargarPuntosAMapa(){//aqui repinta los marcadores segun los datos recibidos en el mapa
+        mMap.clear();//limpia el valor default
 
-                LatLng marker = new LatLng((Double.parseDouble(listaPuntos.get(i).getLat())), (Double.parseDouble(listaPuntos.get(i).getLon())));
-                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntos.get(i).getNombre()).snippet(listaPuntos.get(i).getDomicilio()));
+        if (listaPuntosE.size() > 0) {//carga cada punto
+            for (int i = 0; i < listaPuntosE.size(); i++) {
+
+                LatLng marker = new LatLng((Double.parseDouble(listaPuntosE.get(i).getLat())), (Double.parseDouble(listaPuntosE.get(i).getLon())));
+                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntosE.get(i).getOrigen()).snippet(listaPuntosE.get(i).getConcepto()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
             }
@@ -129,13 +149,14 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
         else {
             Toast.makeText(this, "Lo sentimos, no tenemos agentes en la Unidad Seleccionada", Toast.LENGTH_SHORT).show();
         }
+        //estilos del mapa y zoom para verlos mas de cerca
         mMap.setOnMarkerClickListener(this);
         mMap.setMinZoomPreference(8.0f);
         mMap.setMaxZoomPreference(16.0f);
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);//tipo de mapa
+        mMap.getUiSettings().setZoomControlsEnabled(true);//habilitar botones para zoom
 
-    }
+    }//fin cargar puntos
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
@@ -151,15 +172,6 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
         return false;
     }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(19.525772, -103.36180);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        TraerMarcadores();
-    }
 }

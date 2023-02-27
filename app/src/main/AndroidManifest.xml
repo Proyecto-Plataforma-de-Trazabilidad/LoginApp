@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".MapaEmpresasDestino"
+            android:exported="false" />
+        <activity
+            android:name=".MapaOrigenContenedores"
+            android:exported="false" />
+        <activity
             android:name=".MapaMuniRecolectores"
             android:exported="false" />
         <activity
@@ -63,9 +69,6 @@
             android:exported="false" />
         <activity
             android:name=".MapaEstado"
-            android:exported="false" />
-        <activity
-            android:name=".MapaEmpresas"
             android:exported="false" />
         <activity
             android:name=".SpinnerEstado"

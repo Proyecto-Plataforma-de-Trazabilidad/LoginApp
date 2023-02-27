@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapaDistribuidores"
+    tools:context=".MapaOrigenContenedores"
     android:background="@drawable/fondo">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:id="@+id/linearLayout1"
-        android:background="#70FFFFFF">
+        android:background="#FFFFFF">
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -35,7 +35,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnregresardi"
+            android:id="@+id/btnregresarConte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -43,7 +43,7 @@
             android:backgroundTint="#558B2F"
             android:layout_centerHorizontal="true"
             />
-
     </RelativeLayout>
+
 
 </RelativeLayout>
