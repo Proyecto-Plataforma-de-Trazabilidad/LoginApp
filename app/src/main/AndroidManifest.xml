@@ -38,6 +38,9 @@
             android:name=".FormularioConte"
             android:exported="false" />
         <activity
+            android:name=".FormularioEmpre"
+            android:exported="false" />
+        <activity
             android:name=".ConsulGeneRecolectora"
             android:exported="false" />
         <activity
@@ -56,7 +59,13 @@
             android:name=".MapaMunicipio"
             android:exported="false" />
         <activity
+            android:name=".MapaContenedores"
+            android:exported="false" />
+        <activity
             android:name=".MapaEstado"
+            android:exported="false" />
+        <activity
+            android:name=".MapaEmpresas"
             android:exported="false" />
         <activity
             android:name=".SpinnerEstado"

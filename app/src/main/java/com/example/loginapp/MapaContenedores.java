@@ -41,9 +41,9 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresDis.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresContenedores.php";
 
-    ArrayList<marcadores2> listaPuntos = new ArrayList<>();
+    ArrayList<marcadoresContenedores> listaPuntos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
                             if (result != null) {
                                 for (int i = 0; i < result.length(); i++) {
                                     JSONObject jsonObject = result.getJSONObject(i);
-                                    marcadores2 marcadores = new marcadores2(jsonObject);
+                                    marcadoresContenedores marcadores = new marcadoresContenedores(jsonObject);
                                     listaPuntos.add(marcadores);
                                 }
                                 CargarPuntosAMapa();
@@ -121,7 +121,7 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
             for (int i = 0; i < listaPuntos.size(); i++) {
 
                 LatLng marker = new LatLng((Double.parseDouble(listaPuntos.get(i).getLat())), (Double.parseDouble(listaPuntos.get(i).getLon())));
-                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntos.get(i).getNombre()).snippet(listaPuntos.get(i).getDomicilio()));
+                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntos.get(i).getOrigen()).snippet(listaPuntos.get(i).getConcepto()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
             }

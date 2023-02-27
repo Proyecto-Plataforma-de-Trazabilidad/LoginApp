@@ -96,6 +96,8 @@ public class Index extends AppCompatActivity {
         btndestM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent empresamun= new Intent(Index.this,FormularioEmpre.class);
+                startActivity(empresamun);
 
             }
         });//fin evento boton dest muni
