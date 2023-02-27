@@ -68,7 +68,7 @@ public class MapaMuniCAT extends AppCompatActivity implements OnMapReadyCallback
         btnregresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(MapaMuniCAT.this,FormularioDistri.class);
+                Intent regresa= new Intent(MapaMuniCAT.this,FormularioMuniCAT.class);
                 startActivity(regresa);
             }
         });
