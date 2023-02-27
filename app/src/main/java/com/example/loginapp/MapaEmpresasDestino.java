@@ -1,13 +1,13 @@
 package com.example.loginapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,8 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-
+public class MapaEmpresasDestino extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener{
     private GoogleMap mMap;
 
     MaterialButton btnvolver;
@@ -43,23 +42,23 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
 
     String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresEmpresas.php";
 
-    ArrayList<marcadores2> listaPuntos = new ArrayList<>();
+    ArrayList<MarcadoresEmpresas> listaPuntos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mapa_empresas);
+        setContentView(R.layout.activity_mapa_empresas_destino);
 
-        requestQueue= Volley.newRequestQueue(MapaEmpresas.this);
+        requestQueue= Volley.newRequestQueue(MapaEmpresasDestino.this);
         //Indicar dónde se ejecutará progressdialog
-        progressDialog=new ProgressDialog(MapaEmpresas.this);
+        progressDialog=new ProgressDialog(MapaEmpresasDestino.this);
 
-        btnvolver= (MaterialButton) findViewById(R.id.btnregresardi);
+        btnvolver= (MaterialButton) findViewById(R.id.btnregresarEmp);
 
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(MapaEmpresas.this,Index.class);
+                Intent volver= new Intent(MapaEmpresasDestino.this,ConsulGeneEmpresas.class);
                 startActivity(volver);
             }
         });
@@ -68,8 +67,7 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-    }//fin protectec
+    }
 
     private void TraerMarcadores(){
         progressDialog.setMessage("Cargando...");
@@ -88,8 +86,8 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
                             if (result != null) {
                                 for (int i = 0; i < result.length(); i++) {
                                     JSONObject jsonObject = result.getJSONObject(i);
-                                    marcadores2 marcadores = new marcadores2(jsonObject);
-                                    listaPuntos.add(marcadores);
+                                    MarcadoresEmpresas marcas = new MarcadoresEmpresas(jsonObject);
+                                    listaPuntos.add(marcas);
                                 }
                                 CargarPuntosAMapa();
                             }
@@ -121,7 +119,7 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
             for (int i = 0; i < listaPuntos.size(); i++) {
 
                 LatLng marker = new LatLng((Double.parseDouble(listaPuntos.get(i).getLat())), (Double.parseDouble(listaPuntos.get(i).getLon())));
-                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntos.get(i).getNombre()).snippet(listaPuntos.get(i).getDomicilio()));
+                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntos.get(i).getNombre()).snippet(listaPuntos.get(i).getDomic()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
             }
@@ -136,6 +134,7 @@ public class MapaEmpresas extends AppCompatActivity implements OnMapReadyCallbac
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
     }
+
 
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
