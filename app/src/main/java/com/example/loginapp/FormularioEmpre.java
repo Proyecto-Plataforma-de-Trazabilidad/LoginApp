@@ -73,9 +73,9 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* Intent conxe= new Intent(FormularioEmpre.this,MapaEmpresas.class);
+                Intent conxe= new Intent(FormularioEmpre.this,MapaFormularioEmpresa.class);
                 conxe.putExtra("Municipio",e);
-                 startActivity(conxe);*/
+                 startActivity(conxe);
             }
         });
     }//fin
@@ -151,7 +151,7 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
                         TextView email=registro.findViewById(R.id.coemail);
 
 
-                        String tipo=jsonObject.getString("RazonSocial");
+                        String tipo=jsonObject.getString("Razonsocial");
                         String capacidad=jsonObject.getString("Domicilio");
 
                         nombre.setText(tipo);
