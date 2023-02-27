@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SpinnerMunicipio"
+    tools:context=".FormularioMuniCAT"
     android:background="@drawable/fondo">
     <LinearLayout
-        android:id="@+id/layoutnay"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -62,7 +61,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tit" />
 
         <Spinner
-            android:id="@+id/cbomunicipio"
+            android:id="@+id/cbomunicipiocat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/background_footer"
@@ -104,7 +103,7 @@
         </TableLayout>
 
         <TableLayout
-            android:id="@+id/tablacxm"
+            android:id="@+id/tablacatmun"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             tools:layout_editor_absoluteX="0dp"

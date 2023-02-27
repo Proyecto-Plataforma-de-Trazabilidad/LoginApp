@@ -56,7 +56,7 @@
             android:name=".ConsulGeneEmpresas"
             android:exported="false" />
         <activity
-            android:name=".MapaMunicipio"
+            android:name=".MapaMuniCAT"
             android:exported="false" />
         <activity
             android:name=".MapaContenedores"
@@ -71,7 +71,7 @@
             android:name=".SpinnerEstado"
             android:exported="false" />
         <activity
-            android:name=".SpinnerMunicipio"
+            android:name=".FormularioMuniCAT"
             android:exported="false" />
 
         <meta-data

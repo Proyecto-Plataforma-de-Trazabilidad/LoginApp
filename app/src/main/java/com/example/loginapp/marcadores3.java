@@ -3,10 +3,10 @@ package com.example.loginapp;
 
 import org.json.JSONObject;
 
-public class marcadores2 {
+public class marcadores3 {
     private String lat;
     private String lon;
-    private String nombre;
+    private String nombreCentro;
 
     public String getLat() {
         return lat;
@@ -24,12 +24,12 @@ public class marcadores2 {
         this.lon = lon;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreCentro() {
+        return nombreCentro;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreCentro(String nombreCentro) {
+        this.nombreCentro = nombreCentro;
     }
 
     public String getDomicilio() {
@@ -42,17 +42,17 @@ public class marcadores2 {
 
     private String domicilio;
 
-    public marcadores2() {
+    public marcadores3() {
 
     }
 
-    public marcadores2(JSONObject jsonObject) {
+    public marcadores3(JSONObject jsonObject) {
         if (jsonObject == null) {
             return;
         }
         lat = jsonObject.optString("Latitud");
         lon = jsonObject.optString("Longitud");
         domicilio = jsonObject.optString("Domicilio");
-        nombre = jsonObject.optString("Nombre");
+        nombreCentro = jsonObject.optString("NombreCentro");
     }
 }
