@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginApp</string>
+    <string name="app_name">Trazabilidad</string>
 
     <string name="sign">Inicia Sesión</string>
     <string name="username">Usuario</string>
@@ -27,6 +27,10 @@
     <string name="Consultar">Consulta</string>
 
 
+    <string name="open_nav">Open Nav</string>
+    <string name="close">Close nav</string>
+
+
     <string name="titulo_actividad_detalle">Actividad De Detalle</string>
     <string name="nombre_transicion_imagen">imagen_compartida</string>
 
@@ -42,4 +46,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
