@@ -66,7 +66,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/user_group_solid"
+                        android:src="@drawable/frame"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -99,7 +99,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/user_group_solid"
+                        android:src="@drawable/frame"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -133,7 +133,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/building_solid"
+                        android:src="@drawable/frame__3_"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -166,7 +166,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/building_solid"
+                        android:src="@drawable/frame__3_"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -200,7 +200,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/box_open_solid"
+                        android:src="@drawable/frame__1_"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -233,7 +233,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/box_open_solid"
+                        android:src="@drawable/frame__1_"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -266,7 +266,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/clipboard_regular"
+                        android:src="@drawable/frame__2_"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -299,7 +299,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/clipboard_regular"
+                        android:src="@drawable/frame__2_"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -333,7 +333,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/truck_moving_solid"
+                        android:src="@drawable/group_1"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -366,7 +366,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/truck_moving_solid"
+                        android:src="@drawable/group_1"
                         app:tint="@color/Iconos" />
 
                     <TextView
