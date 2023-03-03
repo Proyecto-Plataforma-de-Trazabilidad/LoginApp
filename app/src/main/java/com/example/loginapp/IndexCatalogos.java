@@ -7,7 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class IndexCatalogos extends AppCompatActivity {
+import com.example.loginapp.databinding.ActivityIndexBinding;
+import com.example.loginapp.databinding.ActivityIndexCatalogosBinding;
+
+public class IndexCatalogos extends DrawerBaseActivity{
+    //variable para cargar menu
+    ActivityIndexCatalogosBinding activityIndexCatalogosBinding;
+
     Intent opcion;
     CardView CATM,CATG,DES,DESM,DIS,DISM,CONT,CONTM,REC,RECM;
 
@@ -15,6 +21,11 @@ public class IndexCatalogos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index_catalogos);
+
+        //cargar menu
+        activityIndexCatalogosBinding= ActivityIndexCatalogosBinding.inflate(getLayoutInflater());
+        setContentView(activityIndexCatalogosBinding.getRoot());
+        allowActivityTitle("Catálogos");
 
         //tarjetas
         CATG=findViewById(R.id.tarjeta4G);//general

@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".DrawerBaseActivity"
+            android:exported="false" />
+        <activity
             android:name=".IndexCatalogos"
             android:exported="false" />
         <activity
@@ -92,7 +95,8 @@
             android:exported="false" />
         <activity
             android:name=".Index"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_user"
+            android:icon="@drawable/user_solid"
+            android:title="Usuario"
+           />
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/house_solid"
+            android:title="Inicio"/>
+
+        <item
+            android:id="@+id/nav_catalogos"
+            android:icon="@drawable/book_solid"
+            android:title="Catálogos"/>
+
+        <item
+            android:id="@+id/nav_movimientos"
+            android:icon="@drawable/paper_plane_solid"
+            android:title="Movimientos"/>
+
+        <item
+            android:id="@+id/nav_ayuda"
+            android:icon="@drawable/circle_info_solid"
+            android:title="Ayuda"/>
+        <item
+            android:id="@+id/nav_salir"
+            android:icon="@drawable/right_from_bracket_solid"
+            android:title="Salir"
+           />
+    </group>
+</menu>

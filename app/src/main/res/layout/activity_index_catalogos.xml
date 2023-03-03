@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="60dp">
             <ImageView
                 android:id="@+id/apejal"
                 android:layout_width="70dp"
