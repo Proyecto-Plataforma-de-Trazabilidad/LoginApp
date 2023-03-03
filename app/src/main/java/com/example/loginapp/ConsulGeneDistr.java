@@ -48,7 +48,7 @@ public class ConsulGeneDistr extends AppCompatActivity {
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(ConsulGeneDistr.this,Index.class);
+                Intent regresa= new Intent(ConsulGeneDistr.this,IndexCatalogos.class);
                 startActivity(regresa);
             }
         });

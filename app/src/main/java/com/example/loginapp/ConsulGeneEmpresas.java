@@ -48,7 +48,7 @@ public class ConsulGeneEmpresas extends AppCompatActivity {
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(ConsulGeneEmpresas.this,Index.class);
+                Intent regresa= new Intent(ConsulGeneEmpresas.this,IndexCatalogos.class);
                 startActivity(regresa);
             }
         });
