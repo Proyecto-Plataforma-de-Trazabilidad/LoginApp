@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.app.ProgressDialog;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username, passname;
     MaterialButton loginbtn;
     String u, c;
+    TextView forgot;
 
     //Animación de carga del webservice para ver que hace la aplicación
     ProgressDialog progressDialog;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         username = (EditText) findViewById(R.id.username);
         passname = (EditText) findViewById(R.id.passname);
+        forgot= (TextView) findViewById(R.id.forgot);
 
         loginbtn = (MaterialButton) findViewById(R.id.buttonacceder);
 
@@ -56,10 +59,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Login();
-
-
             }
-
+        });
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent forgot=new Intent(MainActivity.this,ForgotPSW.class);
+                startActivity(forgot);
+            }
         });
 
 
