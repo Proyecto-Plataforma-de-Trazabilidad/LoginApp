@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.google.android.material.button.MaterialButton;
 
 public class Index extends AppCompatActivity {
 
     CardView Generales,Municipales;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

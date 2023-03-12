@@ -21,6 +21,10 @@
             android:exported="false" />
         <activity
             android:name=".IndexMunicipales"
+            android:name=".ForgotPSW"
+            android:exported="false" />
+        <activity
+            android:name=".DrawerBaseActivity"
             android:exported="false" />
         <activity
             android:name=".MapaFormularioEmpresa"
@@ -95,7 +99,7 @@
             android:exported="false" />
         <activity
             android:name=".Index"
-            android:exported="false" />
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -65,7 +65,7 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(FormularioDistri.this,Index.class);
+                Intent regresa= new Intent(FormularioDistri.this,IndexCatalogos.class);
                 startActivity(regresa);
             }
         });

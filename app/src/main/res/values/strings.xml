@@ -6,19 +6,17 @@
     <string name="passname">Contraseña</string>
     <string name="acceder">Acceder</string>
     <string name="forgot">¿Olvidaste tu contraseña?</string>
-    <string name="btnMap">Mapa CAT</string>
-    <string name="btnconm">Consulta CAT</string>
-    <string name="btnconxm">Municipio CAT</string>
-    <string name="btnconxe">Estado CAT</string>
 
-    <string name="con1">Contenedores</string>
-    <string name="con2">Municipio C.</string>
-    <string name="con3">Emp. Destino</string>
-    <string name="con4">Municipio De.</string>
-    <string name="con5">Distribuidores</string>
-    <string name="con6">Municipio Di.</string>
-    <string name="con7">Recolectora</string>
-    <string name="con8">Municipio R.</string>
+
+    <string name="titC">Consulta General Contenedores</string>
+    <string name="con3">Consulta General Empresa Destino</string>
+    <string name="con4">Consulta Por Municipio Empresa Destino</string>
+    <string name="con5">Consulta General Distribuidores</string>
+    <string name="con6">Consulta Por Municipio Distribudores</string>
+    <string name="con7">Consulta General E. Recolectora</string>
+    <string name="con8">Consulta Por Municipio E. Recolectora</string>
+    <string name="con9">Consulta General CAT</string>
+    <string name="con10">Consulta Por Municipio CAT</string>
 
     <string name="tit">Consula Por Estado </string>
     <string name="CAT">Centro De Acopio Temporal</string>
@@ -27,17 +25,15 @@
     <string name="Consultar">Consulta</string>
 
 
-    <string name="open_nav">Open Nav</string>
-    <string name="close">Close nav</string>
-
-
     <string name="titulo_actividad_detalle">Actividad De Detalle</string>
     <string name="nombre_transicion_imagen">imagen_compartida</string>
 
 
     <string name="title_activity_menu">Menu</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>

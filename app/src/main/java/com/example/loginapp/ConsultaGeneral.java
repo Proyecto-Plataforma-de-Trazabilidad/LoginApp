@@ -49,7 +49,7 @@ public class ConsultaGeneral extends AppCompatActivity {
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(ConsultaGeneral.this,Index.class);
+                Intent regresa= new Intent(ConsultaGeneral.this,IndexCatalogos.class);
                 startActivity(regresa);
             }
         });
