@@ -21,7 +21,6 @@
             android:exported="false" />
         <activity
             android:name=".IndexMunicipales"
-            android:name=".ForgotPSW"
             android:exported="false" />
         <activity
             android:name=".DrawerBaseActivity"

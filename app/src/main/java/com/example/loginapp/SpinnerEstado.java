@@ -67,7 +67,7 @@ public class SpinnerEstado extends AppCompatActivity implements AdapterView.OnIt
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(SpinnerEstado.this,IndexCatalogos.class);
+                Intent regresa= new Intent(SpinnerEstado.this,Index.class);
                 startActivity(regresa);
             }
         });
