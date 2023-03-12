@@ -9,10 +9,14 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.loginapp.databinding.ActivityIndexBinding;
-import com.google.android.material.button.MaterialButton;
 
-public class Index extends AppCompatActivity {
 
+public class Index extends DrawerBaseActivity {
+
+    //es del menu para enlazarlo
+    ActivityIndexBinding activityIndexBinding;
+
+    //tarjetas
     CardView Generales,Municipales;
 
 
@@ -20,6 +24,14 @@ public class Index extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_catalogos);
+
+        //aqui va lo del menu
+        activityIndexBinding=ActivityIndexBinding.inflate(getLayoutInflater());
+        setContentView(activityIndexBinding.getRoot());
+        allowActivityTitle("Inicio");
+
+
+        /*regresa el index de las imaguenes de aqui
 
         Generales = findViewById(R.id.tarjetaGeneral);
         Municipales = findViewById(R.id.tarjetaMunicipal);
@@ -37,7 +49,6 @@ public class Index extends AppCompatActivity {
                 Intent distE= new Intent(Index.this,IndexMunicipales.class);
                 startActivity(distE);
             }
-        });// Distribuidores Municipal
-
+        });// Distribuidores Municipal */
     }
 }

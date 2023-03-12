@@ -7,7 +7,12 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-public class IndexMunicipales extends AppCompatActivity {
+import com.example.loginapp.databinding.ActivityIndexBinding;
+import com.example.loginapp.databinding.ActivityIndexCatalogosBinding;
+
+public class IndexMunicipales extends DrawerBaseActivity {
+
+
     Intent opcion;
     CardView CATM,DESM,DISM,CONTM,RECM;
 
@@ -15,6 +20,7 @@ public class IndexMunicipales extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogos_municipal);
+
 
         CATM=findViewById(R.id.tarjeta4G);//general
 

@@ -6,8 +6,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import com.example.loginapp.databinding.ActivityIndexCatalogosBinding;
 
-public class IndexGenerales extends AppCompatActivity {
+
+public class IndexGenerales extends DrawerBaseActivity {
+    //aqui el menu
+
+
+    //
     Intent opcion;
     CardView CATG,DES,DIS,CONT,REC;
 
@@ -15,6 +21,8 @@ public class IndexGenerales extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogos_general);
+
+
 
         //tarjetas
         CATG=findViewById(R.id.tarjeta4G);//general

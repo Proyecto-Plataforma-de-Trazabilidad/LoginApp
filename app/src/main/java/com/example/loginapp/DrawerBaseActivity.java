@@ -49,11 +49,14 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 startActivity(h);
                 overridePendingTransition(0,0);
                 break;
-            case R.id.nav_catalogos:
+
+            case R.id.nav_catalogos://Aqui agregar la referencia a index catalogos
                 Intent c = new Intent(this, Index.class);
                 startActivity(c);
                 overridePendingTransition(0,0);
                 break;
+
+
             case R.id.nav_movimientos:
                 Intent m = new Intent(this, Index.class);
                 startActivity(m);
