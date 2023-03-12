@@ -17,7 +17,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".IndexCatalogos"
+            android:name=".IndexGenerales"
+            android:exported="false" />
+        <activity
+            android:name=".IndexMunicipales"
             android:exported="false" />
         <activity
             android:name=".MapaFormularioEmpresa"
