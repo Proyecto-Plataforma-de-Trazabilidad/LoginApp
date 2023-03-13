@@ -30,25 +30,5 @@ public class Index extends DrawerBaseActivity {
         setContentView(activityIndexBinding.getRoot());
         allowActivityTitle("Inicio");
 
-
-        /*regresa el index de las imaguenes de aqui
-
-        Generales = findViewById(R.id.tarjetaGeneral);
-        Municipales = findViewById(R.id.tarjetaMunicipal);
-
-        Generales.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent distG= new Intent(Index.this,IndexGenerales.class);
-                startActivity(distG);
-            }
-        });// Distribuidores General
-        Municipales.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent distE= new Intent(Index.this,IndexMunicipales.class);
-                startActivity(distE);
-            }
-        });// Distribuidores Municipal */
     }
 }

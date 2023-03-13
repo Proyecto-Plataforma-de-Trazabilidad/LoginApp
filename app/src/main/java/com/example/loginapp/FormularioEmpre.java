@@ -65,7 +65,7 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(FormularioEmpre.this,Index.class);
+                Intent regresa= new Intent(FormularioEmpre.this,IndexMunicipales.class);
                 startActivity(regresa);
             }
         });
