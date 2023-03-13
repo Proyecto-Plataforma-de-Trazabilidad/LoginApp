@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 
+import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
+
 public class IndexCatalogos extends DrawerBaseActivity {
 
-
+    ActivityIndexCatalogos2Binding indexCatalogos;
     CardView Generales,Municipales;
 
     @Override
@@ -17,6 +19,7 @@ public class IndexCatalogos extends DrawerBaseActivity {
 
         Generales = findViewById(R.id.tarjetaGeneral);
         Municipales = findViewById(R.id.tarjetaMunicipal);
+
 
         Generales.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,5 +35,10 @@ public class IndexCatalogos extends DrawerBaseActivity {
                 startActivity(distE);
             }
         });
+
+        indexCatalogos=ActivityIndexCatalogos2Binding.inflate(getLayoutInflater());
+        setContentView(indexCatalogos.getRoot());
+        allowActivityTitle("Catalogos");
     }
+
 }

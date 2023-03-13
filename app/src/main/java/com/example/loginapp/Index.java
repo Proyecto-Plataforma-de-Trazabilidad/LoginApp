@@ -16,10 +16,6 @@ public class Index extends DrawerBaseActivity {
     //es del menu para enlazarlo
     ActivityIndexBinding activityIndexBinding;
 
-    //tarjetas
-    CardView Generales,Municipales;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
