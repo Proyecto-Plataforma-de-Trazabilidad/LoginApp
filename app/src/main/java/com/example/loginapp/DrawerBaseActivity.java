@@ -2,11 +2,13 @@ package com.example.loginapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -68,9 +70,25 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 overridePendingTransition(0,0);
                 break;
             case R.id.nav_salir:
-                Intent s = new Intent(this, MainActivity.class);
-                startActivity(s);
-                overridePendingTransition(0,0);
+                AlertDialog.Builder builder=new AlertDialog.Builder(this);
+                builder.setMessage("¿Deseas salir?");
+                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        Intent main = new Intent(DrawerBaseActivity.this, MainActivity.class);
+                        startActivity(main);
+                        finish();
+
+                    }
+                });
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
                 break;
         }
         return false;
@@ -81,5 +99,6 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             getSupportActionBar().setTitle(title);
         }
     }
+
 
 }

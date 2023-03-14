@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -64,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent forgot=new Intent(MainActivity.this,ForgotPSW.class);
-                startActivity(forgot);
+                Intent forgott=new Intent(MainActivity.this,ForgotPSW.class);
+                startActivity(forgott);
             }
         });
 
@@ -136,4 +137,13 @@ public class MainActivity extends AppCompatActivity {
             requestQueue.add(stringRequest);
         }//else
     }//private
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            this.finishAffinity();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }//main
