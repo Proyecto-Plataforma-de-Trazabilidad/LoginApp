@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
 
 public class IndexCatalogos extends DrawerBaseActivity {
@@ -16,6 +17,11 @@ public class IndexCatalogos extends DrawerBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index_catalogos2);
+
+        //aqui va lo del menu
+        indexCatalogos= ActivityIndexCatalogos2Binding.inflate(getLayoutInflater());
+        setContentView(indexCatalogos.getRoot());
+        allowActivityTitle("Catálogos");
 
         Generales = findViewById(R.id.tarjetaGeneral);
         Municipales = findViewById(R.id.tarjetaMunicipal);
@@ -36,9 +42,6 @@ public class IndexCatalogos extends DrawerBaseActivity {
             }
         });
 
-        indexCatalogos=ActivityIndexCatalogos2Binding.inflate(getLayoutInflater());
-        setContentView(indexCatalogos.getRoot());
-        allowActivityTitle("Catalogos");
     }
 
 }

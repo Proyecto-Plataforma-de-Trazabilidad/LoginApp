@@ -7,11 +7,13 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.loginapp.databinding.ActivityCatalogosMunicipalBinding;
 import com.example.loginapp.databinding.ActivityIndexBinding;
+import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
 import com.example.loginapp.databinding.ActivityIndexCatalogosBinding;
 
 public class IndexMunicipales extends DrawerBaseActivity {
-
+    ActivityCatalogosMunicipalBinding activityCatalogosMunicipalBinding;
 
     Intent opcion;
     CardView CATM,DESM,DISM,CONTM,RECM;
@@ -21,6 +23,10 @@ public class IndexMunicipales extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogos_municipal);
 
+        //aqui va lo del menu
+        activityCatalogosMunicipalBinding= ActivityCatalogosMunicipalBinding.inflate(getLayoutInflater());
+        setContentView(activityCatalogosMunicipalBinding.getRoot());
+        allowActivityTitle("Catálogos/Municipales");
 
         CATM=findViewById(R.id.tarjeta4G);//general
 

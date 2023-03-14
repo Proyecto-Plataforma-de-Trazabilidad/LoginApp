@@ -6,12 +6,15 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import com.example.loginapp.databinding.ActivityCatalogosGeneralBinding;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.example.loginapp.databinding.ActivityIndexCatalogosBinding;
 
 
 public class IndexGenerales extends DrawerBaseActivity {
     //aqui el menu
-
+    ActivityCatalogosGeneralBinding activityCatalogosGeneralBinding;
 
     //
     Intent opcion;
@@ -22,7 +25,10 @@ public class IndexGenerales extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogos_general);
 
-
+        //aqui va lo del menu
+        activityCatalogosGeneralBinding= ActivityCatalogosGeneralBinding.inflate(getLayoutInflater());
+        setContentView(activityCatalogosGeneralBinding.getRoot());
+        allowActivityTitle("Catálogos/Generales");
 
         //tarjetas
         CATG=findViewById(R.id.tarjeta4G);//general
