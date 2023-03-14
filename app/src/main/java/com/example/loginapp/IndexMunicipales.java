@@ -8,9 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import com.example.loginapp.databinding.ActivityCatalogosMunicipalBinding;
-import com.example.loginapp.databinding.ActivityIndexBinding;
-import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
-import com.example.loginapp.databinding.ActivityIndexCatalogosBinding;
+
 
 public class IndexMunicipales extends DrawerBaseActivity {
     ActivityCatalogosMunicipalBinding activityCatalogosMunicipalBinding;

@@ -9,7 +9,7 @@ import androidx.cardview.widget.CardView;
 
 import com.example.loginapp.databinding.ActivityCatalogosGeneralBinding;
 import com.example.loginapp.databinding.ActivityIndexBinding;
-import com.example.loginapp.databinding.ActivityIndexCatalogosBinding;
+
 
 
 public class IndexGenerales extends DrawerBaseActivity {
