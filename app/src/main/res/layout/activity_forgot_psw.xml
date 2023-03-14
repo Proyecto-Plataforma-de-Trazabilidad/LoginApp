@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ForgotPSW"
-    android:background="@drawable/fondo">
+    android:background="@color/Verdeapejal">
 
     <LinearLayout
         android:layout_width="350sp"
@@ -71,7 +71,7 @@
             android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#558B2F"
+            android:backgroundTint="@color/Verdeapejal"
             android:layout_gravity="center"
             android:text="Recuperar"/>
     </LinearLayout>

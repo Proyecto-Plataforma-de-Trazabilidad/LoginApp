@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ConsulGeneRecolectora"
-    android:background="@drawable/fondo">
+    android:background="@color/Verdeapejal">
     <LinearLayout
         android:id="@+id/layoutbase"
         android:layout_width="350dp"
@@ -129,7 +129,7 @@
                 android:text="@string/Regresar"
                 android:layout_column="0"
                 android:layout_row="1"
-                android:backgroundTint="#558B2F"
+                android:backgroundTint="@color/Verdeapejal"
                 android:layout_centerHorizontal="true"
                 />
             <com.google.android.material.button.MaterialButton
@@ -140,7 +140,7 @@
                 android:text="@string/Consultar"
                 android:layout_column="2"
                 android:layout_row="1"
-                android:backgroundTint="#558B2F"
+                android:backgroundTint="@color/Verdeapejal"
                 android:layout_centerHorizontal="true"
                 />
 

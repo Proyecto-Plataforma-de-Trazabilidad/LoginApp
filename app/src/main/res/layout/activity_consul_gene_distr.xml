@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ConsulGeneDistr"
-    android:background="@drawable/fondo">
+    android:background="@color/Verdeapejal">
     <LinearLayout
         android:id="@+id/layoutbase"
         android:layout_width="350dp"
@@ -40,7 +40,6 @@
                 android:layout_alignParentRight="true"/>
         </RelativeLayout>
 
-
         <TextView
             android:id="@+id/tit"
             android:layout_width="match_parent"
@@ -66,7 +65,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/encabezado1"
+                    android:background="@color/Verdeapejal"
                     android:text="Nombre"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
@@ -129,7 +128,7 @@
                 android:text="@string/Regresar"
                 android:layout_column="0"
                 android:layout_row="1"
-                android:backgroundTint="#558B2F"
+                android:backgroundTint="@color/Verdeapejal"
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
@@ -142,7 +141,7 @@
                 android:layout_column="2"
                 android:layout_row="1"
                 android:textColor="@color/white"
-                android:backgroundTint="#558B2F"
+                android:backgroundTint="@color/Verdeapejal"
                 android:layout_centerHorizontal="true"
                 />
 
