@@ -71,7 +71,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/frame"
+                        android:src="@drawable/travel_explore_fill0_wght400_grad0_opsz48"
                         app:tint="@color/Iconos" />
 
                     <TextView
@@ -107,7 +107,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/frame"
+                        android:src="@drawable/feed"
                         app:tint="@color/Iconos" />
 
                     <TextView
