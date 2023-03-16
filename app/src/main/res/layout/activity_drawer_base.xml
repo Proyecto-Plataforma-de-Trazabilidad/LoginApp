@@ -20,7 +20,7 @@
         android:id="@+id/nav_view"
         app:menu="@menu/main_drawer_menu"
         app:itemTextColor="@color/Iconos"
-        app:itemIconTint="@color/Iconos"
+        app:itemIconTint="@color/white"
         android:backgroundTint="@color/Verdeapejal">
 
     </com.google.android.material.navigation.NavigationView>
