@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Datos_Usuario.Changepsw">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="85dp">
+            <ImageView
+                android:id="@+id/apejal"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:srcCompat="@drawable/apeajal2" />
+            <ImageView
+                android:id="@+id/asica"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_alignLeft="@+id/apejal"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="top"
+                android:layout_marginLeft="15dp"
+                app:srcCompat="@drawable/asica" />
+            <ImageView
+                android:id="@+id/Amocali"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                app:srcCompat="@drawable/fidaixbm_400x400" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/letrero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Restablece tu contraseña"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_margin="15dp"
+            app:endIconMode="password_toggle">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ncontra"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="Nueva contraseña"
+                android:inputType="textPassword">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_margin="15dp"
+            app:endIconMode="password_toggle">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="Confirma contraseña"
+                android:inputType="textPassword">
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnguardar"
+            android:layout_below="@+id/mailrecupera"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Verdeapejal"
+            android:layout_gravity="center"
+            android:text="Guardar"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnv"
+            android:layout_below="@+id/mailrecupera"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Verdeapejal"
+            android:layout_gravity="center"
+            android:text="volver"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
