@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapaEstado"
+    tools:context=".Mapas.MapaEstado"
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/map"
-            tools:context=".Mapa"
+            tools:context=".Mapas.Mapa"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             tools:layout="@layout/activity_main" />
     </androidx.constraintlayout.widget.ConstraintLayout>

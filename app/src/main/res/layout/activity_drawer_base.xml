@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DrawerBaseActivity"
+    tools:context=".Base_Menu.DrawerBaseActivity"
     tools:openDrawer="start"
     android:fitsSystemWindows="true">
 
@@ -19,7 +19,7 @@
         android:layout_gravity="start"
         android:id="@+id/nav_view"
         app:menu="@menu/main_drawer_menu"
-        app:itemTextColor="@color/Iconos"
+        app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
         android:backgroundTint="@color/Verdeapejal">
 

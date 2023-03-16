@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConsulGeneRecolectora"
+    tools:context=".Catalogos_Generales.ConsulGeneRecolectora"
     android:background="@color/Verdeapejal">
     <LinearLayout
         android:id="@+id/layoutbase"

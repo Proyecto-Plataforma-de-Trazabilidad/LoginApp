@@ -17,82 +17,82 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".IndexCatalogos"
+            android:name=".Indexs.IndexCatalogos"
             android:exported="false" />
         <activity
-            android:name=".IndexGenerales"
+            android:name=".Indexs.IndexGenerales"
             android:exported="false" />
         <activity
-            android:name=".IndexMunicipales"
+            android:name=".Indexs.IndexMunicipales"
             android:exported="false" />
         <activity
-            android:name=".DrawerBaseActivity"
+            android:name=".Base_Menu.DrawerBaseActivity"
             android:exported="false" />
         <activity
-            android:name=".MapaFormularioEmpresa"
+            android:name=".Mapas.MapaFormularioEmpresa"
             android:exported="false" />
         <activity
-            android:name=".MapaEmpresasDestino"
+            android:name=".Mapas.MapaEmpresasDestino"
             android:exported="false" />
         <activity
-            android:name=".MapaOrigenContenedores"
+            android:name=".Mapas.MapaOrigenContenedores"
             android:exported="false" />
         <activity
-            android:name=".MapaMuniRecolectores"
+            android:name=".Mapas.MapaMuniRecolectores"
             android:exported="false" />
         <activity
-            android:name=".MapaMuniDistribuidores"
+            android:name=".Mapas.MapaMuniDistribuidores"
             android:exported="false" />
         <activity
-            android:name=".MapaRecolectores"
+            android:name=".Mapas.MapaRecolectores"
             android:exported="false" />
         <activity
-            android:name=".MapaDistribuidores"
+            android:name=".Mapas.MapaDistribuidores"
             android:exported="false" />
         <activity
-            android:name=".FormularioRecolec"
+            android:name=".Catalogos_muni.FormularioRecolec"
             android:exported="false" />
         <activity
-            android:name=".FormularioDistri"
+            android:name=".Catalogos_muni.FormularioDistri"
             android:exported="false" />
         <activity
-            android:name=".FormularioConte"
+            android:name=".Catalogos_muni.FormularioConte"
             android:exported="false" />
         <activity
-            android:name=".FormularioEmpre"
+            android:name=".Catalogos_muni.FormularioEmpre"
             android:exported="false" />
         <activity
-            android:name=".ConsulGeneRecolectora"
+            android:name=".Catalogos_Generales.ConsulGeneRecolectora"
             android:exported="false" />
         <activity
-            android:name=".ConsulGeneDistr"
+            android:name=".Catalogos_Generales.ConsulGeneDistr"
             android:exported="false" />
         <activity
-            android:name=".ConsulGeneConte"
+            android:name=".Catalogos_Generales.ConsulGeneConte"
             android:exported="false" />
         <activity
-            android:name=".ConsultaGeneral"
+            android:name=".Catalogos_Generales.ConsultaGeneral"
             android:exported="false" />
         <activity
-            android:name=".ConsulGeneEmpresas"
+            android:name=".Catalogos_Generales.ConsulGeneEmpresas"
             android:exported="false" />
         <activity
-            android:name=".MapaMuniCAT"
+            android:name=".Mapas.MapaMuniCAT"
             android:exported="false" />
         <activity
-            android:name=".MapaContenedores"
+            android:name=".Mapas.MapaContenedores"
             android:exported="false" />
         <activity
-            android:name=".MapaEstado"
+            android:name=".Mapas.MapaEstado"
             android:exported="false" />
         <activity
-            android:name=".SpinnerEstado"
+            android:name=".Catalogos_muni.SpinnerEstado"
             android:exported="false" />
         <activity
-            android:name=".FormularioMuniCAT"
+            android:name=".Catalogos_muni.FormularioMuniCAT"
             android:exported="false" />
         <activity
-            android:name=".ForgotPSW"
+            android:name=".Forgot_passw.ForgotPSW"
             android:exported="false" />
 
 
@@ -101,10 +101,10 @@
             android:value="AIzaSyDK08zMPQwhKuLcm2S833wd67vzQsxcSEA" />
 
         <activity
-            android:name=".Mapa"
+            android:name=".Mapas.Mapa"
             android:exported="false" />
         <activity
-            android:name=".Index"
+            android:name=".Indexs.Index"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapaDistribuidores"
+    tools:context=".Mapas.MapaDistribuidores"
     android:background="@color/white">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/map"
-            tools:context=".Mapa"
+            tools:context=".Mapas.Mapa"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             tools:layout="@layout/activity_main" />
     </androidx.constraintlayout.widget.ConstraintLayout>

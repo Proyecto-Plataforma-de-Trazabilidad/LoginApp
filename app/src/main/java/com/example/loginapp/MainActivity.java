@@ -24,6 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+import com.example.loginapp.Forgot_passw.ForgotPSW;
+import com.example.loginapp.Indexs.Index;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent forgott=new Intent(MainActivity.this,ForgotPSW.class);
+                Intent forgott=new Intent(MainActivity.this, ForgotPSW.class);
                 startActivity(forgott);
             }
         });
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                         else{
                             Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
                                     //Presentar otra activity....
-                            Intent index= new Intent(MainActivity.this,Index.class);
+                            Intent index= new Intent(MainActivity.this, Index.class);
                             startActivity(index);
                         }
                     }
