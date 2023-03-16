@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Datos_Usuario.Perfil"
+            android:exported="false" />
+        <activity
             android:name=".Indexs.IndexCatalogos"
             android:exported="false" />
         <activity
@@ -94,7 +97,6 @@
         <activity
             android:name=".Forgot_passw.ForgotPSW"
             android:exported="false" />
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
