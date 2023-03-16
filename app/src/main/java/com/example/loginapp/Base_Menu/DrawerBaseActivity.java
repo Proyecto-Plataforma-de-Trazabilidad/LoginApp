@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.Indexs.IndexCatalogos;
 import com.example.loginapp.MainActivity;
@@ -45,7 +46,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()) {
             case R.id.nav_user:
-                Intent u = new Intent(this, Index.class);
+                Intent u = new Intent(this, Perfil.class);
                 startActivity(u);
                 overridePendingTransition(0,0);
                 break;
