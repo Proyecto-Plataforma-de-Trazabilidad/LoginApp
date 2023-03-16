@@ -83,6 +83,7 @@ public class ForgotPSW extends AppCompatActivity {
                             Map<String, String> parametros=new HashMap<>();
                             //Parámetros que se esperan en el webservice
                             parametros.put("email",mail);
+                            parametros.put("opcion","recupera");
                             return parametros;
                         }
                     };
