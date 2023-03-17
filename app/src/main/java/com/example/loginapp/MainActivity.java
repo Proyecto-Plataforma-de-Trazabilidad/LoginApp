@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
                             //Presentar otra activity....
                             Intent index= new Intent(MainActivity.this, Index.class);
+                            index.putExtra("mail",u);//enviar a index
                             startActivity(index);
                         }
                     }

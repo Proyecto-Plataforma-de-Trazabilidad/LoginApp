@@ -22,11 +22,16 @@ public class Index extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_catalogos);
 
+        Bundle bundle= getIntent().getExtras();
+        String c= bundle.getString("mail");//recibe de main
+        //Toast.makeText(this,c, Toast.LENGTH_SHORT).show();
+
+
         //aqui va lo del menu
         activityIndexBinding=ActivityIndexBinding.inflate(getLayoutInflater());
         setContentView(activityIndexBinding.getRoot());
         allowActivityTitle("Inicio");
-        correo("naygdz306@gmail.com");
+        correo(c);//se envia a drawer base
 
 
     }
