@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Forgot_passw.ForgotPSW;
 import com.example.loginapp.Indexs.Index;
 import com.google.android.material.button.MaterialButton;
@@ -31,7 +32,7 @@ import com.google.android.material.button.MaterialButton;
 public class MainActivity extends AppCompatActivity {
     EditText username, passname;
     MaterialButton loginbtn;
-    String u, c;
+    String u, c,m;
     TextView forgot;
 
     //Animación de carga del webservice para ver que hace la aplicación
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         u = username.getText().toString();
         c = passname.getText().toString();
 
+
         if (u.isEmpty() || c.isEmpty()) {
             //vacio
             Toast.makeText(getApplicationContext(), "Debes introducir los datos en los dos campos", Toast.LENGTH_LONG).show();
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), mensaje,Toast.LENGTH_LONG).show();
                         else{
                             Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
-                                    //Presentar otra activity....
+                            //Presentar otra activity....
                             Intent index= new Intent(MainActivity.this, Index.class);
                             startActivity(index);
                         }

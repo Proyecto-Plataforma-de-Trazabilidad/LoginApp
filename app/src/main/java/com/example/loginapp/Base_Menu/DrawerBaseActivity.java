@@ -10,9 +10,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Indexs.Index;
@@ -23,6 +25,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
+    String correo;
 
     public void setContentView(View view) {
         drawerLayout=(DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base,null);
@@ -46,8 +49,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()) {
             case R.id.nav_user:
-
                 Intent u = new Intent(this, Perfil.class);
+                u.putExtra("email",correo);
                 startActivity(u);
                 overridePendingTransition(0,0);
                 break;
@@ -105,5 +108,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         }
     }
 
+    public void correo(String email){
+        correo=email;
+    }
 
 }

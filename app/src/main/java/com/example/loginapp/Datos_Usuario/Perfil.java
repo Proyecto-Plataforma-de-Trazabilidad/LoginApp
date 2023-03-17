@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.MainActivity;
@@ -18,6 +20,10 @@ public class Perfil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
+        Bundle bundle= getIntent().getExtras();
+        String dato= bundle.getString("email");
+        Toast.makeText(this,dato, Toast.LENGTH_SHORT).show();
+
         change=findViewById(R.id.btnchange);
 
         change.setOnClickListener(new View.OnClickListener() {
@@ -27,6 +33,6 @@ public class Perfil extends AppCompatActivity {
                 startActivity(change);
             }
         });
-
     }//fin on create
+
 }//fin class

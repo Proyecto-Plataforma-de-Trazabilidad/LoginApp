@@ -3,8 +3,10 @@ package com.example.loginapp.Indexs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
+import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexBinding;
@@ -24,6 +26,8 @@ public class Index extends DrawerBaseActivity {
         activityIndexBinding=ActivityIndexBinding.inflate(getLayoutInflater());
         setContentView(activityIndexBinding.getRoot());
         allowActivityTitle("Inicio");
+        correo("naygdz306@gmail.com");
+
 
     }
 
