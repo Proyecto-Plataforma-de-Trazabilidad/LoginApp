@@ -11,7 +11,7 @@ import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
 
 public class IndexCatalogos extends DrawerBaseActivity {
 
-    ActivityIndexCatalogos2Binding indexCatalogos;
+   ActivityIndexCatalogos2Binding indexCatalogos;
     CardView Generales,Municipales;
 
     @Override

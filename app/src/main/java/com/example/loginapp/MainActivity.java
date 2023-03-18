@@ -2,7 +2,9 @@ package com.example.loginapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,7 +34,8 @@ import com.google.android.material.button.MaterialButton;
 public class MainActivity extends AppCompatActivity {
     EditText username, passname;
     MaterialButton loginbtn;
-    String u, c,m;
+    String u, c;
+
     TextView forgot;
 
     //Animación de carga del webservice para ver que hace la aplicación
@@ -41,10 +44,17 @@ public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     String httpURI = "https://proyectoapejal.000webhostapp.com/agenda/usuario.php";//servidor en 000webhost
 
+    public static final String m="usuariologin";
+    public static final String keyu="keyusuario";
+    String emisor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        emisor=obtenerusuario(MainActivity.this,m);
+        Toast.makeText(this, u, Toast.LENGTH_SHORT).show();
 
         username = (EditText) findViewById(R.id.username);
         passname = (EditText) findViewById(R.id.passname);
@@ -93,8 +103,10 @@ public class MainActivity extends AppCompatActivity {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String serverResponse) {
+
                     //Quitar el progressDialog porque ya recibimos la respuesta y ocultamos el progressDialog
                     progressDialog.dismiss();
+
 
                     try{
                         //Crear objeto Json el cual va a obtener los valores que tenga de parte del webservice en ejecución
@@ -108,10 +120,10 @@ public class MainActivity extends AppCompatActivity {
                         if (error)//Datos incorrectos
                             Toast.makeText(getApplicationContext(), mensaje,Toast.LENGTH_LONG).show();
                         else{
+                            guardarusuario(MainActivity.this,u,m);
                             Toast.makeText(getApplicationContext(), "Acceso correcto",Toast.LENGTH_LONG).show();
                             //Presentar otra activity....
                             Intent index= new Intent(MainActivity.this, Index.class);
-                            index.putExtra("mail",u);//enviar a index
                             startActivity(index);
                         }
                     }
@@ -142,6 +154,17 @@ public class MainActivity extends AppCompatActivity {
             requestQueue.add(stringRequest);
         }//else
     }//private
+
+    public static void guardarusuario(Context c, String us, String key){
+        SharedPreferences preferences=c.getSharedPreferences(keyu,MODE_PRIVATE);
+        preferences.edit().putString(key,us).apply();
+    }
+    public static String obtenerusuario(Context c,String key){
+        SharedPreferences preferences=c.getSharedPreferences(keyu,MODE_PRIVATE);
+        return preferences.getString(key,"");
+    }
+
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

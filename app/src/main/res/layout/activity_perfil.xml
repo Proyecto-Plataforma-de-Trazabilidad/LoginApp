@@ -17,8 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="85dp">
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="10dp">
             <ImageView
                 android:id="@+id/apejal"
                 android:layout_width="70dp"
@@ -81,7 +81,7 @@
                 android:id="@+id/txtnombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Naylea"
+                android:text="nombre"
                 android:layout_marginLeft="25dp"
                 android:textSize="18dp"
                 android:textColor="@color/black"/>
@@ -113,9 +113,10 @@
                 android:textColor="@color/black"
                 android:layout_marginLeft="5dp"/>
             <TextView
+                android:id="@+id/txtcorreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="naygdz306@gmail.com"
+                android:text="email"
                 android:layout_marginLeft="25dp"
                 android:textSize="18dp"
                 android:textColor="@color/cardview_dark_background"/>

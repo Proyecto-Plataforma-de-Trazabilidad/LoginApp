@@ -25,7 +25,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
-    String correo;
+    String usu;
 
     public void setContentView(View view) {
         drawerLayout=(DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base,null);
@@ -50,7 +50,6 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         switch (item.getItemId()) {
             case R.id.nav_user:
                 Intent u = new Intent(this, Perfil.class);
-                u.putExtra("email",correo);
                 startActivity(u);
                 overridePendingTransition(0,0);
                 break;
@@ -65,7 +64,6 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 startActivity(c);
                 overridePendingTransition(0,0);
                 break;
-
 
             case R.id.nav_movimientos:
                 Intent m = new Intent(this, Index.class);
@@ -108,8 +106,5 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         }
     }
 
-    public void correo(String email){
-        correo=email;
-    }
 
 }
