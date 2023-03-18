@@ -34,7 +34,7 @@ public class ConsulGeneConte extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresContenedores.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
     TableLayout tbtdis;
 
     @Override
@@ -126,6 +126,7 @@ public class ConsulGeneConte extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","contenedores");
                 return parametros;
             }
         };

@@ -45,7 +45,7 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresContenedores.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
 
     ArrayList<marcadoresContenedores> listaPuntos = new ArrayList<>();
 
@@ -113,6 +113,7 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","contenedores");
                 return parametros;
             }
         };

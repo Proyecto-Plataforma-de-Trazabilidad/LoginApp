@@ -44,7 +44,7 @@ public class MapaEmpresasDestino extends AppCompatActivity implements OnMapReady
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresEmpresas.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
 
     ArrayList<MarcadoresEmpresas> listaPuntos = new ArrayList<>();
 
@@ -110,6 +110,7 @@ public class MapaEmpresasDestino extends AppCompatActivity implements OnMapReady
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","Edestino");
                 return parametros;
             }
         };

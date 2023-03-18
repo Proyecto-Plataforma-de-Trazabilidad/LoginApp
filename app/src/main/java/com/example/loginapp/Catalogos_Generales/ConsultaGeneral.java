@@ -33,7 +33,7 @@ public class ConsultaGeneral extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresjson.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
 
     MaterialButton btnregresa,btnconsulta;
     TableLayout tbtCG;
@@ -129,6 +129,7 @@ public class ConsultaGeneral extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","cat");
                 return parametros;
             }
         };

@@ -34,7 +34,7 @@ public class ConsulGeneDistr extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresDis.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
     TableLayout tbtdis;
 
     @Override
@@ -127,6 +127,7 @@ public class ConsulGeneDistr extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","distribuidores");
                 return parametros;
             }
         };

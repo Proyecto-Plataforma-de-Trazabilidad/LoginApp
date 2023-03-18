@@ -44,7 +44,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresjson.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
 
     ArrayList<Marcadores> listaPuntos = new ArrayList<>();
 
@@ -111,6 +111,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","cat");
                 return parametros;
             }
         };

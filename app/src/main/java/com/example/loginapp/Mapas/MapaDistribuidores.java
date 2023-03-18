@@ -45,7 +45,7 @@ public class MapaDistribuidores extends AppCompatActivity implements OnMapReadyC
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresDis.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
 
     ArrayList<marcadores2> listaPuntos = new ArrayList<>();
 
@@ -112,6 +112,7 @@ public class MapaDistribuidores extends AppCompatActivity implements OnMapReadyC
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","distribuidores");
                 return parametros;
             }
         };

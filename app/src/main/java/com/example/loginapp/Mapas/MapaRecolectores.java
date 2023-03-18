@@ -45,7 +45,7 @@ public class MapaRecolectores extends AppCompatActivity implements OnMapReadyCal
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresReco.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
 
     ArrayList<marcadores2> listaPuntos = new ArrayList<>();
 
@@ -111,6 +111,7 @@ public class MapaRecolectores extends AppCompatActivity implements OnMapReadyCal
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","Erecolectoras");
                 return parametros;
             }
         };

@@ -34,7 +34,7 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/marcadoresReco.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
     TableLayout tbtrec;
 
     @Override
@@ -127,6 +127,7 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","Erecolectoras");
                 return parametros;
             }
         };
