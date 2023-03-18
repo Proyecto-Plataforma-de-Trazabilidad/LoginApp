@@ -44,6 +44,7 @@ public class Index extends DrawerBaseActivity {
         setContentView(activityIndexBinding.getRoot());
         allowActivityTitle("Inicio");
 
+        //variables sesion
         emisor=MainActivity.obtenerusuario(Index.this,MainActivity.m);
         Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
 

@@ -155,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
         }//else
     }//private
 
+    //variables sesion
     public static void guardarusuario(Context c, String us, String key){
         SharedPreferences preferences=c.getSharedPreferences(keyu,MODE_PRIVATE);
         preferences.edit().putString(key,us).apply();

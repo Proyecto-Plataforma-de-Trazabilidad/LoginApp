@@ -53,7 +53,7 @@ public class Perfil extends DrawerBaseActivity {
         setContentView(activityPerfilBinding.getRoot());
         allowActivityTitle("Usuario/Perfil");
 
-        //variable sesion
+        //variable sesion de main
         emisor=MainActivity.obtenerusuario(Perfil.this,MainActivity.m);
         Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
 
