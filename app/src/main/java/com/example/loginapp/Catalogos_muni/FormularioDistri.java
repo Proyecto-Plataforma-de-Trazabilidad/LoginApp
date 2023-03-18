@@ -44,7 +44,7 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/consulMuniDistri.php";
+    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
 
     String e;
     TableLayout tbtdistri;
@@ -183,7 +183,7 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-
+                parametros.put("opcion","distribuidores");
                 parametros.put("Municipio",e);
                 return parametros;
             }

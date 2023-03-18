@@ -45,7 +45,7 @@ public class MapaFormularioEmpresa extends AppCompatActivity implements OnMapRea
     RequestQueue requestQueue;
     String dato;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consulEmpresa.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
 
     ArrayList<MarcadoresEmpresas> listaPuntos = new ArrayList<>();
     @Override
@@ -116,7 +116,7 @@ public class MapaFormularioEmpresa extends AppCompatActivity implements OnMapRea
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                //Parámetros que se esperan en el webservice
+                parametros.put("opcion","Edestino");
                 parametros.put("Municipio",dato);//dato es el valor que recogio el valor del combo
                 return parametros;
             }

@@ -44,7 +44,7 @@ public class MapaMuniRecolectores extends AppCompatActivity implements OnMapRead
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consulMuniReco.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
 
     ArrayList<marcadores2> listaPuntosE = new ArrayList<>();
     String dato;
@@ -146,7 +146,7 @@ public class MapaMuniRecolectores extends AppCompatActivity implements OnMapRead
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                //Parámetros que se esperan en el webservice
+                parametros.put("opcion","Erecolectoras");
                 parametros.put("Municipio",dato);//dato es el valor que recogio el valor del combo
                 return parametros;
             }

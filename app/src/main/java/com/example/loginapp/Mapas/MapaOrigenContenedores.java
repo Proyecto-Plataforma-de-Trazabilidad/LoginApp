@@ -44,7 +44,7 @@ public class MapaOrigenContenedores extends AppCompatActivity implements OnMapRe
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consulContenedor.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
 
     ArrayList<marcadoresContenedores> listaPuntosE = new ArrayList<>();
     String dato;
@@ -129,7 +129,7 @@ public class MapaOrigenContenedores extends AppCompatActivity implements OnMapRe
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                //Parámetros que se esperan en el webservice
+                parametros.put("opcion","contenedores");
                 parametros.put("origen",dato);//dato es el valor que recogio el valor del combo
                 return parametros;
             }

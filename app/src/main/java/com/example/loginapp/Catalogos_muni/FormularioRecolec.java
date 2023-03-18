@@ -44,7 +44,7 @@ public class FormularioRecolec extends AppCompatActivity implements AdapterView.
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/consulMuniReco.php";
+    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
 
     String e;
     TableLayout tbtreco;
@@ -184,7 +184,7 @@ public class FormularioRecolec extends AppCompatActivity implements AdapterView.
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-
+                parametros.put("opcion","Erecolectoras");
                 parametros.put("Municipio",e);
                 return parametros;
             }

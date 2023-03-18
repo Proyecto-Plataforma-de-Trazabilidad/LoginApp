@@ -89,9 +89,6 @@
             android:name=".Mapas.MapaContenedores"
             android:exported="false" />
         <activity
-            android:name=".Mapas.MapaEstado"
-            android:exported="false" />
-        <activity
             android:name=".Catalogos_muni.SpinnerEstado"
             android:exported="false" />
         <activity

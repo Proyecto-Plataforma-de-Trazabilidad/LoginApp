@@ -44,7 +44,7 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
     Spinner cbocontenedor;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/consulContenedor.php";
+    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
 
     String e;
     TableLayout tbtcontenedor;
@@ -182,7 +182,7 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-
+                parametros.put("opcion","contenedores");
                 parametros.put("origen",e);
                 return parametros;
             }

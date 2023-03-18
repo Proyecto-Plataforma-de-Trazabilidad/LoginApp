@@ -45,7 +45,7 @@ public class MapaMuniCAT extends AppCompatActivity implements OnMapReadyCallback
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/consultaCATMun.php";
+    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
 
     ArrayList<marcadores3> listaPuntosE = new ArrayList<>();
     String dato;
@@ -134,7 +134,7 @@ public class MapaMuniCAT extends AppCompatActivity implements OnMapReadyCallback
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                //Parámetros que se esperan en el webservice
+                parametros.put("opcion","cat");
                 parametros.put("Municipio",dato);//dato es el valor que recogio el valor del combo
                 return parametros;
             }
