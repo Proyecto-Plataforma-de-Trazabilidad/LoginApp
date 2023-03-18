@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         emisor=obtenerusuario(MainActivity.this,m);
-        Toast.makeText(this, u, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, u, Toast.LENGTH_SHORT).show();
 
         username = (EditText) findViewById(R.id.username);
         passname = (EditText) findViewById(R.id.passname);

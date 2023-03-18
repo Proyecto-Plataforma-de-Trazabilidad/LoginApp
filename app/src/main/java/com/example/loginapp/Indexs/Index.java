@@ -46,7 +46,7 @@ public class Index extends DrawerBaseActivity {
 
         //variables sesion
         emisor=MainActivity.obtenerusuario(Index.this,MainActivity.m);
-        Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
 
         requestQueue = Volley.newRequestQueue(Index.this);
         progressDialog = new ProgressDialog(Index.this);
@@ -65,7 +65,7 @@ public class Index extends DrawerBaseActivity {
                     JSONArray result=new JSONArray(response);
                     JSONObject jsonObject = result.getJSONObject(0);
                     u=jsonObject.getString("nombre");
-                    Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
                    // usuario.setTitle(u);
                 }
                 catch (JSONException e) {e.printStackTrace();}

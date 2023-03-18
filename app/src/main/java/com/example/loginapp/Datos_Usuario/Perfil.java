@@ -55,7 +55,7 @@ public class Perfil extends DrawerBaseActivity {
 
         //variable sesion de main
         emisor=MainActivity.obtenerusuario(Perfil.this,MainActivity.m);
-        Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
 
         requestQueue = Volley.newRequestQueue(Perfil.this);
         progressDialog = new ProgressDialog(Perfil.this);
@@ -93,7 +93,7 @@ public class Perfil extends DrawerBaseActivity {
                     JSONObject jsonObject = result.getJSONObject(0);
                     name=jsonObject.getString("nombre");
 
-                    Toast.makeText(Perfil.this, name, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(Perfil.this, name, Toast.LENGTH_SHORT).show();
 
                      nombre.setText(name);
                     correo.setText(emisor);
