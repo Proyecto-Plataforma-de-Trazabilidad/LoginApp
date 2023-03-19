@@ -7,83 +7,99 @@
     android:background="@drawable/hd_wallpaper_avocado_green">
 
     <RelativeLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout1"
         android:layout_width="350sp"
         android:layout_height="600sp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:id="@+id/linearLayout1"
-        android:background="#70FFFFFF">
+        android:background="#70FFFFFF"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/singtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
             android:text="@string/sign"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="35sp"
-            android:textStyle="bold"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="Combatiendo la pirateria de agroquimicos"
             android:textAlignment="center"
-            android:layout_margin="50dp"
-            />
+            android:fontFamily="arial"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/username"
             android:layout_width="310sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/singtext"
-            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true"
-            android:hint="@string/username"
-            android:textColorHint="@color/black"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
             android:background="#90FFFFFF"
             android:drawableStart="@drawable/outline_assignment_ind_24"
+            android:drawablePadding="20sp"
+            android:hint="@string/username"
             android:inputType="textEmailAddress"
             android:padding="20sp"
             android:textColor="@color/black"
-            android:layout_marginTop="25dp"
-            android:drawablePadding="20sp"
-            />
+            android:textColorHint="@color/black" />
 
         <EditText
             android:id="@+id/passname"
             android:layout_width="310sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/username"
-            android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
-            android:hint="@string/passname"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
-            android:padding="20sp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
             android:background="#90FFFFFF"
             android:drawableStart="@drawable/outline_https_24"
             android:drawablePadding="20sp"
+            android:hint="@string/passname"
             android:inputType="textPassword"
-            android:layout_marginBottom="10dp"
+            android:padding="20sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
 
             />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonacceder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:layout_below="@+id/passname"
-            android:text="@string/acceder"
-            android:backgroundTint="@color/Verdeapejal"
             android:layout_centerHorizontal="true"
-            />
+            android:layout_marginTop="25dp"
+            android:backgroundTint="@color/Verdeapejal"
+            android:text="@string/acceder" />
+
         <TextView
             android:id="@+id/forgot"
-            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/buttonacceder"
-            android:layout_marginTop="25dp"
-            android:text="@string/forgot"
-            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
-            />
+            android:layout_marginTop="25dp"
+            android:clickable="true"
+            android:text="@string/forgot"
+            android:textColor="@color/black" />
 
     </RelativeLayout>
 </RelativeLayout>
