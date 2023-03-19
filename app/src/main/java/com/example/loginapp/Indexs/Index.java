@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -51,6 +53,9 @@ public class Index extends DrawerBaseActivity {
         requestQueue = Volley.newRequestQueue(Index.this);
         progressDialog = new ProgressDialog(Index.this);
         cargardatosindex();
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        
     }
 
 

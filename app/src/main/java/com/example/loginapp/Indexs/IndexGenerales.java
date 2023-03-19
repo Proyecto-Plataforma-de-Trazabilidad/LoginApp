@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
@@ -28,6 +29,7 @@ public class IndexGenerales extends DrawerBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalogos_general);
+
 
         //aqui va lo del menu
         activityCatalogosGeneralBinding= ActivityCatalogosGeneralBinding.inflate(getLayoutInflater());

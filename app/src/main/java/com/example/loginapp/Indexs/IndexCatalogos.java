@@ -1,5 +1,6 @@
 package com.example.loginapp.Indexs;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import android.os.Bundle;
 import android.content.Intent;
@@ -18,6 +19,7 @@ public class IndexCatalogos extends DrawerBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index_catalogos2);
+
 
         //aqui va lo del menu
         indexCatalogos= ActivityIndexCatalogos2Binding.inflate(getLayoutInflater());

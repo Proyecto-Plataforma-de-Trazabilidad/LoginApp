@@ -3,6 +3,7 @@ package com.example.loginapp.Forgot_passw;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -21,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ForgotPSW extends AppCompatActivity {
-    MaterialButton btnrecu;
+    MaterialButton btnrecu,btnvol;
     EditText correo;
     String mail;
 
@@ -36,6 +38,7 @@ public class ForgotPSW extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_psw);
 
         btnrecu= (MaterialButton) findViewById(R.id.btnrecupera);
+        btnvol= (MaterialButton) findViewById(R.id.btnvolv);
         correo=findViewById(R.id.mailrecupera);
 
         //Inicializar o enlazar a requestQueue y el progressDialog
@@ -92,6 +95,14 @@ public class ForgotPSW extends AppCompatActivity {
                     requestQueue.add(stringRequest);
                 }//fin else
 
+            }
+        });
+        btnvol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent vol=new Intent(ForgotPSW.this, MainActivity.class);
+                startActivity(vol);
             }
         });
     }

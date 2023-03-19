@@ -74,6 +74,15 @@
             android:backgroundTint="@color/Verdeapejal"
             android:layout_gravity="center"
             android:text="Recuperar"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnvolv"
+            android:layout_below="@+id/btnrecupera"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Verdeapejal"
+            android:layout_gravity="center"
+            android:text="Volver"/>
     </LinearLayout>
 
 </LinearLayout>

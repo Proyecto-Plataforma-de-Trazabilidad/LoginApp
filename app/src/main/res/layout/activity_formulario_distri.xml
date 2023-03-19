@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/background_footer"
             android:foregroundTint="@android:color/holo_green_dark"
-            android:popupBackground="@color/background_footer"
+            android:popupBackground="@color/white"
             android:textAlignment="center" />
 
         <TableLayout
