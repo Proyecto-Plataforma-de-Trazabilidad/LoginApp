@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Datos_Usuario.Editar_Perfil">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:id="@+id/apejal"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:srcCompat="@drawable/apeajal2" />
+            <ImageView
+                android:id="@+id/asica"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_alignLeft="@+id/apejal"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="top"
+                android:layout_marginLeft="15dp"
+                app:srcCompat="@drawable/asica" />
+            <ImageView
+                android:id="@+id/Amocali"
+                android:layout_width="60dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                app:srcCompat="@drawable/fidaixbm_400x400" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Editar Datos Personales"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/Iconos"
+            android:layout_marginTop="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/user_solid" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="5dp"/>
+            <EditText
+                android:id="@+id/txtnombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="nombre"
+                android:layout_marginLeft="25dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/Iconos"
+            android:layout_marginTop="10dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_email_24" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correo"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginLeft="5dp"/>
+            <EditText
+                android:id="@+id/txtcorreo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="email"
+                android:layout_marginLeft="25dp"
+                android:textSize="18dp"
+                android:textColor="@color/cardview_dark_background"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/Iconos"
+            android:layout_marginTop="10dp"
+            />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:rowCount="2"
+            android:columnCount="3">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_row="0"
+                android:layout_gravity="center_horizontal"
+                android:text="Guardar" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnvolv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="volver"
+                android:layout_gravity="center_horizontal"
+                android:layout_column="2"
+                android:layout_row="1"/>
+        </GridLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

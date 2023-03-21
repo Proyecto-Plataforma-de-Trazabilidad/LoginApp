@@ -64,8 +64,16 @@ public class Perfil extends DrawerBaseActivity {
         cargardatosperfil();//datos del usuario
 
         //botones
+        editar=findViewById(R.id.btneditar);
         change=findViewById(R.id.btnchange);
 
+        editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent editar= new Intent(Perfil.this, Editar_Perfil.class);
+                startActivity(editar);
+            }
+        });
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
