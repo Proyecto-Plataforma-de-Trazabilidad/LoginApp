@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALImunici"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALIgeneral"
+            android:exported="false" />
+        <activity
             android:name=".Datos_Usuario.Editar_Perfil"
             android:exported="false" />
         <activity

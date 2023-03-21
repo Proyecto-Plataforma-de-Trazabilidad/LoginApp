@@ -1,7 +1,9 @@
 package com.example.loginapp.Indexs;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -30,7 +32,8 @@ import java.util.Map;
 public class Index extends DrawerBaseActivity {
 
     ActivityIndexBinding activityIndexBinding;
-    String u,emisor;
+    String u,emisor,rol,idrol;
+    public static final String r="usuariorol";
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI = "https://proyectoapejal.000webhostapp.com/agenda/usuario.php";
@@ -49,6 +52,8 @@ public class Index extends DrawerBaseActivity {
         //variables sesion
         emisor=MainActivity.obtenerusuario(Index.this,MainActivity.m);
         //Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
+
+        rol=obtenerrol(Index.this,r);
 
         requestQueue = Volley.newRequestQueue(Index.this);
         progressDialog = new ProgressDialog(Index.this);
@@ -70,7 +75,10 @@ public class Index extends DrawerBaseActivity {
                     JSONArray result=new JSONArray(response);
                     JSONObject jsonObject = result.getJSONObject(0);
                     u=jsonObject.getString("nombre");
-                    //Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
+                    idrol=jsonObject.getString("Idtipousuario");
+                    Toast.makeText(Index.this, idrol, Toast.LENGTH_SHORT).show();
+                    guardarrol(Index.this,idrol,r);
+
                    // usuario.setTitle(u);
                 }
                 catch (JSONException e) {e.printStackTrace();}
@@ -92,6 +100,16 @@ public class Index extends DrawerBaseActivity {
         };
         requestQueue.add(stringRequest);
     }//fin cargar datos
+
+    //rol guardado en variables de sesion
+    public static void guardarrol(Context c, String us, String key){
+        SharedPreferences preferences=c.getSharedPreferences(MainActivity.keyu,MODE_PRIVATE);
+        preferences.edit().putString(key,us).apply();
+    }
+    public static String obtenerrol(Context c,String key){
+        SharedPreferences preferences=c.getSharedPreferences(MainActivity.keyu,MODE_PRIVATE);
+        return preferences.getString(key,"");
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
