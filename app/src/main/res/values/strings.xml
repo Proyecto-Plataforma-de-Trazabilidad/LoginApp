@@ -28,7 +28,7 @@
     <string name="titulo_actividad_detalle">Actividad De Detalle</string>
     <string name="nombre_transicion_imagen">imagen_compartida</string>
 
-    <string name="slogan">"Combatiendo la piratería de agroquímicos"</string>
+    <string name="slogan">\"Combatiendo la piratería de agroquímicos\"</string>
 
 
     <string name="title_activity_menu">Menu</string>
