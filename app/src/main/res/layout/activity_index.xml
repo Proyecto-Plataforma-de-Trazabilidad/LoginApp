@@ -18,6 +18,19 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/slogan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="110dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="serif"
+                android:text="@string/slogan"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="italic|bold" />
 
             <ImageView
                 android:id="@+id/apejal"
@@ -45,20 +58,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_margin="10dp"
                 app:srcCompat="@drawable/fidaixbm_400x400" />
-            <TextView
-                android:id="@+id/sloganIndex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginEnd="50dp"
-                android:layout_marginBottom="50dp"
-                android:text="Combatiendo la pirateria de agroquimicos"
-                android:textAlignment="center"
-                android:fontFamily="arial"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
         </LinearLayout>
 
 
