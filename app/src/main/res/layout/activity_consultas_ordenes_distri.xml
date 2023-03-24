@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Indexs.Movimientos.Productores.consultas_ordenesProductor">
+    tools:context=".Indexs.Movimientos.Distribuidor.ConsultasOrdenesDistri">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -65,7 +65,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/agricultura_1"
+                    android:src="@drawable/frame"
                     app:tint="@color/Iconos"
                     android:paddingTop="10dp"/>
 
@@ -73,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="     Productor    "
+                    android:text="    Distribuidor   "
                     android:textAlignment="center"
                     android:textSize="20dp"
                     android:textStyle="bold" />
