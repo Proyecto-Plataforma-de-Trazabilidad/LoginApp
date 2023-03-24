@@ -19,13 +19,17 @@ import android.widget.Toast;
 import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.Indexs.IndexCatalogos;
+import com.example.loginapp.Indexs.Movimientos.Index_movi_distribuidor;
+import com.example.loginapp.Indexs.Movimientos.Index_movimi_productor;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
-    String usu;
+    String emisorRol;
+
+    Intent m;
 
     public void setContentView(View view) {
         drawerLayout=(DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base,null);
@@ -46,6 +50,11 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        //variables sesion
+        emisorRol= Index.obtenerrol(DrawerBaseActivity.this,Index.r);
+        Toast.makeText(DrawerBaseActivity.this, emisorRol, Toast.LENGTH_SHORT).show();
+
         drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()) {
             case R.id.nav_user:
@@ -66,9 +75,18 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.nav_movimientos:
-                Intent m = new Intent(this, Index.class);
-                startActivity(m);
-                overridePendingTransition(0,0);
+                switch (emisorRol){
+                    case "2":
+                        m = new Intent(this, Index_movimi_productor.class);
+                        startActivity(m);
+                        overridePendingTransition(0,0);
+                        break;
+                    case"3":
+                        m = new Intent(this, Index_movi_distribuidor.class);
+                        startActivity(m);
+                        overridePendingTransition(0,0);
+                        break;
+                }
                 break;
             case R.id.nav_ayuda:
                 Intent a = new Intent(this, Index.class);

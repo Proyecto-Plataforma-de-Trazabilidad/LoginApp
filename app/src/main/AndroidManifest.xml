@@ -17,6 +17,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Indexs.Movimientos.Index_movi_distribuidor"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.consultas_ordenesProductor"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Index_movimi_productor"
+            android:exported="false" />
+        <activity
             android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALImunici"
             android:exported="false" />
         <activity
