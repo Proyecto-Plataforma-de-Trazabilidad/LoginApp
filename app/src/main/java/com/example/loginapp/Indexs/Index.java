@@ -7,9 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatDelegate;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,6 +18,7 @@ import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexBinding;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,8 +64,8 @@ public class Index extends DrawerBaseActivity {
 
 
     private void cargardatosindex() {
-        //NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
-       // usuario=navigationView.getMenu().findItem(R.id.nav_user); //servidor
+       // NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
+       // MenuItem usuario=navigationView.getMenu().findItem(R.id.nav_user); //servidor
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
@@ -79,7 +78,7 @@ public class Index extends DrawerBaseActivity {
                     Toast.makeText(Index.this, idrol, Toast.LENGTH_SHORT).show();
                     guardarrol(Index.this,idrol,r);
 
-                   // usuario.setTitle(u);
+                  //  usuario.setTitle(u);
                 }
                 catch (JSONException e) {e.printStackTrace();}
             }
