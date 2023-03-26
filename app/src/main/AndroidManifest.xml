@@ -17,6 +17,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Indexs.Movimientos.Productores.consultaOrdenestipoembaProductor"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.ConsultaOrdenesTipoQuimicoProductor"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.ConsultaOrdenesPeridoProductor"
+            android:exported="false" />
+        <activity
             android:name=".Indexs.Movimientos.Productores.ConsulGeneralDelProductor"
             android:exported="false" />
         <activity
