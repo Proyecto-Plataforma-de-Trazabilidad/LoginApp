@@ -70,6 +70,7 @@
                android:layout_height="wrap_content"
                android:inputType="date"
                android:clickable="true"
+               android:focusable="false"
                android:maxLines="1"
                android:layout_margin="10dp"/>
 
@@ -88,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:clickable="true"
+                android:focusable="false"
                 android:maxLines="1"
                 android:layout_margin="10dp"/>
 
