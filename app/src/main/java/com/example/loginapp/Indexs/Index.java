@@ -41,7 +41,7 @@ public class Index extends DrawerBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_catalogos);
+        setContentView(R.layout.activity_index_catalogos2);
 
         //aqui va lo del menu
         activityIndexBinding=ActivityIndexBinding.inflate(getLayoutInflater());
