@@ -37,7 +37,7 @@ public class IndexCatalogos extends DrawerBaseActivity {
 
         //variables sesion
         emisorRol= Index.obtenerrol(IndexCatalogos.this,Index.r);
-        Toast.makeText(IndexCatalogos.this, emisorRol, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(IndexCatalogos.this, emisorRol, Toast.LENGTH_SHORT).show();
 
         Generales.setOnClickListener(new View.OnClickListener() {
             @Override
