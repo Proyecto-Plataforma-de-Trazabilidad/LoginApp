@@ -56,13 +56,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="0"
                 android:layout_margin="5dp"
                 android:layout_gravity="center"
                 android:id="@+id/tarjeta1G">
@@ -91,13 +90,9 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="1"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:id="@+id/tarjeta2G">
@@ -126,13 +121,9 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="2"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:id="@+id/tarjeta3G">
@@ -161,13 +152,9 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="3"
                 android:layout_margin="5dp"
                 android:layout_gravity="center"
                 android:id="@+id/tarjeta4G">
@@ -196,13 +183,9 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="4"
                 android:layout_margin="5dp"
                 android:layout_gravity="center"
                 android:id="@+id/tarjeta5G">
