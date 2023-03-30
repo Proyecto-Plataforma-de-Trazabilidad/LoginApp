@@ -17,16 +17,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Indexs.Movimientos.Productores.consultaOrdenestipoembaProductor"
+            android:name=".Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.ConsultaOrdenesTipoQuimicoProductor"
+            android:name=".Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.ConsultaOrdenesPeridoProductor"
+            android:name=".Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.ConsulGeneralDelProductor"
+            android:name=".Indexs.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor"
             android:exported="false" />
         <activity
             android:name=".Indexs.Movimientos.Distribuidor.ConsultasOrdenesDistri"
