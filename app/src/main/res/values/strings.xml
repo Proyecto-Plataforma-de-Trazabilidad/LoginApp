@@ -23,6 +23,7 @@
     <string name="basic">Selecciona un estado:</string>
     <string name="Regresar">Volver</string>
     <string name="Consultar">Consulta</string>
+    <string name="csv">Descargar CSV</string>
 
 
     <string name="titulo_actividad_detalle">Actividad De Detalle</string>
