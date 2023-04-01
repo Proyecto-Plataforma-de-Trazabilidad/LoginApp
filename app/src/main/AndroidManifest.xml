@@ -28,6 +28,20 @@
         <activity
             android:name=".Indexs.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor"
             android:exported="false" />
+
+        <activity
+            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.consultaOrdenEnvaseDistribuidor"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesQuimicoDist"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.consulGeneralDist"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesPeridoDistribuidor"
+            android:exported="false" />
+
         <activity
             android:name=".Indexs.Movimientos.Distribuidor.ConsultasOrdenesDistri"
             android:exported="false" />
