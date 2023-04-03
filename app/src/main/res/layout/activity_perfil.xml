@@ -136,30 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:rowCount="2"
-            android:columnCount="3">
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btneditar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="2"
-                android:layout_row="0"
-                app:icon="@drawable/edit"
-                app:iconSize="30dp"
-                android:layout_gravity="center_horizontal"
-                app:iconPadding="10dp"
-                android:text="Editar" />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnchange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cambiar contraseña"
-                android:layout_gravity="center_horizontal"
-                app:icon="@drawable/baseline_settings_24"
-                app:iconSize="30dp"
-                app:iconPadding="10dp"
-                android:layout_column="2"
-                android:layout_row="1"/>
-        </GridLayout>
+            android:columnCount="3"/>
     </LinearLayout>
 
 </ScrollView>

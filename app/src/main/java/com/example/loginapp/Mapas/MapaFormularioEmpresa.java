@@ -45,7 +45,7 @@ public class MapaFormularioEmpresa extends AppCompatActivity implements OnMapRea
     RequestQueue requestQueue;
     String dato;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
+    String httpURI="http://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     ArrayList<MarcadoresEmpresas> listaPuntos = new ArrayList<>();
     @Override

@@ -32,13 +32,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Perfil extends DrawerBaseActivity {
-    MaterialButton editar,change;
     TextView nombre, correo;
     String name,emisor;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI = "https://proyectoapejal.000webhostapp.com/agenda/usuario.php";
+    String httpURI = "http://campolimpiojal.com/android/usuario.php";
 
     //menu
     ActivityPerfilBinding activityPerfilBinding;
@@ -63,24 +62,6 @@ public class Perfil extends DrawerBaseActivity {
 
         cargardatosperfil();//datos del usuario
 
-        //botones
-        editar=findViewById(R.id.btneditar);
-        change=findViewById(R.id.btnchange);
-
-        editar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent editar= new Intent(Perfil.this, Editar_Perfil.class);
-                startActivity(editar);
-            }
-        });
-        change.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent change= new Intent(Perfil.this, Changepsw.class);
-                startActivity(change);
-            }
-        });
 
     }//fin on create
 
@@ -99,7 +80,7 @@ public class Perfil extends DrawerBaseActivity {
                 try{
                     JSONArray result=new JSONArray(response);
                     JSONObject jsonObject = result.getJSONObject(0);
-                    name=jsonObject.getString("nombre");
+                    name=jsonObject.getString("Nombre");
 
                    // Toast.makeText(Perfil.this, name, Toast.LENGTH_SHORT).show();
 

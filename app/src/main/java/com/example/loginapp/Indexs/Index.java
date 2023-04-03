@@ -35,7 +35,7 @@ public class Index extends DrawerBaseActivity {
     public static final String r="usuariorol";
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI = "https://proyectoapejal.000webhostapp.com/agenda/usuario.php";
+    String httpURI = "http://campolimpiojal.com/android/usuario.php";
 
 
     @Override
@@ -73,8 +73,8 @@ public class Index extends DrawerBaseActivity {
                 try{
                     JSONArray result=new JSONArray(response);
                     JSONObject jsonObject = result.getJSONObject(0);
-                    u=jsonObject.getString("nombre");
-                    idrol=jsonObject.getString("Idtipousuario");
+                    u=jsonObject.getString("Nombre");
+                    idrol=jsonObject.getString("IdtipoUsuario");
                    // Toast.makeText(Index.this, idrol, Toast.LENGTH_SHORT).show();
                     guardarrol(Index.this,idrol,r);
 

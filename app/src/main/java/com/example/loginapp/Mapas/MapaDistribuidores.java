@@ -45,7 +45,7 @@ public class MapaDistribuidores extends AppCompatActivity implements OnMapReadyC
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
+    String httpURI="http://campolimpiojal.com/android/ConsultasGenerales.php";
 
     ArrayList<marcadores2> listaPuntos = new ArrayList<>();
 

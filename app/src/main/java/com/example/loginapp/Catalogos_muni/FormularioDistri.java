@@ -44,7 +44,7 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
+    String httpURI= "http://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
     TableLayout tbtdistri;
@@ -84,7 +84,7 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
         });
     }//fin
     private void llenarspinner(){
-        String url="https://proyectoapejal.000webhostapp.com/agenda/cbomunidistr.php";
+        String url="http://campolimpiojal.com/android/cbomunidistr.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
