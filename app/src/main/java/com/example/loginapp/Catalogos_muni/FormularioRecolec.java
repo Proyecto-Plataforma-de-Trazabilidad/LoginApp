@@ -44,7 +44,7 @@ public class FormularioRecolec extends AppCompatActivity implements AdapterView.
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
+    String httpURI= "http://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
     TableLayout tbtreco;
@@ -86,7 +86,7 @@ public class FormularioRecolec extends AppCompatActivity implements AdapterView.
     }//fin
 
     private void llenarspinner(){
-        String url="https://proyectoapejal.000webhostapp.com/agenda/cbomuniRecole.php";
+        String url="http://campolimpiojal.com/android/cbomuniRecole.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

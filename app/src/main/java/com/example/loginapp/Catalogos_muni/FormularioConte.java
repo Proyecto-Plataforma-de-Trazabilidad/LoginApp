@@ -44,7 +44,7 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
     Spinner cbocontenedor;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://proyectoapejal.000webhostapp.com/agenda/ConsultasMunicipio.php";
+    String httpURI= "http://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
     TableLayout tbtcontenedor;
@@ -84,7 +84,7 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
         });
     }//fin
     private void llenarspinner(){
-        String url="https://proyectoapejal.000webhostapp.com/agenda/cboOrigenConte.php";
+        String url="http://campolimpiojal.com/android/cboOrigenConte.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

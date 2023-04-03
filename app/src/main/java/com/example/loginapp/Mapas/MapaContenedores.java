@@ -45,7 +45,7 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="https://proyectoapejal.000webhostapp.com/agenda/ConsultasGenerales.php";
+    String httpURI="http://campolimpiojal.com/android/ConsultasGenerales.php";
 
     ArrayList<marcadoresContenedores> listaPuntos = new ArrayList<>();
 

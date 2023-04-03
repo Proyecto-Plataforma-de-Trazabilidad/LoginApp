@@ -47,12 +47,6 @@
             android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALIgeneral"
             android:exported="false" />
         <activity
-            android:name=".Datos_Usuario.Editar_Perfil"
-            android:exported="false" />
-        <activity
-            android:name=".Datos_Usuario.Changepsw"
-            android:exported="false" />
-        <activity
             android:name=".Datos_Usuario.Perfil"
             android:exported="false" />
         <activity
@@ -123,9 +117,6 @@
             android:exported="false" />
         <activity
             android:name=".Catalogos_muni.FormularioMuniCAT"
-            android:exported="false" />
-        <activity
-            android:name=".Forgot_passw.ForgotPSW"
             android:exported="false" />
 
         <meta-data

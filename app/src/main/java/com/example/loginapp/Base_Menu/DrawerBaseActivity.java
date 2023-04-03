@@ -53,7 +53,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
         //variables sesion
         emisorRol= Index.obtenerrol(DrawerBaseActivity.this,Index.r);
-       // Toast.makeText(DrawerBaseActivity.this, emisorRol, Toast.LENGTH_SHORT).show();
+      // Toast.makeText(DrawerBaseActivity.this, emisorRol, Toast.LENGTH_SHORT).show();
 
         drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()) {

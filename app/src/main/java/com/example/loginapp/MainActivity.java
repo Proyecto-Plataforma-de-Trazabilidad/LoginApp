@@ -1,11 +1,15 @@
 package com.example.loginapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -26,8 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-import com.example.loginapp.Datos_Usuario.Perfil;
-import com.example.loginapp.Forgot_passw.ForgotPSW;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Indexs.Index;
 import com.google.android.material.button.MaterialButton;
 
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     //Cuando mandamos petición, se debe enviar string con muchos elementos para ejecutar volley
     RequestQueue requestQueue;
-    String httpURI = "https://proyectoapejal.000webhostapp.com/agenda/usuario.php";//servidor en 000webhost
+    String httpURI = "http://campolimpiojal.com/android/usuario.php";//servidor en 000webhost
 
     public static final String m="usuariologin";
     public static final String keyu="keyusuario";
@@ -67,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         //Indicar dónde se ejecutará progressdialog
         progressDialog = new ProgressDialog(MainActivity.this);
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
         //cuando se de click
         loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +83,16 @@ public class MainActivity extends AppCompatActivity {
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent forgott=new Intent(MainActivity.this, ForgotPSW.class);
-                startActivity(forgott);
+                AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage(Html.fromHtml("¡Opcion disponible solo desde web!\n" +
+                        "Por favor dirigete al sitio oficial en "+" <u><i>http://campolimpiojal.com/</i></u>"+" ,para restablecerla."));
+                builder.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
             }
         });
 
