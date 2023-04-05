@@ -79,10 +79,10 @@
                 />
 
             <TableLayout
+                android:paddingTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="15dp">
+                android:orientation="horizontal">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Dato 1"
+                        android:text="Id"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
@@ -105,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Dato 2"
+                        android:text="Distri."
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Dato 3"
+                        android:text="   No.Fact "
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
@@ -125,15 +125,93 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Dato 4"
+                        android:text="  No.Rec "
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Detalle"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+
+
+            <TableLayout
+                android:id="@+id/tablaO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="-5dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </TableLayout>
+
+            <TableLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/conse"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Consec."
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/TipoQ"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Tipo Q"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/TipoE"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Tipo E."
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/color"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Color"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/piezas"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Piezas"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                 </TableRow>
             </TableLayout>
             <TableLayout
-                android:id="@+id/tablaGC"
+                android:id="@+id/tabladetO"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="-5dp">
                 <TableRow
