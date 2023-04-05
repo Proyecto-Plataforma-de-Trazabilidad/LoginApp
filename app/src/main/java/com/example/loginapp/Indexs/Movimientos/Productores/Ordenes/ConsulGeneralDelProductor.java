@@ -107,10 +107,10 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
                         ImageButton boton=registro.findViewById(R.id.btndetalle);
 
                         //rescata los valores
-                        String idO=jsonObject.getString("id");
-                        String distriO=jsonObject.getString("distri");
-                        String factO=jsonObject.getString("factura");
-                        String receO=jsonObject.getString("receta");
+                        String idO=jsonObject.getString("IdOrden");
+                        String distriO=jsonObject.getString("Nombre");
+                        String factO=jsonObject.getString("NumFactura");
+                        String receO=jsonObject.getString("NumReceta");
 
                         //asigna los valores rescatador
                         id.setText(idO);
