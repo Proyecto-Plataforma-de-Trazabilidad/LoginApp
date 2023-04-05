@@ -6,8 +6,10 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
+import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.Indexs.Movimientos.Productores.consultas_ordenesProductor;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMovimiProductorBinding;
@@ -25,6 +27,7 @@ public class Index_movimi_productor extends DrawerBaseActivity {
         activityIndexMovimiProductorBinding= ActivityIndexMovimiProductorBinding.inflate(getLayoutInflater());
         setContentView(activityIndexMovimiProductorBinding.getRoot());
         allowActivityTitle("Movimientos");
+
 
         Ordenes=findViewById(R.id.t1);
         Ordenes.setOnClickListener(new View.OnClickListener() {

@@ -31,8 +31,9 @@ import java.util.Map;
 public class Index extends DrawerBaseActivity {
 
     ActivityIndexBinding activityIndexBinding;
-    String u,emisor,rol,idrol;
+    String u,emisor,rol,idrol,nomb;
     public static final String r="usuariorol";
+    public static final String no="nombreusuario";
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI = "http://campolimpiojal.com/android/usuario.php";
@@ -53,6 +54,7 @@ public class Index extends DrawerBaseActivity {
         //Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
 
         rol=obtenerrol(Index.this,r);
+        nomb=obtenernombre(Index.this,no);
 
         requestQueue = Volley.newRequestQueue(Index.this);
         progressDialog = new ProgressDialog(Index.this);
@@ -75,10 +77,12 @@ public class Index extends DrawerBaseActivity {
                     JSONObject jsonObject = result.getJSONObject(0);
                     u=jsonObject.getString("Nombre");
                     idrol=jsonObject.getString("IdtipoUsuario");
-                   // Toast.makeText(Index.this, idrol, Toast.LENGTH_SHORT).show();
-                    guardarrol(Index.this,idrol,r);
 
-                  //  usuario.setTitle(u);
+                   Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
+
+                    guardarrol(Index.this,idrol,r);
+                    guardarnombre(Index.this,u,no);
+
                 }
                 catch (JSONException e) {e.printStackTrace();}
             }
@@ -106,6 +110,15 @@ public class Index extends DrawerBaseActivity {
         preferences.edit().putString(key,us).apply();
     }
     public static String obtenerrol(Context c,String key){
+        SharedPreferences preferences=c.getSharedPreferences(MainActivity.keyu,MODE_PRIVATE);
+        return preferences.getString(key,"");
+    }
+
+    public static void guardarnombre(Context c,String nom, String key){
+        SharedPreferences preferences=c.getSharedPreferences(MainActivity.keyu,MODE_PRIVATE);
+        preferences.edit().putString(key,nom).apply();
+    }
+    public static String obtenernombre(Context c,String key){
         SharedPreferences preferences=c.getSharedPreferences(MainActivity.keyu,MODE_PRIVATE);
         return preferences.getString(key,"");
     }

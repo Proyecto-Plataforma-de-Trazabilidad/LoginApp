@@ -41,16 +41,11 @@
         android:text="TextView"
         android:textColor="@color/black" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btndetalle"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="15dp"
         android:layout_weight="1"
-        android:layout_gravity="start"
-        android:textColor="@color/white"
-        android:background="@color/graduado"
-        android:text="Detalle" />
-
-
+        android:background="@color/white"
+        app:srcCompat="@drawable/detalle" />
 </TableRow>
