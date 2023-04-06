@@ -236,18 +236,7 @@
                     android:textColor="@color/white"
                     android:layout_centerHorizontal="true"
                     />
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnconsu1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/Consultar"
-                    android:layout_column="2"
-                    android:layout_row="1"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/Verdeapejal"
-                    android:layout_centerHorizontal="true"
-                    />
+
 
             </GridLayout>
         </LinearLayout>
