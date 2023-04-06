@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConsulGeneralDelProductor extends AppCompatActivity {
-    TableLayout tbtCOP;
+    TableLayout tbtCOP,tbtdet;
     String emisorname;
     TextView nom;
     //conexion
@@ -64,9 +64,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
         requestQueue= Volley.newRequestQueue(ConsulGeneralDelProductor.this);
         progressDialog=new ProgressDialog(ConsulGeneralDelProductor.this);
 
-        //------------
-        progressDialog.setMessage("Cargando...");
-        progressDialog.show();
+
 
         cargaOrdenes();
 
@@ -85,6 +83,9 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
     }
 
     private void cargaOrdenes() {
+        //------------
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
@@ -126,6 +127,9 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
                             @Override //que pasa si se da click en el boton, aqui debe mandar  a llamar a otro metodo que carge el detalle
                             public void onClick(View v) {
                                 Toast.makeText(ConsulGeneralDelProductor.this, "Pertenezco a la orden"+v.getTag(), Toast.LENGTH_SHORT).show();
+                                String id=v.getTag().toString();
+
+                                CargarDetalle(id);
                             }
                         });
 
@@ -159,5 +163,66 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
 
     }//fin cargar ordenes
 
+    private void CargarDetalle(String id){
+        tbtdet=findViewById(R.id.tabladetO);
+        tbtdet.removeAllViews();//remueve columnas
+
+        Toast.makeText(this, "Hola rescate el id"+id, Toast.LENGTH_SHORT).show();
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray result2=new JSONArray(response);
+                    for (int i = 0; i < 5;i++ ) {
+                        JSONObject jsonObject = result2.getJSONObject(i);
+
+                        View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detordenes, null, false);
+
+                        TextView consec= registroD.findViewById(R.id.col1);
+                        TextView quimico = registroD.findViewById(R.id.col2);
+                        TextView envase= registroD.findViewById(R.id.col3);
+                        TextView color = registroD.findViewById(R.id.col4);
+                        TextView piezas= registroD.findViewById(R.id.col5);
+
+
+                        //rescata los valores
+                        String cdo=jsonObject.getString("Consecutivo");
+                        String qdo=jsonObject.getString("Concepto");
+                        String edo=jsonObject.getString("TipoEnvase");
+                        String colordo=jsonObject.getString("Color");
+                        String pdo=jsonObject.getString("CantidadPiezas");
+
+                        //asigna los valores rescatador
+                        consec.setText(cdo);
+                        quimico.setText(qdo);
+                        envase.setText(edo);
+                        color.setText(colordo);
+                        piezas.setText(pdo);
+
+                        //agrega fila
+                        tbtdet.addView(registroD);
+                    }
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                //Mostrar el error de Volley exacto a través de la librería
+                Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            protected Map<String,String> getParams(){
+                Map<String, String> parametros=new HashMap<>();
+                parametros.put("opcion","DetOrdProductor");
+                parametros.put("IdOrden",id);
+                return parametros;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }//fin cargar detalle
 
 }

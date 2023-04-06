@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/col1"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -13,7 +13,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/col2"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -21,7 +21,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/col3"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -29,7 +29,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/col4"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
@@ -37,7 +37,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/col5"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
