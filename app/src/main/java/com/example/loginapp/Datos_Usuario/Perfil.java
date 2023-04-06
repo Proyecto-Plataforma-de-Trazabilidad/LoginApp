@@ -37,7 +37,7 @@ public class Perfil extends DrawerBaseActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI = "http://campolimpiojal.com/android/usuario.php";
+    String httpURI = "https://campolimpiojal.com/android/usuario.php";
 
     //menu
     ActivityPerfilBinding activityPerfilBinding;

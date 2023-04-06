@@ -33,7 +33,7 @@ public class ConsultaGeneral extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI="http://campolimpiojal.com/android/ConsultasGenerales.php";
+    String httpURI="https://campolimpiojal.com/android/ConsultasGenerales.php";
 
     MaterialButton btnregresa,btnconsulta;
     TableLayout tbtCG;

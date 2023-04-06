@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     //Cuando mandamos petición, se debe enviar string con muchos elementos para ejecutar volley
     RequestQueue requestQueue;
-    String httpURI = "http://campolimpiojal.com/android/usuario.php";//servidor en 000webhost
+    String httpURI = "https://campolimpiojal.com/android/usuario.php";//servidor en 000webhost
 
     public static final String m="usuariologin";
     public static final String keyu="keyusuario";

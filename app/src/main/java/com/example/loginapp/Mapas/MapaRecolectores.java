@@ -45,7 +45,7 @@ public class MapaRecolectores extends AppCompatActivity implements OnMapReadyCal
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="http://campolimpiojal.com/android/ConsultasGenerales.php";
+    String httpURI="https://campolimpiojal.com/android/ConsultasGenerales.php";
 
     ArrayList<marcadores2> listaPuntos = new ArrayList<>();
 

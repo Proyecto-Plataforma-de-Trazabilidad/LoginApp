@@ -44,7 +44,7 @@ public class MapaOrigenContenedores extends AppCompatActivity implements OnMapRe
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="http://campolimpiojal.com/android/ConsultasMunicipio.php";
+    String httpURI="https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     ArrayList<marcadoresContenedores> listaPuntosE = new ArrayList<>();
     String dato;

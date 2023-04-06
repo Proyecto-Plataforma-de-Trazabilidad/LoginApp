@@ -41,7 +41,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
     //conexion
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "http://campolimpiojal.com/android/ConsulOrdenesMoviProductores.php";
+    String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviProductores.php";
     JSONArray arreglo;
     MaterialButton volver,CSV;
 
@@ -64,7 +64,9 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
         requestQueue= Volley.newRequestQueue(ConsulGeneralDelProductor.this);
         progressDialog=new ProgressDialog(ConsulGeneralDelProductor.this);
 
-
+        //------------
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
 
         cargaOrdenes();
 
@@ -83,14 +85,11 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
     }
 
     private void cargaOrdenes() {
-        //------------
-        progressDialog.setMessage("Cargando...");
-        progressDialog.show();
-
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 try {
                     JSONArray result=new JSONArray(response);
                     for (int i = 0; i < 5;i++ ) {
@@ -108,7 +107,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
 
                         //rescata los valores
                         String idO=jsonObject.getString("IdOrden");
-                        String distriO=jsonObject.getString("Nombre");
+                        String distriO=jsonObject.getString("Distribuidor");
                         String factO=jsonObject.getString("NumFactura");
                         String receO=jsonObject.getString("NumReceta");
 

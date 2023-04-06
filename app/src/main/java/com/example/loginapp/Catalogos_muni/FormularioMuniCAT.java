@@ -44,7 +44,7 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "http://campolimpiojal.com/android/ConsultasMunicipio.php";
+    String httpURI= "https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
     TableLayout tbtdistri;
@@ -84,7 +84,7 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
         });
     }//fin
     private void llenarspinner(){
-        String url="http://campolimpiojal.com/android/cboCATMunicipio.php";
+        String url="https://campolimpiojal.com/android/cboCATMunicipio.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

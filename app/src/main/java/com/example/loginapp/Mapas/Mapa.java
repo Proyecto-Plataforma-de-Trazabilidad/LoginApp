@@ -44,7 +44,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="http://campolimpiojal.com/android/ConsultasGenerales.php";
+    String httpURI="https://campolimpiojal.com/android/ConsultasGenerales.php";
 
     ArrayList<Marcadores> listaPuntos = new ArrayList<>();
 

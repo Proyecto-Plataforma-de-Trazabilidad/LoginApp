@@ -45,7 +45,7 @@ public class MapaMuniCAT extends AppCompatActivity implements OnMapReadyCallback
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="http://campolimpiojal.com/android/ConsultasMunicipio.php";
+    String httpURI="https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     ArrayList<marcadores3> listaPuntosE = new ArrayList<>();
     String dato;

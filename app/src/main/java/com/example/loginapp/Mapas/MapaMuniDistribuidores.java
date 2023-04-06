@@ -45,7 +45,7 @@ public class MapaMuniDistribuidores extends AppCompatActivity implements OnMapRe
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="http://campolimpiojal.com/android/ConsultasMunicipio.php";
+    String httpURI="https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     ArrayList<marcadores2> listaPuntosE = new ArrayList<>();
     String dato;

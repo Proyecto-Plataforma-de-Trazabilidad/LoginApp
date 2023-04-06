@@ -44,7 +44,7 @@ public class MapaEmpresasDestino extends AppCompatActivity implements OnMapReady
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
 
-    String httpURI="http://campolimpiojal.com/android/ConsultasGenerales.php";
+    String httpURI="https://campolimpiojal.com/android/ConsultasGenerales.php";
 
     ArrayList<MarcadoresEmpresas> listaPuntos = new ArrayList<>();
 
