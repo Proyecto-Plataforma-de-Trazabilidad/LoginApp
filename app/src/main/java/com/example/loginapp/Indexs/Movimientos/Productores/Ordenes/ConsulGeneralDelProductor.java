@@ -43,7 +43,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviProductores.php";
     JSONArray arreglo;
-    MaterialButton volver,CSV;
+    MaterialButton volver;
 
 
     @Override
@@ -70,7 +70,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
 
         //botones
         volver=findViewById(R.id.btnreg1);
-        CSV=findViewById(R.id.csv);
+
         //eventos botones
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
