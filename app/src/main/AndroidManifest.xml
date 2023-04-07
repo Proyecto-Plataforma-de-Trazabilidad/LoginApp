@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Indexs.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.CATALOGOS_ROL.IndexCatalDestinoGene"
+            android:exported="false" />
+        <activity
             android:name=".Indexs.CATALOGOS_ROL.IndexCataPrivadaGene$IndexCatalPrivadaMunicipal"
             android:exported="false" />
         <activity

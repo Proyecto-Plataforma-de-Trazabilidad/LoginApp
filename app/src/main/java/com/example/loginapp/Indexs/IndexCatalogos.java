@@ -10,6 +10,8 @@ import android.widget.Toast;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCataAMOCALIgeneral;
 import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCataAMOCALImunici;
+import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCatalDestinoGene;
+import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCatalDestinoMunicipal;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
@@ -64,6 +66,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                     case "5"://empre recolec priva
                         break;
                     case "6"://empre destino
+                        i= new Intent(IndexCatalogos.this, IndexCatalDestinoGene.class);
+                        startActivity(i);
                         break;
                     case "7"://AMOCALI
                         i= new Intent(IndexCatalogos.this, IndexCataAMOCALIgeneral.class);
@@ -109,6 +113,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                     case "5"://empre recolec priva
                         break;
                     case "6"://empre destino
+                        i= new Intent(IndexCatalogos.this, IndexCatalDestinoMunicipal.class);
+                        startActivity(i);
                         break;
                     case "7"://AMOCALI
                         i= new Intent(IndexCatalogos.this, IndexCataAMOCALImunici.class);
