@@ -58,6 +58,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "4"://municipios
+                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        startActivity(i);
                         break;
                     case "5"://empre recolec priva
                         break;
@@ -76,6 +78,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                     case "10"://APEAJAL
                         break;
                     case "11"://CAT
+                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        startActivity(i);
                         break;
                 }//fin switch
             }//fin onclick
@@ -99,6 +103,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "4"://municipios
+                        i= new Intent(IndexCatalogos.this, IndexMunicipales.class);
+                        startActivity(i);
                         break;
                     case "5"://empre recolec priva
                         break;
@@ -117,6 +123,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                     case "10"://APEAJAL
                         break;
                     case "11"://CAT
+                        i= new Intent(IndexCatalogos.this, IndexMunicipales.class);
+                        startActivity(i);
                         break;
                 }//fin switch
             }//fin onclick
