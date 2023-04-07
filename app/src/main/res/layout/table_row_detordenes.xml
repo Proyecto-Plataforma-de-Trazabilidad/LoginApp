@@ -10,7 +10,8 @@
         android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/col2"
@@ -18,7 +19,8 @@
         android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/col3"
@@ -26,7 +28,8 @@
         android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/col4"
@@ -34,7 +37,8 @@
         android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/col5"
@@ -42,5 +46,6 @@
         android:layout_height="60dp"
         android:layout_weight="1"
         android:background="@color/gris"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black"/>
 </TableRow>
