@@ -51,8 +51,8 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(ConsulGeneRecolectora.this, IndexGenerales.class);
-                startActivity(regresa);
+                finish();
+                onBackPressed();
             }
         });
 

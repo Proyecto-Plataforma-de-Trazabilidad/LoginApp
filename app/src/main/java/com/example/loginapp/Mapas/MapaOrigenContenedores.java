@@ -71,8 +71,7 @@ public class MapaOrigenContenedores extends AppCompatActivity implements OnMapRe
         btnregresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(MapaOrigenContenedores.this, FormularioConte.class);
-                startActivity(regresa);
+                onBackPressed();
             }
         });
 

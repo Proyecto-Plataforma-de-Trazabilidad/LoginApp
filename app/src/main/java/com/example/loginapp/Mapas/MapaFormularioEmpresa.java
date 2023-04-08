@@ -68,8 +68,7 @@ public class MapaFormularioEmpresa extends AppCompatActivity implements OnMapRea
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(MapaFormularioEmpresa.this, FormularioEmpre.class);
-                startActivity(volver);
+                onBackPressed();
             }
         });
 

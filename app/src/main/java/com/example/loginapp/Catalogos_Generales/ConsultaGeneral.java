@@ -52,8 +52,8 @@ public class ConsultaGeneral extends AppCompatActivity {
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(ConsultaGeneral.this, IndexGenerales.class);
-                startActivity(regresa);
+                finish();
+                onBackPressed();
             }
         });
 

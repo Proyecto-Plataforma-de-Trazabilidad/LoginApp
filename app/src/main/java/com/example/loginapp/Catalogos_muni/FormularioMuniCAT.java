@@ -69,8 +69,8 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(FormularioMuniCAT.this, IndexMunicipales.class);
-                startActivity(regresa);
+                finish();
+                onBackPressed();
             }
         });
 

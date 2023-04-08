@@ -63,8 +63,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(Mapa.this, ConsultaGeneral.class);
-                startActivity(volver);
+                onBackPressed();
             }
         });
 

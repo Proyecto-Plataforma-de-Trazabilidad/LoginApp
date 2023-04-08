@@ -51,8 +51,8 @@ public class ConsulGeneConte extends AppCompatActivity {
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(ConsulGeneConte.this, IndexGenerales.class);
-                startActivity(regresa);
+                finish();
+                onBackPressed();
             }
         });
 

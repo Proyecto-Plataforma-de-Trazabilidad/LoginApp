@@ -63,8 +63,7 @@ public class MapaRecolectores extends AppCompatActivity implements OnMapReadyCal
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(MapaRecolectores.this, ConsulGeneRecolectora.class);
-                startActivity(volver);
+                onBackPressed();
             }
         });
 

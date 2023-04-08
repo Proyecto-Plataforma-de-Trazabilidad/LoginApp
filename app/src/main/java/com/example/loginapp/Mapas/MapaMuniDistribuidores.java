@@ -72,8 +72,7 @@ public class MapaMuniDistribuidores extends AppCompatActivity implements OnMapRe
         btnregresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(MapaMuniDistribuidores.this, FormularioDistri.class);
-                startActivity(regresa);
+                onBackPressed();
             }
         });
 

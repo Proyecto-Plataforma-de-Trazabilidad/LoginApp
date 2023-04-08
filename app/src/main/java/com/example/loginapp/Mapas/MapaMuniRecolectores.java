@@ -71,8 +71,7 @@ public class MapaMuniRecolectores extends AppCompatActivity implements OnMapRead
         btnregresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regresa= new Intent(MapaMuniRecolectores.this, FormularioRecolec.class);
-                startActivity(regresa);
+                onBackPressed();
             }
         });
 

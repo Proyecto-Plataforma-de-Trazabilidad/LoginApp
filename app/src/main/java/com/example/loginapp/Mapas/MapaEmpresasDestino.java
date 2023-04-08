@@ -62,8 +62,7 @@ public class MapaEmpresasDestino extends AppCompatActivity implements OnMapReady
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(MapaEmpresasDestino.this, ConsulGeneEmpresas.class);
-                startActivity(volver);
+                onBackPressed();
             }
         });
 

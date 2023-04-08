@@ -63,8 +63,7 @@ public class MapaDistribuidores extends AppCompatActivity implements OnMapReadyC
         btnvolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver= new Intent(MapaDistribuidores.this, ConsulGeneDistr.class);
-                startActivity(volver);
+                onBackPressed();
             }
         });
 
