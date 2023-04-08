@@ -184,7 +184,9 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progressDialog.dismiss();
+                //Mostrar el error de Volley exacto a través de la librería
+                Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
             }
         }){
             protected Map<String,String> getParams(){

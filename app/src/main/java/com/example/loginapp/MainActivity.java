@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
                 builder.setMessage(Html.fromHtml("¡Opcion disponible solo desde web!\n" +
-                        "Por favor dirigete al sitio oficial en "+" <u><i>http://campolimpiojal.com/</i></u>"+" ,para restablecerla."));
+                        "Por favor dirigete al sitio oficial en "+" <u><i>https://campolimpiojal.com/</i></u>"+" ,para restablecerla."));
                 builder.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
