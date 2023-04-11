@@ -72,7 +72,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tit" />
             <EditText
                 android:id="@+id/FI"
-                android:hint="dia/mes/año"
+                android:hint="año/mes/día"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -92,7 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tit" />
             <EditText
                 android:id="@+id/FF"
-                android:hint="dia/mes/año"
+                android:hint="año/mes/día"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
