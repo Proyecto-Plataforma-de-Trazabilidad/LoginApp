@@ -22,6 +22,10 @@
             android:id="@+id/nav_movimientos"
             android:icon="@drawable/paper_plane_solid"
             android:title="Movimientos"/>
+        <item
+            android:id="@+id/nav_reportes"
+            android:icon="@drawable/file_circle_check_solid"
+            android:title="Reportes"/>
 
         <item
             android:id="@+id/nav_ayuda"
