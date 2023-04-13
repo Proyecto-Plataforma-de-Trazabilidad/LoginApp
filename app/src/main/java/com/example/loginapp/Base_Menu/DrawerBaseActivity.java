@@ -21,8 +21,10 @@ import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.Indexs.IndexCatalogos;
 import com.example.loginapp.Indexs.Movimientos.Index_movi_distribuidor;
 import com.example.loginapp.Indexs.Movimientos.Index_movimi_productor;
+import com.example.loginapp.Indexs.Movimientos.indexmovimientoMunicipios;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityIndexmovimientoMunicipiosBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -83,6 +85,11 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                         break;
                     case"3":
                         m = new Intent(this, Index_movi_distribuidor.class);
+                        startActivity(m);
+                        overridePendingTransition(0,0);
+                        break;
+                    case"4":
+                        m = new Intent(this, indexmovimientoMunicipios.class);
                         startActivity(m);
                         overridePendingTransition(0,0);
                         break;
