@@ -147,6 +147,18 @@ android:background="@color/white">
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
+            <Button
+                android:id="@+id/csv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Generar CSV"
+                android:layout_column="2"
+                android:layout_row="1"
+                android:backgroundTint="@color/Verdeapejal"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                />
 
 
         </GridLayout>

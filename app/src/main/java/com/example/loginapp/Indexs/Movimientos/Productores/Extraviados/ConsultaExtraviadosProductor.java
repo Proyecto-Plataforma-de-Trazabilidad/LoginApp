@@ -1,13 +1,18 @@
 package com.example.loginapp.Indexs.Movimientos.Productores.Extraviados;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -30,6 +35,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +49,7 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
     String httpURI= "https://campolimpiojal.com/android/ConsulExtraviadosMovimiProductores.php";
     JSONArray arreglo;
     MaterialButton volver;
+    Button CSV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +74,7 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
         //botones
         volver=findViewById(R.id.btnreg1);
 
+
         //eventos botones
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +86,7 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
     }
 
     private void CargarTabla() {
+        CSV=findViewById(R.id.csv);
         //------------
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
@@ -134,6 +144,60 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
             }
         };
         requestQueue.add(stringRequest);
+        CSV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Export(arreglo);
+            }
+        });
+
     }//fin cargar tabla
+
+    public void Export(JSONArray a){
+        StringBuilder data=new StringBuilder();
+        data.append("Tipo Envase,Cantidad Piezas,Aclaración,Fecha");
+
+        try{
+            for (int i=0; i<a.length();i++){
+                JSONObject jsonObject = a.getJSONObject(i);
+                String En=jsonObject.getString("TipoEnvaseVacio");
+                String pz=jsonObject.getString("CantidadPiezas");
+                String acla=jsonObject.getString("Aclaracion");
+                String fecha=jsonObject.getString("fecha");
+
+                //agrega datos
+                data.append("\n "+En+","+pz+","+acla+","+fecha);
+            }
+            try{
+                //saving the file into device
+                FileOutputStream out = openFileOutput("ExtraviadosGeneral.csv", MODE_PRIVATE);
+                out.write((data.toString()).getBytes("ISO-8859-1"));
+                Toast.makeText(this, "Guardado en "+getFilesDir()+"/ExtraviadosGeneral.csv", Toast.LENGTH_SHORT).show();
+                out.close();
+
+
+                //exporting
+                Context context = getApplicationContext();
+                File filelocation = new File(getFilesDir(), "ExtraviadosGeneral.csv");
+                Uri path = FileProvider.getUriForFile(context, "com.example.tabla.fileprovider", filelocation);
+
+
+                Intent fileIntent = new Intent(Intent.ACTION_SEND);
+                fileIntent.setType("text/csv");
+                fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
+                fileIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                fileIntent.setClipData(ClipData.newRawUri("", path));
+                fileIntent.putExtra(Intent.EXTRA_STREAM, path);
+                startActivity(Intent.createChooser(fileIntent, "Send mail"));
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

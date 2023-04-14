@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -18,9 +23,6 @@
         tools:targetApi="31">
         <activity
             android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase"
-            android:exported="false" />
-        <activity
-            android:name=".ConsultasExtraviadosEnvases"
             android:exported="false" />
         <activity
             android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultasExtraviadosPeriodo"
@@ -43,15 +45,7 @@
         <activity
             android:name=".Indexs.CATALOGOS_ROL.IndexCatalDestinoGene"
             android:exported="false" />
-        <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCataPrivadaGene$IndexCatalPrivadaMunicipal"
-            android:exported="false" />
-        <activity
-            android:name=".IndexCataPrivadaMunicip"
-            android:exported="false" />
-        <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCataPrivadaGene"
-            android:exported="false" />
+
         <activity
             android:name=".Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor"
             android:exported="false" />
@@ -186,6 +180,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.tabla.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ruta"/>
+        </provider>
     </application>
 
 </manifest>
