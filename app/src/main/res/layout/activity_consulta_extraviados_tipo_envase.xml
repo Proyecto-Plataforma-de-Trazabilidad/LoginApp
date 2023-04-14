@@ -116,7 +116,6 @@ android:background="@color/white">
                     android:background="@color/encabezado1"
                     android:text="Fecha"
                     android:textAlignment="center"
-                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </TableRow>
