@@ -17,6 +17,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultasExtraviadosEnvases"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultasExtraviadosPeriodo"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosProductor"
+            android:exported="false" />
+        <activity
             android:name=".Indexs.Movimientos.Productores.ConsultasExtraviadosProductor"
             android:exported="false" />
         <activity
