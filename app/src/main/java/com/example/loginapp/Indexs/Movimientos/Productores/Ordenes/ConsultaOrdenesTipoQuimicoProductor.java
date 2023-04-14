@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.Indexs.Movimientos.Productores.consultas_ordenesProductor;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.TipoQuimico;
@@ -48,6 +49,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
     MaterialButton volver;
     Spinner cboTipoQuimico;
     AsyncHttpClient cliente;
+    String emisorname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,12 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
 
         requestQueue= Volley.newRequestQueue(ConsultaOrdenesTipoQuimicoProductor.this);
         progressDialog=new ProgressDialog(ConsultaOrdenesTipoQuimicoProductor.this);
+
+        //variables sesion
+        emisorname = Index.obtenerrol(ConsultaOrdenesTipoQuimicoProductor.this, Index.no);
+        Toast.makeText(ConsultaOrdenesTipoQuimicoProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+
+
         //botones
         volver=findViewById(R.id.btnreg1);
         volver.setOnClickListener(new View.OnClickListener() {
@@ -169,7 +177,8 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
                             @Override
                             public void onClick(View v) {
                                 Toast.makeText(ConsultaOrdenesTipoQuimicoProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
-                                CargarDetalle(tq);
+                                String id=v.getTag().toString();
+                                CargarDetalle(tq,id);
                             }
                         });
 
@@ -192,6 +201,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulTQorden");
+                parametros.put("nombre",emisorname);
                 parametros.put("tq",tq);
                 return parametros;
             }
@@ -199,7 +209,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
         requestQueue.add(stringRequest);
     }//fin cargar tabla
 
-    private void CargarDetalle(String quimi) {
+    private void CargarDetalle(String quimi,String id) {
 
         tbtdet.removeAllViews();//remueve columnas
 
@@ -254,6 +264,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulDetTQorden");
+                parametros.put("id",id);
                 parametros.put("quimi",quimi);
                 return parametros;
             }

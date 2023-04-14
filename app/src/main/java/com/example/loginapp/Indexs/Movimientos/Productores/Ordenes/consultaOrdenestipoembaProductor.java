@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.Indexs.Movimientos.Productores.consultas_ordenesProductor;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
@@ -40,7 +41,7 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
     MaterialButton volver;
     Spinner cboEnvase;
     String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
-
+    String emisorname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,11 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
 
         requestQueue= Volley.newRequestQueue(consultaOrdenestipoembaProductor.this);
         progressDialog=new ProgressDialog(consultaOrdenestipoembaProductor.this);
+
+        //variables sesion
+        emisorname = Index.obtenerrol(consultaOrdenestipoembaProductor.this, Index.no);
+        Toast.makeText(consultaOrdenestipoembaProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+
 
         //botones
         volver=findViewById(R.id.btnreg1);
@@ -148,6 +154,7 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulEorden");
+                parametros.put("nombre",emisorname);
                 parametros.put("envase",value);
                 return parametros;
             }
