@@ -104,53 +104,51 @@ android:background="@color/white">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <TextView
                     android:id="@+id/titn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="dato1"
+                    android:text="Envase"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/titd"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="Dato2"
+                    android:text="Piezas"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/titla"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="@color/encabezado1"
-                    android:text="Dato3"
+                    android:text="Aclaración"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/titlo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="  Dato4 "
+                    android:text="Fecha"
+                    android:textAlignment="center"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
-
             </TableRow>
         </TableLayout>
         <TableLayout
@@ -183,7 +181,18 @@ android:background="@color/white">
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
-
+            <Button
+                android:id="@+id/csv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Generar CSV"
+                android:layout_column="2"
+                android:layout_row="1"
+                android:backgroundTint="@color/Verdeapejal"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                />
 
         </GridLayout>
     </LinearLayout>

@@ -139,7 +139,7 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","EProductor");
-                parametros.put("nombre","Naylea");
+                parametros.put("nombre",emisorname);
                 return parametros;
             }
         };

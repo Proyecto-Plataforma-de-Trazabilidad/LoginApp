@@ -9,6 +9,8 @@ import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosProductor;
+import com.example.loginapp.Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase;
+import com.example.loginapp.Indexs.Movimientos.Productores.Extraviados.ConsultasExtraviadosPeriodo;
 import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor;
 import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor;
@@ -45,13 +47,15 @@ public class ConsultasExtraviadosProductor extends DrawerBaseActivity {
         P.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                i=new Intent(ConsultasExtraviadosProductor.this, ConsultasExtraviadosPeriodo.class);
+                startActivity(i);
             }
         });
         TE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                i=new Intent(ConsultasExtraviadosProductor.this, ConsultaExtraviadosTipoEnvase.class);
+                startActivity(i);
             }
         });
     }
