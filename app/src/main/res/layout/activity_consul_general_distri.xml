@@ -72,6 +72,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textAlignment="center"
                         android:background="@color/encabezado1"
                         android:text="Id"
                         android:textColor="@color/white"
@@ -84,6 +85,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Productor"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
@@ -94,6 +96,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="   No.Fact "
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
@@ -113,6 +116,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Detalle"
+                        android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                 </TableRow>

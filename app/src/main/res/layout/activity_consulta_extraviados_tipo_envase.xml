@@ -87,6 +87,7 @@ android:background="@color/white">
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="dato1"
+
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 

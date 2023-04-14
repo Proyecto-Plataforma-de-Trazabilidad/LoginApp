@@ -75,8 +75,8 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver=new Intent(ConsulGeneralDelProductor.this, consultas_ordenesProductor.class);
-                startActivity(volver);
+                finish();
+                onBackPressed();
             }
         });
 
@@ -93,7 +93,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
                 progressDialog.dismiss();
                 try {
                     JSONArray result=new JSONArray(response);
-                    for (int i = 0; i < 5;i++ ) {
+                    for (int i = 0; i < result.length();i++ ) {
                         JSONObject jsonObject = result.getJSONObject(i);
 
                         View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_ordenes, null, false);

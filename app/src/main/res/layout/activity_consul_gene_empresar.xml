@@ -76,6 +76,7 @@
                     android:layout_weight="1"
                     android:background="@color/Verdeapejal"
                     android:text="Nombre"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -86,6 +87,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Domicilio"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -96,6 +98,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Latitud"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -106,6 +109,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Longitud"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </TableRow>

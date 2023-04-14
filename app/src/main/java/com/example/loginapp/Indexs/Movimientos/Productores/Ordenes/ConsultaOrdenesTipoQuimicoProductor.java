@@ -63,8 +63,8 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volver=new Intent(ConsultaOrdenesTipoQuimicoProductor.this, consultas_ordenesProductor.class);
-                startActivity(volver);
+                finish();
+                onBackPressed();
             }
         });
 
@@ -135,7 +135,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
             public void onResponse(String response) {
                 try {
                     JSONArray result=new JSONArray(response);
-                    for (int i = 0; i < 5;i++ ) {
+                    for (int i = 0; i < result.length();i++ ) {
                         JSONObject jsonObject = result.getJSONObject(i);
 
                         View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_ordenes, null, false);
@@ -209,7 +209,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
             public void onResponse(String response) {
                 try {
                     JSONArray result2=new JSONArray(response);
-                    for (int i = 0; i < 5;i++ ) {
+                    for (int i = 0; i < result2.length();i++ ) {
                         JSONObject jsonObject = result2.getJSONObject(i);
 
                         View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detordenes, null, false);

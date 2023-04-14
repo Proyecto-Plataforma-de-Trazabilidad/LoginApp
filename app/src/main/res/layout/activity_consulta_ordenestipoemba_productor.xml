@@ -100,6 +100,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Id"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -110,6 +111,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Distri."
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -120,6 +122,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="   No.Fact "
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
@@ -139,6 +142,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Detalle"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </TableRow>
@@ -172,6 +176,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Consec."
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
@@ -181,6 +186,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Tipo Q"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
@@ -190,6 +196,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Tipo E."
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
@@ -199,6 +206,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Color"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
@@ -208,6 +216,7 @@
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
                     android:text="Piezas"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </TableRow>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
+import com.example.loginapp.Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosProductor;
 import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor;
 import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor;
@@ -37,8 +38,8 @@ public class ConsultasExtraviadosProductor extends DrawerBaseActivity {
         G.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //i=new Intent(consultas_ordenesProductor.this, ConsulGeneralDelProductor.class);
-                //startActivity(i);
+                i=new Intent(ConsultasExtraviadosProductor.this, ConsultaExtraviadosProductor.class);
+                startActivity(i);
             }
         });
         P.setOnClickListener(new View.OnClickListener() {
