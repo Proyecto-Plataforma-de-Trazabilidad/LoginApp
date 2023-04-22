@@ -5,11 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +19,18 @@
         android:theme="@style/Theme.LoginApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdEmD"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdxCAT"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdxDist"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.ConsulEntreProd"
+            android:exported="false" />
         <activity
             android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase"
             android:exported="false" />
@@ -45,7 +55,6 @@
         <activity
             android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene"
             android:exported="false" />
-
         <activity
             android:name=".Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor"
             android:exported="false" />
@@ -184,11 +193,11 @@
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.tabla.fileprovider"
-            android:grantUriPermissions="true"
-            android:exported="false">
+            android:exported="false"
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/ruta"/>
+                android:resource="@xml/ruta" />
         </provider>
     </application>
 
