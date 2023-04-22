@@ -1,4 +1,4 @@
-package com.example.loginapp.Catalogos_Generales;
+package com.example.loginapp.Catalogos.Catalogos_Generales;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,8 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexGenerales;
-import com.example.loginapp.Mapas.MapaContenedores;
+import com.example.loginapp.Mapas.MapaRecolectores;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -29,25 +28,25 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsulGeneConte extends AppCompatActivity {
+public class ConsulGeneRecolectora extends AppCompatActivity {
     MaterialButton btnregresa,btnconsulta;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI="https://campolimpiojal.com/android/ConsultasGenerales.php";
-    TableLayout tbtdis;
+    TableLayout tbtrec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consul_gene_conte);
+        setContentView(R.layout.activity_consul_gene_recolectora);
 
-        requestQueue= Volley.newRequestQueue(ConsulGeneConte.this);
-        progressDialog=new ProgressDialog(ConsulGeneConte.this);
+        requestQueue= Volley.newRequestQueue(ConsulGeneRecolectora.this);
+        progressDialog=new ProgressDialog(ConsulGeneRecolectora.this);
 
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnreg1);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsu1);
+        btnregresa= (MaterialButton) findViewById(R.id.btnreg2r);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsu2r);
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +58,7 @@ public class ConsulGeneConte extends AppCompatActivity {
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(ConsulGeneConte.this, MapaContenedores.class);
+                Intent conxe= new Intent(ConsulGeneRecolectora.this, MapaRecolectores.class);
                 startActivity(conxe);
 
             }
@@ -69,8 +68,8 @@ public class ConsulGeneConte extends AppCompatActivity {
 
     private void CargarTabla() {
         //tabla
-        tbtdis=findViewById(R.id.tablaGC);
-        tbtdis.removeAllViews();//remueve columnas
+        tbtrec=findViewById(R.id.tablaGR);
+        tbtrec.removeAllViews();//remueve columnas
 
         //------------
         progressDialog.setMessage("Cargando...");
@@ -89,23 +88,24 @@ public class ConsulGeneConte extends AppCompatActivity {
 
                         View registro= LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_general,null,false);
 
-                        TextView origen=registro.findViewById(R.id.col1);
-                        TextView concepto=registro.findViewById(R.id.col2);
+                        TextView nombre=registro.findViewById(R.id.col1);
+                        TextView domicilio=registro.findViewById(R.id.col2);
                         TextView lat=registro.findViewById(R.id.col3);
                         TextView lon=registro.findViewById(R.id.col4);
 
-                        String ori=jsonObject.getString("Origen");
-                        String concep=jsonObject.getString("Concepto");
+                        String name=jsonObject.getString("Nombre");
+                        String dom=jsonObject.getString("Domicilio");
                         String lati=jsonObject.getString("Latitud");
                         String longi=jsonObject.getString("Longitud");
 
 
-                        origen.setText(ori);
-                        concepto.setText(concep);
+
+                        nombre.setText(name);
+                        domicilio.setText(dom);
                         lat.setText(lati);
                         lon.setText(longi);
 
-                        tbtdis.addView(registro);
+                        tbtrec.addView(registro);
                         i++;
 
                     }
@@ -126,10 +126,10 @@ public class ConsulGeneConte extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","contenedores");
+                parametros.put("opcion","Erecolectoras");
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
     }
-}//finclass
+}//fin clas

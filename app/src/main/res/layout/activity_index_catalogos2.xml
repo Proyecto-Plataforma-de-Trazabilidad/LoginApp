@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:backgroundTint="@color/white"
-    tools:context=".Indexs.IndexCatalogos">
+    tools:context=".Catalogos.IndexCatalogos">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -1,6 +1,5 @@
-package com.example.loginapp.Indexs.CATALOGOS_ROL;
+package com.example.loginapp.Catalogos.CATALOGOS_ROL;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -8,9 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Catalogos_Generales.ConsultaGeneral;
+import com.example.loginapp.Catalogos.Catalogos_Generales.ConsultaGeneral;
 import com.example.loginapp.R;
-import com.example.loginapp.databinding.ActivityIndexCataAmocaligeneralBinding;
 import com.example.loginapp.databinding.ActivityIndexCatalDestinoGeneBinding;
 
 public class IndexCatalDestinoGene extends DrawerBaseActivity {

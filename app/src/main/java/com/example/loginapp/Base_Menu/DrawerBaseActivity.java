@@ -10,21 +10,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Indexs.Index;
-import com.example.loginapp.Indexs.IndexCatalogos;
+import com.example.loginapp.Catalogos.IndexCatalogos;
 import com.example.loginapp.Indexs.Movimientos.Index_movi_distribuidor;
 import com.example.loginapp.Indexs.Movimientos.Index_movimi_productor;
 import com.example.loginapp.Indexs.Movimientos.indexmovimientoMunicipios;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
-import com.example.loginapp.databinding.ActivityIndexmovimientoMunicipiosBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

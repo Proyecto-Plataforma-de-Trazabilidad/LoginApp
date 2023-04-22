@@ -1,6 +1,4 @@
-package com.example.loginapp.Catalogos_Generales;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.loginapp.Catalogos.Catalogos_Generales;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -11,14 +9,15 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexGenerales;
-import com.example.loginapp.Mapas.Mapa;
+import com.example.loginapp.Mapas.MapaEmpresasDestino;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -29,26 +28,25 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsultaGeneral extends AppCompatActivity {
+public class ConsulGeneEmpresas extends AppCompatActivity {
+    MaterialButton btnregresa,btnconsulta;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI="https://campolimpiojal.com/android/ConsultasGenerales.php";
-
-    MaterialButton btnregresa,btnconsulta;
-    TableLayout tbtCG;
+    TableLayout tbtdis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_general);
+        setContentView(R.layout.activity_consul_gene_empresar);
 
-        requestQueue= Volley.newRequestQueue(ConsultaGeneral.this);
-        progressDialog=new ProgressDialog(ConsultaGeneral.this);
+        requestQueue= Volley.newRequestQueue(ConsulGeneEmpresas.this);
+        progressDialog=new ProgressDialog(ConsulGeneEmpresas.this);
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnreg);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsu);
 
+        btnregresa= (MaterialButton) findViewById(R.id.btnreg1);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsu1);
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,19 +58,18 @@ public class ConsultaGeneral extends AppCompatActivity {
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(ConsultaGeneral.this, Mapa.class);
+                Intent conxe= new Intent(ConsulGeneEmpresas.this, MapaEmpresasDestino.class);
                 startActivity(conxe);
+
             }
         });
         CargarTabla();
     }//fin
 
     private void CargarTabla() {
-
         //tabla
-        tbtCG=findViewById(R.id.tablaG);
-        tbtCG.removeAllViews();//remueve columnas
-
+        tbtdis=findViewById(R.id.tablaGE);
+        tbtdis.removeAllViews();//remueve columnas
 
         //------------
         progressDialog.setMessage("Cargando...");
@@ -96,7 +93,7 @@ public class ConsultaGeneral extends AppCompatActivity {
                         TextView lat=registro.findViewById(R.id.col3);
                         TextView lon=registro.findViewById(R.id.col4);
 
-                        String name=jsonObject.getString("NombreCentro");
+                        String name=jsonObject.getString("Razonsocial");
                         String dom=jsonObject.getString("Domicilio");
                         String lati=jsonObject.getString("Latitud");
                         String longi=jsonObject.getString("Longitud");
@@ -108,7 +105,7 @@ public class ConsultaGeneral extends AppCompatActivity {
                         lat.setText(lati);
                         lon.setText(longi);
 
-                        tbtCG.addView(registro);
+                        tbtdis.addView(registro);
                         i++;
 
                     }
@@ -129,11 +126,10 @@ public class ConsultaGeneral extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","cat");
+                parametros.put("opcion","Edestino");
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
     }
-
-}//fin class
+}//finclass

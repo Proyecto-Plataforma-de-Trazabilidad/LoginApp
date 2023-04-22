@@ -1,4 +1,6 @@
-package com.example.loginapp.Catalogos_muni;
+package com.example.loginapp.Catalogos.Catalogos_muni;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,18 +14,15 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexMunicipales;
-import com.example.loginapp.Mapas.MapaOrigenContenedores;
+import com.example.loginapp.Mapas.MapaMuniDistribuidores;
 import com.example.loginapp.R;
-import com.example.loginapp.SetGet_Consultas.origen;
+import com.example.loginapp.SetGet_Consultas.municipios;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -38,30 +37,30 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class FormularioConte extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class FormularioDistri extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
-    Spinner cbocontenedor;
+    Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
-    TableLayout tbtcontenedor;
+    TableLayout tbtdistri;
 
     MaterialButton btnregresa,btnconsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario_conte);
+        setContentView(R.layout.activity_formulario_distri);
 
         cliente=new AsyncHttpClient();
-        cbocontenedor =(Spinner) findViewById(R.id.cboorigenconte);
+        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiodis);
         llenarspinner();
 
-        requestQueue= Volley.newRequestQueue(FormularioConte.this);
-        progressDialog=new ProgressDialog(FormularioConte.this);
+        requestQueue= Volley.newRequestQueue(FormularioDistri.this);
+        progressDialog=new ProgressDialog(FormularioDistri.this);
 
         btnregresa= (MaterialButton) findViewById(R.id.btnregresard);
         btnconsulta= (MaterialButton) findViewById(R.id.btnconsultard);
@@ -77,14 +76,14 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(FormularioConte.this, MapaOrigenContenedores.class);
-                conxe.putExtra("origen",e);
+                Intent conxe= new Intent(FormularioDistri.this, MapaMuniDistribuidores.class);
+                conxe.putExtra("Municipio",e);
                  startActivity(conxe);
             }
         });
     }//fin
     private void llenarspinner(){
-        String url="https://campolimpiojal.com/android/cboOrigenConte.php";
+        String url="https://campolimpiojal.com/android/cbomunidistr.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -101,17 +100,17 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
     }//fin llenar
 
     private void cargarspinner(String respuesta){
-        ArrayList<origen> lista= new ArrayList<origen>();
+        ArrayList<municipios> lista= new ArrayList<municipios>();
         try{
             JSONArray jsonArreglo=new JSONArray(respuesta);
             for(int i=0; i<jsonArreglo.length(); i++){
-                origen ori=new origen();
-                ori.setOrigen(jsonArreglo.getJSONObject(i).getString("origen"));
-                lista.add(ori);
+                municipios mun=new municipios();
+                mun.setMunicipio(jsonArreglo.getJSONObject(i).getString("Municipio"));
+                lista.add(mun);
             }
             ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
-            cbocontenedor.setAdapter(a);
-            cbocontenedor.setOnItemSelectedListener(this);
+            cbomunicipio.setAdapter(a);
+            cbomunicipio.setOnItemSelectedListener(this);
 
         }
         catch(Exception e){
@@ -130,8 +129,8 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
     private void CargarTabla() {
 
         //tabla
-        tbtcontenedor =findViewById(R.id.tablaconte);
-        tbtcontenedor.removeAllViews();//remueve columnas
+        tbtdistri=findViewById(R.id.tablacxmd);
+        tbtdistri.removeAllViews();//remueve columnas
 
 
         //------------
@@ -154,14 +153,15 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
                         TextView nombre=registro.findViewById(R.id.columnaname);
                         TextView email=registro.findViewById(R.id.coemail);
 
+                        //nombre.append(jsonObject.getString("NombreCentro"));
+                        //email.append(jsonObject.getString("Domicilio"));
 
-                        String tipo=jsonObject.getString("Concepto");
-                        String capacidad=jsonObject.getString("Capacidad");
+                        String name=jsonObject.getString("Nombre");
+                        String emails=jsonObject.getString("Domicilio");
+                        nombre.setText(name);
+                        email.setText(emails);
 
-                        nombre.setText(tipo);
-                        email.setText(capacidad);
-
-                        tbtcontenedor.addView(registro);
+                        tbtdistri.addView(registro);
                         i++;
 
                     }
@@ -182,8 +182,8 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","contenedores");
-                parametros.put("origen",e);
+                parametros.put("opcion","distribuidores");
+                parametros.put("Municipio",e);
                 return parametros;
             }
         };

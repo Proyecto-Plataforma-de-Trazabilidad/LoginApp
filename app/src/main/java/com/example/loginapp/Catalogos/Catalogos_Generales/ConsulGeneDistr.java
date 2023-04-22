@@ -1,4 +1,4 @@
-package com.example.loginapp.Catalogos_Generales;
+package com.example.loginapp.Catalogos.Catalogos_Generales;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,8 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexGenerales;
-import com.example.loginapp.Mapas.MapaRecolectores;
+import com.example.loginapp.Mapas.MapaDistribuidores;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -29,25 +28,25 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsulGeneRecolectora extends AppCompatActivity {
+public class ConsulGeneDistr extends AppCompatActivity {
     MaterialButton btnregresa,btnconsulta;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI="https://campolimpiojal.com/android/ConsultasGenerales.php";
-    TableLayout tbtrec;
+    TableLayout tbtdis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consul_gene_recolectora);
+        setContentView(R.layout.activity_consul_gene_distr);
 
-        requestQueue= Volley.newRequestQueue(ConsulGeneRecolectora.this);
-        progressDialog=new ProgressDialog(ConsulGeneRecolectora.this);
+        requestQueue= Volley.newRequestQueue(ConsulGeneDistr.this);
+        progressDialog=new ProgressDialog(ConsulGeneDistr.this);
 
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnreg2r);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsu2r);
+        btnregresa= (MaterialButton) findViewById(R.id.btnreg1);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsu1);
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +58,7 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(ConsulGeneRecolectora.this, MapaRecolectores.class);
+                Intent conxe= new Intent(ConsulGeneDistr.this, MapaDistribuidores.class);
                 startActivity(conxe);
 
             }
@@ -69,8 +68,8 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
 
     private void CargarTabla() {
         //tabla
-        tbtrec=findViewById(R.id.tablaGR);
-        tbtrec.removeAllViews();//remueve columnas
+        tbtdis=findViewById(R.id.tablaGD);
+        tbtdis.removeAllViews();//remueve columnas
 
         //------------
         progressDialog.setMessage("Cargando...");
@@ -106,7 +105,7 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
                         lat.setText(lati);
                         lon.setText(longi);
 
-                        tbtrec.addView(registro);
+                        tbtdis.addView(registro);
                         i++;
 
                     }
@@ -127,10 +126,10 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","Erecolectoras");
+                parametros.put("opcion","distribuidores");
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
     }
-}//fin clas
+}//finclass

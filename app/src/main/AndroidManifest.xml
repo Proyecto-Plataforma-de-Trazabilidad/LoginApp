@@ -40,10 +40,10 @@
             android:name=".Indexs.Movimientos.indexmovimientoMunicipios"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCatalDestinoGene"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene"
             android:exported="false" />
 
         <activity
@@ -83,22 +83,22 @@
             android:name=".Indexs.Movimientos.Index_movimi_productor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALImunici"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCataAMOCALImunici"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALIgeneral"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCataAMOCALIgeneral"
             android:exported="false" />
         <activity
             android:name=".Datos_Usuario.Perfil"
             android:exported="false" />
         <activity
-            android:name=".Indexs.IndexCatalogos"
+            android:name=".Catalogos.IndexCatalogos"
             android:exported="false" />
         <activity
-            android:name=".Indexs.IndexGenerales"
+            android:name=".Catalogos.IndexGenerales"
             android:exported="false" />
         <activity
-            android:name=".Indexs.IndexMunicipales"
+            android:name=".Catalogos.IndexMunicipales"
             android:exported="false" />
         <activity
             android:name=".Base_Menu.DrawerBaseActivity"
@@ -125,31 +125,31 @@
             android:name=".Mapas.MapaDistribuidores"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioRecolec"
+            android:name=".Catalogos.Catalogos_muni.FormularioRecolec"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioDistri"
+            android:name=".Catalogos.Catalogos_muni.FormularioDistri"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioConte"
+            android:name=".Catalogos.Catalogos_muni.FormularioConte"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioEmpre"
+            android:name=".Catalogos.Catalogos_muni.FormularioEmpre"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneRecolectora"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneRecolectora"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneDistr"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneDistr"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneConte"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneConte"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsultaGeneral"
+            android:name=".Catalogos.Catalogos_Generales.ConsultaGeneral"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneEmpresas"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneEmpresas"
             android:exported="false" />
         <activity
             android:name=".Mapas.MapaMuniCAT"
@@ -158,7 +158,7 @@
             android:name=".Mapas.MapaContenedores"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioMuniCAT"
+            android:name=".Catalogos.Catalogos_muni.FormularioMuniCAT"
             android:exported="false" />
 
         <meta-data
