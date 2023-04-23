@@ -31,7 +31,7 @@ import java.util.Map;
 public class Index extends DrawerBaseActivity {
 
     ActivityIndexBinding activityIndexBinding;
-    String u,emisor,rol,idrol,nomb;
+    String u,emisor,idrol;
     public static final String r="usuariorol";
     public static final String no="nombreusuario";
     ProgressDialog progressDialog;
@@ -51,34 +51,33 @@ public class Index extends DrawerBaseActivity {
 
         //variables sesion
         emisor=MainActivity.obtenerusuario(Index.this,MainActivity.m);
-        //Toast.makeText(this, emisor, Toast.LENGTH_SHORT).show();
-
-        rol=obtenerrol(Index.this,r);
-        nomb=obtenernombre(Index.this,no);
 
         requestQueue = Volley.newRequestQueue(Index.this);
         progressDialog = new ProgressDialog(Index.this);
-        cargardatosindex();
+
+        obtenerrol(Index.this,r);
+        obtenernombre(Index.this,no);
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        
+
+        datosIndex();
+
     }
 
-
-    private void cargardatosindex() {
-       // NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
-       // MenuItem usuario=navigationView.getMenu().findItem(R.id.nav_user); //servidor
-
+    private void datosIndex() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
+
                 try{
                     JSONArray result=new JSONArray(response);
                     JSONObject jsonObject = result.getJSONObject(0);
                     u=jsonObject.getString("Nombre");
                     idrol=jsonObject.getString("IdtipoUsuario");
 
-                   Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Index.this, idrol, Toast.LENGTH_SHORT).show();
 
                     guardarrol(Index.this,idrol,r);
                     guardarnombre(Index.this,u,no);
@@ -102,7 +101,10 @@ public class Index extends DrawerBaseActivity {
             }
         };
         requestQueue.add(stringRequest);
-    }//fin cargar datos
+
+
+    }
+
 
     //rol guardado en variables de sesion
     public static void guardarrol(Context c, String us, String key){

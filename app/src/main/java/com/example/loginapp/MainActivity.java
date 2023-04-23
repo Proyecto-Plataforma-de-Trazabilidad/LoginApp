@@ -24,6 +24,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
@@ -48,16 +50,19 @@ public class MainActivity extends AppCompatActivity {
     String httpURI = "https://campolimpiojal.com/android/usuario.php";//servidor en 000webhost
 
     public static final String m="usuariologin";
+    public static final String r="usuariorolprincipla";
     public static final String keyu="keyusuario";
-    String emisor;
+    String emisor,emisorrolMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        emisor=obtenerusuario(MainActivity.this,m);
+        emisor = obtenerusuario(MainActivity.this, m);
         //Toast.makeText(this, u, Toast.LENGTH_SHORT).show();
+        emisorrolMain=obtenerrol(MainActivity.this,r);
+
 
         username = (EditText) findViewById(R.id.username);
         passname = (EditText) findViewById(R.id.passname);
@@ -102,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
     private void Login() {
         u = username.getText().toString();
         c = passname.getText().toString();
+
+        obtienerol(u);
 
 
         if (u.isEmpty() || c.isEmpty()) {
@@ -167,6 +174,55 @@ public class MainActivity extends AppCompatActivity {
             requestQueue.add(stringRequest);
         }//else
     }//private
+
+    private void obtienerol(String u) {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                try{
+                    JSONArray result=new JSONArray(response);
+                    JSONObject jsonObject = result.getJSONObject(0);
+                    String idrol=jsonObject.getString("IdtipoUsuario");
+
+                   // Toast.makeText(MainActivity.this, idrol, Toast.LENGTH_SHORT).show();
+                    guardarrol(MainActivity.this,idrol,r);
+
+                }
+                catch (JSONException e) {e.printStackTrace();}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
+            }
+        }){
+            //parametros
+            protected Map<String,String> getParams(){
+                Map<String, String> parametros=new HashMap<>();
+                //Parámetros que se esperan en el webservice
+                parametros.put("email",u);
+                parametros.put("opcion","datos");
+                return parametros;
+            }
+        };
+        requestQueue.add(stringRequest);
+    }
+
+
+
+    public static void guardarrol(Context c, String us, String key){
+        SharedPreferences preferences=c.getSharedPreferences(MainActivity.keyu,MODE_PRIVATE);
+        preferences.edit().putString(key,us).apply();
+    }
+    public static String obtenerrol(Context c,String key){
+        SharedPreferences preferences=c.getSharedPreferences(MainActivity.keyu,MODE_PRIVATE);
+        return preferences.getString(key,"");
+    }
+
+
 
     //variables sesion
     public static void guardarusuario(Context c, String us, String key){
