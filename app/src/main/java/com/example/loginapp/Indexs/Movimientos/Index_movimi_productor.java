@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.IndexEntregas;
-import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.Indexs.Movimientos.Productores.ConsultasExtraviadosProductor;
 import com.example.loginapp.Indexs.Movimientos.Productores.consultas_ordenesProductor;
 import com.example.loginapp.R;
@@ -45,8 +43,8 @@ public class Index_movimi_productor extends DrawerBaseActivity {
         Entregas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent en=new Intent(Index_movimi_productor.this, IndexEntregas.class);
-                startActivity(en);
+                //Intent en=new Intent(Index_movimi_productor.this, IndexEntregas.class);
+               // startActivity(en);
             }
         });
         Extraviados.setOnClickListener(new View.OnClickListener() {

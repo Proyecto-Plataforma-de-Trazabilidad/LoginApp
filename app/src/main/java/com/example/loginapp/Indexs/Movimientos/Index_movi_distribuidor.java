@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 
-import com.example.loginapp.IndexEntregas;
+
 import com.example.loginapp.Indexs.Movimientos.Distribuidor.ConsultasOrdenesDistri;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMoviDistribuidorBinding;
@@ -38,8 +38,8 @@ public class Index_movi_distribuidor extends DrawerBaseActivity {
         Entregas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent en=new Intent(Index_movi_distribuidor.this, IndexEntregas.class);
-                startActivity(en);
+               // Intent en=new Intent(Index_movi_distribuidor.this, IndexEntregas.class);
+               // startActivity(en);
             }
         });
     }

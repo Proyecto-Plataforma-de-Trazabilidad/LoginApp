@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.IndexEntregas;
+
 import com.example.loginapp.Indexs.Movimientos.Distribuidor.ConsultasOrdenesDistri;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMoviDistribuidorBinding;
@@ -33,8 +33,8 @@ public class indexmovimientoMunicipios extends DrawerBaseActivity {
         Entregas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent en=new Intent(indexmovimientoMunicipios.this, IndexEntregas.class);
-                startActivity(en);
+                //Intent en=new Intent(indexmovimientoMunicipios.this, IndexEntregas.class);
+                //startActivity(en);
             }
         });//fin onclick
     }//finoncreate
