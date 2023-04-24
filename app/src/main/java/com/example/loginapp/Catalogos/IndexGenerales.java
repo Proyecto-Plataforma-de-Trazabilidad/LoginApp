@@ -1,18 +1,17 @@
-package com.example.loginapp.Indexs;
+package com.example.loginapp.Catalogos;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Catalogos_Generales.ConsulGeneConte;
-import com.example.loginapp.Catalogos_Generales.ConsulGeneDistr;
-import com.example.loginapp.Catalogos_Generales.ConsulGeneEmpresas;
-import com.example.loginapp.Catalogos_Generales.ConsulGeneRecolectora;
-import com.example.loginapp.Catalogos_Generales.ConsultaGeneral;
+import com.example.loginapp.Catalogos.Catalogos_Generales.ConsulGeneConte;
+import com.example.loginapp.Catalogos.Catalogos_Generales.ConsulGeneDistr;
+import com.example.loginapp.Catalogos.Catalogos_Generales.ConsulGeneEmpresas;
+import com.example.loginapp.Catalogos.Catalogos_Generales.ConsulGeneRecolectora;
+import com.example.loginapp.Catalogos.Catalogos_Generales.ConsultaGeneral;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityCatalogosGeneralBinding;
 

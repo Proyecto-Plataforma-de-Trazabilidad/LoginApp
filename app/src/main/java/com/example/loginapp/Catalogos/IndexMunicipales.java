@@ -1,18 +1,17 @@
-package com.example.loginapp.Indexs;
+package com.example.loginapp.Catalogos;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Catalogos_muni.FormularioConte;
-import com.example.loginapp.Catalogos_muni.FormularioDistri;
-import com.example.loginapp.Catalogos_muni.FormularioEmpre;
-import com.example.loginapp.Catalogos_muni.FormularioMuniCAT;
-import com.example.loginapp.Catalogos_muni.FormularioRecolec;
+import com.example.loginapp.Catalogos.Catalogos_muni.FormularioConte;
+import com.example.loginapp.Catalogos.Catalogos_muni.FormularioDistri;
+import com.example.loginapp.Catalogos.Catalogos_muni.FormularioEmpre;
+import com.example.loginapp.Catalogos.Catalogos_muni.FormularioMuniCAT;
+import com.example.loginapp.Catalogos.Catalogos_muni.FormularioRecolec;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityCatalogosMunicipalBinding;
 

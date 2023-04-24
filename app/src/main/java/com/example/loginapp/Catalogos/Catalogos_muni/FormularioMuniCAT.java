@@ -1,4 +1,4 @@
-package com.example.loginapp.Catalogos_muni;
+package com.example.loginapp.Catalogos.Catalogos_muni;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -20,8 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexMunicipales;
-import com.example.loginapp.Mapas.MapaFormularioEmpresa;
+import com.example.loginapp.Mapas.MapaMuniCAT;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.municipios;
 import com.google.android.material.button.MaterialButton;
@@ -38,33 +37,33 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class FormularioEmpre extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
-    Spinner cbocontenedor;
+    Spinner cbomunicipio;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
-    TableLayout tbtcontenedor;
+    TableLayout tbtdistri;
 
     MaterialButton btnregresa,btnconsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario_empresa);
+        setContentView(R.layout.activity_formulario_cat);
 
         cliente=new AsyncHttpClient();
-        cbocontenedor =(Spinner) findViewById(R.id.cboempresades);
+        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiocat);
         llenarspinner();
 
-        requestQueue= Volley.newRequestQueue(FormularioEmpre.this);
-        progressDialog=new ProgressDialog(FormularioEmpre.this);
+        requestQueue= Volley.newRequestQueue(FormularioMuniCAT.this);
+        progressDialog=new ProgressDialog(FormularioMuniCAT.this);
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnregresard);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultard);
+        btnregresa= (MaterialButton) findViewById(R.id.btnregresar);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultar);
 
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,14 +76,14 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(FormularioEmpre.this, MapaFormularioEmpresa.class);
+                Intent conxe= new Intent(FormularioMuniCAT.this, MapaMuniCAT.class);
                 conxe.putExtra("Municipio",e);
                  startActivity(conxe);
             }
         });
     }//fin
     private void llenarspinner(){
-        String url="https://campolimpiojal.com/android/cboEmpresaDestino.php";
+        String url="https://campolimpiojal.com/android/cboCATMunicipio.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -110,8 +109,8 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
                 lista.add(mun);
             }
             ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
-            cbocontenedor.setAdapter(a);
-            cbocontenedor.setOnItemSelectedListener(this);
+            cbomunicipio.setAdapter(a);
+            cbomunicipio.setOnItemSelectedListener(this);
 
         }
         catch(Exception e){
@@ -130,8 +129,8 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
     private void CargarTabla() {
 
         //tabla
-        tbtcontenedor =findViewById(R.id.tablaconte);
-        tbtcontenedor.removeAllViews();//remueve columnas
+        tbtdistri=findViewById(R.id.tablacatmun);
+        tbtdistri.removeAllViews();//remueve columnas
 
 
         //------------
@@ -154,14 +153,15 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
                         TextView nombre=registro.findViewById(R.id.columnaname);
                         TextView email=registro.findViewById(R.id.coemail);
 
+                        //nombre.append(jsonObject.getString("NombreCentro"));
+                        //email.append(jsonObject.getString("Domicilio"));
 
-                        String tipo=jsonObject.getString("Razonsocial");
-                        String capacidad=jsonObject.getString("Domicilio");
+                        String name=jsonObject.getString("NombreCentro");
+                        String emails=jsonObject.getString("Domicilio");
+                        nombre.setText(name);
+                        email.setText(emails);
 
-                        nombre.setText(tipo);
-                        email.setText(capacidad);
-
-                        tbtcontenedor.addView(registro);
+                        tbtdistri.addView(registro);
                         i++;
 
                     }
@@ -182,7 +182,7 @@ public class FormularioEmpre extends AppCompatActivity implements AdapterView.On
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","Edestino");
+                parametros.put("opcion","cat");
                 parametros.put("Municipio",e);
                 return parametros;
             }

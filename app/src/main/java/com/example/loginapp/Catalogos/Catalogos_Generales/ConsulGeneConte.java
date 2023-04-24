@@ -1,4 +1,6 @@
-package com.example.loginapp.Catalogos_Generales;
+package com.example.loginapp.Catalogos.Catalogos_Generales;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,16 +11,13 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexGenerales;
-import com.example.loginapp.Mapas.MapaEmpresasDestino;
+import com.example.loginapp.Mapas.MapaContenedores;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -29,7 +28,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsulGeneEmpresas extends AppCompatActivity {
+public class ConsulGeneConte extends AppCompatActivity {
     MaterialButton btnregresa,btnconsulta;
 
     ProgressDialog progressDialog;
@@ -40,10 +39,10 @@ public class ConsulGeneEmpresas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consul_gene_empresar);
+        setContentView(R.layout.activity_consul_gene_conte);
 
-        requestQueue= Volley.newRequestQueue(ConsulGeneEmpresas.this);
-        progressDialog=new ProgressDialog(ConsulGeneEmpresas.this);
+        requestQueue= Volley.newRequestQueue(ConsulGeneConte.this);
+        progressDialog=new ProgressDialog(ConsulGeneConte.this);
 
 
         btnregresa= (MaterialButton) findViewById(R.id.btnreg1);
@@ -59,7 +58,7 @@ public class ConsulGeneEmpresas extends AppCompatActivity {
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(ConsulGeneEmpresas.this, MapaEmpresasDestino.class);
+                Intent conxe= new Intent(ConsulGeneConte.this, MapaContenedores.class);
                 startActivity(conxe);
 
             }
@@ -69,7 +68,7 @@ public class ConsulGeneEmpresas extends AppCompatActivity {
 
     private void CargarTabla() {
         //tabla
-        tbtdis=findViewById(R.id.tablaGE);
+        tbtdis=findViewById(R.id.tablaGC);
         tbtdis.removeAllViews();//remueve columnas
 
         //------------
@@ -89,20 +88,19 @@ public class ConsulGeneEmpresas extends AppCompatActivity {
 
                         View registro= LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_general,null,false);
 
-                        TextView nombre=registro.findViewById(R.id.col1);
-                        TextView domicilio=registro.findViewById(R.id.col2);
+                        TextView origen=registro.findViewById(R.id.col1);
+                        TextView concepto=registro.findViewById(R.id.col2);
                         TextView lat=registro.findViewById(R.id.col3);
                         TextView lon=registro.findViewById(R.id.col4);
 
-                        String name=jsonObject.getString("Razonsocial");
-                        String dom=jsonObject.getString("Domicilio");
+                        String ori=jsonObject.getString("Origen");
+                        String concep=jsonObject.getString("Concepto");
                         String lati=jsonObject.getString("Latitud");
                         String longi=jsonObject.getString("Longitud");
 
 
-
-                        nombre.setText(name);
-                        domicilio.setText(dom);
+                        origen.setText(ori);
+                        concepto.setText(concep);
                         lat.setText(lati);
                         lon.setText(longi);
 
@@ -127,7 +125,7 @@ public class ConsulGeneEmpresas extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","Edestino");
+                parametros.put("opcion","contenedores");
                 return parametros;
             }
         };

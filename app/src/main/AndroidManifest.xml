@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -18,12 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginApp"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31" >
+        tools:targetApi="31">
         <activity
-            android:name=".ConsulGeneralDistribuidor"
-            android:exported="false"
-            android:label="@string/title_activity_consul_general_distribuidor"
-            android:theme="@style/Theme.LoginApp.NoActionBar" />
+            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdEmD"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdxCAT"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdxDist"
+            android:exported="false" />
+        <activity
+            android:name=".Indexs.Movimientos.Productores.ConsulEntreProd"
+            android:exported="false" />
         <activity
             android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase"
             android:exported="false" />
@@ -43,10 +50,10 @@
             android:name=".Indexs.Movimientos.indexmovimientoMunicipios"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCatalDestinoGene"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene"
             android:exported="false" />
         <activity
             android:name=".Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor"
@@ -85,22 +92,22 @@
             android:name=".Indexs.Movimientos.Index_movimi_productor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALImunici"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCataAMOCALImunici"
             android:exported="false" />
         <activity
-            android:name=".Indexs.CATALOGOS_ROL.IndexCataAMOCALIgeneral"
+            android:name=".Catalogos.CATALOGOS_ROL.IndexCataAMOCALIgeneral"
             android:exported="false" />
         <activity
             android:name=".Datos_Usuario.Perfil"
             android:exported="false" />
         <activity
-            android:name=".Indexs.IndexCatalogos"
+            android:name=".Catalogos.IndexCatalogos"
             android:exported="false" />
         <activity
-            android:name=".Indexs.IndexGenerales"
+            android:name=".Catalogos.IndexGenerales"
             android:exported="false" />
         <activity
-            android:name=".Indexs.IndexMunicipales"
+            android:name=".Catalogos.IndexMunicipales"
             android:exported="false" />
         <activity
             android:name=".Base_Menu.DrawerBaseActivity"
@@ -127,31 +134,31 @@
             android:name=".Mapas.MapaDistribuidores"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioRecolec"
+            android:name=".Catalogos.Catalogos_muni.FormularioRecolec"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioDistri"
+            android:name=".Catalogos.Catalogos_muni.FormularioDistri"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioConte"
+            android:name=".Catalogos.Catalogos_muni.FormularioConte"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioEmpre"
+            android:name=".Catalogos.Catalogos_muni.FormularioEmpre"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneRecolectora"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneRecolectora"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneDistr"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneDistr"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneConte"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneConte"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsultaGeneral"
+            android:name=".Catalogos.Catalogos_Generales.ConsultaGeneral"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_Generales.ConsulGeneEmpresas"
+            android:name=".Catalogos.Catalogos_Generales.ConsulGeneEmpresas"
             android:exported="false" />
         <activity
             android:name=".Mapas.MapaMuniCAT"
@@ -160,7 +167,7 @@
             android:name=".Mapas.MapaContenedores"
             android:exported="false" />
         <activity
-            android:name=".Catalogos_muni.FormularioMuniCAT"
+            android:name=".Catalogos.Catalogos_muni.FormularioMuniCAT"
             android:exported="false" />
 
         <meta-data
@@ -175,7 +182,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -187,7 +194,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.tabla.fileprovider"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/ruta" />

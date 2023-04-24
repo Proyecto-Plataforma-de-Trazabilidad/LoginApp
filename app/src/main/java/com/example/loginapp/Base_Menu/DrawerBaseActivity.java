@@ -8,30 +8,34 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Indexs.Index;
-import com.example.loginapp.Indexs.IndexCatalogos;
+import com.example.loginapp.Catalogos.IndexCatalogos;
 import com.example.loginapp.Indexs.Movimientos.Index_movi_distribuidor;
 import com.example.loginapp.Indexs.Movimientos.Index_movimi_productor;
 import com.example.loginapp.Indexs.Movimientos.indexmovimientoMunicipios;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
-import com.example.loginapp.databinding.ActivityIndexmovimientoMunicipiosBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     String emisorRol;
-
+    NavigationView navigationView;
     Intent m;
+
 
     public void setContentView(View view) {
         drawerLayout=(DrawerLayout) getLayoutInflater().inflate(R.layout.activity_drawer_base,null);
@@ -42,20 +46,71 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         Toolbar toolbar=drawerLayout.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        NavigationView navigationView=drawerLayout.findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        //variables sesion
+        emisorRol= MainActivity.obtenerrol(DrawerBaseActivity.this,MainActivity.r);
+        Toast.makeText(DrawerBaseActivity.this, "rolemitido: "+emisorRol, Toast.LENGTH_SHORT).show();
+
+        switch (emisorRol){
+            case "1":
+                esconderAlgunosItems();
+                break;
+            case "2":
+                navigationView=drawerLayout.findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
+                break;
+            case "3":
+                navigationView=drawerLayout.findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
+                break;
+            case "4":
+                navigationView=drawerLayout.findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
+                break;
+            case "5":
+                esconderAlgunosItems();
+                break;
+            case "6":
+                esconderAlgunosItems();
+                break;
+            case "7":
+                esconderAlgunosItems();
+                break;
+            case "8":
+                esconderAlgunosItems();
+                break;
+            case "9":
+                esconderAlgunosItems();
+                break;
+            case "10":
+                esconderAlgunosItems();
+                break;
+            case "11":
+                esconderAlgunosItems();
+                break;
+        }
+
+
 
         ActionBarDrawerToggle togggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(togggle);
         togggle.syncState();
+
+    }
+
+
+    private void esconderAlgunosItems() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        Menu miMenu= navigationView.getMenu();
+
+        miMenu.findItem(R.id.nav_movimientos).setVisible(false);
+
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        //variables sesion
-        emisorRol= Index.obtenerrol(DrawerBaseActivity.this,Index.r);
-      // Toast.makeText(DrawerBaseActivity.this, emisorRol, Toast.LENGTH_SHORT).show();
+
 
         drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()) {
@@ -111,11 +166,12 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        SharedPreferences preferences;
+                        preferences=getSharedPreferences("keyusuario",Context.MODE_PRIVATE);
+                        preferences.edit().clear().apply();
+
                         Intent main = new Intent(DrawerBaseActivity.this, MainActivity.class);
                         startActivity(main);
-                        finish();
-
                     }
                 });
                 builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

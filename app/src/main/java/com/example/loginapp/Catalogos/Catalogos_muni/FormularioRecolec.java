@@ -1,4 +1,4 @@
-package com.example.loginapp.Catalogos_muni;
+package com.example.loginapp.Catalogos.Catalogos_muni;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,8 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexMunicipales;
-import com.example.loginapp.Mapas.MapaMuniDistribuidores;
+import com.example.loginapp.Mapas.MapaMuniRecolectores;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.municipios;
 import com.google.android.material.button.MaterialButton;
@@ -38,7 +37,7 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class FormularioDistri extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class FormularioRecolec extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
     Spinner cbomunicipio;
@@ -47,24 +46,24 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
     String httpURI= "https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
-    TableLayout tbtdistri;
+    TableLayout tbtreco;
 
     MaterialButton btnregresa,btnconsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario_distri);
+        setContentView(R.layout.activity_formulario_recolec);
 
         cliente=new AsyncHttpClient();
-        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiodis);
+        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiore);
         llenarspinner();
 
-        requestQueue= Volley.newRequestQueue(FormularioDistri.this);
-        progressDialog=new ProgressDialog(FormularioDistri.this);
+        requestQueue= Volley.newRequestQueue(FormularioRecolec.this);
+        progressDialog=new ProgressDialog(FormularioRecolec.this);
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnregresard);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultard);
+        btnregresa= (MaterialButton) findViewById(R.id.btnregresarR);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultarR);
 
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,14 +76,16 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(FormularioDistri.this, MapaMuniDistribuidores.class);
-                conxe.putExtra("Municipio",e);
-                 startActivity(conxe);
+                Intent conxe= new Intent(FormularioRecolec.this, MapaMuniRecolectores.class);
+                 conxe.putExtra("Municipio",e);
+                  startActivity(conxe);
             }
         });
+
     }//fin
+
     private void llenarspinner(){
-        String url="https://campolimpiojal.com/android/cbomunidistr.php";
+        String url="https://campolimpiojal.com/android/cbomuniRecole.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -92,13 +93,12 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
                     cargarspinner(new String(responseBody));
                 }
             }
-
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
 
             }
         });
-    }//fin llenar
+    }//fin llenar spinner
 
     private void cargarspinner(String respuesta){
         ArrayList<municipios> lista= new ArrayList<municipios>();
@@ -130,8 +130,8 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
     private void CargarTabla() {
 
         //tabla
-        tbtdistri=findViewById(R.id.tablacxmd);
-        tbtdistri.removeAllViews();//remueve columnas
+        tbtreco=findViewById(R.id.tablacxmre);
+        tbtreco.removeAllViews();//remueve columnas
 
 
         //------------
@@ -162,7 +162,7 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
                         nombre.setText(name);
                         email.setText(emails);
 
-                        tbtdistri.addView(registro);
+                        tbtreco.addView(registro);
                         i++;
 
                     }
@@ -183,11 +183,11 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","distribuidores");
+                parametros.put("opcion","Erecolectoras");
                 parametros.put("Municipio",e);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
     }
-}//fin clas
+}

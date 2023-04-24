@@ -1,4 +1,4 @@
-package com.example.loginapp.Catalogos_muni;
+package com.example.loginapp.Catalogos.Catalogos_muni;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -20,10 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.IndexMunicipales;
-import com.example.loginapp.Mapas.MapaMuniCAT;
+import com.example.loginapp.Mapas.MapaOrigenContenedores;
 import com.example.loginapp.R;
-import com.example.loginapp.SetGet_Consultas.municipios;
+import com.example.loginapp.SetGet_Consultas.origen;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -38,33 +37,33 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class FormularioConte extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
-    Spinner cbomunicipio;
+    Spinner cbocontenedor;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsultasMunicipio.php";
 
     String e;
-    TableLayout tbtdistri;
+    TableLayout tbtcontenedor;
 
     MaterialButton btnregresa,btnconsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario_cat);
+        setContentView(R.layout.activity_formulario_conte);
 
         cliente=new AsyncHttpClient();
-        cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiocat);
+        cbocontenedor =(Spinner) findViewById(R.id.cboorigenconte);
         llenarspinner();
 
-        requestQueue= Volley.newRequestQueue(FormularioMuniCAT.this);
-        progressDialog=new ProgressDialog(FormularioMuniCAT.this);
+        requestQueue= Volley.newRequestQueue(FormularioConte.this);
+        progressDialog=new ProgressDialog(FormularioConte.this);
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnregresar);
-        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultar);
+        btnregresa= (MaterialButton) findViewById(R.id.btnregresard);
+        btnconsulta= (MaterialButton) findViewById(R.id.btnconsultard);
 
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,14 +76,14 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
         btnconsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conxe= new Intent(FormularioMuniCAT.this, MapaMuniCAT.class);
-                conxe.putExtra("Municipio",e);
+                Intent conxe= new Intent(FormularioConte.this, MapaOrigenContenedores.class);
+                conxe.putExtra("origen",e);
                  startActivity(conxe);
             }
         });
     }//fin
     private void llenarspinner(){
-        String url="https://campolimpiojal.com/android/cboCATMunicipio.php";
+        String url="https://campolimpiojal.com/android/cboOrigenConte.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -101,17 +100,17 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
     }//fin llenar
 
     private void cargarspinner(String respuesta){
-        ArrayList<municipios> lista= new ArrayList<municipios>();
+        ArrayList<origen> lista= new ArrayList<origen>();
         try{
             JSONArray jsonArreglo=new JSONArray(respuesta);
             for(int i=0; i<jsonArreglo.length(); i++){
-                municipios mun=new municipios();
-                mun.setMunicipio(jsonArreglo.getJSONObject(i).getString("Municipio"));
-                lista.add(mun);
+                origen ori=new origen();
+                ori.setOrigen(jsonArreglo.getJSONObject(i).getString("origen"));
+                lista.add(ori);
             }
             ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
-            cbomunicipio.setAdapter(a);
-            cbomunicipio.setOnItemSelectedListener(this);
+            cbocontenedor.setAdapter(a);
+            cbocontenedor.setOnItemSelectedListener(this);
 
         }
         catch(Exception e){
@@ -130,8 +129,8 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
     private void CargarTabla() {
 
         //tabla
-        tbtdistri=findViewById(R.id.tablacatmun);
-        tbtdistri.removeAllViews();//remueve columnas
+        tbtcontenedor =findViewById(R.id.tablaconte);
+        tbtcontenedor.removeAllViews();//remueve columnas
 
 
         //------------
@@ -154,15 +153,14 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
                         TextView nombre=registro.findViewById(R.id.columnaname);
                         TextView email=registro.findViewById(R.id.coemail);
 
-                        //nombre.append(jsonObject.getString("NombreCentro"));
-                        //email.append(jsonObject.getString("Domicilio"));
 
-                        String name=jsonObject.getString("NombreCentro");
-                        String emails=jsonObject.getString("Domicilio");
-                        nombre.setText(name);
-                        email.setText(emails);
+                        String tipo=jsonObject.getString("Concepto");
+                        String capacidad=jsonObject.getString("Capacidad");
 
-                        tbtdistri.addView(registro);
+                        nombre.setText(tipo);
+                        email.setText(capacidad);
+
+                        tbtcontenedor.addView(registro);
                         i++;
 
                     }
@@ -183,8 +181,8 @@ public class FormularioMuniCAT extends AppCompatActivity implements AdapterView.
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","cat");
-                parametros.put("Municipio",e);
+                parametros.put("opcion","contenedores");
+                parametros.put("origen",e);
                 return parametros;
             }
         };

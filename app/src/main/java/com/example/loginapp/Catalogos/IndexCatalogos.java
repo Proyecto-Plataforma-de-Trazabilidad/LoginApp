@@ -1,18 +1,16 @@
-package com.example.loginapp.Indexs;
+package com.example.loginapp.Catalogos;
 
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCataAMOCALIgeneral;
-import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCataAMOCALImunici;
-import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCatalDestinoGene;
-import com.example.loginapp.Indexs.CATALOGOS_ROL.IndexCatalDestinoMunicipal;
-import com.example.loginapp.MainActivity;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCataAMOCALIgeneral;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCataAMOCALImunici;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal;
+import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
 
