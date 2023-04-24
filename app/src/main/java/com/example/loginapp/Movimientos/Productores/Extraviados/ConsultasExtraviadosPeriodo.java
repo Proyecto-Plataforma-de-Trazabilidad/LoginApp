@@ -1,4 +1,4 @@
-package com.example.loginapp.Indexs.Movimientos.Productores.Extraviados;
+package com.example.loginapp.Movimientos.Productores.Extraviados;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,9 +25,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.Index;
-import com.example.loginapp.Indexs.Movimientos.Productores.DatePickerFragment;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor;
+import com.example.loginapp.Index;
+import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".Indexs.Movimientos.Index_movi_distribuidor">
+        tools:context=".Movimientos.Index_movi_distribuidor">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -1,6 +1,5 @@
-package com.example.loginapp.Indexs.Movimientos.Distribuidor;
+package com.example.loginapp.Movimientos.Distribuidor;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -8,10 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.Movimientos.Distribuidor.Ordenes.consulGeneralDist;
-import com.example.loginapp.Indexs.Movimientos.Distribuidor.Ordenes.consultaOrdenEnvaseDistribuidor;
-import com.example.loginapp.Indexs.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesQuimicoDist;
-import com.example.loginapp.Indexs.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesPeridoDistribuidor;
+import com.example.loginapp.Movimientos.Distribuidor.Ordenes.consulGeneralDist;
+import com.example.loginapp.Movimientos.Distribuidor.Ordenes.consultaOrdenEnvaseDistribuidor;
+import com.example.loginapp.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesQuimicoDist;
+import com.example.loginapp.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesPeridoDistribuidor;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityConsultasOrdenesDistriBinding;
 

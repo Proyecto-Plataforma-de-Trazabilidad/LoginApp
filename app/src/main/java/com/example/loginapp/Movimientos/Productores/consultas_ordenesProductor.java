@@ -1,4 +1,4 @@
-package com.example.loginapp.Indexs.Movimientos.Productores;
+package com.example.loginapp.Movimientos.Productores;
 
 import androidx.cardview.widget.CardView;
 
@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor;
+import com.example.loginapp.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityConsultasOrdenesProductorBinding;
 

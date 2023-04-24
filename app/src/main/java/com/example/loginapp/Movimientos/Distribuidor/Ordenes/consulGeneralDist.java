@@ -1,13 +1,10 @@
-package com.example.loginapp.Indexs.Movimientos.Distribuidor.Ordenes;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+package com.example.loginapp.Movimientos.Distribuidor.Ordenes;
+
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -21,65 +18,50 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.Index;
-import com.example.loginapp.Indexs.Movimientos.Productores.DatePickerFragment;
-import com.example.loginapp.Indexs.Movimientos.Productores.consultas_ordenesProductor;
+import com.example.loginapp.Index;
 import com.example.loginapp.R;
-import com.example.loginapp.databinding.ActivityConsultaOrdenesPeridoProductorBinding;
-import com.example.loginapp.databinding.ActivityIndexMoviDistribuidorBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.nio.BufferUnderflowException;
-import java.time.Month;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
-    ActivityConsultaOrdenesPeridoProductorBinding coppb;
-    EditText FI, FF;
-
-    //para tabla
-    TableLayout tbtOP,tbtdet;
+public class consulGeneralDist extends AppCompatActivity {
+    TableLayout tbtCOP,tbtdet;
+    String emisorname;
+    TextView nom;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviDistribuidores.php";
+    JSONArray arreglo;
     MaterialButton volver;
-    String fi,ff;
-    String emisorname;
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_ordenes_perido_distribuidor);
-
-        //aqui va lo del menu
-        coppb= ActivityConsultaOrdenesPeridoProductorBinding.inflate(getLayoutInflater());
-        setContentView(coppb.getRoot());
-        allowActivityTitle("Movimientos/Ordenes/Periodo");
+        setContentView(R.layout.activity_consul_general_distri);
+        tbtCOP = findViewById(R.id.tablaO);
+        tbtCOP.removeAllViews();//remueve columnas
 
         //variables sesion
-        emisorname = Index.obtenerrol(ConsultaOrdenesPeridoDistribuidor.this, Index.no);
-        Toast.makeText(ConsultaOrdenesPeridoDistribuidor.this, emisorname, Toast.LENGTH_SHORT).show();
+        emisorname = Index.obtenerrol(consulGeneralDist.this, Index.no);
+        Toast.makeText(consulGeneralDist.this, emisorname, Toast.LENGTH_SHORT).show();
 
-        tbtOP = findViewById(R.id.tablaO);
-        //limpiar tabla
-        tbtOP.removeAllViews();//remueve columnas
+        nom=findViewById(R.id.distribuidor);
+        nom.setText(Html.fromHtml("<b>Distribuidor: </b>"+emisorname));
+
+        requestQueue= Volley.newRequestQueue(consulGeneralDist.this);
+        progressDialog=new ProgressDialog(consulGeneralDist.this);
 
 
-        requestQueue= Volley.newRequestQueue(ConsultaOrdenesPeridoDistribuidor.this);
-        progressDialog=new ProgressDialog(ConsultaOrdenesPeridoDistribuidor.this);
-        //botones
+
+        cargaOrdenes();
+
+        //Boton para volver + Evento
         volver=findViewById(R.id.btnreg1);
-        FI = findViewById(R.id.FI);
-        FF = findViewById(R.id.FF);
-
-        //eventos botones
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,59 +69,14 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
                 onBackPressed();
             }
         });
-        FI.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrircalendario();
-            }
-        });
-        FF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrircalendario2();
-            }
-        });
-    }//finoncreate
-
-    public void abrircalendario() {
-        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                // +1 because January is zero
-                final String selectedDate = year + "/" + (month + 1) + "/" + day;
-                FI.setText(selectedDate);//imprime en el cuadro
-                fi=selectedDate;
-            }
-        });
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }
-
-    public void abrircalendario2(){
-        DatePickerFragment fragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                // +1 because January is zero
-                final String Date = year + "/" + (month+1) + "/" + day;
-                FF.setText(Date);//imprime en el cuadro
-                ff=Date;
-                cargartabla();
-
-            }
-        });
-        fragment.show(getSupportFragmentManager(), "datePicker");
 
     }
-    private void cargartabla() {
-        // Toast.makeText(this, "Fecha inicial: "+fi, Toast.LENGTH_SHORT).show();
-        // Toast.makeText(this, "Fecha final:  "+ff, Toast.LENGTH_SHORT).show();
 
+    private void cargaOrdenes() {
+        //------------
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
 
-        //limpiar tabla
-        tbtOP.removeAllViews();//remueve columnas
-
-        //peticion a servidor
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -177,58 +114,57 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
                         boton.setImageDrawable(getDrawable(R.drawable.detalle));
 
                         boton.setOnClickListener(new View.OnClickListener() {
-                            @Override //que pasa si se da click en el boton, aqui debe mandar  a llamar a otro metodo que carge el detalle
+                            @Override
+                            //Carga detalles
                             public void onClick(View v) {
-                                // Toast.makeText(ConsultaOrdenesPeridoProductor.this, "Pertenezco a la orden"+v.getTag(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(consulGeneralDist.this, "Pertenezco a la orden"+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
 
                                 CargarDetalle(id);
                             }
                         });
 
-                        tbtOP.addView(registro);
+                        arreglo=result;//para generar el csv
+
+                        tbtCOP.addView(registro);
                     }
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }
+
+            }//fin onresponse
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
                 //Mostrar el error de Volley exacto a través de la librería
                 Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
-            }
+            }//fin onerrorResponse
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","consulOfecha");
-                parametros.put("nombre",emisorname);
-                parametros.put("fi",fi);
-                parametros.put("ff",ff);
+                parametros.put("opcion","OrdenDistribuidor");
+                parametros.put("nombre","Naylea");
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
-    }//fin cargar tabla
 
-    private void CargarDetalle(String id) {
-        progressDialog.setMessage("Cargando...");
-        progressDialog.show();
 
-        //Toast.makeText(this, "Perteneszco a la orden: "+id, Toast.LENGTH_SHORT).show();
+    }//fin cargar ordenes
 
+    private void CargarDetalle(String id){
         tbtdet=findViewById(R.id.tabladetO);
         tbtdet.removeAllViews();//remueve columnas
 
+        Toast.makeText(this, "ID:"+id, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
                 try {
                     JSONArray result2=new JSONArray(response);
-                    for (int i = 0; i < result2.length();i++ ) {
+                    for (int i = 0; i < 5;i++ ) {
                         JSONObject jsonObject = result2.getJSONObject(i);
 
                         View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detordenes, null, false);
@@ -272,12 +208,12 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","DetOrdProductor");
+                parametros.put("opcion","DetOrdDistribuidor");
                 parametros.put("IdOrden",id);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
-    }//fin carga detalle
+    }//fin cargar detalle
 
-}//fin clas
+}

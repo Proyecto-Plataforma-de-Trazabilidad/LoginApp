@@ -1,4 +1,4 @@
-package com.example.loginapp.Indexs.Movimientos;
+package com.example.loginapp.Movimientos;
 
 import androidx.cardview.widget.CardView;
 
@@ -9,7 +9,7 @@ import android.view.View;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 
 
-import com.example.loginapp.Indexs.Movimientos.Distribuidor.ConsultasOrdenesDistri;
+import com.example.loginapp.Movimientos.Distribuidor.ConsultasOrdenesDistri;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMoviDistribuidorBinding;
 

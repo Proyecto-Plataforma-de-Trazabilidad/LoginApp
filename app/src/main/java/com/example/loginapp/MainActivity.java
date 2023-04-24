@@ -32,8 +32,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.Index;
 import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {

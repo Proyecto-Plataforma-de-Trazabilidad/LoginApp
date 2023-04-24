@@ -1,12 +1,7 @@
 package com.example.loginapp.Datos_Usuario;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,12 +12,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
-import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
 import com.example.loginapp.databinding.ActivityPerfilBinding;
-import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;

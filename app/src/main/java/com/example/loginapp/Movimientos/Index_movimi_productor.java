@@ -1,16 +1,14 @@
-package com.example.loginapp.Indexs.Movimientos;
+package com.example.loginapp.Movimientos;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.Movimientos.Productores.ConsultasExtraviadosProductor;
-import com.example.loginapp.Indexs.Movimientos.Productores.consultas_ordenesProductor;
+import com.example.loginapp.Movimientos.Productores.ConsultasExtraviadosProductor;
+import com.example.loginapp.Movimientos.Productores.consultas_ordenesProductor;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMovimiProductorBinding;
 

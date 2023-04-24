@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Indexs.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesQuimicoDist">
+        tools:context=".Movimientos.Distribuidor.Ordenes.ConsultaOrdenesQuimicoDist">
         <LinearLayout
             android:id="@+id/layoutbase"
             android:layout_width="match_parent"

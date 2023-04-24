@@ -10,7 +10,7 @@ import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCataAMOCALIgeneral;
 import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCataAMOCALImunici;
 import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene;
 import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal;
-import com.example.loginapp.Indexs.Index;
+import com.example.loginapp.Index;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
 

@@ -1,4 +1,4 @@
-package com.example.loginapp.Indexs.Movimientos.Productores.Extraviados;
+package com.example.loginapp.Movimientos.Productores.Extraviados;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -26,8 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.Index;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor;
+import com.example.loginapp.Index;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 

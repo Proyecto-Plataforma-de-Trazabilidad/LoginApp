@@ -1,16 +1,12 @@
-package com.example.loginapp.Indexs.Movimientos.Distribuidor.Ordenes;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+package com.example.loginapp.Movimientos.Productores.Ordenes;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,53 +17,60 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Indexs.Index;
-import com.example.loginapp.Indexs.Movimientos.Productores.consultas_ordenesProductor;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
+import com.example.loginapp.Index;
+import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
 import com.example.loginapp.R;
-import com.example.loginapp.SetGet_Consultas.TipoQuimico;
-import com.example.loginapp.SetGet_Consultas.municipios;
+import com.example.loginapp.databinding.ActivityConsultaOrdenesPeridoProductorBinding;
 import com.google.android.material.button.MaterialButton;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import cz.msebera.android.httpclient.Header;
+public class ConsultaOrdenesPeridoProductor extends DrawerBaseActivity {
+    ActivityConsultaOrdenesPeridoProductorBinding coppb;
+    EditText FI, FF;
 
-public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     //para tabla
     TableLayout tbtOP,tbtdet;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviDistribuidores.php";
+    String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviProductores.php";
     MaterialButton volver;
-    Spinner cboTipoQuimico;
-    AsyncHttpClient cliente;
+    String fi,ff;
     String emisorname;
-    @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_ordenes_tipoquimico_dist);
+        setContentView(R.layout.activity_consulta_ordenes_perido_productor);
 
-        cliente=new AsyncHttpClient();
-
-
-        requestQueue= Volley.newRequestQueue(ConsultaOrdenesQuimicoDist.this);
-        progressDialog=new ProgressDialog(ConsultaOrdenesQuimicoDist.this);
+        //aqui va lo del menu
+        coppb= ActivityConsultaOrdenesPeridoProductorBinding.inflate(getLayoutInflater());
+        setContentView(coppb.getRoot());
+        allowActivityTitle("Movimientos/Ordenes/Periodo");
 
         //variables sesion
-        emisorname = Index.obtenerrol(ConsultaOrdenesQuimicoDist.this, Index.no);
-        Toast.makeText(ConsultaOrdenesQuimicoDist.this, emisorname, Toast.LENGTH_SHORT).show();
+        emisorname = Index.obtenerrol(ConsultaOrdenesPeridoProductor.this, Index.no);
+        Toast.makeText(ConsultaOrdenesPeridoProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+
+        tbtOP = findViewById(R.id.tablaO);
+        //limpiar tabla
+        tbtOP.removeAllViews();//remueve columnas
 
 
+        requestQueue= Volley.newRequestQueue(ConsultaOrdenesPeridoProductor.this);
+        progressDialog=new ProgressDialog(ConsultaOrdenesPeridoProductor.this);
         //botones
         volver=findViewById(R.id.btnreg1);
+        FI = findViewById(R.id.FI);
+        FF = findViewById(R.id.FF);
+
+        //eventos botones
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,72 +78,63 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
                 onBackPressed();
             }
         });
-
-        cboTipoQuimico=(Spinner) findViewById(R.id.cboTipoQuimico);
-        LlenarSpiner();
-
-        tbtOP = findViewById(R.id.tablaO);
-        tbtdet=findViewById(R.id.tabladetO);
-
-    }//fin oncreate
-
-    private void LlenarSpiner() {
-        String url="https://campolimpiojal.com/android/cboTipoQuimico.php";
-        cliente.post(url, new AsyncHttpResponseHandler() {
+        FI.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if(statusCode==200){
-                    CargarSpinner(new String(responseBody));
-                }
+            public void onClick(View v) {
+                abrircalendario();
             }
-
+        });
+        FF.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+            public void onClick(View v) {
+                abrircalendario2();
+            }
+        });
+    }//finoncreate
+
+    public void abrircalendario() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                final String selectedDate = year + "/" + (month + 1) + "/" + day;
+                FI.setText(selectedDate);//imprime en el cuadro
+                fi=selectedDate;
+            }
+        });
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public void abrircalendario2(){
+        DatePickerFragment fragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                final String Date = year + "/" + (month+1) + "/" + day;
+                FF.setText(Date);//imprime en el cuadro
+                ff=Date;
+                cargartabla();
 
             }
         });
+        fragment.show(getSupportFragmentManager(), "datePicker");
+
     }
+    private void cargartabla() {
+       // Toast.makeText(this, "Fecha inicial: "+fi, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Fecha final:  "+ff, Toast.LENGTH_SHORT).show();
 
-    private void CargarSpinner(String respuesta) {
-        ArrayList<TipoQuimico> lista= new ArrayList<TipoQuimico>();
-        try{
-            JSONArray jsonArreglo=new JSONArray(respuesta);
-            for(int i=0; i<jsonArreglo.length(); i++){
-                TipoQuimico tqo=new TipoQuimico();
-                tqo.setTipoQuimico(jsonArreglo.getJSONObject(i).getString("Concepto"));
-                lista.add(tqo);
-            }
-            ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
-            cboTipoQuimico.setAdapter(a);
-            cboTipoQuimico.setOnItemSelectedListener(this);
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
 
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-
-
-    }//fin cargar spiner
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String tq = parent.getSelectedItem().toString();
-
+        //limpiar tabla
         tbtOP.removeAllViews();//remueve columnas
-        tbtdet.removeAllViews();//remueve columnas
 
-        CargarTabla(tq);
-    }
-
-    private void CargarTabla(String tq) {
-        Toast.makeText(this, "Recibi"+tq, Toast.LENGTH_SHORT).show();
-
-
-
+        //peticion a servidor
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 try {
                     JSONArray result=new JSONArray(response);
                     for (int i = 0; i < result.length();i++ ) {
@@ -174,14 +168,14 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
                         boton.setImageDrawable(getDrawable(R.drawable.detalle));
 
                         boton.setOnClickListener(new View.OnClickListener() {
-                            @Override
+                            @Override //que pasa si se da click en el boton, aqui debe mandar  a llamar a otro metodo que carge el detalle
                             public void onClick(View v) {
-                                Toast.makeText(ConsultaOrdenesQuimicoDist.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(ConsultaOrdenesPeridoProductor.this, "Pertenezco a la orden"+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
-                                CargarDetalle(tq,id);
+
+                                CargarDetalle(id);
                             }
                         });
-
 
                         tbtOP.addView(registro);
                     }
@@ -200,23 +194,29 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","consulTQorden");
+                parametros.put("opcion","consulOfecha");
                 parametros.put("nombre",emisorname);
-                parametros.put("tq",tq);
+                parametros.put("fi",fi);
+                parametros.put("ff",ff);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
     }//fin cargar tabla
 
-    private void CargarDetalle(String quimi,String id) {
+    private void CargarDetalle(String id) {
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
 
+        //Toast.makeText(this, "Perteneszco a la orden: "+id, Toast.LENGTH_SHORT).show();
+
+        tbtdet=findViewById(R.id.tabladetO);
         tbtdet.removeAllViews();//remueve columnas
 
-        Toast.makeText(this, "Hola rescate el quimico"+quimi, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 try {
                     JSONArray result2=new JSONArray(response);
                     for (int i = 0; i < result2.length();i++ ) {
@@ -263,19 +263,12 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","consulDetTQorden");
-                parametros.put("id",id);
-                parametros.put("quimi",quimi);
+                parametros.put("opcion","DetOrdProductor");
+                parametros.put("IdOrden",id);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
+    }//fin carga detalle
 
-    }
-
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-}//fin class
+}//fin clas

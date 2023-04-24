@@ -20,34 +20,31 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdEmD"
+            android:name=".Movimientos.Productores.Entregas.ConsuEntreProdEmD"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdxCAT"
+            android:name=".Movimientos.Productores.Entregas.ConsuEntreProdxCAT"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Entregas.ConsuEntreProdxDist"
+            android:name=".Movimientos.Productores.Entregas.ConsuEntreProdxDist"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.ConsulEntreProd"
+            android:name=".Movimientos.Productores.ConsulEntreProd"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase"
+            android:name=".Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultasExtraviadosPeriodo"
+            android:name=".Movimientos.Productores.Extraviados.ConsultasExtraviadosPeriodo"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosProductor"
+            android:name=".Movimientos.Productores.Extraviados.ConsultaExtraviadosProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.ConsultasExtraviadosProductor"
+            android:name=".Movimientos.Productores.ConsultasExtraviadosProductor"
             android:exported="false" />
         <activity
-            android:name=".IndexEntregas"
-            android:exported="false" />
-        <activity
-            android:name=".Indexs.Movimientos.indexmovimientoMunicipios"
+            android:name=".Movimientos.indexmovimientoMunicipios"
             android:exported="false" />
         <activity
             android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
@@ -56,40 +53,40 @@
             android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor"
+            android:name=".Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor"
+            android:name=".Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor"
+            android:name=".Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor"
+            android:name=".Movimientos.Productores.Ordenes.ConsulGeneralDelProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.consultaOrdenEnvaseDistribuidor"
+            android:name=".Movimientos.Distribuidor.Ordenes.consultaOrdenEnvaseDistribuidor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesQuimicoDist"
+            android:name=".Movimientos.Distribuidor.Ordenes.ConsultaOrdenesQuimicoDist"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.consulGeneralDist"
+            android:name=".Movimientos.Distribuidor.Ordenes.consulGeneralDist"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Distribuidor.Ordenes.ConsultaOrdenesPeridoDistribuidor"
+            android:name=".Movimientos.Distribuidor.Ordenes.ConsultaOrdenesPeridoDistribuidor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Distribuidor.ConsultasOrdenesDistri"
+            android:name=".Movimientos.Distribuidor.ConsultasOrdenesDistri"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Index_movi_distribuidor"
+            android:name=".Movimientos.Index_movi_distribuidor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Productores.consultas_ordenesProductor"
+            android:name=".Movimientos.Productores.consultas_ordenesProductor"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Movimientos.Index_movimi_productor"
+            android:name=".Movimientos.Index_movimi_productor"
             android:exported="false" />
         <activity
             android:name=".Catalogos.CATALOGOS_ROL.IndexCataAMOCALImunici"
@@ -178,7 +175,7 @@
             android:name=".Mapas.Mapa"
             android:exported="false" />
         <activity
-            android:name=".Indexs.Index"
+            android:name=".Index"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

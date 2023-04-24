@@ -1,4 +1,4 @@
-package com.example.loginapp.Indexs;
+package com.example.loginapp;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -15,8 +15,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.MainActivity;
-import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexBinding;
 
 

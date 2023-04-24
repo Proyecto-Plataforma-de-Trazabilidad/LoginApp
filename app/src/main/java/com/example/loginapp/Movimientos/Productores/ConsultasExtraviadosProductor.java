@@ -1,6 +1,5 @@
-package com.example.loginapp.Indexs.Movimientos.Productores;
+package com.example.loginapp.Movimientos.Productores;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -8,15 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosProductor;
-import com.example.loginapp.Indexs.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase;
-import com.example.loginapp.Indexs.Movimientos.Productores.Extraviados.ConsultasExtraviadosPeriodo;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor;
-import com.example.loginapp.Indexs.Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor;
+import com.example.loginapp.Movimientos.Productores.Extraviados.ConsultaExtraviadosProductor;
+import com.example.loginapp.Movimientos.Productores.Extraviados.ConsultaExtraviadosTipoEnvase;
+import com.example.loginapp.Movimientos.Productores.Extraviados.ConsultasExtraviadosPeriodo;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityConsultasExtraviadosProductorBinding;
-import com.example.loginapp.databinding.ActivityIndexMovimiProductorBinding;
 
 public class ConsultasExtraviadosProductor extends DrawerBaseActivity {
     ActivityConsultasExtraviadosProductorBinding cepb;
