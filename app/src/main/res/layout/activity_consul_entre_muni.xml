@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Movimientos.Productores.ConsulEntreProd">
+        tools:context=".Movimientos.Municipio.ConsulEntreMuni">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/frame"
+                        android:src="@drawable/agricultura_1"
                         app:tint="@color/Iconos"
                         android:paddingTop="10dp"/>
 
@@ -78,7 +78,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="      Distribuidor     "
+                        android:text="     Productor    "
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -100,47 +100,16 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/frame__2_"
+                        android:src="@drawable/feed"
                         app:tint="@color/Iconos" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="            CAT             "
+                        android:text="       General       "
                         android:textAlignment="center"
                         android:textSize="20dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
-                android:id="@+id/tc3">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical|center_horizontal">
-                    <ImageView
-                        android:id="@+id/RECOL"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/group_1"
-                        app:tint="@color/Iconos" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-black"
-                        android:text="      Empresa RP    "
-                        android:layout_gravity="center"
-                        android:textSize="20dp"
-
                         android:textStyle="bold" />
                 </LinearLayout>
 

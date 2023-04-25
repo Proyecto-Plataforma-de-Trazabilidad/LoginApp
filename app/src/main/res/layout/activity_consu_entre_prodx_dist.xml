@@ -80,49 +80,37 @@ android:background="@color/white">
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/titn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="dato1"
+                    android:text="Id"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/titd"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="dato2"
+                    android:text="Recibo"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/titla"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:background="@color/encabezado1"
-                    android:text="dato3"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-                <TextView
-                    android:id="@+id/titlo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="dato4"
+                    android:text="Fecha"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </TableRow>
         </TableLayout>
+
         <TableLayout
-            android:id="@+id/tablaE"
+            android:id="@+id/tablaEntregas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="0dp"
@@ -131,6 +119,7 @@ android:background="@color/white">
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </TableLayout>
+
         <TableLayout
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -141,22 +130,20 @@ android:background="@color/white">
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <TextView
-                    android:id="@+id/conse"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="det1"
+                    android:text="Con."
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/TipoQ"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="det2"
+                    android:text="Tipo E"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
@@ -166,7 +153,7 @@ android:background="@color/white">
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="det3"
+                    android:text="Piezas"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
@@ -176,7 +163,7 @@ android:background="@color/white">
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@color/encabezado1"
-                    android:text="det4"
+                    android:text="Peso"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
@@ -184,16 +171,17 @@ android:background="@color/white">
                     android:id="@+id/piezas"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="@color/encabezado1"
-                    android:text="det5"
+                    android:text="Observaciones"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </TableRow>
         </TableLayout>
+
         <TableLayout
-            android:id="@+id/tabladetE"
+            android:id="@+id/tabladetEn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="0dp"
@@ -202,6 +190,7 @@ android:background="@color/white">
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </TableLayout>
+
 
 
         <GridLayout

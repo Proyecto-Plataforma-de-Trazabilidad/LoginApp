@@ -2,11 +2,13 @@ package com.example.loginapp.Movimientos;
 
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 
+import com.example.loginapp.Movimientos.Municipio.ConsulEntreMuni;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexmovimientoMunicipiosBinding;
 
@@ -29,8 +31,8 @@ public class indexmovimientoMunicipios extends DrawerBaseActivity {
         Entregas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent en=new Intent(indexmovimientoMunicipios.this, IndexEntregas.class);
-                //startActivity(en);
+                Intent en=new Intent(indexmovimientoMunicipios.this, ConsulEntreMuni.class);
+                startActivity(en);
             }
         });//fin onclick
     }//finoncreate

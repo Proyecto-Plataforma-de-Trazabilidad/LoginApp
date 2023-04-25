@@ -73,7 +73,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/agricultura_1"
+                    android:src="@drawable/feed"
                     app:tint="@color/Iconos"
                     android:paddingTop="10dp"/>
 
@@ -81,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="     Productor    "
+                    android:text="       General      "
                     android:textAlignment="center"
                     android:textSize="20dp"
                     android:textStyle="bold" />
