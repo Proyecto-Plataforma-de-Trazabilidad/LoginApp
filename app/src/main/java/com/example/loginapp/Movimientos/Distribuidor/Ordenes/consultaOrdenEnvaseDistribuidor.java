@@ -44,6 +44,7 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_ordenenvase_distribuidor);
+        setContentView(R.layout.activity_consulta_ordenenvase_distribuidor);
 
         requestQueue= Volley.newRequestQueue(consultaOrdenEnvaseDistribuidor.this);
         progressDialog=new ProgressDialog(consultaOrdenEnvaseDistribuidor.this);
@@ -152,7 +153,7 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulEorden");
-                parametros.put("nombre","Ever SA DE CV");
+                parametros.put("nombre",emisorname);
                 parametros.put("envase",value);
                 return parametros;
             }

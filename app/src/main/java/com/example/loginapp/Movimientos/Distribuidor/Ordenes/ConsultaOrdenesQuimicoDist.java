@@ -198,7 +198,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulTQorden");
-                parametros.put("nombre","Ever SA DE CV");
+                parametros.put("nombre",emisorname);
                 parametros.put("tq",tq);
                 return parametros;
             }
