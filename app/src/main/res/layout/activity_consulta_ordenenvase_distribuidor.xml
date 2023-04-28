@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Productor"
+                        android:text="Distri."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />

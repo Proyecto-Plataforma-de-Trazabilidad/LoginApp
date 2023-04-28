@@ -131,7 +131,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
     }
 
     private void CargarTabla(String tq) {
-        Toast.makeText(this, "Recibi: "+tq, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Recibi"+tq, Toast.LENGTH_SHORT).show();
 
 
 
@@ -155,7 +155,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
 
                         //rescata los valores
                         String idO=jsonObject.getString("IdOrden");
-                        String distriO=jsonObject.getString("Productor");
+                        String distriO=jsonObject.getString("Distribuidor");
                         String factO=jsonObject.getString("NumFactura");
                         String receO=jsonObject.getString("NumReceta");
 
