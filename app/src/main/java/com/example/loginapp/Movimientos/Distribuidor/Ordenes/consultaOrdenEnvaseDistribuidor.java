@@ -152,7 +152,7 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulEorden");
-                parametros.put("nombre",emisorname);
+                parametros.put("nombre","Ever SA DE CV");
                 parametros.put("envase",value);
                 return parametros;
             }

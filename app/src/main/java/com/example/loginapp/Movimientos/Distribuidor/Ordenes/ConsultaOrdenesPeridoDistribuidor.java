@@ -195,7 +195,7 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulOfecha");
-                parametros.put("nombre",emisorname);
+                parametros.put("nombre","Ever SA DE CV");
                 parametros.put("fi",fi);
                 parametros.put("ff",ff);
                 return parametros;

@@ -145,7 +145,7 @@ public class consulGeneralDist extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","OrdenDistribuidor");
-                parametros.put("nombre","Naylea");
+                parametros.put("nombre","Ever SA DE CV");
                 return parametros;
             }
         };
