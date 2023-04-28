@@ -263,7 +263,7 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","DetOrdProductor");
+                parametros.put("opcion","DetOrdDistribuidor");
                 parametros.put("IdOrden",id);
                 return parametros;
             }
