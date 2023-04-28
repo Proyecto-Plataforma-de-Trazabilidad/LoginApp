@@ -152,7 +152,7 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
 
                         //rescata los valores
                         String idO=jsonObject.getString("IdOrden");
-                        String distriO=jsonObject.getString("Distribuidor");
+                        String distriO=jsonObject.getString("Productor");
                         String factO=jsonObject.getString("NumFactura");
                         String receO=jsonObject.getString("NumReceta");
 
