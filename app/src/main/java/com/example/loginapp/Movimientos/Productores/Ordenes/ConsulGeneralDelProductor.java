@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -31,7 +32,7 @@ import java.util.Map;
 
 public class ConsulGeneralDelProductor extends AppCompatActivity {
     TableLayout tbtCOP,tbtdet;
-    String emisorname;
+    String emisor;
     TextView nom;
     //conexion
     ProgressDialog progressDialog;
@@ -49,12 +50,15 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
         tbtCOP = findViewById(R.id.tablaO);
         tbtCOP.removeAllViews();//remueve columnas
 
-        //variables sesion
-        emisorname = Index.obtenerrol(ConsulGeneralDelProductor.this, Index.no);
-        Toast.makeText(ConsulGeneralDelProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsulGeneralDelProductor.this,MainActivity.m);
+        //Toast.makeText(ConsulGeneralDelProductor.this, emisor, Toast.LENGTH_SHORT).show();
 
+        //variables sesion nombre
+        String emisorname = Index.obtenerrol(ConsulGeneralDelProductor.this, Index.no);
+        
         nom=findViewById(R.id.productor);
-        nom.setText(Html.fromHtml("<b>Productor: </b>"+emisorname));
+        nom.setText(Html.fromHtml("<b>Productor: </b>"+emisorname));//nombre del usuario
 
         requestQueue= Volley.newRequestQueue(ConsulGeneralDelProductor.this);
         progressDialog=new ProgressDialog(ConsulGeneralDelProductor.this);
@@ -121,7 +125,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override //que pasa si se da click en el boton, aqui debe mandar  a llamar a otro metodo que carge el detalle
                             public void onClick(View v) {
-                                Toast.makeText(ConsulGeneralDelProductor.this, "Pertenezco a la orden"+v.getTag(), Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(ConsulGeneralDelProductor.this, "Pertenezco a la orden"+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
 
                                 CargarDetalle(id);
@@ -149,7 +153,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","OrdenProductor");
-                parametros.put("nombre","Naylea");
+                parametros.put("correo",emisor);
                 return parametros;
             }
         };
@@ -162,7 +166,7 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
         tbtdet=findViewById(R.id.tabladetO);
         tbtdet.removeAllViews();//remueve columnas
 
-        Toast.makeText(this, "Hola rescate el id"+id, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Hola rescate el id"+id, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

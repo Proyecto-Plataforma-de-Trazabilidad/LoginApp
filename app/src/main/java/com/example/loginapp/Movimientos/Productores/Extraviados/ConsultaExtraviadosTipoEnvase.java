@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -47,7 +48,7 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
     Spinner cboEnvase;
     JSONArray arreglo;
     String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
-    String emisorname;
+    String emisor, emisorname;
     Button CSV;
 
     @Override
@@ -58,10 +59,11 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
         requestQueue= Volley.newRequestQueue(ConsultaExtraviadosTipoEnvase.this);
         progressDialog=new ProgressDialog(ConsultaExtraviadosTipoEnvase.this);
 
-        //variables sesion
-        emisorname = Index.obtenerrol(ConsultaExtraviadosTipoEnvase.this, Index.no);
-        Toast.makeText(ConsultaExtraviadosTipoEnvase.this, emisorname, Toast.LENGTH_SHORT).show();
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsultaExtraviadosTipoEnvase.this,MainActivity.m);
 
+        //variables sesion nombre
+        emisorname = Index.obtenerrol(ConsultaExtraviadosTipoEnvase.this, Index.no);
 
         //botones
         volver=findViewById(R.id.btnreg1);
@@ -86,13 +88,13 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String value=parent.getItemAtPosition(position).toString();
-        Toast.makeText(this, "Rescate: "+value, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Rescate: "+value, Toast.LENGTH_SHORT).show();
         tbtETE.removeAllViews();//remueve columnas
         CargarTabla(value);
     }
     private void CargarTabla(String value) {
         CSV=findViewById(R.id.csv);
-        Toast.makeText(this, "Recibi: "+value, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Recibi: "+value, Toast.LENGTH_SHORT).show();
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
@@ -141,7 +143,7 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","TEProductor");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 parametros.put("envase",value);
                 return parametros;
             }

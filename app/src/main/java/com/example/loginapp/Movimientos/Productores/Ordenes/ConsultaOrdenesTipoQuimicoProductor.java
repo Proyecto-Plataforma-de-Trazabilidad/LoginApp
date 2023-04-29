@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.TipoQuimico;
 import com.google.android.material.button.MaterialButton;
@@ -46,7 +47,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
     MaterialButton volver;
     Spinner cboTipoQuimico;
     AsyncHttpClient cliente;
-    String emisorname;
+    String emisor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +59,8 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
         requestQueue= Volley.newRequestQueue(ConsultaOrdenesTipoQuimicoProductor.this);
         progressDialog=new ProgressDialog(ConsultaOrdenesTipoQuimicoProductor.this);
 
-        //variables sesion
-        emisorname = Index.obtenerrol(ConsultaOrdenesTipoQuimicoProductor.this, Index.no);
-        Toast.makeText(ConsultaOrdenesTipoQuimicoProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsultaOrdenesTipoQuimicoProductor.this,MainActivity.m);
 
 
         //botones
@@ -131,10 +131,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
     }
 
     private void CargarTabla(String tq) {
-        Toast.makeText(this, "Recibi"+tq, Toast.LENGTH_SHORT).show();
-
-
-
+        //Toast.makeText(this, "Recibi"+tq, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -173,7 +170,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(ConsultaOrdenesTipoQuimicoProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(ConsultaOrdenesTipoQuimicoProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
                                 CargarDetalle(tq,id);
                             }
@@ -198,7 +195,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulTQorden");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 parametros.put("tq",tq);
                 return parametros;
             }
@@ -210,7 +207,7 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
 
         tbtdet.removeAllViews();//remueve columnas
 
-        Toast.makeText(this, "Hola rescate el quimico"+quimi, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Hola rescate el quimico"+quimi, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
@@ -40,7 +41,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
-    String emisorname,ff,fi;
+    String emisorname,emisor,ff,fi;
     EditText FI, FF;
 
     //para tabla
@@ -56,6 +57,9 @@ public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultas_extraviados_periodo);
+
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsultasExtraviadosPeriodo.this,MainActivity.m);
 
         //variables sesion
         emisorname = Index.obtenerrol(ConsultasExtraviadosPeriodo.this, Index.no);
@@ -183,7 +187,7 @@ public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","Pproductor");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 parametros.put("fi",fi);
                 parametros.put("ff",ff);
                 return parametros;

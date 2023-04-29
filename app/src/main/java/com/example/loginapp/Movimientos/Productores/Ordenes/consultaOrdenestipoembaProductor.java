@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -39,7 +40,7 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
     MaterialButton volver;
     Spinner cboEnvase;
     String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
-    String emisorname;
+    String emisor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +49,8 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
         requestQueue= Volley.newRequestQueue(consultaOrdenestipoembaProductor.this);
         progressDialog=new ProgressDialog(consultaOrdenestipoembaProductor.this);
 
-        //variables sesion
-        emisorname = Index.obtenerrol(consultaOrdenestipoembaProductor.this, Index.no);
-        Toast.makeText(consultaOrdenestipoembaProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(consultaOrdenestipoembaProductor.this,MainActivity.m);
 
 
         //botones
@@ -81,14 +81,14 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String value=parent.getItemAtPosition(position).toString();
-        Toast.makeText(this, "Rescate: "+value, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Rescate: "+value, Toast.LENGTH_SHORT).show();
         tbtOP.removeAllViews();//remueve columnas
         tbtdet.removeAllViews();//remueve columnas
         CargarTabla(value);
     }
 
     private void CargarTabla(String value) {
-        Toast.makeText(this, "Recibi: "+value, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Recibi: "+value, Toast.LENGTH_SHORT).show();
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
@@ -128,7 +128,7 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(consultaOrdenestipoembaProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(consultaOrdenestipoembaProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
                                 CargarDetalle(id,value);
                             }
@@ -152,7 +152,7 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulEorden");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 parametros.put("envase",value);
                 return parametros;
             }
@@ -163,7 +163,7 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
     private void CargarDetalle(String id,String value) {
         tbtdet.removeAllViews();//remueve columnas
 
-        Toast.makeText(this, "Soy dela orden"+id+"de envases: "+value, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Soy dela orden"+id+"de envases: "+value, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

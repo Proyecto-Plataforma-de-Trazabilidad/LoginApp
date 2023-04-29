@@ -19,6 +19,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityConsultaOrdenesPeridoProductorBinding;
@@ -42,7 +43,7 @@ public class ConsultaOrdenesPeridoProductor extends DrawerBaseActivity {
     String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviProductores.php";
     MaterialButton volver;
     String fi,ff;
-    String emisorname;
+    String emisor;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +55,8 @@ public class ConsultaOrdenesPeridoProductor extends DrawerBaseActivity {
         setContentView(coppb.getRoot());
         allowActivityTitle("Movimientos/Ordenes/Periodo");
 
-        //variables sesion
-        emisorname = Index.obtenerrol(ConsultaOrdenesPeridoProductor.this, Index.no);
-        Toast.makeText(ConsultaOrdenesPeridoProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsultaOrdenesPeridoProductor.this,MainActivity.m);
 
         tbtOP = findViewById(R.id.tablaO);
         //limpiar tabla
@@ -195,7 +195,7 @@ public class ConsultaOrdenesPeridoProductor extends DrawerBaseActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulOfecha");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 parametros.put("fi",fi);
                 parametros.put("ff",ff);
                 return parametros;

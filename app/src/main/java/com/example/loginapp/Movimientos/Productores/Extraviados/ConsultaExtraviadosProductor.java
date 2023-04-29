@@ -24,6 +24,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -38,7 +40,7 @@ import java.util.Map;
 
 public class ConsultaExtraviadosProductor extends AppCompatActivity {
     TableLayout tbtE;
-    String emisorname;
+    String emisor;
     TextView nom;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -55,9 +57,12 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
         tbtE = findViewById(R.id.tablaO);
         tbtE.removeAllViews();//remueve columnas
 
-        //variables sesion
-        emisorname = Index.obtenerrol(ConsultaExtraviadosProductor.this, Index.no);
-        Toast.makeText(ConsultaExtraviadosProductor.this, emisorname, Toast.LENGTH_SHORT).show();
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsultaExtraviadosProductor.this,MainActivity.m);
+
+        //variables sesion nombre
+        String emisorname = Index.obtenerrol(ConsultaExtraviadosProductor.this, Index.no);
+       // Toast.makeText(ConsultaExtraviadosProductor.this, emisorname, Toast.LENGTH_SHORT).show();
 
         nom=findViewById(R.id.productor);
         nom.setText(Html.fromHtml("<b>Productor: </b>"+emisorname));
@@ -135,7 +140,7 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","EProductor");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 return parametros;
             }
         };
