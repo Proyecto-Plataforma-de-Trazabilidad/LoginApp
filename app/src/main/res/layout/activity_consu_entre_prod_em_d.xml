@@ -87,12 +87,13 @@
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Recibo"
+                        android:text="Responsa."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -102,6 +103,14 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Fecha"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
