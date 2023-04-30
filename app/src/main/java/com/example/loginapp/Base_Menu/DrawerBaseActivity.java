@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Index;
 import com.example.loginapp.Catalogos.IndexCatalogos;
+import com.example.loginapp.Movimientos.Index_movi_CAT;
+import com.example.loginapp.Movimientos.Index_movi_ERP;
 import com.example.loginapp.Movimientos.Index_movi_distribuidor;
 import com.example.loginapp.Movimientos.Index_movimi_productor;
 import com.example.loginapp.Movimientos.indexmovimientoMunicipios;
@@ -65,7 +67,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 navigationView.setNavigationItemSelectedListener(this);
                 break;
             case "5":
-                esconderAlgunosItems();
+                navigationView=drawerLayout.findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
                 break;
             case "6":
                 esconderAlgunosItems();
@@ -83,7 +86,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 esconderAlgunosItems();
                 break;
             case "11":
-                esconderAlgunosItems();
+                navigationView=drawerLayout.findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
                 break;
         }
 
@@ -131,18 +135,28 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
             case R.id.nav_movimientos:
                 switch (emisorRol){
-                    case "2":
+                    case "2"://productor
                         m = new Intent(this, Index_movimi_productor.class);
                         startActivity(m);
                         overridePendingTransition(0,0);
                         break;
-                    case"3":
+                    case"3"://distri
                         m = new Intent(this, Index_movi_distribuidor.class);
                         startActivity(m);
                         overridePendingTransition(0,0);
                         break;
-                    case"4":
+                    case"4"://municipios
                         m = new Intent(this, indexmovimientoMunicipios.class);
+                        startActivity(m);
+                        overridePendingTransition(0,0);
+                        break;
+                    case"5"://erp
+                        m = new Intent(this, Index_movi_ERP.class);
+                        startActivity(m);
+                        overridePendingTransition(0,0);
+                        break;
+                    case"11"://cat
+                        m = new Intent(this, Index_movi_CAT.class);
                         startActivity(m);
                         overridePendingTransition(0,0);
                         break;

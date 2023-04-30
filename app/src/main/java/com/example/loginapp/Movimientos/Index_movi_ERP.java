@@ -1,5 +1,6 @@
 package com.example.loginapp.Movimientos;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -7,24 +8,25 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-
+import com.example.loginapp.Movimientos.ERP.ConsuEn_ERP;
 import com.example.loginapp.Movimientos.Municipio.ConsulEntreMuni;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityIndexMoviErpBinding;
 import com.example.loginapp.databinding.ActivityIndexmovimientoMunicipiosBinding;
 
-public class indexmovimientoMunicipios extends DrawerBaseActivity {
-    ActivityIndexmovimientoMunicipiosBinding immb;
-
+public class Index_movi_ERP extends DrawerBaseActivity {
+    ActivityIndexMoviErpBinding IMEB;
     CardView Entregas,salidas;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_indexmovimiento_municipios);
+        setContentView(R.layout.activity_index_movi_erp);
 
         //aqui va lo del menu
-        immb= ActivityIndexmovimientoMunicipiosBinding.inflate(getLayoutInflater());
-        setContentView(immb.getRoot());
+        IMEB= ActivityIndexMoviErpBinding.inflate(getLayoutInflater());
+        setContentView(IMEB.getRoot());
         allowActivityTitle("Movimientos");
 
         Entregas=findViewById(R.id.t1);
@@ -32,8 +34,8 @@ public class indexmovimientoMunicipios extends DrawerBaseActivity {
         Entregas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent en=new Intent(indexmovimientoMunicipios.this, ConsulEntreMuni.class);
-                startActivity(en);
+                i=new Intent(Index_movi_ERP.this, ConsuEn_ERP.class);
+                startActivity(i);
             }
         });//fin onclick
         salidas.setOnClickListener(new View.OnClickListener() {
@@ -42,5 +44,5 @@ public class indexmovimientoMunicipios extends DrawerBaseActivity {
 
             }
         });//fin onclick
-    }//finoncreate
+    }
 }

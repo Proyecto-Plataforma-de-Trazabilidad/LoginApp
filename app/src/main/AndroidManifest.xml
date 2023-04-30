@@ -20,6 +20,33 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Movimientos.CAT.Entregas.ConsuEnPr_CAT"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.CAT.Entregas.ConsuEnGe_CAT"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.ERP.Entregas.ConsuEnPr_ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.ERP.Entregas.ConsuEnGe_ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.CAT.ConsuEn_CAT"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.ERP.ConsuEn_ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.Index_movi_CAT"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.Index_movi_ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.Productores.Entregas.ConsuEntreProdxMu"
+            android:exported="false" />
+        <activity
             android:name=".Movimientos.Distribuidor.ConsuEntD"
             android:exported="false" />
         <activity

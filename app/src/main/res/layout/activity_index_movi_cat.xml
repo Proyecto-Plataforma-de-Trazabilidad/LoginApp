@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Movimientos.Productores.ConsulEntreProd">
-
+        android:orientation="vertical"
+        tools:context=".Movimientos.Index_movi_CAT">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -47,38 +47,39 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center_horizontal"
-                android:text=" Consultas de Entregas"
+                android:text="  Consultas Movimientos  "
                 android:textAlignment="center"
                 android:textSize="20dp"
-                android:layout_margin="15dp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tc1"
+                android:id="@+id/t1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/frame"
-                        app:tint="@color/Iconos"
-                        android:paddingTop="10dp"/>
+                        android:src="@drawable/frameentregas"
+                        app:tint="@color/Iconos" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="      Distribuidor     "
+                        android:text="        Entregas       "
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -86,96 +87,36 @@
 
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
+                android:id="@+id/t2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:id="@+id/tc2">
+                android:layout_margin="5dp">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical|center_horizontal">
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:orientation="vertical">
+
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/frame__2_"
+                        android:src="@drawable/framesalidas"
                         app:tint="@color/Iconos" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="            CAT             "
+                        android:text="          Salidas        "
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
-                android:id="@+id/tc3">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical|center_horizontal">
-                    <ImageView
-                        android:id="@+id/RECOL"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/group_1"
-                        app:tint="@color/Iconos" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-black"
-                        android:text="      Empresa RP    "
-                        android:layout_gravity="center"
-                        android:textSize="20dp"
-
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
-                android:id="@+id/tc4">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical|center_horizontal">
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/municipio"
-                        app:tint="@color/Iconos" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-black"
-                        android:text="       Municipios     "
-                        android:layout_gravity="center"
-                        android:textSize="20dp"
-
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
