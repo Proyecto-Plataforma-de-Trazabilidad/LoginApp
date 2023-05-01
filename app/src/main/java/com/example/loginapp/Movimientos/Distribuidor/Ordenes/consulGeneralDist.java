@@ -19,6 +19,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor;
 import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -31,7 +33,7 @@ import java.util.Map;
 
 public class consulGeneralDist extends AppCompatActivity {
     TableLayout tbtCOP,tbtdet;
-    String emisorname;
+    String emisorname,emisor;
     TextView nom;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -48,6 +50,7 @@ public class consulGeneralDist extends AppCompatActivity {
 
         //variables sesion
         emisorname = Index.obtenerrol(consulGeneralDist.this, Index.no);
+        emisor= MainActivity.obtenerusuario(consulGeneralDist.this,MainActivity.m);
         Toast.makeText(consulGeneralDist.this, emisorname, Toast.LENGTH_SHORT).show();
 
         nom=findViewById(R.id.distribuidor);
@@ -145,7 +148,7 @@ public class consulGeneralDist extends AppCompatActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","OrdenDistribuidor");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 return parametros;
             }
         };

@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.TipoQuimico;
 import com.google.android.material.button.MaterialButton;
@@ -46,7 +47,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
     MaterialButton volver;
     Spinner cboTipoQuimico;
     AsyncHttpClient cliente;
-    String emisorname;
+    String emisor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +59,8 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
         requestQueue= Volley.newRequestQueue(ConsultaOrdenesQuimicoDist.this);
         progressDialog=new ProgressDialog(ConsultaOrdenesQuimicoDist.this);
 
-        //variables sesion
-        emisorname = Index.obtenerrol(ConsultaOrdenesQuimicoDist.this, Index.no);
-        Toast.makeText(ConsultaOrdenesQuimicoDist.this, emisorname, Toast.LENGTH_SHORT).show();
+        ///variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsultaOrdenesQuimicoDist.this,MainActivity.m);
 
 
         //botones
@@ -131,10 +131,6 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
     }
 
     private void CargarTabla(String tq) {
-        Toast.makeText(this, "Recibi"+tq, Toast.LENGTH_SHORT).show();
-
-
-
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -146,7 +142,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
                         View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_ordenes, null, false);
 
                         TextView id = registro.findViewById(R.id.col1);
-                        TextView distri = registro.findViewById(R.id.col2);
+                        TextView produc = registro.findViewById(R.id.col2);
                         TextView fact = registro.findViewById(R.id.col3);
                         TextView rece = registro.findViewById(R.id.col4);
 
@@ -161,7 +157,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
 
                         //asigna los valores rescatador
                         id.setText(idO);
-                        distri.setText(distriO);
+                        produc.setText(distriO);
                         fact.setText(factO);
                         rece.setText(receO);
 
@@ -173,7 +169,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(ConsultaOrdenesQuimicoDist.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(ConsultaOrdenesTipoQuimicoProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
                                 CargarDetalle(tq,id);
                             }
@@ -198,7 +194,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulTQorden");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 parametros.put("tq",tq);
                 return parametros;
             }
@@ -210,7 +206,7 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
 
         tbtdet.removeAllViews();//remueve columnas
 
-        Toast.makeText(this, "Hola rescate el quimico"+quimi, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Hola rescate el quimico"+quimi, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

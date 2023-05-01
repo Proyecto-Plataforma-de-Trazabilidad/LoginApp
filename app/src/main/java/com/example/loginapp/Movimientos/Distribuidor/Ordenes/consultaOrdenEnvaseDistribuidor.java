@@ -21,7 +21,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsultaOrdenenvaseDistribuidorBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -39,7 +42,7 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
     MaterialButton volver;
     Spinner cboEnvase;
     String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
-    String emisorname;
+    String emisor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +53,8 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
         progressDialog=new ProgressDialog(consultaOrdenEnvaseDistribuidor.this);
 
         //variables sesion
-        emisorname = Index.obtenerrol(consultaOrdenEnvaseDistribuidor.this, Index.no);
-        Toast.makeText(consultaOrdenEnvaseDistribuidor.this, emisorname, Toast.LENGTH_SHORT).show();
+        emisor =MainActivity.obtenerusuario(consultaOrdenEnvaseDistribuidor.this,MainActivity.m);
+        Toast.makeText(consultaOrdenEnvaseDistribuidor.this, emisor, Toast.LENGTH_SHORT).show();
 
 
         //botones
@@ -111,13 +114,13 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
 
                         //rescata los valores
                         String idO=jsonObject.getString("IdOrden");
-                        String distriO=jsonObject.getString("Productor");
+                        String prod=jsonObject.getString("Productor");
                         String factO=jsonObject.getString("NumFactura");
                         String receO=jsonObject.getString("NumReceta");
 
                         //asigna los valores rescatador
                         id.setText(idO);
-                        distri.setText(distriO);
+                        distri.setText(prod);
                         fact.setText(factO);
                         rece.setText(receO);
 
@@ -153,7 +156,7 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulEorden");
-                parametros.put("nombre",emisorname);
+                parametros.put("correo",emisor);
                 parametros.put("envase",value);
                 return parametros;
             }
@@ -164,7 +167,7 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
     private void CargarDetalle(String id,String value) {
         tbtdet.removeAllViews();//remueve columnas
 
-        Toast.makeText(this, "Soy dela orden"+id+"de envases: "+value, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Soy dela orden "+id+" de envases: "+value, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
