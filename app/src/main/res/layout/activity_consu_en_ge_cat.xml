@@ -60,7 +60,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/black" />
             <TextView
-                android:id="@+id/productor"
+                android:id="@+id/cat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14dp"

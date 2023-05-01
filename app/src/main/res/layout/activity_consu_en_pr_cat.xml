@@ -60,7 +60,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/black" />
             <Spinner
-                android:id="@+id/cboERP"
+                android:id="@+id/cboproductor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_footer"
