@@ -19,7 +19,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
+import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityConsultaOrdenesPeridoDistribuidorBinding;
 import com.google.android.material.button.MaterialButton;
@@ -42,7 +44,7 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
     String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviDistribuidores.php";
     MaterialButton volver;
     String fi,ff;
-    String emisorname;
+    String emisor;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +57,8 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
         allowActivityTitle("Movimientos/Ordenes/Periodo");
 
         //variables sesion
-        emisorname = Index.obtenerrol(ConsultaOrdenesPeridoDistribuidor.this, Index.no);
-        Toast.makeText(ConsultaOrdenesPeridoDistribuidor.this, emisorname, Toast.LENGTH_SHORT).show();
+        emisor= MainActivity.obtenerusuario(ConsultaOrdenesPeridoDistribuidor.this,MainActivity.m);
+        Toast.makeText(ConsultaOrdenesPeridoDistribuidor.this, emisor, Toast.LENGTH_SHORT).show();
 
         tbtOP = findViewById(R.id.tablaO);
         //limpiar tabla
@@ -121,14 +123,11 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
 
     }
     private void cargartabla() {
-        // Toast.makeText(this, "Fecha inicial: "+fi, Toast.LENGTH_SHORT).show();
-        // Toast.makeText(this, "Fecha final:  "+ff, Toast.LENGTH_SHORT).show();
-
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
 
-        //limpiar tabla
-        tbtOP.removeAllViews();//remueve columnas
+        //Limpia la tabla
+        tbtOP.removeAllViews();
 
         //peticion a servidor
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
@@ -143,7 +142,7 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
                         View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_ordenes, null, false);
 
                         TextView id = registro.findViewById(R.id.col1);
-                        TextView distri = registro.findViewById(R.id.col2);
+                        TextView produ = registro.findViewById(R.id.col2);
                         TextView fact = registro.findViewById(R.id.col3);
                         TextView rece = registro.findViewById(R.id.col4);
 
@@ -158,7 +157,7 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
 
                         //asigna los valores rescatador
                         id.setText(idO);
-                        distri.setText(distriO);
+                        produ.setText(distriO);
                         fact.setText(factO);
                         rece.setText(receO);
 
@@ -195,7 +194,7 @@ public class ConsultaOrdenesPeridoDistribuidor extends DrawerBaseActivity {
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","consulOfecha");
-                parametros.put("nombre","Ever SA DE CV");
+                parametros.put("correo",emisor);
                 parametros.put("fi",fi);
                 parametros.put("ff",ff);
                 return parametros;

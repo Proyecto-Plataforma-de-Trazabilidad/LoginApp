@@ -1,4 +1,4 @@
-package com.example.loginapp.Movimientos.Distribuidor.Ordenes;
+package com.example.loginapp.Movimientos.Distribuidor.Entregas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,10 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
-import com.example.loginapp.SetGet_Consultas.TipoQuimico;
+import com.example.loginapp.SetGet_Consultas.cboEntradas;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -38,56 +37,54 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    //para tabla
-    TableLayout tbtOP,tbtdet;
+public class ConsulEntregaxProductor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+
+    AsyncHttpClient cliente;
+    Spinner cboproductor;
+
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviDistribuidores.php";
-    MaterialButton volver;
-    Spinner cboTipoQuimico;
-    AsyncHttpClient cliente;
+    String httpURI = "https://campolimpiojal.com/android/ConsulEntregas_Dis_Muni_Cat_Erp.php";
+
+    String e;
+    TableLayout tbtE, tbtDetE;
+
+    MaterialButton btnregresa;
     String emisor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_ordenes_tipoquimico_dist);
+        setContentView(R.layout.activity_consul_entrega_productor);
 
-        cliente=new AsyncHttpClient();
-
-
-        requestQueue= Volley.newRequestQueue(ConsultaOrdenesQuimicoDist.this);
-        progressDialog=new ProgressDialog(ConsultaOrdenesQuimicoDist.this);
-
+        tbtE = findViewById(R.id.tablaEntregas);
+        tbtDetE = findViewById(R.id.tabladetEn);
         ///variables sesion correo
-        emisor= MainActivity.obtenerusuario(ConsultaOrdenesQuimicoDist.this,MainActivity.m);
+        emisor = MainActivity.obtenerusuario(ConsulEntregaxProductor.this, MainActivity.m);
 
 
-        //botones
-        volver=findViewById(R.id.btnreg1);
-        volver.setOnClickListener(new View.OnClickListener() {
+        cliente = new AsyncHttpClient();
+        cboproductor = (Spinner) findViewById(R.id.cboproductor);
+        llenarspinner();
+
+        requestQueue = Volley.newRequestQueue(ConsulEntregaxProductor.this);
+        progressDialog = new ProgressDialog(ConsulEntregaxProductor.this);
+
+        btnregresa = (MaterialButton) findViewById(R.id.btnreg1);
+        btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
                 onBackPressed();
             }
         });
-
-        cboTipoQuimico=(Spinner) findViewById(R.id.cboTipoQuimico);
-        LlenarSpiner();
-
-        tbtOP = findViewById(R.id.tablaO);
-        tbtdet=findViewById(R.id.tabladetO);
-
-    }//fin oncreate
-
-    private void LlenarSpiner() {
-        String url="https://campolimpiojal.com/android/cboTipoQuimico.php";
+    }
+    private void llenarspinner() {
+        String url = "https://campolimpiojal.com/android/CboProductoresEntregas.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if(statusCode==200){
-                    CargarSpinner(new String(responseBody));
+                if (statusCode == 200) {
+                    cargarspinner(new String(responseBody));
                 }
             }
 
@@ -97,40 +94,34 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
             }
         });
     }
-
-    private void CargarSpinner(String respuesta) {
-        ArrayList<TipoQuimico> lista= new ArrayList<TipoQuimico>();
-        try{
-            JSONArray jsonArreglo=new JSONArray(respuesta);
-            for(int i=0; i<jsonArreglo.length(); i++){
-                TipoQuimico tqo=new TipoQuimico();
-                tqo.setTipoQuimico(jsonArreglo.getJSONObject(i).getString("Concepto"));
-                lista.add(tqo);
+    private void cargarspinner(String respuesta) {
+        ArrayList<cboEntradas> lista = new ArrayList<cboEntradas>();
+        try {
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i = 0; i < jsonArreglo.length(); i++) {
+                cboEntradas ori = new cboEntradas();
+                ori.setNombre(jsonArreglo.getJSONObject(i).getString("Nombre"));
+                lista.add(ori);
             }
-            ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
-            cboTipoQuimico.setAdapter(a);
-            cboTipoQuimico.setOnItemSelectedListener(this);
+            ArrayAdapter<CharSequence> a = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lista);
+            cboproductor.setAdapter(a);
+            cboproductor.setOnItemSelectedListener(this);
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-    }//fin cargar spiner
-
+    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String tq = parent.getSelectedItem().toString();
-
-        tbtOP.removeAllViews();//remueve columnas
-        tbtdet.removeAllViews();//remueve columnas
-
-        CargarTabla(tq);
+        e = parent.getSelectedItem().toString();
+        Toast.makeText(this, e, Toast.LENGTH_SHORT).show();
+        tbtE.removeAllViews();//remueve columnas
+        tbtDetE.removeAllViews();
+        CargarTabla(e);
     }
+    private void CargarTabla(String e) {
 
-    private void CargarTabla(String tq) {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -139,44 +130,43 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
                     for (int i = 0; i < result.length();i++ ) {
                         JSONObject jsonObject = result.getJSONObject(i);
 
-                        View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_ordenes, null, false);
+                        View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_entregas, null, false);
 
                         TextView id = registro.findViewById(R.id.col1);
-                        TextView produc = registro.findViewById(R.id.col2);
-                        TextView fact = registro.findViewById(R.id.col3);
-                        TextView rece = registro.findViewById(R.id.col4);
+                        TextView res = registro.findViewById(R.id.col2);
+                        TextView fecha = registro.findViewById(R.id.col3);
+
 
                         //agregar bton
                         ImageButton boton=registro.findViewById(R.id.btndetalle);
 
                         //rescata los valores
-                        String idO=jsonObject.getString("IdOrden");
-                        String distriO=jsonObject.getString("Distribuidor");
-                        String factO=jsonObject.getString("NumFactura");
-                        String receO=jsonObject.getString("NumReceta");
+                        String idE=jsonObject.getString("IdEntrega");
+                        String resp=jsonObject.getString("ResponsableEntrega");
+                        String fech=jsonObject.getString("fecha");
+
 
                         //asigna los valores rescatador
-                        id.setText(idO);
-                        produc.setText(distriO);
-                        fact.setText(factO);
-                        rece.setText(receO);
+                        id.setText(idE);
+                        res.setText(resp);
+                        fecha.setText(fech);
+
 
                         //un valor id valido a boton segun cada fila que se genere
                         boton.setId(View.generateViewId());
-                        boton.setTag(idO);//asigna su identificador
+                        boton.setTag(idE);//asigna su identificador
                         boton.setImageDrawable(getDrawable(R.drawable.detalle));
 
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //Toast.makeText(ConsultaOrdenesTipoQuimicoProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ConsulEntregaxProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
-                                CargarDetalle(tq,id);
+                                CargarDetalle(id);
                             }
                         });
 
-
-                        tbtOP.addView(registro);
+                        tbtE.addView(registro);
                     }
                 }
                 catch (JSONException e) {
@@ -193,20 +183,18 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","consulTQorden");
+                parametros.put("opcion","ConsulEntradaProd");
                 parametros.put("correo",emisor);
-                parametros.put("tq",tq);
+                parametros.put("pro",e);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
-    }//fin cargar tabla
+    }
 
-    private void CargarDetalle(String quimi,String id) {
+    private void CargarDetalle(String id) {
+        tbtDetE.removeAllViews();//remueve columnas
 
-        tbtdet.removeAllViews();//remueve columnas
-
-        // Toast.makeText(this, "Hola rescate el quimico"+quimi, Toast.LENGTH_SHORT).show();
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -215,31 +203,31 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
                     for (int i = 0; i < result2.length();i++ ) {
                         JSONObject jsonObject = result2.getJSONObject(i);
 
-                        View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detordenes, null, false);
+                        View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detallentregas, null, false);
 
                         TextView consec= registroD.findViewById(R.id.col1);
-                        TextView quimico = registroD.findViewById(R.id.col2);
-                        TextView envase= registroD.findViewById(R.id.col3);
-                        TextView color = registroD.findViewById(R.id.col4);
-                        TextView piezas= registroD.findViewById(R.id.col5);
+                        TextView envase = registroD.findViewById(R.id.col2);
+                        TextView pz= registroD.findViewById(R.id.col3);
+                        TextView peso = registroD.findViewById(R.id.col4);
+                        TextView obs= registroD.findViewById(R.id.col5);
 
 
                         //rescata los valores
-                        String cdo=jsonObject.getString("Consecutivo");
-                        String qdo=jsonObject.getString("Concepto");
-                        String edo=jsonObject.getString("TipoEnvase");
-                        String colordo=jsonObject.getString("Color");
-                        String pdo=jsonObject.getString("CantidadPiezas");
+                        String cde=jsonObject.getString("Consecutivo");
+                        String ede=jsonObject.getString("TipoEnvaseVacio");
+                        String pde=jsonObject.getString("CantidadPiezas");
+                        String pes=jsonObject.getString("Peso");
+                        String obser=jsonObject.getString("Observaciones");
 
                         //asigna los valores rescatador
-                        consec.setText(cdo);
-                        quimico.setText(qdo);
-                        envase.setText(edo);
-                        color.setText(colordo);
-                        piezas.setText(pdo);
+                        consec.setText(cde);
+                        envase.setText(ede);
+                        pz.setText(pde);
+                        peso.setText(pes);
+                        obs.setText(obser);
 
                         //agrega fila
-                        tbtdet.addView(registroD);
+                        tbtDetE.addView(registroD);
                     }
                 }
                 catch (JSONException e) {
@@ -256,14 +244,12 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","consulDetTQorden");
+                parametros.put("opcion","DetEntrada");
                 parametros.put("id",id);
-                parametros.put("quimi",quimi);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
-
     }
 
 
@@ -271,4 +257,4 @@ public class ConsultaOrdenesQuimicoDist extends AppCompatActivity implements Ada
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-}//fin class
+}
