@@ -49,6 +49,9 @@
             android:name=".Movimientos.Distribuidor.Entregas.ConsulEntregaxProductor"
             android:exported="false" />
         <activity
+            android:name=".Movimientos.Distribuidor.Entregas.ConsulGen_Entre_Dist"
+            android:exported="false" />
+        <activity
             android:name=".Movimientos.Index_movi_CAT"
             android:exported="false" />
         <activity

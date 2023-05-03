@@ -37,41 +37,39 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-
 public class ConsulEntregaxProductor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+
     AsyncHttpClient cliente;
-    Spinner cbousuario;
+    Spinner cboproductor;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://campolimpiojal.com/android/ConsulEntregasProductor.php";
+    String httpURI = "https://campolimpiojal.com/android/ConsulEntregas_Dis_Muni_Cat_Erp.php";
 
     String e;
-    TableLayout tbtE,tbtDetE;
+    TableLayout tbtE, tbtDetE;
 
     MaterialButton btnregresa;
     String emisor;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consul_entregax_productor);
+        setContentView(R.layout.activity_consul_entrega_productor);
 
+        tbtE = findViewById(R.id.tablaEntregas);
+        tbtDetE = findViewById(R.id.tabladetEn);
         ///variables sesion correo
-        emisor= MainActivity.obtenerusuario(ConsulEntregaxProductor .this,MainActivity.m);
+        emisor = MainActivity.obtenerusuario(ConsulEntregaxProductor.this, MainActivity.m);
 
-        tbtE=findViewById(R.id.tablaEntregas);
-        tbtDetE=findViewById(R.id.tabladetEn);
 
-        cliente=new AsyncHttpClient();
-        cbousuario =(Spinner) findViewById(R.id.cboERP);
+        cliente = new AsyncHttpClient();
+        cboproductor = (Spinner) findViewById(R.id.cboproductor);
         llenarspinner();
 
-        requestQueue= Volley.newRequestQueue(ConsulEntregaxProductor .this);
-        progressDialog=new ProgressDialog(ConsulEntregaxProductor .this);
+        requestQueue = Volley.newRequestQueue(ConsulEntregaxProductor.this);
+        progressDialog = new ProgressDialog(ConsulEntregaxProductor.this);
 
-        btnregresa= (MaterialButton) findViewById(R.id.btnreg1);
+        btnregresa = (MaterialButton) findViewById(R.id.btnreg1);
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,15 +77,13 @@ public class ConsulEntregaxProductor extends AppCompatActivity implements Adapte
                 onBackPressed();
             }
         });
-
     }
-
     private void llenarspinner() {
-        String url="https://campolimpiojal.com/android/CboProductoresEntregas.php";
+        String url = "https://campolimpiojal.com/android/CboProductoresEntregas.php";
         cliente.post(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if(statusCode==200){
+                if (statusCode == 200) {
                     cargarspinner(new String(responseBody));
                 }
             }
@@ -98,22 +94,20 @@ public class ConsulEntregaxProductor extends AppCompatActivity implements Adapte
             }
         });
     }
-
     private void cargarspinner(String respuesta) {
-        ArrayList<cboEntradas> lista= new ArrayList<cboEntradas>();
-        try{
-            JSONArray jsonArreglo=new JSONArray(respuesta);
-            for(int i=0; i<jsonArreglo.length(); i++){
-                cboEntradas ori=new cboEntradas();
+        ArrayList<cboEntradas> lista = new ArrayList<cboEntradas>();
+        try {
+            JSONArray jsonArreglo = new JSONArray(respuesta);
+            for (int i = 0; i < jsonArreglo.length(); i++) {
+                cboEntradas ori = new cboEntradas();
                 ori.setNombre(jsonArreglo.getJSONObject(i).getString("Nombre"));
                 lista.add(ori);
             }
-            ArrayAdapter<CharSequence> a=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line,lista);
-            cbousuario.setAdapter(a);
-            cbousuario.setOnItemSelectedListener(this);
+            ArrayAdapter<CharSequence> a = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lista);
+            cboproductor.setAdapter(a);
+            cboproductor.setOnItemSelectedListener(this);
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -121,12 +115,13 @@ public class ConsulEntregaxProductor extends AppCompatActivity implements Adapte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         e = parent.getSelectedItem().toString();
+        Toast.makeText(this, e, Toast.LENGTH_SHORT).show();
         tbtE.removeAllViews();//remueve columnas
         tbtDetE.removeAllViews();
         CargarTabla(e);
     }
-
     private void CargarTabla(String e) {
+
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -165,9 +160,9 @@ public class ConsulEntregaxProductor extends AppCompatActivity implements Adapte
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(ConsulEntregaxProductor .this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ConsulEntregaxProductor.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
-                                CargarDetalle(id,e);
+                                CargarDetalle(id);
                             }
                         });
 
@@ -188,16 +183,16 @@ public class ConsulEntregaxProductor extends AppCompatActivity implements Adapte
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","ConsulEntrada");
+                parametros.put("opcion","ConsulEntradaProd");
                 parametros.put("correo",emisor);
-                parametros.put("usu",e);
+                parametros.put("pro",e);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
     }
 
-    private void CargarDetalle(String id, String e) {
+    private void CargarDetalle(String id) {
         tbtDetE.removeAllViews();//remueve columnas
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
@@ -256,6 +251,7 @@ public class ConsulEntregaxProductor extends AppCompatActivity implements Adapte
         };
         requestQueue.add(stringRequest);
     }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {

@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Movimientos.Distribuidor.Entregas.ConsulEntregaxProductor">
+        tools:context=".Movimientos.Productores.Entregas.ConsuEntreProdEmD">
 
         <LinearLayout
             android:id="@+id/layoutbase"
@@ -60,7 +60,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/black" />
             <Spinner
-                android:id="@+id/cboERP"
+                android:id="@+id/cboproductor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_footer"
