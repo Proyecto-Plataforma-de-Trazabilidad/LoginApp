@@ -52,6 +52,13 @@
             android:name=".Movimientos.Distribuidor.Entregas.ConsulGen_Entre_Dist"
             android:exported="false" />
         <activity
+
+            android:name=".Movimientos.Municipio.Entregas.ConsulEntrega_Muni_Produc"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.Municipio.Entregas.ConsulGen_Entre_Muni"
+            android:exported="false" />
+        <activity
             android:name=".Movimientos.Index_movi_CAT"
             android:exported="false" />
         <activity
