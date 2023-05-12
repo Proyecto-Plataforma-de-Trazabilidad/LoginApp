@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Movimientos.Distribuidor.Ordenes.ConsultaOrdenesPeridoDistribuidor">
+        tools:context=".Movimientos.Municipio.Salidas.ConsuGS_Mu">
 
         <LinearLayout
             android:id="@+id/layoutbase"
@@ -50,70 +50,34 @@
                     app:srcCompat="@drawable/fidaixbm_400x400" />
 
             </LinearLayout>
-
             <TextView
                 android:id="@+id/tit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Consulta Por Periodo Ordenes "
+                android:text="Consulta Salidas General "
                 android:textStyle="bold"
                 android:padding="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
-
             <TextView
-                android:id="@+id/f1"
+                android:id="@+id/cat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fecha inicial:"
-                android:textColor="@color/black"
-                android:padding="10dp"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@+id/tit" />
-            <EditText
-                android:id="@+id/FI"
-                android:hint="año/mes/día"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:clickable="true"
-                android:focusable="false"
-                android:maxLines="1"
-                android:layout_margin="10dp"/>
-
-            <TextView
-                android:id="@+id/f2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fecha Final:"
-                android:textColor="@color/black"
-                android:padding="10dp"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@+id/tit" />
-            <EditText
-                android:id="@+id/FF"
-                android:hint="año/mes/día"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:clickable="true"
-                android:focusable="false"
-                android:maxLines="1"
-                android:layout_margin="10dp"/>
+                android:textSize="14dp"
+                android:textAlignment="center"
+                android:paddingTop="5dp"
+                android:textColor="@color/black" />
 
             <TableLayout
                 android:paddingTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-
                     <TextView
-                        android:id="@+id/titn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -124,34 +88,20 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/titd"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Productor"
+                        android:text="IdConte."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
-
                     <TextView
-                        android:id="@+id/titla"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="   No.Fact "
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/titlo"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/encabezado1"
-                        android:text="  No.Rec "
+                        android:text="Respon."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -160,16 +110,32 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Detalle"
+                        android:text="Cantidad"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Fecha"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                 </TableRow>
             </TableLayout>
 
-
             <TableLayout
-                android:id="@+id/tablaO"
+                android:id="@+id/tablaEntregas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
@@ -189,22 +155,29 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/conse"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Consec."
+                        android:text="TipoConte"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                     <TextView
-                        android:id="@+id/TipoQ"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Tipo Q"
+                        android:text="Origen"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Capacidad"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -214,7 +187,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Tipo E."
+                        android:text="Descr."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -224,24 +197,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Color"
+                        android:text="StatusC."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/piezas"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@color/encabezado1"
-                        android:text="Piezas"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
+
                 </TableRow>
             </TableLayout>
+
             <TableLayout
-                android:id="@+id/tabladetO"
+                android:id="@+id/tabladetEn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteX="0dp"
@@ -250,6 +215,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </TableLayout>
+
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -270,9 +236,7 @@
                     android:layout_centerHorizontal="true"
                     />
 
-
             </GridLayout>
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

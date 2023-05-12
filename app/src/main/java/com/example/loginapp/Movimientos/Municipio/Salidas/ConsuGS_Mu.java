@@ -1,18 +1,16 @@
-package com.example.loginapp.Movimientos.Municipio.Entregas;
+package com.example.loginapp.Movimientos.Municipio.Salidas;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,56 +18,51 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
+import com.example.loginapp.Movimientos.Productores.Entregas.ConsuEntreProdEmD;
+import com.example.loginapp.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.R;
-import com.example.loginapp.SetGet_Consultas.cboEntradas;
 import com.google.android.material.button.MaterialButton;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import cz.msebera.android.httpclient.Header;
-
-public class ConsulEntrega_Muni_Produc extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-
-    AsyncHttpClient cliente;
-    Spinner cboproductor;
+public class ConsuGS_Mu extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI = "https://campolimpiojal.com/android/ConsulEntregas_Dis_Muni_Cat_Erp.php";
+    String httpURI= "https://campolimpiojal.com/android/ConsulSalidas_Gen.php";
 
-    String e;
-    TableLayout tbtE, tbtDetE;
-
+    TableLayout tbtE,tbtDetE;
     MaterialButton btnregresa;
-    String emisor;
+    String emisor,emisorname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consul_entrega_productor);
+        setContentView(R.layout.activity_consu_gs_mu);
 
-        tbtE = findViewById(R.id.tablaEntregas);
-        tbtDetE = findViewById(R.id.tabladetEn);
-        ///variables sesion correo
-        emisor = MainActivity.obtenerusuario(ConsulEntrega_Muni_Produc.this, MainActivity.m);
+        //variables sesion correo
+        emisor= MainActivity.obtenerusuario(ConsuGS_Mu.this,MainActivity.m);
+        //variables sesion nombre
+        emisorname = Index.obtenerrol(ConsuGS_Mu.this, Index.no);
 
+        TextView nom=findViewById(R.id.cat);
+        nom.setText(Html.fromHtml("<b>Municipio: </b>"+emisorname));//nombre del usuario
 
-        cliente = new AsyncHttpClient();
-        cboproductor = (Spinner) findViewById(R.id.cboproductor);
-        llenarspinner();
+        tbtE=findViewById(R.id.tablaEntregas);
+        tbtDetE=findViewById(R.id.tabladetEn);
 
-        requestQueue = Volley.newRequestQueue(ConsulEntrega_Muni_Produc.this);
-        progressDialog = new ProgressDialog(ConsulEntrega_Muni_Produc.this);
+        requestQueue= Volley.newRequestQueue(ConsuGS_Mu.this);
+        progressDialog=new ProgressDialog(ConsuGS_Mu.this);
 
-        btnregresa = (MaterialButton) findViewById(R.id.btnreg1);
+        cargartabla();
+
+        btnregresa= (MaterialButton) findViewById(R.id.btnreg1);
         btnregresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,120 +70,91 @@ public class ConsulEntrega_Muni_Produc extends AppCompatActivity implements Adap
                 onBackPressed();
             }
         });
-    }
-    private void llenarspinner() {
-        String url = "https://campolimpiojal.com/android/CboProductoresEntregas.php";
-        cliente.post(url, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                if (statusCode == 200) {
-                    cargarspinner(new String(responseBody));
-                }
-            }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-            }
-        });
-    }
-    private void cargarspinner(String respuesta) {
-        ArrayList<cboEntradas> lista = new ArrayList<cboEntradas>();
-        try {
-            JSONArray jsonArreglo = new JSONArray(respuesta);
-            for (int i = 0; i < jsonArreglo.length(); i++) {
-                cboEntradas ori = new cboEntradas();
-                ori.setNombre(jsonArreglo.getJSONObject(i).getString("Nombre"));
-                lista.add(ori);
-            }
-            ArrayAdapter<CharSequence> a = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lista);
-            cboproductor.setAdapter(a);
-            cboproductor.setOnItemSelectedListener(this);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        e = parent.getSelectedItem().toString();
-        Toast.makeText(this, e, Toast.LENGTH_SHORT).show();
-        tbtE.removeAllViews();//remueve columnas
-        tbtDetE.removeAllViews();
-        CargarTabla(e);
-    }
-    private void CargarTabla(String e) {
+    private void cargartabla() {
+
+        //------------
+        progressDialog.setMessage("Cargando...");
+        progressDialog.show();
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 try {
                     JSONArray result=new JSONArray(response);
                     for (int i = 0; i < result.length();i++ ) {
                         JSONObject jsonObject = result.getJSONObject(i);
 
-                        View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_entregas, null, false);
+                        View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_salidas_general, null, false);
 
-                        TextView id = registro.findViewById(R.id.col1);
-                        TextView res = registro.findViewById(R.id.col2);
-                        TextView fecha = registro.findViewById(R.id.col3);
-
+                        TextView ids = registro.findViewById(R.id.col1);
+                        TextView idc = registro.findViewById(R.id.col2);
+                        TextView res = registro.findViewById(R.id.col3);
+                        TextView cantidad = registro.findViewById(R.id.col4);
+                        TextView fecha = registro.findViewById(R.id.col5);
 
                         //agregar bton
                         ImageButton boton=registro.findViewById(R.id.btndetalle);
 
                         //rescata los valores
-                        String idE=jsonObject.getString("IdEntrega");
-                        String resp=jsonObject.getString("ResponsableEntrega");
+                        String idSalida=jsonObject.getString("IdSalida");
+                        String idConte=jsonObject.getString("IdContenedor");
+                        String respon=jsonObject.getString("ResponsableEntrega");
+                        String can=jsonObject.getString("Cantidad");
                         String fech=jsonObject.getString("fecha");
 
 
                         //asigna los valores rescatador
-                        id.setText(idE);
-                        res.setText(resp);
+                        ids.setText(idSalida);
+                        idc.setText(idConte);
+                        res.setText(respon);
+                        cantidad.setText(can);
                         fecha.setText(fech);
 
 
                         //un valor id valido a boton segun cada fila que se genere
                         boton.setId(View.generateViewId());
-                        boton.setTag(idE);//asigna su identificador
+                        boton.setTag(idSalida);//asigna su identificador
                         boton.setImageDrawable(getDrawable(R.drawable.detalle));
 
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(ConsulEntrega_Muni_Produc.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(ConsuEnGe_CAT.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
                                 CargarDetalle(id);
                             }
                         });
 
                         tbtE.addView(registro);
+
                     }
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
                 }
-            }
+
+            }//fin onresponse
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
                 //Mostrar el error de Volley exacto a través de la librería
                 Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
-            }
+            }//fin onerrorResponse
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","ConsulEntradaProd");
+                parametros.put("opcion","ConsulSalidasGen");
                 parametros.put("correo",emisor);
-                parametros.put("pro",e);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
-    }
+    }//fin cargartabla
 
     private void CargarDetalle(String id) {
         tbtDetE.removeAllViews();//remueve columnas
@@ -213,11 +177,11 @@ public class ConsulEntrega_Muni_Produc extends AppCompatActivity implements Adap
 
 
                         //rescata los valores
-                        String cde=jsonObject.getString("Consecutivo");
-                        String ede=jsonObject.getString("TipoEnvaseVacio");
-                        String pde=jsonObject.getString("CantidadPiezas");
-                        String pes=jsonObject.getString("Peso");
-                        String obser=jsonObject.getString("Observaciones");
+                        String cde=jsonObject.getString("Concepto");
+                        String ede=jsonObject.getString("Origen");
+                        String pde=jsonObject.getString("Capacidad");
+                        String pes=jsonObject.getString("Descripcion");
+                        String obser=jsonObject.getString("CapacidadStatus");
 
                         //asigna los valores rescatador
                         consec.setText(cde);
@@ -250,11 +214,5 @@ public class ConsulEntrega_Muni_Produc extends AppCompatActivity implements Adap
             }
         };
         requestQueue.add(stringRequest);
-    }
-
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
     }
 }

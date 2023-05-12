@@ -47,7 +47,6 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_ordenenvase_distribuidor);
-        setContentView(R.layout.activity_consulta_ordenenvase_distribuidor);
 
         requestQueue= Volley.newRequestQueue(consultaOrdenEnvaseDistribuidor.this);
         progressDialog=new ProgressDialog(consultaOrdenEnvaseDistribuidor.this);
