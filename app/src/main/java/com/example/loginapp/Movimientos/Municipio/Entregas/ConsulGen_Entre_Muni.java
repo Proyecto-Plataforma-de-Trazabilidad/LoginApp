@@ -42,7 +42,7 @@ public class ConsulGen_Entre_Muni extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consu_en_ge_cat);
+        setContentView(R.layout.activity_consu_en_muni);
 
         //variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsulGen_Entre_Muni.this,MainActivity.m);

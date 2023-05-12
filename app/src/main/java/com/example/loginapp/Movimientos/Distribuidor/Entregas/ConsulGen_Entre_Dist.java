@@ -44,7 +44,7 @@ public class ConsulGen_Entre_Dist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consu_en_ge_cat);
+        setContentView(R.layout.activity_consu_en_dist);
 
         //variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsulGen_Entre_Dist.this,MainActivity.m);
