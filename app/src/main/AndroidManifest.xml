@@ -20,6 +20,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Reportes.IndexRepoCata"
+            android:exported="false" />
+        <activity
+            android:name=".ConsuReportes"
+            android:exported="false" />
+        <activity
+            android:name=".IndexRepoCat"
+            android:exported="false" />
+        <activity
             android:name=".Reportes.ReportesDeCatalogos.Rep1Cat"
             android:exported="false" />
         <activity

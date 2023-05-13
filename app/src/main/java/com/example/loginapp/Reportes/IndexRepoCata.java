@@ -10,32 +10,31 @@ import android.view.View;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Cat;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.example.loginapp.databinding.ActivityIndexRepoCataBinding;
-import com.example.loginapp.databinding.ActivityIndexReportesBinding;
 
-public class IndexReportes extends DrawerBaseActivity {
-    ActivityIndexReportesBinding airb;
-    CardView CATA;
+public class IndexRepoCata extends DrawerBaseActivity {
+    ActivityIndexRepoCataBinding aircb;
+    CardView CAT;
     Intent i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_index_reportes);
+        setContentView(R.layout.activity_index_repo_cata);
 
         //aqui va lo del menu
-        airb= ActivityIndexReportesBinding.inflate(getLayoutInflater());
-        setContentView(airb.getRoot());
-        allowActivityTitle("Reportes");
+        aircb= ActivityIndexRepoCataBinding.inflate(getLayoutInflater());
+        setContentView(aircb.getRoot());
+        allowActivityTitle("Reportes/Catálogos");
 
-        CATA=findViewById(R.id.T1);
-        CATA.setOnClickListener(new View.OnClickListener() {
+        CAT=findViewById(R.id.T1);
+        CAT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i=new Intent(IndexReportes.this, IndexRepoCata.class);
+                i=new Intent(IndexRepoCata.this, Rep1Cat.class);
                 startActivity(i);
             }
         });
-
-
     }
 }
