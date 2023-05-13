@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -28,8 +29,11 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.DataSet;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.json.JSONArray;
@@ -40,7 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Rep1Cat extends AppCompatActivity {
+public class Rep1Cat extends AppCompatActivity implements OnChartValueSelectedListener {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -62,10 +66,12 @@ public class Rep1Cat extends AppCompatActivity {
         progressDialog=new ProgressDialog(Rep1Cat.this);
 
         barras2=findViewById(R.id.CatE);
+        barras2.setOnChartValueSelectedListener(this);
 
         CATGeneal();
         CATEstado();
     }
+
 
     private void CATGeneal() {
 
@@ -256,4 +262,14 @@ public class Rep1Cat extends AppCompatActivity {
         return entries;
     }
 
+    @Override
+    public void onValueSelected(Entry e, Highlight h) {
+        Toast.makeText(Rep1Cat.this, "clickeaste en : "+etiquetas[(int) e.getX()], Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onNothingSelected() {
+
+    }
 }
