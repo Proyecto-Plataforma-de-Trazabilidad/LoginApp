@@ -55,7 +55,7 @@
                 android:id="@+id/tit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Consulta Por Periodo Ordenes "
+                android:text="Consulta Por Periodo Salidas "
                 android:textStyle="bold"
                 android:padding="20dp"
                 android:textAlignment="center"
@@ -129,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Productor"
+                        android:text="IdCont."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -140,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="   No.Fact "
+                        android:text="Respons."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -151,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="  No.Rec "
+                        android:text="Cantidad"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -194,7 +194,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Consec."
+                        android:text="Tipo C"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -204,7 +204,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Tipo Q"
+                        android:text="Origen"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -214,7 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Tipo E."
+                        android:text="Capacidad"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -224,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Color"
+                        android:text="Descrip."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -234,7 +234,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Piezas"
+                        android:text="StatusC"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />

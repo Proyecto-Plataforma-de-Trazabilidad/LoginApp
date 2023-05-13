@@ -102,7 +102,7 @@ public class ConsuGS_Mu extends AppCompatActivity {
                         //rescata los valores
                         String idSalida=jsonObject.getString("IdSalida");
                         String idConte=jsonObject.getString("IdContenedor");
-                        String respon=jsonObject.getString("ResponsableEntrega");
+                        String respon=jsonObject.getString("Responsable");
                         String can=jsonObject.getString("Cantidad");
                         String fech=jsonObject.getString("fecha");
 
@@ -123,9 +123,8 @@ public class ConsuGS_Mu extends AppCompatActivity {
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                // Toast.makeText(ConsuEnGe_CAT.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
-                                CargarDetalle(id);
+                                CargarDetalle(idConte);
                             }
                         });
 
@@ -154,7 +153,7 @@ public class ConsuGS_Mu extends AppCompatActivity {
             }
         };
         requestQueue.add(stringRequest);
-    }//fin cargartabla
+    }
 
     private void CargarDetalle(String id) {
         tbtDetE.removeAllViews();//remueve columnas
@@ -169,11 +168,11 @@ public class ConsuGS_Mu extends AppCompatActivity {
 
                         View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detallentregas, null, false);
 
-                        TextView consec= registroD.findViewById(R.id.col1);
-                        TextView envase = registroD.findViewById(R.id.col2);
-                        TextView pz= registroD.findViewById(R.id.col3);
-                        TextView peso = registroD.findViewById(R.id.col4);
-                        TextView obs= registroD.findViewById(R.id.col5);
+                        TextView tc= registroD.findViewById(R.id.col1);
+                        TextView ori = registroD.findViewById(R.id.col2);
+                        TextView capa= registroD.findViewById(R.id.col3);
+                        TextView desc = registroD.findViewById(R.id.col4);
+                        TextView cs= registroD.findViewById(R.id.col5);
 
 
                         //rescata los valores
@@ -184,11 +183,11 @@ public class ConsuGS_Mu extends AppCompatActivity {
                         String obser=jsonObject.getString("CapacidadStatus");
 
                         //asigna los valores rescatador
-                        consec.setText(cde);
-                        envase.setText(ede);
-                        pz.setText(pde);
-                        peso.setText(pes);
-                        obs.setText(obser);
+                        tc.setText(cde);
+                        ori.setText(ede);
+                        capa.setText(pde);
+                        desc.setText(pes);
+                        cs.setText(obser);
 
                         //agrega fila
                         tbtDetE.addView(registroD);
@@ -208,7 +207,7 @@ public class ConsuGS_Mu extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","DetEntrada");
+                parametros.put("opcion","DetCont");
                 parametros.put("id",id);
                 return parametros;
             }

@@ -20,13 +20,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ConsuPS_Mu"
+            android:name=".Movimientos.Municipio.Salidas.ConsuPS_Mu"
             android:exported="false" />
         <activity
-            android:name=".ConsuGS_Mu"
+            android:name=".Movimientos.Municipio.Salidas.ConsuGS_Mu"
             android:exported="false" />
         <activity
-            android:name=".ConsuS_Mu"
+            android:name=".Movimientos.Municipio.ConsuS_Mu"
             android:exported="false" />
         <activity
             android:name=".ConsulEntregaxProductor"

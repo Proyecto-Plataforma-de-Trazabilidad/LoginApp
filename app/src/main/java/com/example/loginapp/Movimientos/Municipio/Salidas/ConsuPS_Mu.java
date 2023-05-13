@@ -21,6 +21,7 @@ import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsuPsMuBinding;
 import com.example.loginapp.databinding.ActivityConsultaOrdenesPeridoDistribuidorBinding;
 import com.google.android.material.button.MaterialButton;
 
@@ -32,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConsuPS_Mu extends DrawerBaseActivity {
-    ActivityConsultaOrdenesPeridoDistribuidorBinding coppb;
+    ActivityConsuPsMuBinding CSMB;
     EditText FI, FF;
 
     //para tabla
@@ -50,9 +51,9 @@ public class ConsuPS_Mu extends DrawerBaseActivity {
         setContentView(R.layout.activity_consu_ps_mu);
 
         //aqui va lo del menu
-        coppb= ActivityConsultaOrdenesPeridoDistribuidorBinding.inflate(getLayoutInflater());
-        setContentView(coppb.getRoot());
-        allowActivityTitle("Movimientos/Ordenes/Periodo");
+        CSMB= ActivityConsuPsMuBinding.inflate(getLayoutInflater());
+        setContentView(CSMB.getRoot());
+        allowActivityTitle("Movimientos");
 
         //variables sesion
         emisor= MainActivity.obtenerusuario(ConsuPS_Mu.this,MainActivity.m);
@@ -139,38 +140,38 @@ public class ConsuPS_Mu extends DrawerBaseActivity {
 
                         View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_ordenes, null, false);
 
-                        TextView id = registro.findViewById(R.id.col1);
-                        TextView produ = registro.findViewById(R.id.col2);
-                        TextView fact = registro.findViewById(R.id.col3);
-                        TextView rece = registro.findViewById(R.id.col4);
+                        TextView ids = registro.findViewById(R.id.col1);
+                        TextView idc = registro.findViewById(R.id.col2);
+                        TextView res = registro.findViewById(R.id.col3);
+                        TextView cantidad = registro.findViewById(R.id.col4);
 
                         //agregar bton
                         ImageButton boton=registro.findViewById(R.id.btndetalle);
 
                         //rescata los valores
-                        String idO=jsonObject.getString("IdOrden");
-                        String distriO=jsonObject.getString("Productor");
-                        String factO=jsonObject.getString("NumFactura");
-                        String receO=jsonObject.getString("NumReceta");
+                        String idSalida=jsonObject.getString("IdSalida");
+                        String idConte=jsonObject.getString("IdContenedor");
+                        String respon=jsonObject.getString("Responsable");
+                        String can=jsonObject.getString("Cantidad");
+                        String fech=jsonObject.getString("fecha");
+
 
                         //asigna los valores rescatador
-                        id.setText(idO);
-                        produ.setText(distriO);
-                        fact.setText(factO);
-                        rece.setText(receO);
+                        ids.setText(idSalida);
+                        idc.setText(idConte);
+                        res.setText(respon);
+                        cantidad.setText(can);
 
-                        //un valor id valido a boton segun cada fila que se genere
+                        //un valor id valido a  segun cada fila que se genere
                         boton.setId(View.generateViewId());
-                        boton.setTag(idO);//asigna su identificador
+                        boton.setTag(idSalida);//asigna su identificador
                         boton.setImageDrawable(getDrawable(R.drawable.detalle));
 
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override //que pasa si se da click en el boton, aqui debe mandar  a llamar a otro metodo que carge el detalle
                             public void onClick(View v) {
-                                // Toast.makeText(ConsultaOrdenesPeridoProductor.this, "Pertenezco a la orden"+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
-
-                                CargarDetalle(id);
+                                CargarDetalle(idConte);
                             }
                         });
 
@@ -221,26 +222,26 @@ public class ConsuPS_Mu extends DrawerBaseActivity {
 
                         View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detordenes, null, false);
 
-                        TextView consec= registroD.findViewById(R.id.col1);
-                        TextView quimico = registroD.findViewById(R.id.col2);
-                        TextView envase= registroD.findViewById(R.id.col3);
-                        TextView color = registroD.findViewById(R.id.col4);
-                        TextView piezas= registroD.findViewById(R.id.col5);
+                        TextView tc= registroD.findViewById(R.id.col1);
+                        TextView ori = registroD.findViewById(R.id.col2);
+                        TextView capa= registroD.findViewById(R.id.col3);
+                        TextView desc = registroD.findViewById(R.id.col4);
+                        TextView cs= registroD.findViewById(R.id.col5);
 
 
                         //rescata los valores
-                        String cdo=jsonObject.getString("Consecutivo");
-                        String qdo=jsonObject.getString("Concepto");
-                        String edo=jsonObject.getString("TipoEnvase");
-                        String colordo=jsonObject.getString("Color");
-                        String pdo=jsonObject.getString("CantidadPiezas");
+                        String cde=jsonObject.getString("Concepto");
+                        String ede=jsonObject.getString("Origen");
+                        String pde=jsonObject.getString("Capacidad");
+                        String pes=jsonObject.getString("Descripcion");
+                        String obser=jsonObject.getString("CapacidadStatus");
 
                         //asigna los valores rescatador
-                        consec.setText(cdo);
-                        quimico.setText(qdo);
-                        envase.setText(edo);
-                        color.setText(colordo);
-                        piezas.setText(pdo);
+                        tc.setText(cde);
+                        ori.setText(ede);
+                        capa.setText(pde);
+                        desc.setText(pes);
+                        cs.setText(obser);
 
                         //agrega fila
                         tbtdet.addView(registroD);
@@ -260,8 +261,8 @@ public class ConsuPS_Mu extends DrawerBaseActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","DetOrdDistribuidor");
-                parametros.put("IdOrden",id);
+                parametros.put("opcion","DetCont");
+                parametros.put("id",id);
                 return parametros;
             }
         };
