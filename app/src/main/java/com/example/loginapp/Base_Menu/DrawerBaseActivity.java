@@ -28,6 +28,7 @@ import com.example.loginapp.Movimientos.Index_movimi_productor;
 import com.example.loginapp.Movimientos.indexmovimientoMunicipios;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
+import com.example.loginapp.Reportes.IndexReportes;
 import com.google.android.material.navigation.NavigationView;
 
 public class DrawerBaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -163,7 +164,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 }
                 break;
             case R.id.nav_reportes:
-                Intent r = new Intent(this, Index.class);
+                Intent r = new Intent(this, IndexReportes.class);
                 startActivity(r);
                 overridePendingTransition(0,0);
                 break;

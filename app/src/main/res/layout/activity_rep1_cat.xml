@@ -8,24 +8,29 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Reportes.IndexReportes">
+        android:padding="10dp"
+        tools:context=".Reportes.ReportesDeCatalogos.Rep1Cat">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:background="#FFFFFF"
             android:orientation="vertical"
-            android:layout_gravity="center">
+            tools:layout_editor_absoluteX="10dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/apejal"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     app:srcCompat="@drawable/apeajal2" />
+
                 <ImageView
                     android:id="@+id/asica"
                     android:layout_width="50dp"
@@ -35,6 +40,7 @@
                     android:layout_gravity="top"
                     android:layout_marginLeft="15dp"
                     app:srcCompat="@drawable/asica" />
+
                 <ImageView
                     android:id="@+id/Amocali"
                     android:layout_width="60dp"
@@ -45,57 +51,64 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text=" Reporte CAT  "
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text=" TOTAL DE CATS REGISTRADOS "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/CatG"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_weight="1"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center_horizontal"
-                android:text="  Reportes  "
+                android:paddingTop="25dp"
+                android:text=" TOTAL DE CATS POR ESTADO "
                 android:textAlignment="center"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <GridLayout
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/CatE"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp">
+                android:layout_height="250dp"
+                android:layout_weight="1"/>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="0"
-                    android:layout_row="0"
-                    android:layout_margin="5dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/T1">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_gravity="center_vertical|center_horizontal">
-                        <ImageView
-                            android:id="@+id/CATGrl"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/frame__2_"
-                            app:tint="@color/Iconos" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:paddingTop="25dp"
+                android:text=" TOTAL DE CATS POR MUNICIPIO "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/CatM"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-black"
-                            android:text="            CAT           "
-                            android:layout_gravity="center"
-                            android:textSize="20dp"
-
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            </GridLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
