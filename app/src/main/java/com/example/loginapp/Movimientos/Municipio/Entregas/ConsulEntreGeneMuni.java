@@ -29,7 +29,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-public class ConsulGen_Entre_Muni extends AppCompatActivity {
+public class ConsulEntreGeneMuni extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -42,12 +42,12 @@ public class ConsulGen_Entre_Muni extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consu_en_ge_cat);
+        setContentView(R.layout.activity_consu_en_muni);
 
         //variables sesion correo
-        emisor= MainActivity.obtenerusuario(ConsulGen_Entre_Muni.this,MainActivity.m);
+        emisor= MainActivity.obtenerusuario(ConsulEntreGeneMuni.this,MainActivity.m);
         //variables sesion nombre
-        emisorname = Index.obtenerrol(ConsulGen_Entre_Muni.this, Index.no);
+        emisorname = Index.obtenerrol(ConsulEntreGeneMuni.this, Index.no);
 
         TextView nom=findViewById(R.id.cat);
         nom.setText(Html.fromHtml("<b>Municipio: </b>"+emisorname));//nombre del usuario
@@ -55,8 +55,8 @@ public class ConsulGen_Entre_Muni extends AppCompatActivity {
         tbtE=findViewById(R.id.tablaEntregas);
         tbtDetE=findViewById(R.id.tabladetEn);
 
-        requestQueue= Volley.newRequestQueue(ConsulGen_Entre_Muni.this);
-        progressDialog=new ProgressDialog(ConsulGen_Entre_Muni.this);
+        requestQueue= Volley.newRequestQueue(ConsulEntreGeneMuni.this);
+        progressDialog=new ProgressDialog(ConsulEntreGeneMuni.this);
 
         cargartabla();
 

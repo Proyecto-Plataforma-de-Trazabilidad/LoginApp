@@ -37,7 +37,7 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ConsulEntrega_Muni_Produc extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class ConsulEntregaProMuni extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
     Spinner cboproductor;
@@ -59,15 +59,15 @@ public class ConsulEntrega_Muni_Produc extends AppCompatActivity implements Adap
         tbtE = findViewById(R.id.tablaEntregas);
         tbtDetE = findViewById(R.id.tabladetEn);
         ///variables sesion correo
-        emisor = MainActivity.obtenerusuario(ConsulEntrega_Muni_Produc.this, MainActivity.m);
+        emisor = MainActivity.obtenerusuario(ConsulEntregaProMuni.this, MainActivity.m);
 
 
         cliente = new AsyncHttpClient();
         cboproductor = (Spinner) findViewById(R.id.cboproductor);
         llenarspinner();
 
-        requestQueue = Volley.newRequestQueue(ConsulEntrega_Muni_Produc.this);
-        progressDialog = new ProgressDialog(ConsulEntrega_Muni_Produc.this);
+        requestQueue = Volley.newRequestQueue(ConsulEntregaProMuni.this);
+        progressDialog = new ProgressDialog(ConsulEntregaProMuni.this);
 
         btnregresa = (MaterialButton) findViewById(R.id.btnreg1);
         btnregresa.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +160,7 @@ public class ConsulEntrega_Muni_Produc extends AppCompatActivity implements Adap
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(ConsulEntrega_Muni_Produc.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ConsulEntregaProMuni.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
                                 CargarDetalle(id);
                             }

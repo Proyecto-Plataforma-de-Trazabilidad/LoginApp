@@ -1,6 +1,5 @@
 package com.example.loginapp.Movimientos;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -9,10 +8,8 @@ import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Movimientos.ERP.ConsuEn_ERP;
-import com.example.loginapp.Movimientos.Municipio.ConsulEntreMuni;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMoviErpBinding;
-import com.example.loginapp.databinding.ActivityIndexmovimientoMunicipiosBinding;
 
 public class Index_movi_ERP extends DrawerBaseActivity {
     ActivityIndexMoviErpBinding IMEB;

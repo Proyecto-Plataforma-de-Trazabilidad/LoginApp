@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Movimientos.Municipio.ConsulEntreMuni">
+        tools:context=".Movimientos.Municipio.ConsuS_Mu">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center_horizontal"
-                android:text=" Consultas de Entregas"
+                android:text=" Consultas de Salidas"
                 android:textAlignment="center"
                 android:textSize="20dp"
                 android:layout_margin="15dp"
@@ -71,26 +71,26 @@
                         android:layout_height="80dp"
                         android:layout_gravity="center"
                         android:src="@drawable/feed"
-                        app:tint="@color/Iconos" />
+                        app:tint="@color/Iconos"
+                        android:paddingTop="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="       General       "
+                        android:text="      General       "
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
-                android:id="@+id/tc2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:id="@+id/tc2">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -100,15 +100,14 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/agricultura_1"
-                        app:tint="@color/Iconos"
-                        android:paddingTop="10dp"/>
+                        android:src="@drawable/framecalen"
+                        app:tint="@color/Iconos" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="     Productor    "
+                        android:text="      Periodo       "
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold" />

@@ -1,4 +1,4 @@
-package com.example.loginapp.Movimientos.Distribuidor.Entregas;
+package com.example.loginapp.Movimientos.Municipio.Salidas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,11 +31,11 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-public class ConsulGen_Entre_Dist extends AppCompatActivity {
+public class ConsuGS_Mu extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
-    String httpURI= "https://campolimpiojal.com/android/ConsulEntregas_Dis_Muni_Cat_Erp.php";
+    String httpURI= "https://campolimpiojal.com/android/ConsulSalidas_Gen.php";
 
     TableLayout tbtE,tbtDetE;
     MaterialButton btnregresa;
@@ -44,21 +44,21 @@ public class ConsulGen_Entre_Dist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consu_en_dist);
+        setContentView(R.layout.activity_consu_gs_mu);
 
         //variables sesion correo
-        emisor= MainActivity.obtenerusuario(ConsulGen_Entre_Dist.this,MainActivity.m);
+        emisor= MainActivity.obtenerusuario(ConsuGS_Mu.this,MainActivity.m);
         //variables sesion nombre
-        emisorname = Index.obtenerrol(ConsulGen_Entre_Dist.this, Index.no);
+        emisorname = Index.obtenerrol(ConsuGS_Mu.this, Index.no);
 
         TextView nom=findViewById(R.id.cat);
-        nom.setText(Html.fromHtml("<b>Distribuidor: </b>"+emisorname));//nombre del usuario
+        nom.setText(Html.fromHtml("<b>Municipio: </b>"+emisorname));//nombre del usuario
 
         tbtE=findViewById(R.id.tablaEntregas);
         tbtDetE=findViewById(R.id.tabladetEn);
 
-        requestQueue= Volley.newRequestQueue(ConsulGen_Entre_Dist.this);
-        progressDialog=new ProgressDialog(ConsulGen_Entre_Dist.this);
+        requestQueue= Volley.newRequestQueue(ConsuGS_Mu.this);
+        progressDialog=new ProgressDialog(ConsuGS_Mu.this);
 
         cargartabla();
 
@@ -88,41 +88,43 @@ public class ConsulGen_Entre_Dist extends AppCompatActivity {
                     for (int i = 0; i < result.length();i++ ) {
                         JSONObject jsonObject = result.getJSONObject(i);
 
-                        View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_entregas_general, null, false);
+                        View registro = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_salidas_general, null, false);
 
-                        TextView id = registro.findViewById(R.id.col1);
-                        TextView prod = registro.findViewById(R.id.col2);
+                        TextView ids = registro.findViewById(R.id.col1);
+                        TextView idc = registro.findViewById(R.id.col2);
                         TextView res = registro.findViewById(R.id.col3);
-                        TextView fecha = registro.findViewById(R.id.col4);
+                        TextView cantidad = registro.findViewById(R.id.col4);
+                        TextView fecha = registro.findViewById(R.id.col5);
 
                         //agregar bton
                         ImageButton boton=registro.findViewById(R.id.btndetalle);
 
                         //rescata los valores
-                        String idE=jsonObject.getString("IdEntrega");
-                        String pE=jsonObject.getString("Nombre");
-                        String resp=jsonObject.getString("ResponsableEntrega");
+                        String idSalida=jsonObject.getString("IdSalida");
+                        String idConte=jsonObject.getString("IdContenedor");
+                        String respon=jsonObject.getString("Responsable");
+                        String can=jsonObject.getString("Cantidad");
                         String fech=jsonObject.getString("fecha");
 
 
                         //asigna los valores rescatador
-                        id.setText(idE);
-                        prod.setText(pE);
-                        res.setText(resp);
+                        ids.setText(idSalida);
+                        idc.setText(idConte);
+                        res.setText(respon);
+                        cantidad.setText(can);
                         fecha.setText(fech);
 
 
                         //un valor id valido a boton segun cada fila que se genere
                         boton.setId(View.generateViewId());
-                        boton.setTag(idE);//asigna su identificador
+                        boton.setTag(idSalida);//asigna su identificador
                         boton.setImageDrawable(getDrawable(R.drawable.detalle));
 
                         boton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                // Toast.makeText(ConsuEnGe_CAT.this, "pertenesco a "+v.getTag(), Toast.LENGTH_SHORT).show();
                                 String id=v.getTag().toString();
-                                CargarDetalle(id);
+                                CargarDetalle(idConte);
                             }
                         });
 
@@ -145,13 +147,13 @@ public class ConsulGen_Entre_Dist extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","ConsulEntradaG");
+                parametros.put("opcion","ConsulSalidasGen");
                 parametros.put("correo",emisor);
                 return parametros;
             }
         };
         requestQueue.add(stringRequest);
-    }//fin cargartabla
+    }
 
     private void CargarDetalle(String id) {
         tbtDetE.removeAllViews();//remueve columnas
@@ -166,26 +168,26 @@ public class ConsulGen_Entre_Dist extends AppCompatActivity {
 
                         View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detallentregas, null, false);
 
-                        TextView consec= registroD.findViewById(R.id.col1);
-                        TextView envase = registroD.findViewById(R.id.col2);
-                        TextView pz= registroD.findViewById(R.id.col3);
-                        TextView peso = registroD.findViewById(R.id.col4);
-                        TextView obs= registroD.findViewById(R.id.col5);
+                        TextView tc= registroD.findViewById(R.id.col1);
+                        TextView ori = registroD.findViewById(R.id.col2);
+                        TextView capa= registroD.findViewById(R.id.col3);
+                        TextView desc = registroD.findViewById(R.id.col4);
+                        TextView cs= registroD.findViewById(R.id.col5);
 
 
                         //rescata los valores
-                        String cde=jsonObject.getString("Consecutivo");
-                        String ede=jsonObject.getString("TipoEnvaseVacio");
-                        String pde=jsonObject.getString("CantidadPiezas");
-                        String pes=jsonObject.getString("Peso");
-                        String obser=jsonObject.getString("Observaciones");
+                        String cde=jsonObject.getString("Concepto");
+                        String ede=jsonObject.getString("Origen");
+                        String pde=jsonObject.getString("Capacidad");
+                        String pes=jsonObject.getString("Descripcion");
+                        String obser=jsonObject.getString("CapacidadStatus");
 
                         //asigna los valores rescatador
-                        consec.setText(cde);
-                        envase.setText(ede);
-                        pz.setText(pde);
-                        peso.setText(pes);
-                        obs.setText(obser);
+                        tc.setText(cde);
+                        ori.setText(ede);
+                        capa.setText(pde);
+                        desc.setText(pes);
+                        cs.setText(obser);
 
                         //agrega fila
                         tbtDetE.addView(registroD);
@@ -205,7 +207,7 @@ public class ConsulGen_Entre_Dist extends AppCompatActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","DetEntrada");
+                parametros.put("opcion","DetCont");
                 parametros.put("id",id);
                 return parametros;
             }

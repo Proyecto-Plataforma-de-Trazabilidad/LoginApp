@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        tools:context=".Movimientos.Municipio.Entregas.ConsulEntreGeneMuni">
 
         <LinearLayout
             android:id="@+id/layoutbase"
@@ -54,20 +54,19 @@
                 android:id="@+id/tit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Consulta Entregas Por Productor"
+                android:text="Consulta Entregas General "
                 android:textStyle="bold"
                 android:padding="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
-            <Spinner
-                android:id="@+id/cboproductor"
+            <TextView
+                android:id="@+id/cat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/background_footer"
-                android:foregroundTint="@android:color/holo_green_dark"
-                android:popupBackground="@color/white"
+                android:textSize="14dp"
                 android:textAlignment="center"
-                />
+                android:paddingTop="5dp"
+                android:textColor="@color/black" />
 
             <TableLayout
                 android:paddingTop="20dp"
@@ -93,7 +92,16 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Responsa."
+                        android:text="Productor"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/encabezado1"
+                        android:text="Respon."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />

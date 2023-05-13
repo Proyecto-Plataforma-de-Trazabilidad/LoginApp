@@ -20,19 +20,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Reportes.IndexRepoCata"
+            android:name=".Movimientos.Municipio.Salidas.ConsuPS_Mu"
             android:exported="false" />
         <activity
-            android:name=".ConsuReportes"
+            android:name=".Movimientos.Municipio.Salidas.ConsuGS_Mu"
             android:exported="false" />
         <activity
-            android:name=".IndexRepoCat"
-            android:exported="false" />
-        <activity
-            android:name=".Reportes.ReportesDeCatalogos.Rep1Cat"
-            android:exported="false" />
-        <activity
-            android:name=".Reportes.IndexReportes"
+            android:name=".Movimientos.Municipio.ConsuS_Mu"
             android:exported="false" />
         <activity
             android:name=".ConsulEntregaxProductor"
@@ -67,10 +61,10 @@
             android:name=".Movimientos.Distribuidor.Entregas.ConsulGen_Entre_Dist"
             android:exported="false" />
         <activity
-            android:name=".Movimientos.Municipio.Entregas.ConsulEntrega_Muni_Produc"
+            android:name=".Movimientos.Municipio.Entregas.ConsulEntregaProMuni"
             android:exported="false" />
         <activity
-            android:name=".Movimientos.Municipio.Entregas.ConsulGen_Entre_Muni"
+            android:name=".Movimientos.Municipio.Entregas.ConsulEntreGeneMuni"
             android:exported="false" />
         <activity
             android:name=".Movimientos.Index_movi_CAT"
