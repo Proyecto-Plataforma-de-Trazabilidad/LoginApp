@@ -25,7 +25,7 @@ public class ConsulEntreMuni extends DrawerBaseActivity {
         //aqui va lo del menu
         activityConsulEntreMuniBinding= ActivityConsulEntreMuniBinding.inflate(getLayoutInflater());
         setContentView(activityConsulEntreMuniBinding.getRoot());
-        allowActivityTitle("Movimientos");
+        allowActivityTitle("Movimientos/Entregas");
 
 
         EntregasGeneral=findViewById(R.id.tc1);

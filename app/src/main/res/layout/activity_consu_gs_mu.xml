@@ -92,7 +92,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="IdConte."
+                        android:text="IdC"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Cantidad"
+                        android:text="Cantida"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -159,7 +159,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Tipo C"
+                        android:text="TipoC"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -177,7 +177,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Capacidad"
+                        android:text="Capaci."
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />

@@ -26,7 +26,7 @@ public class ConsuEntD extends DrawerBaseActivity {
         //aqui va lo del menu
         activityConsuEntDBinding= ActivityConsuEntDBinding.inflate(getLayoutInflater());
         setContentView(activityConsuEntDBinding.getRoot());
-        allowActivityTitle("Movimientos");
+        allowActivityTitle("Movimientos/Entregas");
 
 
         EntregasGeneral=findViewById(R.id.tc1);

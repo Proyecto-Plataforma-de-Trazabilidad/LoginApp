@@ -27,7 +27,7 @@ public class ConsuSD extends DrawerBaseActivity {
 
         ACSB= ActivityConsuSdBinding.inflate(getLayoutInflater());
         setContentView(ACSB.getRoot());
-        allowActivityTitle("Movimientos");
+        allowActivityTitle("Movimientos/Salidas");
 
         G=findViewById(R.id.tc1);
         Pe=findViewById(R.id.tc2);

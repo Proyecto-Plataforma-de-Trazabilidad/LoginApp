@@ -220,7 +220,7 @@ public class ConsuPSD extends DrawerBaseActivity {
                     for (int i = 0; i < result2.length();i++ ) {
                         JSONObject jsonObject = result2.getJSONObject(i);
 
-                        View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detordenes, null, false);
+                        View registroD = LayoutInflater.from(getApplicationContext()).inflate(R.layout.table_row_detsalidas, null, false);
 
                         TextView tc= registroD.findViewById(R.id.col1);
                         TextView ori = registroD.findViewById(R.id.col2);

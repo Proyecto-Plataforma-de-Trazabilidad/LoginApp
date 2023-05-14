@@ -20,12 +20,12 @@ public class ConsuS_ERP extends DrawerBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consu_sd);
+        setContentView(R.layout.activity_consu_serp);
 
         //Menu
-       /* ACSB= ActivityConsuSerpBinding.inflate(getLayoutInflater());
+        ACSB= ActivityConsuSerpBinding.inflate(getLayoutInflater());
         setContentView(ACSB.getRoot());
-        allowActivityTitle("Movimientos");*/
+        allowActivityTitle("Movimientos/Salidas");
 
         G=findViewById(R.id.tc1);
         Pe=findViewById(R.id.tc2);
