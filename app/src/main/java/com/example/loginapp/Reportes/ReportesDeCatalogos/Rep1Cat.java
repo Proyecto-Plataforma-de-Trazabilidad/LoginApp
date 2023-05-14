@@ -270,6 +270,5 @@ public class Rep1Cat extends AppCompatActivity implements OnChartValueSelectedLi
 
     @Override
     public void onNothingSelected() {
-
     }
 }
