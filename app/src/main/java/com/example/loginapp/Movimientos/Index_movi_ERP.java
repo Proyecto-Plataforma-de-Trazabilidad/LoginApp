@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Movimientos.ERP.ConsuEn_ERP;
+import com.example.loginapp.Movimientos.ERP.ConsuS_ERP;
+import com.example.loginapp.Movimientos.Municipio.ConsuS_Mu;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMoviErpBinding;
 
@@ -38,6 +40,8 @@ public class Index_movi_ERP extends DrawerBaseActivity {
         salidas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                i=new Intent(Index_movi_ERP.this, ConsuS_ERP.class);
+                startActivity(i);
 
             }
         });//fin onclick

@@ -10,13 +10,14 @@ import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 
 
 import com.example.loginapp.Movimientos.Distribuidor.ConsuEntD;
+import com.example.loginapp.Movimientos.Distribuidor.ConsuSD;
 import com.example.loginapp.Movimientos.Distribuidor.ConsultasOrdenesDistri;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexMoviDistribuidorBinding;
 
 public class Index_movi_distribuidor extends DrawerBaseActivity {
     ActivityIndexMoviDistribuidorBinding activityIndexMoviDistribuidorBinding;
-    CardView Ordenes,Entregas;
+    CardView Ordenes,Entregas,Salidas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,7 @@ public class Index_movi_distribuidor extends DrawerBaseActivity {
 
         Ordenes=findViewById(R.id.t1);
         Entregas=findViewById(R.id.t2);
+        Salidas=findViewById(R.id.tc3);
         Ordenes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,5 +45,13 @@ public class Index_movi_distribuidor extends DrawerBaseActivity {
                startActivity(en);
             }
         });
+        Salidas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent en=new Intent(Index_movi_distribuidor.this, ConsuSD.class);
+                startActivity(en);
+            }
+        });
+
     }
 }

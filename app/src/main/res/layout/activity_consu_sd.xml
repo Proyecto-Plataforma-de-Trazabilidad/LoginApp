@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".Movimientos.Index_movi_distribuidor">
+        tools:context=".Movimientos.Municipio.ConsuS_Mu">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,109 +45,76 @@
 
             </LinearLayout>
             <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="15dp"
-    android:fontFamily="sans-serif-black"
-    android:gravity="center_horizontal"
-    android:text="  Consultas Movimientos  "
-    android:textAlignment="center"
-    android:textSize="20dp"
-    android:textStyle="bold" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text=" Consultas de Salidas"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:layout_margin="15dp"
+                android:textStyle="bold" />
+
             <androidx.cardview.widget.CardView
-android:id="@+id/t1"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_gravity="center"
-android:layout_margin="5dp">
-
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_vertical|center_horizontal"
-    android:orientation="vertical">
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@drawable/frameordenes"
-        app:tint="@color/Iconos" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="         Ordenes       "
-        android:textAlignment="center"
-        android:textSize="20dp"
-
-        android:textStyle="bold" />
-</LinearLayout>
-
-</androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-android:id="@+id/t2"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_gravity="center"
-android:layout_margin="5dp">
-
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_vertical|center_horizontal"
-    android:orientation="vertical">
-
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@drawable/frameentregas"
-        app:tint="@color/Iconos" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="        Entregas       "
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-</LinearLayout>
-
-</androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/tc3"
+                android:id="@+id/tc1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp">
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:orientation="vertical">
-
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical|center_horizontal">
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/framesalidas"
-                        app:tint="@color/Iconos" />
+                        android:src="@drawable/feed"
+                        app:tint="@color/Iconos"
+                        android:paddingTop="10dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="          Salidas        "
+                        android:text="      General       "
                         android:textAlignment="center"
                         android:textSize="20dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:id="@+id/tc2">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical|center_horizontal">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/framecalen"
+                        app:tint="@color/Iconos" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="      Periodo       "
+                        android:textAlignment="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
