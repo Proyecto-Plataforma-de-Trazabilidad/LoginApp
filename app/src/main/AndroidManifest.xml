@@ -29,14 +29,6 @@
             android:name=".Movimientos.Municipio.ConsuS_Mu"
             android:exported="false" />
         <activity
-            android:name=".ConsulEntregaxProductor"
-            android:exported="false"
-            android:label="@string/title_activity_consul_entregax_productor"
-            android:theme="@style/Theme.LoginApp.NoActionBar" />
-        <activity
-            android:name=".ConsulGeneralEntrega"
-            android:exported="false" />
-        <activity
             android:name=".Movimientos.CAT.Entregas.ConsuEnPr_CAT"
             android:exported="false" />
         <activity
@@ -107,6 +99,15 @@
             android:exported="false" />
         <activity
             android:name=".Movimientos.indexmovimientoMunicipios"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.IndexRepoCata"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.ReportesDeCatalogos.Rep1Cat"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.IndexReportes"
             android:exported="false" />
         <activity
             android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
