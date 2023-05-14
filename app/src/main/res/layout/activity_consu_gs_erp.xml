@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Movimientos.Municipio.Salidas.ConsuGS_Mu">
+        tools:context=".Movimientos.ERP.Salidas.ConsuGS_ERP">
 
         <LinearLayout
             android:id="@+id/layoutbase"

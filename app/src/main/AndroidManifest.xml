@@ -20,6 +20,24 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Movimientos.ERP.Salidas.ConsuPS_ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.ERP.Salidas.ConsuGS_ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.ERP.ConsuS_ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.Distribuidor.Salidas.ConsuGSD"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.Distribuidor.Salidas.ConsuPSD"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.Distribuidor.ConsuSD"
+            android:exported="false" />
+        <activity
             android:name=".Movimientos.Municipio.Salidas.ConsuPS_Mu"
             android:exported="false" />
         <activity

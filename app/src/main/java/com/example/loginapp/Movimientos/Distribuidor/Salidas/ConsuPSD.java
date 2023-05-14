@@ -1,4 +1,5 @@
-package com.example.loginapp.Movimientos.Municipio.Salidas;
+package com.example.loginapp.Movimientos.Distribuidor.Salidas;
+
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsuPS_Mu extends DrawerBaseActivity {
+public class ConsuPSD extends DrawerBaseActivity {
     ActivityConsuPsMuBinding CSMB;
     EditText FI, FF;
 
@@ -47,7 +48,7 @@ public class ConsuPS_Mu extends DrawerBaseActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consu_ps_mu);
+        setContentView(R.layout.activity_consu_psd);
 
         //aqui va lo del menu
         CSMB= ActivityConsuPsMuBinding.inflate(getLayoutInflater());
@@ -55,16 +56,16 @@ public class ConsuPS_Mu extends DrawerBaseActivity {
         allowActivityTitle("Movimientos");
 
         //variables sesion
-        emisor= MainActivity.obtenerusuario(ConsuPS_Mu.this,MainActivity.m);
-        Toast.makeText(ConsuPS_Mu.this, emisor, Toast.LENGTH_SHORT).show();
+        emisor= MainActivity.obtenerusuario(ConsuPSD.this,MainActivity.m);
+        Toast.makeText(ConsuPSD.this, emisor, Toast.LENGTH_SHORT).show();
 
         tbtOP = findViewById(R.id.tablaO);
         //limpiar tabla
         tbtOP.removeAllViews();//remueve columnas
 
 
-        requestQueue= Volley.newRequestQueue(ConsuPS_Mu.this);
-        progressDialog=new ProgressDialog(ConsuPS_Mu.this);
+        requestQueue= Volley.newRequestQueue(ConsuPSD.this);
+        progressDialog=new ProgressDialog(ConsuPSD.this);
         //botones
         volver=findViewById(R.id.btnreg1);
         FI = findViewById(R.id.FI);

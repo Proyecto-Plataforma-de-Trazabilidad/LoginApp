@@ -46,5 +46,6 @@ public class ConsuEntD extends DrawerBaseActivity {
                 startActivity(en);
             }
         });
+
     }
 }
