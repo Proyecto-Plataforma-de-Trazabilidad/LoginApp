@@ -15,12 +15,13 @@ import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Cat;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Dis;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Pro;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1VDis;
+import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1VERP;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep2Pro;
 import com.example.loginapp.databinding.ActivityIndexRepoCataBinding;
 
 public class IndexRepoCata extends DrawerBaseActivity {
     ActivityIndexRepoCataBinding aircb;
-    CardView CAT,DIS,VDIS,PRO,PPRO,HUE,ERP;
+    CardView CAT,DIS,VDIS,PRO,PPRO,HUE,ERP,VERP;
     Intent i;
 
     @Override
@@ -40,6 +41,7 @@ public class IndexRepoCata extends DrawerBaseActivity {
         PPRO=findViewById(R.id.T4_1);
         HUE=findViewById(R.id.T5);
         ERP=findViewById(R.id.T6);
+        VERP=findViewById(R.id.T7);
         CAT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,5 +91,13 @@ public class IndexRepoCata extends DrawerBaseActivity {
                 startActivity(i);
             }
         });
+        VERP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i=new Intent(IndexRepoCata.this, Rep1VERP.class);
+                startActivity(i);
+            }
+        });
+
     }
 }
