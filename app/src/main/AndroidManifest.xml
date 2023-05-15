@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Reportes.ReportesDeCatalogos.Rep1Dis"
+            android:exported="false" />
+        <activity
             android:name=".Movimientos.ERP.Salidas.ConsuPS_ERP"
             android:exported="false" />
         <activity
