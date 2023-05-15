@@ -1,4 +1,4 @@
-package com.example.loginapp;
+package com.example.loginapp.Reportes.ReportesDeCatalogos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1VDis;
+import com.example.loginapp.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.components.Legend;

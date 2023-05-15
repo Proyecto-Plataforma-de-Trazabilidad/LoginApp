@@ -20,7 +20,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Rep1Huer"
+            android:name=".Reportes.ReportesDeCatalogos.Rep1VERP"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.ReportesDeCatalogos.Rep1ERP"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.ReportesDeCatalogos.Rep1Huer"
             android:exported="false" />
         <activity
             android:name=".Reportes.ReportesDeCatalogos.Rep2Pro"

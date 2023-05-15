@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        tools:context=".Reportes.ReportesDeCatalogos.Rep1Huer">
+        tools:context=".Reportes.ReportesDeCatalogos.Rep1ERP">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center_horizontal"
-                android:text=" Reporte Huertos"
+                android:text=" Reporte ERP"
                 android:textAlignment="center"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -67,12 +67,29 @@
                 android:fontFamily="sans-serif-black"
                 android:gravity="center_horizontal"
                 android:padding="10dp"
-                android:text="Huertos Por Productor"
+                android:text="TOTAL DE ERP POR ESTADO"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="14dp" />
             <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/HuerP"
+                android:id="@+id/ERP_E"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="TOTAL DE ERP POR MUNICIPIO"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/ERP_M"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_weight="1"/>
