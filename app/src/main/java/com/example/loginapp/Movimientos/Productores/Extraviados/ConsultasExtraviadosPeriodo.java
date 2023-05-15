@@ -171,6 +171,7 @@ public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
                         arreglo=result;//para generar el csv
                         tbtEP.addView(registro);
                     }
+                    CSV.setEnabled(true);
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
@@ -180,6 +181,7 @@ public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
+                CSV.setEnabled(false);
                 //Mostrar el error de Volley exacto a través de la librería
                 Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
             }
@@ -198,7 +200,12 @@ public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
         CSV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Export(arreglo);
+                if(arreglo!=null){
+                    Export(arreglo);
+                }
+                else{
+                    Toast.makeText(ConsultasExtraviadosPeriodo.this, "La tabla aun no tiene datos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }//fin cargar tabla

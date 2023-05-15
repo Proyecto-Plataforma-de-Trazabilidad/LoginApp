@@ -127,6 +127,7 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
                         arreglo=result;//para generar el csv
                         tbtETE.addView(registro);
                     }
+                    CSV.setEnabled(true);
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
@@ -136,6 +137,7 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
+                CSV.setEnabled(false);
                 //Mostrar el error de Volley exacto a través de la librería
                 Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
             }
@@ -153,7 +155,12 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
         CSV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Export(arreglo);
+                if(arreglo!=null){
+                    Export(arreglo);
+                }
+                else{
+                    Toast.makeText(ConsultaExtraviadosTipoEnvase.this, "La tabla aun no tiene datos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

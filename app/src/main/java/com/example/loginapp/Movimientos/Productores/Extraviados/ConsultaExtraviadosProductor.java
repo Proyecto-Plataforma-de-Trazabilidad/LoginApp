@@ -124,6 +124,7 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
                         arreglo=result;//para generar el csv
                         tbtE.addView(registro);
                     }
+                    CSV.setEnabled(true);
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
@@ -135,6 +136,7 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
                 progressDialog.dismiss();
                 //Mostrar el error de Volley exacto a través de la librería
                 Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
+                CSV.setEnabled(false);
             }
         }){
             protected Map<String,String> getParams(){
