@@ -1,6 +1,6 @@
 package com.example.loginapp.Reportes;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
@@ -11,12 +11,12 @@ import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Cat;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Dis;
-import com.example.loginapp.databinding.ActivityIndexBinding;
+import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1VDis;
 import com.example.loginapp.databinding.ActivityIndexRepoCataBinding;
 
 public class IndexRepoCata extends DrawerBaseActivity {
     ActivityIndexRepoCataBinding aircb;
-    CardView CAT,DIS;
+    CardView CAT,DIS,VDIS;
     Intent i;
 
     @Override
@@ -31,6 +31,7 @@ public class IndexRepoCata extends DrawerBaseActivity {
 
         CAT=findViewById(R.id.T1);
         DIS=findViewById(R.id.T2);
+        VDIS=findViewById(R.id.T3);
         CAT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +43,13 @@ public class IndexRepoCata extends DrawerBaseActivity {
             @Override
             public void onClick(View v) {
                 i=new Intent(IndexRepoCata.this, Rep1Dis.class);
+                startActivity(i);
+            }
+        });
+        VDIS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i=new Intent(IndexRepoCata.this, Rep1VDis.class);
                 startActivity(i);
             }
         });

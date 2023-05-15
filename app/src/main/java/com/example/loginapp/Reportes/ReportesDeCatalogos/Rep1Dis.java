@@ -61,10 +61,10 @@ public class Rep1Dis extends AppCompatActivity implements OnChartValueSelectedLi
         barras2=findViewById(R.id.DisE);
         barras2.setOnChartValueSelectedListener(this);
 
-        CATGeneal();
-        CATEstado();
+        Geneal();
+        Estado();
     }
-    private void CATGeneal() {
+    private void Geneal() {
 
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
@@ -130,7 +130,7 @@ public class Rep1Dis extends AppCompatActivity implements OnChartValueSelectedLi
         };
         requestQueue.add(stringRequest);
     }//fin general
-    private void CATEstado() {
+    private void Estado() {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -216,7 +216,7 @@ public class Rep1Dis extends AppCompatActivity implements OnChartValueSelectedLi
         axis.setEnabled(false);
     }
     private void creargrafico(){
-        barras2=(BarChart)getSameChart(barras2,"Cats",Color.BLACK,Color.WHITE,2000);
+        barras2=(BarChart)getSameChart(barras2,"Distribuidores",Color.BLACK,Color.WHITE,2000);
         barras2.setDrawGridBackground(true);
 
         barras2.setData(getBarData());
