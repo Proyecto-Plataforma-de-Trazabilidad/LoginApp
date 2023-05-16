@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedListener {
+public class Rep1EDF extends AppCompatActivity implements OnChartValueSelectedListener {
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsuReportes.php";
@@ -53,15 +53,15 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rep1_erp);
+        setContentView(R.layout.activity_rep1_edf);
 
-        requestQueue= Volley.newRequestQueue(Rep1ERP.this);
-        progressDialog=new ProgressDialog(Rep1ERP.this);
+        requestQueue= Volley.newRequestQueue(Rep1EDF.this);
+        progressDialog=new ProgressDialog(Rep1EDF.this);
 
-        barras2=findViewById(R.id.ERP_E);
+        barras2=findViewById(R.id.EDF_E);
         barras2.setOnChartValueSelectedListener(this);
         Consulta();
-    }//fin on create
+    }
     private void Consulta() {
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
@@ -106,7 +106,7 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","Rep1EERP");
+                parametros.put("opcion","Rep1EEDF");
                 return parametros;
             }
         };
@@ -151,7 +151,7 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
         axis.setEnabled(false);
     }
     private void creargrafico(){
-        barras2=(BarChart)getSameChart(barras2,"ERP", Color.BLACK,Color.WHITE,2000);
+        barras2=(BarChart)getSameChart(barras2,"Empresas Destino", Color.BLACK,Color.WHITE,2000);
         barras2.setDrawGridBackground(true);
 
         barras2.setData(getBarData());
@@ -180,7 +180,6 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
         }
         return entries;
     }
-
     //---------------otro grafico ---------------------------------
     public void onValueSelected(Entry e, Highlight h) {
         String barrac=etiquetas[(int) e.getX()];
@@ -209,7 +208,7 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
                         valoresm[i]=valor;
                         i++;
                     }
-                    graficoMunicipios(barrac);
+                   graficoMunicipios(barrac);
 
                 }
                 catch (JSONException e) {
@@ -227,7 +226,7 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","Rep1MERP");
+                parametros.put("opcion","Rep1MEDF");
                 parametros.put("edo",barrac);
                 return parametros;
             }
@@ -235,7 +234,7 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
         requestQueue.add(stringRequest);
     }
     private void graficoMunicipios(String barrac) {
-        barras3 = (BarChart) findViewById(R.id.ERP_M);
+        barras3 = (BarChart) findViewById(R.id.EDF_M);
         barras3=(BarChart)getSameChart3(barras3,"Municipios del Estado: "+barrac,Color.BLACK,Color.WHITE,2000);
         barras3.setDrawGridBackground(true);
 
@@ -303,6 +302,8 @@ public class Rep1ERP extends AppCompatActivity implements OnChartValueSelectedLi
         }
         return entries;
     }
+
     public void onNothingSelected() {
     }
+
 }

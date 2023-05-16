@@ -10,19 +10,22 @@ import android.view.View;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Conte;
+import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1EDF;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1ERP;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Huer;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Cat;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Dis;
+import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Mun;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Pro;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1VDis;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1VERP;
+import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1VMun;
 import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep2Pro;
 import com.example.loginapp.databinding.ActivityIndexRepoCataBinding;
 
 public class IndexRepoCata extends DrawerBaseActivity {
     ActivityIndexRepoCataBinding aircb;
-    CardView CAT,DIS,VDIS,PRO,PPRO,HUE,ERP,VERP,CON;
+    CardView CAT,DIS,VDIS,PRO,PPRO,HUE,ERP,VERP,CON,EDF,MUN,VMUN;
     Intent i;
 
     @Override
@@ -44,6 +47,10 @@ public class IndexRepoCata extends DrawerBaseActivity {
         ERP=findViewById(R.id.T6);
         VERP=findViewById(R.id.T7);
         CON=findViewById(R.id.T8);
+        EDF=findViewById(R.id.T9);
+        MUN=findViewById(R.id.T10);
+        VMUN=findViewById(R.id.T11);
+
         CAT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +114,26 @@ public class IndexRepoCata extends DrawerBaseActivity {
                 startActivity(i);
             }
         });
-
+        EDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i=new Intent(IndexRepoCata.this, Rep1EDF.class);
+                startActivity(i);
+            }
+        });
+        MUN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i=new Intent(IndexRepoCata.this, Rep1Mun.class);
+                startActivity(i);
+            }
+        });
+        VMUN.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        i=new Intent(IndexRepoCata.this, Rep1VMun.class);
+                        startActivity(i);
+                    }
+                });
     }
 }
