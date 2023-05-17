@@ -92,7 +92,15 @@
                 android:popupBackground="@color/white"
                 android:textAlignment="center"
                 />
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/consul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/Consultar"
+                android:backgroundTint="@color/Verdeapejal"
+                android:layout_gravity="center"
+                />
 
             <TextView
                 android:layout_width="match_parent"

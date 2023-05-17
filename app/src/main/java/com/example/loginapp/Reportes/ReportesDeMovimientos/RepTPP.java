@@ -27,6 +27,7 @@ import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.cboEntradas;
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.components.XAxis;
@@ -34,8 +35,10 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -60,10 +63,13 @@ public class RepTPP extends AppCompatActivity implements AdapterView.OnItemSelec
     RequestQueue requestQueue;
     String httpURI = "https://campolimpiojal.com/android/ConsuReportes.php";
 
-    String e;
+    String productor;
     BarChart Gbar;//grafico
     int[] color= ColorTemplate.MATERIAL_COLORS;
 
+    String[] etiquetas;
+    int[] valores;
+    MaterialButton btnconsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +101,15 @@ public class RepTPP extends AppCompatActivity implements AdapterView.OnItemSelec
         //grafico
         Gbar=findViewById(R.id.TPP);//enlazamos el grafico
 
+        btnconsulta=findViewById(R.id.consul);
 
+        btnconsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Consultar(productor,fi,ff);
+            }
+        });
     }//fin oncrate
 
     //---------------spiner----------------------
@@ -133,7 +147,7 @@ public class RepTPP extends AppCompatActivity implements AdapterView.OnItemSelec
         }
     }
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        e = parent.getSelectedItem().toString();
+        productor = parent.getSelectedItem().toString();
         //Toast.makeText(this, e, Toast.LENGTH_SHORT).show();
     }
     @Override
@@ -162,13 +176,12 @@ public class RepTPP extends AppCompatActivity implements AdapterView.OnItemSelec
                 final String Date = year + "/" + (month+1) + "/" + day;
                 FF.setText(Date);//imprime en el cuadro
                 ff=Date;
-               Consultar();
             }
         });
         fragment.show(getSupportFragmentManager(), "datePicker");
     }
     //--------consulta a servidor-------------------
-    private void Consultar() {
+    private void Consultar(String productor,String fi,String ff) {
         progressDialog.setMessage("Cargando...");
         progressDialog.show();
 
@@ -180,24 +193,33 @@ public class RepTPP extends AppCompatActivity implements AdapterView.OnItemSelec
                 try{
                     JSONArray result=new JSONArray(response);
 
-                    ArrayList<BarEntry> barentriesC= new ArrayList<>();
-                    String[] etiquetas=new String[result.length()];
+                    int ancho=result.length();
+                    etiquetas=new String[ancho];
+                    valores=new int[ancho];
 
                     for (int i = 0; i < result.length(); ) {
                         JSONObject jsonObject = result.getJSONObject(i);
 
                         //rescatando los datos
-                        int C= Integer.parseInt(jsonObject.getString("TotalPiezas"));
+                        String c=jsonObject.getString("TotalPiezas");
                         String n=jsonObject.getString("Nombre");
 
-                        //agregamos datos al arreglo
-                        barentriesC.add(new BarEntry(i,C));
-                        etiquetas[i]=n;
+                        if(n=="null" && c=="null"){
+                            //agregamos datos al arreglo
+                            valores[i]=0;
+                            etiquetas[i]=productor;
+                        }
+                        else{
+                            int C= Integer.parseInt(jsonObject.getString("TotalPiezas"));
+                            //agregamos datos al arreglo
+                            valores[i]=C;
+                            etiquetas[i]=n;
+                        }
 
                         //incremento
                         i++;
                     }
-                    Creargrafico(barentriesC,etiquetas);
+                    creargrafico();
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
@@ -214,7 +236,7 @@ public class RepTPP extends AppCompatActivity implements AdapterView.OnItemSelec
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
                 parametros.put("opcion","RepTPP");
-                parametros.put("pro",e);
+                parametros.put("pro",productor);
                 parametros.put("fi",fi);
                 parametros.put("ff",ff);
                 return parametros;
@@ -224,40 +246,71 @@ public class RepTPP extends AppCompatActivity implements AdapterView.OnItemSelec
     }
 
     //----- cargar grafico---------------------
-    private void Creargrafico(ArrayList<BarEntry> barentriesC, String[] etiquetas) {
-        //asignando los datos recuperados y un color
-        BarDataSet barDataSet1=new BarDataSet(barentriesC,etiquetas[0]);
-        barDataSet1.setColor(color[0]);
-        barDataSet1.setValueTextColor(Color.BLACK);
-        barDataSet1.setValueTextSize(16f);
-
-        BarData data=new BarData(barDataSet1);
-        Gbar.setFitBars(true);
-        Gbar.setData(data);
-        Gbar.getDescription().setText(" ");
-        Gbar.invalidate();
-        Gbar.animateY(1000);
-
-        YAxis yAxis=Gbar.getAxisRight();
-        yAxis.setEnabled(false);
-
-        YAxis yAxis2=Gbar.getAxisLeft();
-        yAxis2.setAxisMinimum(0);
-
-
-        XAxis xAxis=Gbar.getXAxis();
-        xAxis.setEnabled(false);
-
-
-        Gbar.moveViewToX(10);
-
-        Legend l=Gbar.getLegend();
+    private Chart getSameChart(Chart chart, String des, int txtcolor, int back, int anima){
+        chart.getDescription().setText(des);//personalizacion de la grafica
+        chart.getDescription().setTextSize(15);
+        chart.setBackgroundColor(back);
+        chart.animateY(anima);
+        leyenda(chart);
+        return chart;
+    }
+    private void leyenda(Chart chart){
+        //personalizacion de la leyenda
+        Legend l=chart.getLegend();
         l.setForm(Legend.LegendForm.CIRCLE);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
-        l.setYOffset(10f);
-        l.setXOffset(10f);
 
-        Gbar.getDescription().setText("Total Pzs");
-        Gbar.setExtraOffsets(10f, 10f, 10f, 10f);
+
+        ArrayList<LegendEntry> entries=new ArrayList<>();
+        for (int i = 0; i <etiquetas.length; i++) {
+            LegendEntry entry=new LegendEntry();
+            entry.formColor=color[i];
+            entry.label= etiquetas[i];
+            entries.add(entry);
+        }//fin for
+        l.setCustom(entries);
+    }
+    private void axisX(XAxis axis){
+        axis.setGranularityEnabled(true);
+        axis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        axis.setValueFormatter(new IndexAxisValueFormatter(etiquetas));
+        axis.setEnabled(false);//desabilita etiquetas eje x
+
+    }
+    private void axislefth(YAxis axis){
+        axis.setSpaceTop(30);
+        axis.setAxisMinimum(0);
+    }
+    private void axisright(YAxis axis){
+        axis.setEnabled(false);
+    }
+    private void creargrafico(){
+        Gbar=(BarChart)getSameChart(Gbar,"Total Ordenados", Color.BLACK,Color.WHITE,2000);
+        Gbar.setDrawGridBackground(true);
+        Gbar.setData(getBarData());
+        Gbar.invalidate();
+
+        axisX(Gbar.getXAxis());//llamando asus propiedades personalizadas
+        axislefth(Gbar.getAxisLeft());
+        axisright(Gbar.getAxisRight());
+    }
+    private DataSet getData(DataSet dataSet){
+        dataSet.setColors(color);
+        dataSet.setValueTextSize(10);
+        return dataSet;
+    }
+    private BarData getBarData(){
+        BarDataSet bds= (BarDataSet) getData(new BarDataSet(Entriesgraf(),""));//que datos vas a poner en la grafica
+        BarData bD=new BarData(bds);
+        bD.setBarWidth(0.45f);
+        return bD;
+    }
+    private ArrayList<BarEntry> Entriesgraf(){
+        ArrayList<BarEntry> entries=new ArrayList<>();//agregar valores de la barra
+        for(int i=0;i<valores.length;){
+            entries.add(new BarEntry(i,valores[i]));
+            i++;
+        }
+        return entries;
     }
 }
