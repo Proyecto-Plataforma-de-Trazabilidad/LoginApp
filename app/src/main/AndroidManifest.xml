@@ -20,6 +20,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Reportes.ReportesDeMovimientos.ConsuRepMovi"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.IndexRepoMovi"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.ReportesDeMovimientos.RepTPP"
+            android:exported="false" />
+        <activity
             android:name=".Reportes.ReportesDeCatalogos.Rep1VMun"
             android:exported="false" />
         <activity
