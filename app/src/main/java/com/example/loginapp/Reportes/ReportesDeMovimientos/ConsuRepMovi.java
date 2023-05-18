@@ -10,7 +10,7 @@ import com.example.loginapp.R;
 import com.google.android.material.button.MaterialButton;
 
 public class ConsuRepMovi extends AppCompatActivity {
-    MaterialButton TPP,TQP,TEP,EPP;
+    MaterialButton TPP,TQP,TEP,EPP,ODIS;
     Intent i;
 
     @Override
@@ -22,6 +22,7 @@ public class ConsuRepMovi extends AppCompatActivity {
         TQP=findViewById(R.id.btn2);
         TEP=findViewById(R.id.btn3);
         EPP=findViewById(R.id.btn4);
+        ODIS=findViewById(R.id.btn8);
         TPP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,5 +51,13 @@ public class ConsuRepMovi extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ODIS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                i=new Intent(ConsuRepMovi.this, RepODis.class);
+                startActivity(i);
+            }
+        });
     }
+
 }
