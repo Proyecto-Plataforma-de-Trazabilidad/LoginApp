@@ -49,44 +49,44 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
         //variables sesion
         emisorRol= MainActivity.obtenerrol(DrawerBaseActivity.this,MainActivity.r);
-        Toast.makeText(DrawerBaseActivity.this, "rolemitido: "+emisorRol, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(DrawerBaseActivity.this, "rolemitido: "+emisorRol, Toast.LENGTH_SHORT).show();
 
         switch (emisorRol){
-            case "1":
+            case "1"://admin
                 esconderAlgunosItems();
                 break;
-            case "2":
+            case "2"://productor
                 navigationView=drawerLayout.findViewById(R.id.nav_view);
                 navigationView.setNavigationItemSelectedListener(this);
                 break;
-            case "3":
+            case "3"://distribuidor
                 navigationView=drawerLayout.findViewById(R.id.nav_view);
                 navigationView.setNavigationItemSelectedListener(this);
                 break;
-            case "4":
+            case "4"://municipios
                 navigationView=drawerLayout.findViewById(R.id.nav_view);
                 navigationView.setNavigationItemSelectedListener(this);
                 break;
-            case "5":
+            case "5"://empre recolec priva
                 navigationView=drawerLayout.findViewById(R.id.nav_view);
                 navigationView.setNavigationItemSelectedListener(this);
                 break;
-            case "6":
+            case "6"://empre destino
                 esconderAlgunosItems();
                 break;
-            case "7":
+            case "7"://AMOCALI
                 esconderAlgunosItems();
                 break;
-            case "8":
+            case "8"://ASICA
                 esconderAlgunosItems();
                 break;
-            case "9":
+            case "9"://CESAVEJAL
                 esconderAlgunosItems();
                 break;
-            case "10":
+            case "10"://APEAJAL
                 esconderAlgunosItems();
                 break;
-            case "11":
+            case "11"://cat
                 navigationView=drawerLayout.findViewById(R.id.nav_view);
                 navigationView.setNavigationItemSelectedListener(this);
                 break;

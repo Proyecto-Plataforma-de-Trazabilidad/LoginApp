@@ -17,8 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Mapas.Mapa;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsulGeneConteBinding;
+import com.example.loginapp.databinding.ActivityConsultaGeneralBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -28,7 +31,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsultaGeneral extends AppCompatActivity {
+public class ConsultaGeneral extends DrawerBaseActivity {
+    ActivityConsultaGeneralBinding activityConsultaGeneralBinding;
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -41,6 +45,11 @@ public class ConsultaGeneral extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_general);
+
+        //aqui va lo del menu
+        activityConsultaGeneralBinding= ActivityConsultaGeneralBinding.inflate(getLayoutInflater());
+        setContentView(activityConsultaGeneralBinding.getRoot());
+        allowActivityTitle("Catálogos/General/CAT");
 
         requestQueue= Volley.newRequestQueue(ConsultaGeneral.this);
         progressDialog=new ProgressDialog(ConsultaGeneral.this);

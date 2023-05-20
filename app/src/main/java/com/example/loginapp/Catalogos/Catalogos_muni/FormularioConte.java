@@ -20,9 +20,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Mapas.MapaOrigenContenedores;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.origen;
+import com.example.loginapp.databinding.ActivityConsultaGeneralBinding;
+import com.example.loginapp.databinding.ActivityFormularioConteBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -37,8 +40,8 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class FormularioConte extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-
+public class FormularioConte extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener{
+    ActivityFormularioConteBinding activityFormularioConteBinding;
     AsyncHttpClient cliente;
     Spinner cbocontenedor;
     ProgressDialog progressDialog;
@@ -54,6 +57,11 @@ public class FormularioConte extends AppCompatActivity implements AdapterView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_conte);
+
+        //aqui va lo del menu
+        activityFormularioConteBinding=ActivityFormularioConteBinding.inflate(getLayoutInflater());
+        setContentView(activityFormularioConteBinding.getRoot());
+        allowActivityTitle("Catálogos/Municipio/Contenedores");
 
         cliente=new AsyncHttpClient();
         cbocontenedor =(Spinner) findViewById(R.id.cboorigenconte);

@@ -57,21 +57,14 @@ public class MapaFormularioEmpresa extends AppCompatActivity implements OnMapRea
         //para traer el valor dela combo
         Bundle bundle= getIntent().getExtras();//se trae lo que se mando en el extra en el evento al consultar
         dato= bundle.getString("Municipio");//dato rescata el string del identificador(osea el valor del estado seleccionado)
-        Toast.makeText(this,dato, Toast.LENGTH_SHORT).show();//imprime nomas para asegurarce
+        //Toast.makeText(this,dato, Toast.LENGTH_SHORT).show();//imprime nomas para asegurarce
 
 
         requestQueue= Volley.newRequestQueue(MapaFormularioEmpresa.this);
         //Indicar dónde se ejecutará progressdialog
         progressDialog=new ProgressDialog(MapaFormularioEmpresa.this);
 
-        btnvolver= (MaterialButton) findViewById(R.id.btnregresarFEmp);
 
-        btnvolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

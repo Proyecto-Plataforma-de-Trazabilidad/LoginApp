@@ -60,15 +60,6 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
         //Indicar dónde se ejecutará progressdialog
         progressDialog=new ProgressDialog(Mapa.this);
 
-        btnvolver= (MaterialButton) findViewById(R.id.btnregresar);
-
-        btnvolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -142,8 +133,8 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback , Goog
             Toast.makeText(this, "Lo sentimos, no tenemos agentes en la Unidad Seleccionada", Toast.LENGTH_SHORT).show();
         }
         mMap.setOnMarkerClickListener(this);
-        mMap.setMinZoomPreference(12.0f);
-        mMap.setMaxZoomPreference(20.0f);
+        mMap.setMinZoomPreference(8.0f);
+        mMap.setMaxZoomPreference(16.0f);
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 

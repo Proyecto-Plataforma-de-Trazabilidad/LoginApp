@@ -17,8 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Mapas.MapaRecolectores;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsulGeneConteBinding;
+import com.example.loginapp.databinding.ActivityConsulGeneRecolectoraBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -28,7 +31,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsulGeneRecolectora extends AppCompatActivity {
+public class ConsulGeneRecolectora extends DrawerBaseActivity {
+    ActivityConsulGeneRecolectoraBinding activityConsulGeneRecolectoraBinding;
     MaterialButton btnregresa,btnconsulta;
 
     ProgressDialog progressDialog;
@@ -40,6 +44,11 @@ public class ConsulGeneRecolectora extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consul_gene_recolectora);
+
+        //aqui va lo del menu
+        activityConsulGeneRecolectoraBinding= ActivityConsulGeneRecolectoraBinding.inflate(getLayoutInflater());
+        setContentView(activityConsulGeneRecolectoraBinding.getRoot());
+        allowActivityTitle("Catálogos/General/ERP");
 
         requestQueue= Volley.newRequestQueue(ConsulGeneRecolectora.this);
         progressDialog=new ProgressDialog(ConsulGeneRecolectora.this);

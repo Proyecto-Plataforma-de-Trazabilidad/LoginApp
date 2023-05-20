@@ -58,14 +58,6 @@ public class MapaEmpresasDestino extends AppCompatActivity implements OnMapReady
         //Indicar dónde se ejecutará progressdialog
         progressDialog=new ProgressDialog(MapaEmpresasDestino.this);
 
-        btnvolver= (MaterialButton) findViewById(R.id.btnregresarEmp);
-
-        btnvolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

@@ -62,6 +62,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "5"://empre recolec priva
+                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        startActivity(i);
                         break;
                     case "6"://empre destino
                         i= new Intent(IndexCatalogos.this, IndexCatalDestinoGene.class);
@@ -76,8 +78,12 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "9"://CESAVEJAL
+                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        startActivity(i);
                         break;
                     case "10"://APEAJAL
+                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        startActivity(i);
                         break;
                     case "11"://CAT
                         i= new Intent(IndexCatalogos.this, IndexGenerales.class);
@@ -109,6 +115,8 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "5"://empre recolec priva
+                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        startActivity(i);
                         break;
                     case "6"://empre destino
                         i= new Intent(IndexCatalogos.this, IndexCatalDestinoMunicipal.class);
@@ -123,8 +131,12 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "9"://CESAVEJAL
+                        i= new Intent(IndexCatalogos.this, IndexMunicipales.class);
+                        startActivity(i);
                         break;
                     case "10"://APEAJAL
+                        i= new Intent(IndexCatalogos.this, IndexMunicipales.class);
+                        startActivity(i);
                         break;
                     case "11"://CAT
                         i= new Intent(IndexCatalogos.this, IndexMunicipales.class);

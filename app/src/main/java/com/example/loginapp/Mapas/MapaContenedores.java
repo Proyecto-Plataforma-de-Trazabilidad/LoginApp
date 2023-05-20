@@ -60,14 +60,6 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
         //Indicar dónde se ejecutará progressdialog
         progressDialog=new ProgressDialog(MapaContenedores.this);
 
-        btnvolver= (MaterialButton) findViewById(R.id.btnregresardi);
-
-        btnvolver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

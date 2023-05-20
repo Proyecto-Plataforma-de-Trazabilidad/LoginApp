@@ -20,9 +20,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Mapas.MapaMuniDistribuidores;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.municipios;
+import com.example.loginapp.databinding.ActivityFormularioConteBinding;
+import com.example.loginapp.databinding.ActivityFormularioDistriBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -37,8 +40,8 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class FormularioDistri extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-
+public class FormularioDistri extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener{
+    ActivityFormularioDistriBinding activityFormularioDistriBinding;
     AsyncHttpClient cliente;
     Spinner cbomunicipio;
     ProgressDialog progressDialog;
@@ -54,6 +57,11 @@ public class FormularioDistri extends AppCompatActivity implements AdapterView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_distri);
+
+        //aqui va lo del menu
+        activityFormularioDistriBinding= ActivityFormularioDistriBinding.inflate(getLayoutInflater());
+        setContentView(activityFormularioDistriBinding.getRoot());
+        allowActivityTitle("Catálogos/Municipio/Distribuidores");
 
         cliente=new AsyncHttpClient();
         cbomunicipio=(Spinner) findViewById(R.id.cbomunicipiodis);

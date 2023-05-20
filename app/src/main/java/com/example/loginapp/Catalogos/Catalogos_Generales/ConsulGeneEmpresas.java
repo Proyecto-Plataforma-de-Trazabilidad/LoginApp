@@ -17,8 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Mapas.MapaEmpresasDestino;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsulGeneConteBinding;
+import com.example.loginapp.databinding.ActivityConsulGeneEmpresarBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -28,7 +31,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsulGeneEmpresas extends AppCompatActivity {
+public class ConsulGeneEmpresas extends DrawerBaseActivity {
+    ActivityConsulGeneEmpresarBinding activityConsulGeneEmpresarBinding;
     MaterialButton btnregresa,btnconsulta;
 
     ProgressDialog progressDialog;
@@ -40,6 +44,11 @@ public class ConsulGeneEmpresas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consul_gene_empresar);
+
+        //aqui va lo del menu
+        activityConsulGeneEmpresarBinding= ActivityConsulGeneEmpresarBinding.inflate(getLayoutInflater());
+        setContentView(activityConsulGeneEmpresarBinding.getRoot());
+        allowActivityTitle("Catálogos/General/Empresas Destino");
 
         requestQueue= Volley.newRequestQueue(ConsulGeneEmpresas.this);
         progressDialog=new ProgressDialog(ConsulGeneEmpresas.this);
