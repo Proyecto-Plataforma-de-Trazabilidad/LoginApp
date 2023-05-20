@@ -20,10 +20,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesPeridoProductor;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.cboEntradas;
+import com.example.loginapp.databinding.ActivityConsuEntreProdEmDBinding;
+import com.example.loginapp.databinding.ActivityConsuEntreProdxCatBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -39,7 +42,7 @@ import java.util.Map;
 import cz.msebera.android.httpclient.Header;
 
 
-public class ConsuEntreProdEmD extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class ConsuEntreProdEmD extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener{
     AsyncHttpClient cliente;
     Spinner cbousuario;
 
@@ -52,12 +55,17 @@ public class ConsuEntreProdEmD extends AppCompatActivity implements AdapterView.
 
     MaterialButton btnregresa;
     String emisor;
-
+    ActivityConsuEntreProdEmDBinding activityConsuEntreProdEmDBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consu_entre_prod_em_d);
+
+        //aqui va lo del menu
+        activityConsuEntreProdEmDBinding=ActivityConsuEntreProdEmDBinding.inflate(getLayoutInflater());
+        setContentView(activityConsuEntreProdEmDBinding.getRoot());
+        allowActivityTitle("Entregas/Empresa");
 
         ///variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsuEntreProdEmD.this,MainActivity.m);

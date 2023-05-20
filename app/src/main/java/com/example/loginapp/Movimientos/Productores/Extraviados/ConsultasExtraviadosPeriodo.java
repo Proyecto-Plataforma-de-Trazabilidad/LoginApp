@@ -25,10 +25,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.DatePickerFragment;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsultasExtraviadosPeriodoBinding;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -40,7 +43,7 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
+public class ConsultasExtraviadosPeriodo extends DrawerBaseActivity {
     String emisorname,emisor,ff,fi;
     EditText FI, FF;
 
@@ -52,11 +55,18 @@ public class ConsultasExtraviadosPeriodo extends AppCompatActivity {
     String httpURI= "https://campolimpiojal.com/android/ConsulExtraviadosMovimiProductores.php";
     MaterialButton volver;
     Button CSV;
+    ActivityConsultasExtraviadosPeriodoBinding activityConsultasExtraviadosPeriodoBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consultas_extraviados_periodo);
+
+        //aqui va lo del menu
+        activityConsultasExtraviadosPeriodoBinding= ActivityConsultasExtraviadosPeriodoBinding.inflate(getLayoutInflater());
+        setContentView(activityConsultasExtraviadosPeriodoBinding.getRoot());
+        allowActivityTitle("Extraviados/Periodo");
 
         ///variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsultasExtraviadosPeriodo.this,MainActivity.m);

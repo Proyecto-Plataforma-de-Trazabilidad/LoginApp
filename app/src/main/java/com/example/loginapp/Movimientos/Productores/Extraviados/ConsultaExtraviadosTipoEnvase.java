@@ -25,9 +25,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsultaExtraviadosTipoEnvaseBinding;
+import com.example.loginapp.databinding.ActivityConsultasExtraviadosPeriodoBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -39,7 +42,7 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ConsultaExtraviadosTipoEnvase extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener {
     TableLayout tbtETE;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -50,11 +53,18 @@ public class ConsultaExtraviadosTipoEnvase extends AppCompatActivity implements 
     String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
     String emisor, emisorname;
     Button CSV;
+    ActivityConsultaExtraviadosTipoEnvaseBinding activityConsultaExtraviadosTipoEnvaseBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_extraviados_tipo_envase);
+
+        //aqui va lo del menu
+        activityConsultaExtraviadosTipoEnvaseBinding= ActivityConsultaExtraviadosTipoEnvaseBinding.inflate(getLayoutInflater());
+        setContentView(activityConsultaExtraviadosTipoEnvaseBinding.getRoot());
+        allowActivityTitle("Extraviados/Tipo Envase");
+
 
         requestQueue= Volley.newRequestQueue(ConsultaExtraviadosTipoEnvase.this);
         progressDialog=new ProgressDialog(ConsultaExtraviadosTipoEnvase.this);

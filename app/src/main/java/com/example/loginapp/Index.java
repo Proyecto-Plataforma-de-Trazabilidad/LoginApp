@@ -74,8 +74,8 @@ public class Index extends DrawerBaseActivity {
                     u=jsonObject.getString("Nombre");
                     idrol=jsonObject.getString("IdtipoUsuario");
 
-                    Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(Index.this, idrol, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Index.this, u, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(Index.this, idrol, Toast.LENGTH_SHORT).show();
 
                     guardarrol(Index.this,idrol,r);
                     guardarnombre(Index.this,u,no);

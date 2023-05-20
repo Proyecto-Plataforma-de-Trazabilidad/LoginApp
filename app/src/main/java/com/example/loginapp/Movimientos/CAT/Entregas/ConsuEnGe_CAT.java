@@ -18,11 +18,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.Entregas.ConsuEntreProdEmD;
 import com.example.loginapp.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsuEnGeCatBinding;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -32,8 +35,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsuEnGe_CAT extends AppCompatActivity {
-
+public class ConsuEnGe_CAT extends DrawerBaseActivity {
+    ActivityConsuEnGeCatBinding activityConsuEnGeCatBinding;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsulEntregas_Dis_Muni_Cat_Erp.php";
@@ -46,6 +49,11 @@ public class ConsuEnGe_CAT extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consu_en_ge_cat);
+
+        //aqui va lo del menu
+        activityConsuEnGeCatBinding= ActivityConsuEnGeCatBinding.inflate(getLayoutInflater());
+        setContentView(activityConsuEnGeCatBinding.getRoot());
+        allowActivityTitle("Entregas/General");
 
         //variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsuEnGe_CAT.this,MainActivity.m);

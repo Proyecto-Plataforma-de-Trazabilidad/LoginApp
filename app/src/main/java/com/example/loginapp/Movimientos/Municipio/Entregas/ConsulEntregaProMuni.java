@@ -20,9 +20,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.cboEntradas;
+import com.example.loginapp.databinding.ActivityConsulEntregaProductorBinding;
+import com.example.loginapp.databinding.ActivityConsulGeneralDistriBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -37,7 +40,7 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ConsulEntregaProMuni extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class ConsulEntregaProMuni extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener{
 
     AsyncHttpClient cliente;
     Spinner cboproductor;
@@ -51,10 +54,16 @@ public class ConsulEntregaProMuni extends AppCompatActivity implements AdapterVi
 
     MaterialButton btnregresa;
     String emisor;
+    ActivityConsulEntregaProductorBinding activityConsulEntregaProductorBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consul_entrega_productor);
+
+        //aqui va lo del menu
+        activityConsulEntregaProductorBinding=ActivityConsulEntregaProductorBinding.inflate(getLayoutInflater());
+        setContentView(activityConsulEntregaProductorBinding.getRoot());
+        allowActivityTitle("Entregas/Productor");
 
         tbtE = findViewById(R.id.tablaEntregas);
         tbtDetE = findViewById(R.id.tabladetEn);

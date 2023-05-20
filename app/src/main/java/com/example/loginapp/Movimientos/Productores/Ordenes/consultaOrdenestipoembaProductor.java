@@ -20,9 +20,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsultaOrdenesTipoQuimicoProductorBinding;
+import com.example.loginapp.databinding.ActivityConsultaOrdenestipoembaProductorBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -32,7 +35,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class consultaOrdenestipoembaProductor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class consultaOrdenestipoembaProductor extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener{
     TableLayout tbtOP,tbtdet;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -41,10 +44,16 @@ public class consultaOrdenestipoembaProductor extends AppCompatActivity implemen
     Spinner cboEnvase;
     String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
     String emisor;
+    ActivityConsultaOrdenestipoembaProductorBinding activityConsultaOrdenestipoembaProductorBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_ordenestipoemba_productor);
+
+        //aqui va lo del menu
+        activityConsultaOrdenestipoembaProductorBinding=ActivityConsultaOrdenestipoembaProductorBinding.inflate(getLayoutInflater());
+        setContentView(activityConsultaOrdenestipoembaProductorBinding.getRoot());
+        allowActivityTitle("Ordenes/Envase");
 
         requestQueue= Volley.newRequestQueue(consultaOrdenestipoembaProductor.this);
         progressDialog=new ProgressDialog(consultaOrdenestipoembaProductor.this);

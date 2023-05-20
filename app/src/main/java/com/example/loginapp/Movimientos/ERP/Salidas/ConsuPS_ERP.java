@@ -53,7 +53,7 @@ public class ConsuPS_ERP extends DrawerBaseActivity {
         //aqui va lo del menu
         CSMB= ActivityConsuPsMuBinding.inflate(getLayoutInflater());
         setContentView(CSMB.getRoot());
-        allowActivityTitle("Movimientos");
+        allowActivityTitle("Salidas/ERP");
 
         //variables sesion
         emisor= MainActivity.obtenerusuario(ConsuPS_ERP.this,MainActivity.m);

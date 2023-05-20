@@ -18,10 +18,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsulGeneralDistriBinding;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -31,7 +34,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class consulGeneralDist extends AppCompatActivity {
+public class consulGeneralDist extends DrawerBaseActivity {
+    ActivityConsulGeneralDistriBinding activityConsulGeneralDistriBinding;
     TableLayout tbtCOP,tbtdet;
     String emisorname,emisor;
     TextView nom;
@@ -48,10 +52,15 @@ public class consulGeneralDist extends AppCompatActivity {
         tbtCOP = findViewById(R.id.tablaO);
         tbtCOP.removeAllViews();//remueve columnas
 
+        //aqui va lo del menu
+        activityConsulGeneralDistriBinding= ActivityConsulGeneralDistriBinding.inflate(getLayoutInflater());
+        setContentView(activityConsulGeneralDistriBinding.getRoot());
+        allowActivityTitle("Ordenes/General");
+
         //variables sesion
         emisorname = Index.obtenerrol(consulGeneralDist.this, Index.no);
         emisor= MainActivity.obtenerusuario(consulGeneralDist.this,MainActivity.m);
-        Toast.makeText(consulGeneralDist.this, emisorname, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(consulGeneralDist.this, emisorname, Toast.LENGTH_SHORT).show();
 
         nom=findViewById(R.id.distribuidor);
         nom.setText(Html.fromHtml("<b>Distribuidor: </b>"+emisorname));

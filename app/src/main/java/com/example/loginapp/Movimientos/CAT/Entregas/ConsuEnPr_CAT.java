@@ -20,10 +20,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.Entregas.ConsuEntreProdxCAT;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.cboEntradas;
+import com.example.loginapp.databinding.ActivityConsuEnPrCatBinding;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -38,8 +41,9 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ConsuEnPr_CAT extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class ConsuEnPr_CAT extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener{
 
+    ActivityConsuEnPrCatBinding activityConsuEnPrCatBinding;
     AsyncHttpClient cliente;
     Spinner cboproductor;
 
@@ -56,6 +60,11 @@ public class ConsuEnPr_CAT extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consu_en_pr_cat);
+
+        //aqui va lo del menu
+        activityConsuEnPrCatBinding= ActivityConsuEnPrCatBinding.inflate(getLayoutInflater());
+        setContentView(activityConsuEnPrCatBinding.getRoot());
+        allowActivityTitle("Entregas/Productor");
 
         tbtE = findViewById(R.id.tablaEntregas);
         tbtDetE = findViewById(R.id.tabladetEn);

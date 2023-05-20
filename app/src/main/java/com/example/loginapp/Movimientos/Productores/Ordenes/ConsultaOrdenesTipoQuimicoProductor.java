@@ -20,10 +20,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.TipoQuimico;
+import com.example.loginapp.databinding.ActivityConsultaOrdenesTipoQuimicoProductorBinding;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -38,7 +41,7 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ConsultaOrdenesTipoQuimicoProductor extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener {
     //para tabla
     TableLayout tbtOP,tbtdet;
     ProgressDialog progressDialog;
@@ -48,10 +51,16 @@ public class ConsultaOrdenesTipoQuimicoProductor extends AppCompatActivity imple
     Spinner cboTipoQuimico;
     AsyncHttpClient cliente;
     String emisor;
+    ActivityConsultaOrdenesTipoQuimicoProductorBinding activityConsultaOrdenesTipoQuimicoProductorBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_ordenes_tipo_quimico_productor);
+
+        //aqui va lo del menu
+        activityConsultaOrdenesTipoQuimicoProductorBinding= ActivityConsultaOrdenesTipoQuimicoProductorBinding.inflate(getLayoutInflater());
+        setContentView(activityConsultaOrdenesTipoQuimicoProductorBinding.getRoot());
+        allowActivityTitle("Ordenes/Tipo químico");
 
         cliente=new AsyncHttpClient();
 

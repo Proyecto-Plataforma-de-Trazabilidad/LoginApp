@@ -20,10 +20,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesTipoQuimicoProductor;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsulGeneralDistriBinding;
 import com.example.loginapp.databinding.ActivityConsultaOrdenenvaseDistribuidorBinding;
 import com.google.android.material.button.MaterialButton;
 
@@ -34,7 +36,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class consultaOrdenEnvaseDistribuidor extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener{
     TableLayout tbtOP,tbtdet;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -43,10 +45,16 @@ public class consultaOrdenEnvaseDistribuidor extends AppCompatActivity implement
     Spinner cboEnvase;
     String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
     String emisor;
+    ActivityConsultaOrdenenvaseDistribuidorBinding activityConsultaOrdenenvaseDistribuidorBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_ordenenvase_distribuidor);
+
+        //aqui va lo del menu
+        activityConsultaOrdenenvaseDistribuidorBinding= ActivityConsultaOrdenenvaseDistribuidorBinding.inflate(getLayoutInflater());
+        setContentView(activityConsultaOrdenenvaseDistribuidorBinding.getRoot());
+        allowActivityTitle("Ordenes/Envase");
 
         requestQueue= Volley.newRequestQueue(consultaOrdenEnvaseDistribuidor.this);
         progressDialog=new ProgressDialog(consultaOrdenEnvaseDistribuidor.this);

@@ -18,11 +18,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.Entregas.ConsuEntreProdEmD;
 import com.example.loginapp.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsuEnDistBinding;
+import com.example.loginapp.databinding.ActivityIndexBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -31,8 +34,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-public class ConsulGen_Entre_Dist extends AppCompatActivity {
-
+public class ConsulGen_Entre_Dist extends DrawerBaseActivity {
+    ActivityConsuEnDistBinding activityConsuEnDistBinding;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
     String httpURI= "https://campolimpiojal.com/android/ConsulEntregas_Dis_Muni_Cat_Erp.php";
@@ -45,6 +48,11 @@ public class ConsulGen_Entre_Dist extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consu_en_dist);
+
+        //aqui va lo del menu
+        activityConsuEnDistBinding= ActivityConsuEnDistBinding.inflate(getLayoutInflater());
+        setContentView(activityConsuEnDistBinding.getRoot());
+        allowActivityTitle("Entregas/General");
 
         //variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsulGen_Entre_Dist.this,MainActivity.m);

@@ -23,10 +23,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsultaExtraviadosProductorBinding;
+import com.example.loginapp.databinding.ActivityConsultasExtraviadosProductorBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -38,7 +41,7 @@ import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsultaExtraviadosProductor extends AppCompatActivity {
+public class ConsultaExtraviadosProductor extends DrawerBaseActivity {
     TableLayout tbtE;
     String emisor;
     TextView nom;
@@ -48,11 +51,17 @@ public class ConsultaExtraviadosProductor extends AppCompatActivity {
     JSONArray arreglo;
     MaterialButton volver;
     Button CSV;
+    ActivityConsultaExtraviadosProductorBinding activityConsultaExtraviadosProductorBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_extraviados_productor);
+
+        //aqui va lo del menu
+        activityConsultaExtraviadosProductorBinding= ActivityConsultaExtraviadosProductorBinding.inflate(getLayoutInflater());
+        setContentView(activityConsultaExtraviadosProductorBinding.getRoot());
+        allowActivityTitle("Extraviados/Productor");
 
         tbtE = findViewById(R.id.tablaO);
         tbtE.removeAllViews();//remueve columnas

@@ -18,9 +18,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsuEnMuniBinding;
+import com.example.loginapp.databinding.ActivityConsulGeneralDistriBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -29,7 +32,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-public class ConsulEntreGeneMuni extends AppCompatActivity {
+public class ConsulEntreGeneMuni extends DrawerBaseActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -38,11 +41,17 @@ public class ConsulEntreGeneMuni extends AppCompatActivity {
     TableLayout tbtE,tbtDetE;
     MaterialButton btnregresa;
     String emisor,emisorname;
+    ActivityConsuEnMuniBinding activityConsuEnMuniBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consu_en_muni);
+
+        //aqui va lo del menu
+        activityConsuEnMuniBinding= ActivityConsuEnMuniBinding.inflate(getLayoutInflater());
+        setContentView(activityConsuEnMuniBinding.getRoot());
+        allowActivityTitle("Entregas/General");
 
         //variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsulEntreGeneMuni.this,MainActivity.m);

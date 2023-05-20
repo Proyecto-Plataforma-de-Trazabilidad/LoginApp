@@ -18,11 +18,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
+import com.example.loginapp.Movimientos.Municipio.Entregas.ConsulEntreGeneMuni;
 import com.example.loginapp.Movimientos.Productores.Entregas.ConsuEntreProdEmD;
 import com.example.loginapp.Movimientos.Productores.Ordenes.ConsulGeneralDelProductor;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsuGsMuBinding;
+import com.example.loginapp.databinding.ActivityConsulGeneralDistriBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -31,7 +35,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-public class ConsuGS_Mu extends AppCompatActivity {
+public class ConsuGS_Mu extends DrawerBaseActivity {
 
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -40,11 +44,17 @@ public class ConsuGS_Mu extends AppCompatActivity {
     TableLayout tbtE,tbtDetE;
     MaterialButton btnregresa;
     String emisor,emisorname;
+    ActivityConsuGsMuBinding activityConsuGsMuBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consu_gs_mu);
+
+        //aqui va lo del menu
+        activityConsuGsMuBinding= ActivityConsuGsMuBinding.inflate(getLayoutInflater());
+        setContentView(activityConsuGsMuBinding.getRoot());
+        allowActivityTitle("Salidas/General");
 
         //variables sesion correo
         emisor= MainActivity.obtenerusuario(ConsuGS_Mu.this,MainActivity.m);

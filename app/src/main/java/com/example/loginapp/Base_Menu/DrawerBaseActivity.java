@@ -53,7 +53,6 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
         switch (emisorRol){
             case "1"://admin
-                esconderAlgunosItems();
                 break;
             case "2"://productor
                 navigationView=drawerLayout.findViewById(R.id.nav_view);
@@ -75,10 +74,10 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 esconderAlgunosItems();
                 break;
             case "7"://AMOCALI
-                esconderAlgunosItems();
+
                 break;
             case "8"://ASICA
-                esconderAlgunosItems();
+
                 break;
             case "9"://CESAVEJAL
                 esconderAlgunosItems();

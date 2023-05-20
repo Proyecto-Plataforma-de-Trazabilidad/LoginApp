@@ -18,9 +18,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.Index;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
+import com.example.loginapp.databinding.ActivityConsulGeneralDelProductorBinding;
+import com.example.loginapp.databinding.ActivityConsultaOrdenesPeridoProductorBinding;
 import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONArray;
@@ -30,7 +33,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConsulGeneralDelProductor extends AppCompatActivity {
+public class ConsulGeneralDelProductor extends DrawerBaseActivity {
     TableLayout tbtCOP,tbtdet;
     String emisor;
     TextView nom;
@@ -40,12 +43,18 @@ public class ConsulGeneralDelProductor extends AppCompatActivity {
     String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviProductores.php";
     JSONArray arreglo;
     MaterialButton volver;
+    ActivityConsulGeneralDelProductorBinding activityConsulGeneralDelProductorBinding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consul_general_del_productor);
+
+        //aqui va lo del menu
+        activityConsulGeneralDelProductorBinding=  ActivityConsulGeneralDelProductorBinding.inflate(getLayoutInflater());
+        setContentView(activityConsulGeneralDelProductorBinding.getRoot());
+        allowActivityTitle("Ordenes/General");
 
         tbtCOP = findViewById(R.id.tablaO);
         tbtCOP.removeAllViews();//remueve columnas

@@ -20,10 +20,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.Movimientos.CAT.Entregas.ConsuEnPr_CAT;
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.cboEntradas;
+import com.example.loginapp.databinding.ActivityConsuEnErpBinding;
+import com.example.loginapp.databinding.ActivityConsuEnPrErpBinding;
+import com.example.loginapp.databinding.ActivityConsuGsErpBinding;
+import com.example.loginapp.databinding.ActivityConsulGeneralDistriBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -38,7 +43,7 @@ import java.util.Map;
 
 import cz.msebera.android.httpclient.Header;
 
-public class ConsuEnPr_ERP extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class ConsuEnPr_ERP extends DrawerBaseActivity implements AdapterView.OnItemSelectedListener {
 
     AsyncHttpClient cliente;
     Spinner cboproductor;
@@ -52,11 +57,18 @@ public class ConsuEnPr_ERP extends AppCompatActivity implements AdapterView.OnIt
 
     MaterialButton btnregresa;
     String emisor;
+    ActivityConsuEnPrErpBinding activityConsuEnErpBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consu_en_pr_erp);
+
+        //aqui va lo del menu
+        activityConsuEnErpBinding= ActivityConsuEnPrErpBinding.inflate(getLayoutInflater());
+        setContentView(activityConsuEnErpBinding.getRoot());
+        allowActivityTitle("Entregas/Productor");
+
         tbtE = findViewById(R.id.tablaEntregas);
         tbtDetE = findViewById(R.id.tabladetEn);
         ///variables sesion correo

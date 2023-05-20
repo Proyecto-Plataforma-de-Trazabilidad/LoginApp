@@ -53,7 +53,7 @@ public class ConsuPSD extends DrawerBaseActivity {
         //aqui va lo del menu
         CSMB= ActivityConsuPsMuBinding.inflate(getLayoutInflater());
         setContentView(CSMB.getRoot());
-        allowActivityTitle("Movimientos");
+        allowActivityTitle("Salidas/Periodo");
 
         //variables sesion
         emisor= MainActivity.obtenerusuario(ConsuPSD.this,MainActivity.m);
