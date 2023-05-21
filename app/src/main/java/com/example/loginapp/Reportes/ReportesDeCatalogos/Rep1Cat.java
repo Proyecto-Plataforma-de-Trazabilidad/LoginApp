@@ -72,9 +72,7 @@ public class Rep1Cat extends AppCompatActivity implements OnChartValueSelectedLi
     int[] valoresm;
     int[] color=ColorTemplate.MATERIAL_COLORS;
 
-    Button pdf;
-    LinearLayout layout;
-    Bitmap bitmap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,78 +82,15 @@ public class Rep1Cat extends AppCompatActivity implements OnChartValueSelectedLi
         requestQueue= Volley.newRequestQueue(Rep1Cat.this);
         progressDialog=new ProgressDialog(Rep1Cat.this);
 
-        layout=findViewById(R.id.layout_pdf);
 
         barras2=findViewById(R.id.CatE);
         barras2.setOnChartValueSelectedListener(this);
 
-        pdf=findViewById(R.id.pdf);
-        pdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bitmap=LoadBitmap(layout,layout.getWidth(),layout.getHeight());
-                crearPDF();
-            }
-        });
 
         CATGeneal();
         CATEstado();
     }
 
-    private Bitmap LoadBitmap(LinearLayout layout, int width, int height) {
-        Bitmap bitmap1=Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
-        Canvas canvas=new Canvas(bitmap1);
-        layout.draw(canvas);
-        return bitmap1;
-    }
-
-    private void crearPDF() {
-        WindowManager windowManager=(WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics displayMetrics=new DisplayMetrics();
-        this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        float width=displayMetrics.widthPixels;
-        float height=displayMetrics.heightPixels;
-        int convertwith=(int)width,converhei=(int)height;
-
-        PdfDocument document=new PdfDocument();
-        PdfDocument.PageInfo pageInfo=new PdfDocument.PageInfo.Builder(convertwith,converhei,1).create();
-        PdfDocument.Page page=document.startPage(pageInfo);
-
-        Canvas canvas=page.getCanvas();
-        Paint paint=new Paint();
-        canvas.drawPaint(paint);
-        bitmap=Bitmap.createScaledBitmap(bitmap,convertwith,converhei,true);
-        canvas.drawBitmap(bitmap,0,0,null);
-
-        document.finishPage(page);
-
-
-        try{
-            FileOutputStream out = openFileOutput("ReporteCat.pdf", MODE_PRIVATE);
-            document.writeTo(out);
-            document.close();
-
-            //exporting
-            Context context = getApplicationContext();
-            File filelocation = new File(getFilesDir(), "ReporteCat.pdf");
-            Uri path = FileProvider.getUriForFile(context, "com.example.tabla.fileprovider", filelocation);
-
-            Intent fileIntent = new Intent(Intent.ACTION_SEND);
-            fileIntent.setType("application/pdf");
-            fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
-            fileIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            fileIntent.setClipData(ClipData.newRawUri("", path));
-            fileIntent.putExtra(Intent.EXTRA_STREAM, path);
-            startActivity(Intent.createChooser(fileIntent, "Send mail"));
-            Toast.makeText(this, "Archivo Descargado", Toast.LENGTH_SHORT).show();
-
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Algo falló, intente de nuevo", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     private void CATGeneal() {
 
