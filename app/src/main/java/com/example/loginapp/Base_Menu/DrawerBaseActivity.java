@@ -51,6 +51,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
         switch (emisorRol){
             case "1"://admin
+                navigationView=drawerLayout.findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
                 break;
             case "2"://productor
                 navigationView=drawerLayout.findViewById(R.id.nav_view);
@@ -72,10 +74,11 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 esconderAlgunosItems();
                 break;
             case "7"://AMOCALI
-
+                navigationView=drawerLayout.findViewById(R.id.nav_view);
+                navigationView.setNavigationItemSelectedListener(this);
                 break;
             case "8"://ASICA
-
+                esconderAlgunosItems();
                 break;
             case "9"://CESAVEJAL
                 esconderAlgunosItems();
@@ -128,6 +131,11 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
             case R.id.nav_movimientos:
                 switch (emisorRol){
+                    case "1"://admin
+                        //m = new Intent(this,);
+                        //startActivity(m);
+                       // overridePendingTransition(0,0);
+                        break;
                     case "2"://productor
                         m = new Intent(this, Index_movimi_productor.class);
                         startActivity(m);
@@ -147,6 +155,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                         m = new Intent(this, Index_movi_ERP.class);
                         startActivity(m);
                         overridePendingTransition(0,0);
+                        break;
+                    case"7"://amocali
                         break;
                 }
                 break;
