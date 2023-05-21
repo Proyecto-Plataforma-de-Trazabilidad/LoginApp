@@ -197,7 +197,7 @@ public class RepODis extends AppCompatActivity implements AdapterView.OnItemSele
                         String c=jsonObject.getString("TotalE");
                         String n=jsonObject.getString("Nombre");
 
-                        if(n=="null" && c=="null"){
+                        if(n=="null" || c=="0"){
                             //agregamos datos al arreglo
                             valores[i]=0;
                             etiquetas[i]=dis;
