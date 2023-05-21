@@ -115,7 +115,7 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "5"://empre recolec priva
-                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        i= new Intent(IndexCatalogos.this, IndexMunicipales.class);
                         startActivity(i);
                         break;
                     case "6"://empre destino
