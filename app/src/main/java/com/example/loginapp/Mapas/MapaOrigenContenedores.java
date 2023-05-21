@@ -141,7 +141,7 @@ public class MapaOrigenContenedores extends AppCompatActivity implements OnMapRe
                 //redimencionamos el logo
                 BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.logo);
                 Bitmap b = bitmapdraw.getBitmap();
-                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 65, 140, false);
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 45, 110, false);
 
 
                 mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(smallMarker)).position(marker).title(listaPuntosE.get(i).getOrigen()).snippet(listaPuntosE.get(i).getConcepto()));

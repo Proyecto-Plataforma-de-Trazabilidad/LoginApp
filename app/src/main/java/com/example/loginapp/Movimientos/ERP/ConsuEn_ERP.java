@@ -13,7 +13,6 @@ import com.example.loginapp.Movimientos.ERP.Entregas.ConsuEnGe_ERP;
 import com.example.loginapp.Movimientos.ERP.Entregas.ConsuEnPr_ERP;
 import com.example.loginapp.Movimientos.Index_movi_distribuidor;
 import com.example.loginapp.R;
-import com.example.loginapp.databinding.ActivityConsuEnCatBinding;
 import com.example.loginapp.databinding.ActivityConsuEnErpBinding;
 
 public class ConsuEn_ERP extends DrawerBaseActivity {

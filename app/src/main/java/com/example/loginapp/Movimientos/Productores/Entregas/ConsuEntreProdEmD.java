@@ -26,7 +26,6 @@ import com.example.loginapp.Movimientos.Productores.Ordenes.ConsultaOrdenesPerid
 import com.example.loginapp.R;
 import com.example.loginapp.SetGet_Consultas.cboEntradas;
 import com.example.loginapp.databinding.ActivityConsuEntreProdEmDBinding;
-import com.example.loginapp.databinding.ActivityConsuEntreProdxCatBinding;
 import com.google.android.material.button.MaterialButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;

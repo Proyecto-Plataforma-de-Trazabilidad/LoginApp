@@ -100,21 +100,14 @@
         <activity
             android:name=".Movimientos.Municipio.ConsuS_Mu"
             android:exported="false" />
-        <activity
-            android:name=".Movimientos.CAT.Entregas.ConsuEnPr_CAT"
-            android:exported="false" />
-        <activity
-            android:name=".Movimientos.CAT.Entregas.ConsuEnGe_CAT"
-            android:exported="false" />
+
         <activity
             android:name=".Movimientos.ERP.Entregas.ConsuEnPr_ERP"
             android:exported="false" />
         <activity
             android:name=".Movimientos.ERP.Entregas.ConsuEnGe_ERP"
             android:exported="false" />
-        <activity
-            android:name=".Movimientos.CAT.ConsuEn_CAT"
-            android:exported="false" />
+
         <activity
             android:name=".Movimientos.ERP.ConsuEn_ERP"
             android:exported="false" />
@@ -131,9 +124,6 @@
             android:name=".Movimientos.Municipio.Entregas.ConsulEntreGeneMuni"
             android:exported="false" />
         <activity
-            android:name=".Movimientos.Index_movi_CAT"
-            android:exported="false" />
-        <activity
             android:name=".Movimientos.Index_movi_ERP"
             android:exported="false" />
         <activity
@@ -147,9 +137,6 @@
             android:exported="false" />
         <activity
             android:name=".Movimientos.Productores.Entregas.ConsuEntreProdEmD"
-            android:exported="false" />
-        <activity
-            android:name=".Movimientos.Productores.Entregas.ConsuEntreProdxCAT"
             android:exported="false" />
         <activity
             android:name=".Movimientos.Productores.Entregas.ConsuEntreProdxDist"

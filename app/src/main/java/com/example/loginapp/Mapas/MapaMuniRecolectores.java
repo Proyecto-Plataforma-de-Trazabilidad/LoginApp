@@ -158,7 +158,7 @@ public class MapaMuniRecolectores extends AppCompatActivity implements OnMapRead
                 //redimencionamos el logo
                 BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.logo);
                 Bitmap b = bitmapdraw.getBitmap();
-                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 65, 140, false);
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 45, 110, false);
 
 
                 mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(smallMarker)).position(marker).title(listaPuntosE.get(i).getNombre()).snippet(listaPuntosE.get(i).getDomicilio()));

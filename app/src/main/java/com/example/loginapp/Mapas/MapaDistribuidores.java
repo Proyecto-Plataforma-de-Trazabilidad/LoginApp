@@ -122,7 +122,7 @@ public class MapaDistribuidores extends AppCompatActivity implements OnMapReadyC
                 //redimencionamos el logo
                 BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.logo);
                 Bitmap b = bitmapdraw.getBitmap();
-                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 65, 140, false);
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 45, 110, false);
 
                 mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(smallMarker)).position(marker).title(listaPuntos.get(i).getNombre()).snippet(listaPuntos.get(i).getDomicilio()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));

@@ -16,12 +16,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.example.loginapp.Datos_Usuario.Perfil;
 import com.example.loginapp.Index;
 import com.example.loginapp.Catalogos.IndexCatalogos;
-import com.example.loginapp.Movimientos.Index_movi_CAT;
 import com.example.loginapp.Movimientos.Index_movi_ERP;
 import com.example.loginapp.Movimientos.Index_movi_distribuidor;
 import com.example.loginapp.Movimientos.Index_movimi_productor;
@@ -86,17 +84,12 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 esconderAlgunosItems();
                 break;
             case "11"://cat
-                navigationView=drawerLayout.findViewById(R.id.nav_view);
-                navigationView.setNavigationItemSelectedListener(this);
+                esconderAlgunosItems();
                 break;
         }
-
-
-
         ActionBarDrawerToggle togggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(togggle);
         togggle.syncState();
-
     }
 
 
@@ -152,11 +145,6 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                         break;
                     case"5"://erp
                         m = new Intent(this, Index_movi_ERP.class);
-                        startActivity(m);
-                        overridePendingTransition(0,0);
-                        break;
-                    case"11"://cat
-                        m = new Intent(this, Index_movi_CAT.class);
                         startActivity(m);
                         overridePendingTransition(0,0);
                         break;
