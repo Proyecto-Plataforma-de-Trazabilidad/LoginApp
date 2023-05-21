@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".Reportes.Estadisticos.DisMenosEntre">
+
+        <LinearLayout
+            android:id="@+id/layout_pdf"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/apejal"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/apeajal2" />
+
+                <ImageView
+                    android:id="@+id/asica"
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:layout_alignLeft="@+id/apejal"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="15dp"
+                    app:srcCompat="@drawable/asica" />
+
+                <ImageView
+                    android:id="@+id/Amocali"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="15dp"
+                    app:srcCompat="@drawable/fidaixbm_400x400" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text=" Reporte Distribuidores  "
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:padding="10dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="DISTRIBUIDORES CON MENOS ENTREGAS "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/fechasys"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif-black"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:id="@+id/pieDE"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Generar PDF"
+            android:backgroundTint="@color/Verdeapejal"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+</ScrollView>
+
+

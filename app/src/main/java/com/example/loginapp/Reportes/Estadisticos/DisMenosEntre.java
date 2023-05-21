@@ -15,7 +15,6 @@ import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
-import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
@@ -32,24 +31,16 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
 import com.example.loginapp.R;
-import com.example.loginapp.Reportes.ReportesDeCatalogos.Rep1Cat;
-import com.example.loginapp.databinding.ActivityEnvMasOBinding;
-import com.example.loginapp.databinding.ActivityIndexBinding;
-import com.github.mikephil.charting.charts.BarChart;
+import com.example.loginapp.databinding.ActivityDisMasConcuBinding;
+import com.example.loginapp.databinding.ActivityDisMenosEntreBinding;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
@@ -67,8 +58,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class EnvMasO extends DrawerBaseActivity {
-    ActivityEnvMasOBinding activityEnvMasOBinding;
+public class DisMenosEntre extends DrawerBaseActivity {
+    ActivityDisMenosEntreBinding activityDisMenosEntreBinding;
     PieChart pieE;
     ProgressDialog progressDialog;
     RequestQueue requestQueue;
@@ -86,15 +77,15 @@ public class EnvMasO extends DrawerBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_env_mas_o);
+        setContentView(R.layout.activity_dis_menos_entre);
 
         //aqui va lo del menu
-        activityEnvMasOBinding= ActivityEnvMasOBinding.inflate(getLayoutInflater());
-        setContentView(activityEnvMasOBinding.getRoot());
-        allowActivityTitle("Reportes/Envases");
+        activityDisMenosEntreBinding= ActivityDisMenosEntreBinding.inflate(getLayoutInflater());
+        setContentView(activityDisMenosEntreBinding.getRoot());
+        allowActivityTitle("Reportes/Distribuidores");
 
-        requestQueue= Volley.newRequestQueue(EnvMasO.this);
-        progressDialog=new ProgressDialog(EnvMasO.this);
+        requestQueue= Volley.newRequestQueue(DisMenosEntre.this);
+        progressDialog=new ProgressDialog(DisMenosEntre.this);
 
 
         fecha=findViewById(R.id.fechasys);
@@ -108,7 +99,7 @@ public class EnvMasO extends DrawerBaseActivity {
 
         fecha.setText(Html.fromHtml("<b>Fecha:</b> "+fech));
 
-        pieE=findViewById(R.id.pieE);
+        pieE=findViewById(R.id.pieDE);
         Consulta();
 
         layout=findViewById(R.id.layout_pdf);
@@ -120,7 +111,7 @@ public class EnvMasO extends DrawerBaseActivity {
                 crearPDF();
             }
         });
-    }
+    }//fin oncreate
     //---------------servidor-------------------------------------------------------
     private void Consulta(){
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
@@ -139,12 +130,12 @@ public class EnvMasO extends DrawerBaseActivity {
                         JSONObject jsonObject = result.getJSONObject(i);
 
                         String valor = jsonObject.getString("Total");
-                        String etique = jsonObject.getString("TipoEnvase");
+                        String etique = jsonObject.getString("Nombre");
 
                         if(valor=="null" || etique=="null"){
                             //agregamos datos al arreglo
                             valores[i]=0;
-                            etiquetas[i]="Envases";
+                            etiquetas[i]="Distribuidores";
                         }
                         else{
                             int C= Integer.parseInt(jsonObject.getString("Total"));
@@ -152,7 +143,6 @@ public class EnvMasO extends DrawerBaseActivity {
                             valores[i]=C;
                             etiquetas[i]=etique;
                         }
-
 
                         i++;
                     }
@@ -175,7 +165,7 @@ public class EnvMasO extends DrawerBaseActivity {
         }){
             protected Map<String,String> getParams(){
                 Map<String, String> parametros=new HashMap<>();
-                parametros.put("opcion","1");
+                parametros.put("opcion","6");
                 return parametros;
             }
         };
@@ -217,7 +207,7 @@ public class EnvMasO extends DrawerBaseActivity {
     }
 
     private void creargrafico(){
-        pieE=(PieChart)getSameChart(pieE,"Envases", Color.BLACK,Color.WHITE,2000);
+        pieE=(PieChart)getSameChart(pieE,"Distribuidores", Color.BLACK,Color.WHITE,2000);
         pieE.setHoleRadius(10);
         pieE.setTransparentCircleRadius(12);
         pieE.setData(getPieData());
@@ -231,12 +221,11 @@ public class EnvMasO extends DrawerBaseActivity {
         return dataSet;
     }
     private PieData getPieData(){
-       PieDataSet bds= (PieDataSet) getData(new PieDataSet(Entriesgraf(),""));//que datos vas a poner en la grafica
+        PieDataSet bds= (PieDataSet) getData(new PieDataSet(Entriesgraf(),""));//que datos vas a poner en la grafica
         bds.setSliceSpace(2);
         bds.setValueFormatter(new PercentFormatter());
         return new PieData(bds);
     }
-
     //------------pdf----------------------------------------------------------------
     private Bitmap LoadBitmap(LinearLayout layout, int width, int height) {
         Bitmap bitmap1=Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_4444);
@@ -267,13 +256,13 @@ public class EnvMasO extends DrawerBaseActivity {
 
 
         try{
-            FileOutputStream out = openFileOutput("ReporteEnvasesMasOrdenados.pdf", MODE_PRIVATE);
+            FileOutputStream out = openFileOutput("ReporteDistriMenosEntregas.pdf", MODE_PRIVATE);
             document.writeTo(out);
             document.close();
 
             //exporting
             Context context = getApplicationContext();
-            File filelocation = new File(getFilesDir(), "ReporteEnvasesMasOrdenados.pdf");
+            File filelocation = new File(getFilesDir(), "ReporteDistriMenosEntregas.pdf");
             Uri path = FileProvider.getUriForFile(context, "com.example.tabla.fileprovider", filelocation);
 
             Intent fileIntent = new Intent(Intent.ACTION_SEND);
