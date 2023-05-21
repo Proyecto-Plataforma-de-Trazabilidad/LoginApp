@@ -43,7 +43,7 @@ public class consultaOrdenEnvaseDistribuidor extends DrawerBaseActivity implemen
     String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviDistribuidores.php";
     MaterialButton volver;
     Spinner cboEnvase;
-    String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
+    String[]Envases={"Rígidos lavables","Rígidos no lavables","Flexibles","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
     String emisor;
     ActivityConsultaOrdenenvaseDistribuidorBinding activityConsultaOrdenenvaseDistribuidorBinding;
     @Override

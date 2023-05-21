@@ -50,7 +50,7 @@ public class ConsultaExtraviadosTipoEnvase extends DrawerBaseActivity implements
     MaterialButton volver;
     Spinner cboEnvase;
     JSONArray arreglo;
-    String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
+    String[]Envases={"Rígidos lavables","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
     String emisor, emisorname;
     Button CSV;
     ActivityConsultaExtraviadosTipoEnvaseBinding activityConsultaExtraviadosTipoEnvaseBinding;

@@ -56,7 +56,7 @@ public class RepTEP extends AppCompatActivity implements AdapterView.OnItemSelec
     String productor,envase;
     BarChart Gbar;//grafico
     int[] color= ColorTemplate.MATERIAL_COLORS;
-    String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexible","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
+    String[]Envases={"Rígidos lavables","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
 
     String[] etiquetas;
     int[] valores;

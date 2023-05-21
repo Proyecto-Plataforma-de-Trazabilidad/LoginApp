@@ -42,7 +42,7 @@ public class consultaOrdenestipoembaProductor extends DrawerBaseActivity impleme
     String httpURI= "https://campolimpiojal.com/android/ConsulOrdenesMoviProductores.php";
     MaterialButton volver;
     Spinner cboEnvase;
-    String[]Envases={"Rígidos lavable","Rígidos no lavables","Flexibles","Tapas","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
+    String[]Envases={"Rígidos lavables","Rígidos no lavables","Flexibles","Cubetas","Cartón(Embalaje)","Tambos","Metal"};
     String emisor;
     ActivityConsultaOrdenestipoembaProductorBinding activityConsultaOrdenestipoembaProductorBinding;
     @Override
