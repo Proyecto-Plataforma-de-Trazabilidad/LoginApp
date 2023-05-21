@@ -23,6 +23,7 @@ import com.example.loginapp.Catalogos.IndexCatalogos;
 import com.example.loginapp.Movimientos.Index_movi_ERP;
 import com.example.loginapp.Movimientos.Index_movi_distribuidor;
 import com.example.loginapp.Movimientos.Index_movimi_productor;
+import com.example.loginapp.Movimientos.indexmovientos;
 import com.example.loginapp.Movimientos.indexmovimientoMunicipios;
 import com.example.loginapp.MainActivity;
 import com.example.loginapp.R;
@@ -132,9 +133,9 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             case R.id.nav_movimientos:
                 switch (emisorRol){
                     case "1"://admin
-                        //m = new Intent(this,);
-                        //startActivity(m);
-                       // overridePendingTransition(0,0);
+                        m = new Intent(this, indexmovientos.class);
+                        startActivity(m);
+                        overridePendingTransition(0,0);
                         break;
                     case "2"://productor
                         m = new Intent(this, Index_movimi_productor.class);
@@ -157,6 +158,9 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                         overridePendingTransition(0,0);
                         break;
                     case"7"://amocali
+                        m = new Intent(this, indexmovientos.class);
+                        startActivity(m);
+                        overridePendingTransition(0,0);
                         break;
                 }
                 break;
