@@ -20,6 +20,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Movimientos.AdminAmocali.Salidas.SaliERPAdmi"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.AdminAmocali.Salidas.SaliMuniAdmi"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.AdminAmocali.Salidas.SaliDisAdmi"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.AdminAmocali.Entregas.EntreErpAdmi"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.AdminAmocali.Entregas.EntreMuniAdmi"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.AdminAmocali.Entregas.EntreDisAdmi"
+            android:exported="false" />
+        <activity
+            android:name=".Movimientos.AdminAmocali.Entregas.EntreProAdmi"
+            android:exported="false" />
+        <activity
             android:name=".Reportes.Estadisticos.DisMenosEntre"
             android:exported="false" />
         <activity
