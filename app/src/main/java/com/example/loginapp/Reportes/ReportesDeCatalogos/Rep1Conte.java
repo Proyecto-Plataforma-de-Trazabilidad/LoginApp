@@ -55,7 +55,7 @@ public class Rep1Conte extends AppCompatActivity implements AdapterView.OnItemSe
 
     int[] color= ColorTemplate.MATERIAL_COLORS;
     Spinner cboTc,cboOri;
-    String[]Or={"Amocalli","Dist.","CAT","Recicladora","Municipio","Empresa"};
+    String[]Or={"AMOCALI","Distribuidores","CAT","Empresa Recicladora","Municipios","Empresa Recolectora"};
     MaterialButton btnconsulta;
     String e,o;
 
