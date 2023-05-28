@@ -76,7 +76,7 @@ public class EnvMasO extends DrawerBaseActivity {
 
     String[] etiquetas;
     int[] valores;
-    int[] color= ColorTemplate.MATERIAL_COLORS;
+    int[] color= new int[] {Color.RED,Color.YELLOW,Color.GREEN,Color.BLUE,Color.CYAN,Color.MAGENTA, Color.GRAY}; ;
 
     Button pdf;
     LinearLayout layout;
