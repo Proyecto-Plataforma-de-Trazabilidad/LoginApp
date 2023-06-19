@@ -69,7 +69,8 @@ public class DisMenosEntre extends DrawerBaseActivity {
     int[] valores;
     int[] color= ColorTemplate.MATERIAL_COLORS;
 
-    Button pdf;
+    Button pdf,csv;
+    JSONArray arreglo;
     LinearLayout layout;
     Bitmap bitmap;
     TextView fecha;
@@ -114,6 +115,8 @@ public class DisMenosEntre extends DrawerBaseActivity {
     }//fin oncreate
     //---------------servidor-------------------------------------------------------
     private void Consulta(){
+        //boton genera csv
+        csv=findViewById(R.id.csv);
         StringRequest stringRequest=new StringRequest(Request.Method.POST, httpURI, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -147,6 +150,7 @@ public class DisMenosEntre extends DrawerBaseActivity {
                         i++;
                     }
                     creargrafico();
+                    arreglo=result;//para generar el csv
 
                 }
                 catch (JSONException e) {
@@ -159,6 +163,7 @@ public class DisMenosEntre extends DrawerBaseActivity {
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
                 pdf.setEnabled(false);
+                csv.setEnabled(false);
                 //Mostrar el error de Volley exacto a través de la librería
                 Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
             }
@@ -170,6 +175,12 @@ public class DisMenosEntre extends DrawerBaseActivity {
             }
         };
         requestQueue.add(stringRequest);
+        csv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Export(arreglo);
+            }
+        });
     }
 
     //----------------grafico--------------------------------------------------------
@@ -281,6 +292,51 @@ public class DisMenosEntre extends DrawerBaseActivity {
             e.printStackTrace();
             Toast.makeText(this, "Algo falló, intente de nuevo", Toast.LENGTH_SHORT).show();
         }
+    }
+    //------------csv----------------------------------------------------------------
+    public void Export(JSONArray a){
+        StringBuilder data=new StringBuilder();
+        data.append("Nombre,Total");
+
+        try{
+            for (int i=0; i<a.length();i++){
+                JSONObject jsonObject = a.getJSONObject(i);
+                String te=jsonObject.getString("Nombre");
+                String tot=jsonObject.getString("Total");
+
+                //agrega datos
+                data.append("\n "+te+","+tot);
+            }
+            try{
+                //saving the file into device
+                FileOutputStream out = openFileOutput("DistribuidoresMenosEntregas.csv", MODE_PRIVATE);
+                out.write((data.toString()).getBytes("ISO-8859-1"));
+                Toast.makeText(this, "Guardado en "+getFilesDir()+"/DistribuidoresMenosEntregas.csv", Toast.LENGTH_SHORT).show();
+                out.close();
+
+
+                //exporting
+                Context context = getApplicationContext();
+                File filelocation = new File(getFilesDir(), "DistribuidoresMenosEntregas.csv");
+                Uri path = FileProvider.getUriForFile(context, "com.example.tabla.fileprovider", filelocation);
+
+
+                Intent fileIntent = new Intent(Intent.ACTION_SEND);
+                fileIntent.setType("text/csv");
+                fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
+                fileIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                fileIntent.setClipData(ClipData.newRawUri("", path));
+                fileIntent.putExtra(Intent.EXTRA_STREAM, path);
+                startActivity(Intent.createChooser(fileIntent, "Send mail"));
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }
