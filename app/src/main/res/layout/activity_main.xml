@@ -15,8 +15,8 @@
         <LinearLayout
             android:id="@+id/linearLayout1"
             android:layout_width="350dp"
-            android:layout_height="600dp"
-            android:layout_marginTop="92dp"
+            android:layout_height="630dp"
+            android:layout_marginTop="30dp"
             android:background="#99FFFFFF"
 
             android:orientation="vertical"
@@ -24,12 +24,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="70dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_marginLeft="7dp"
+                        android:layout_width="60dp"
+                        android:layout_height="80dp"
+                        app:srcCompat="@drawable/asica_removebg_preview"
+                        />
+                    <ImageView
+                      android:layout_marginLeft="7dp"
+                        android:layout_width="70dp"
+                        android:layout_height="80dp"
+                        app:srcCompat="@drawable/apeajal2_1_removebg_preview"
+                        />
+                    <ImageView
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="45dp"
+                        android:layout_height="50dp"
+                        app:srcCompat="@drawable/logo_itcg"
+                        />
+                    <ImageView
+                        android:layout_marginLeft="7dp"
+                        android:layout_width="83dp"
+                        android:layout_height="80dp"
+                        app:srcCompat="@drawable/logo_aneberries_retina"
+                        />
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="80dp"
+                        app:srcCompat="@drawable/descarga_removebg_preview"
+                        />
+                </TableRow>
+
+            </RelativeLayout>
+
             <TextView
                 android:id="@+id/singtext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:layout_marginTop="55dp"
+                android:layout_margin="10dp"
                 android:text="@string/sign"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -46,8 +86,16 @@
                 android:text="@string/slogan"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:textStyle="italic|bold" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_marginTop="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/imagen1" />
 
             <EditText
                 android:id="@+id/username"
@@ -64,7 +112,8 @@
                 android:inputType="textEmailAddress"
                 android:padding="20sp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColorHint="@color/black"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/passname"
@@ -80,6 +129,7 @@
                 android:hint="@string/passname"
                 android:inputType="textPassword"
                 android:padding="20sp"
+                android:textSize="20dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
 
@@ -93,7 +143,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:backgroundTint="@color/Verdeapejal"
-                android:text="@string/acceder" />
+                android:text="@string/acceder"
+                android:textSize="16dp"/>
 
             <TextView
                 android:id="@+id/forgot"
@@ -105,7 +156,7 @@
                 android:clickable="true"
                 android:text="@string/forgot"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="18dp" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

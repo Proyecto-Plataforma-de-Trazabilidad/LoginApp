@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/appBarLayout"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/Iconos">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -17,7 +18,19 @@
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/AppTheme.DrawerArrowStyle"
             app:titleTextColor="@color/white"
-            />
+            >
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:layout_gravity="right"
+                android:background="#99FFFFFF">
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/imagen1" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout

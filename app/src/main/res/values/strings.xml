@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Trazabilidad</string>
 
-    <string name="sign">Inicia Sesión</string>
+    <string name="sign">Bienvenido</string>
     <string name="username">Usuario</string>
     <string name="passname">Contraseña</string>
     <string name="acceder">Acceder</string>
     <string name="forgot">¿Olvidaste tu contraseña?</string>
 
-    <string name="TEP">TEP</string>
+    <string name="TEP">SIGA-MEX</string>
 
 
     <string name="titC">Consulta General Contenedores</string>
