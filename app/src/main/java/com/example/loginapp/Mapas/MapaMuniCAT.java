@@ -143,9 +143,9 @@ public class MapaMuniCAT extends AppCompatActivity implements OnMapReadyCallback
 
                 LatLng marker = new LatLng((Double.parseDouble(listaPuntosE.get(i).getLat())), (Double.parseDouble(listaPuntosE.get(i).getLon())));
                 //redimencionamos el logo
-                BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.logo);
+                BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.marcador);
                 Bitmap b = bitmapdraw.getBitmap();
-                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 45, 110, false);
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100,100, false);
 
 
                 mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(smallMarker)).position(marker).title(listaPuntosE.get(i).getNombreCentro()).snippet(listaPuntosE.get(i).getDomicilio()));

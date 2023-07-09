@@ -121,9 +121,9 @@ public class MapaContenedores extends AppCompatActivity implements OnMapReadyCal
                 LatLng marker = new LatLng((Double.parseDouble(listaPuntos.get(i).getLat())), (Double.parseDouble(listaPuntos.get(i).getLon())));
 
                 //redimencionamos el logo
-                BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.logo);
+                BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.marcador);
                 Bitmap b = bitmapdraw.getBitmap();
-                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 45, 110, false);
+                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100,100, false);
 
                 mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(smallMarker)).position(marker).title(listaPuntos.get(i).getOrigen()).snippet(listaPuntos.get(i).getConcepto()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
