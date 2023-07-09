@@ -155,13 +155,7 @@ public class MapaMuniRecolectores extends AppCompatActivity implements OnMapRead
 
                 LatLng marker = new LatLng((Double.parseDouble(listaPuntosE.get(i).getLat())), (Double.parseDouble(listaPuntosE.get(i).getLon())));
 
-                //redimencionamos el logo
-                BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.marcador);
-                Bitmap b = bitmapdraw.getBitmap();
-                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100,100, false);
-
-
-                mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(smallMarker)).position(marker).title(listaPuntosE.get(i).getNombre()).snippet(listaPuntosE.get(i).getDomicilio()));
+                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntosE.get(i).getNombre()).snippet(listaPuntosE.get(i).getDomicilio()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
             }

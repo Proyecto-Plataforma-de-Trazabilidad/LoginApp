@@ -119,12 +119,9 @@ public class MapaDistribuidores extends AppCompatActivity implements OnMapReadyC
 
                 LatLng marker = new LatLng((Double.parseDouble(listaPuntos.get(i).getLat())), (Double.parseDouble(listaPuntos.get(i).getLon())));
 
-                //redimencionamos el logo
-                BitmapDrawable bitmapdraw = (BitmapDrawable) getResources().getDrawable(R.drawable.marcador);
-                Bitmap b = bitmapdraw.getBitmap();
-                Bitmap smallMarker = Bitmap.createScaledBitmap(b, 100,100, false);
 
-                mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(smallMarker)).position(marker).title(listaPuntos.get(i).getNombre()).snippet(listaPuntos.get(i).getDomicilio()));
+
+                mMap.addMarker(new MarkerOptions().position(marker).title(listaPuntos.get(i).getNombre()).snippet(listaPuntos.get(i).getDomicilio()));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
 
             }
