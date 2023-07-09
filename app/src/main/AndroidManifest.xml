@@ -20,6 +20,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Catalogos.CATALOGOS_ROL.PRODUCTOR.IndexCataProdMuni"
+            android:exported="false" />
+        <activity
+            android:name=".Catalogos.CATALOGOS_ROL.PRODUCTOR.IndexCataProGene"
+            android:exported="false" />
+        <activity
             android:name=".Movimientos.AdminAmocali.Salidas.SaliERPAdmi"
             android:exported="false" />
         <activity
@@ -224,10 +230,10 @@
             android:name=".Reportes.IndexReportes"
             android:exported="false" />
         <activity
-            android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal"
+            android:name=".Catalogos.CATALOGOS_ROL.DESTINO.IndexCatalDestinoMunicipal"
             android:exported="false" />
         <activity
-            android:name=".Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene"
+            android:name=".Catalogos.CATALOGOS_ROL.DESTINO.IndexCatalDestinoGene"
             android:exported="false" />
         <activity
             android:name=".Movimientos.Productores.Ordenes.consultaOrdenestipoembaProductor"
@@ -266,10 +272,10 @@
             android:name=".Movimientos.Index_movimi_productor"
             android:exported="false" />
         <activity
-            android:name=".Catalogos.CATALOGOS_ROL.IndexCataAMOCALImunici"
+            android:name=".Catalogos.CATALOGOS_ROL.AMOCALI.IndexCataAMOCALImunici"
             android:exported="false" />
         <activity
-            android:name=".Catalogos.CATALOGOS_ROL.IndexCataAMOCALIgeneral"
+            android:name=".Catalogos.CATALOGOS_ROL.AMOCALI.IndexCataAMOCALIgeneral"
             android:exported="false" />
         <activity
             android:name=".Datos_Usuario.Perfil"

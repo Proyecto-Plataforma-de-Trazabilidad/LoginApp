@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.view.View;
 
 import com.example.loginapp.Base_Menu.DrawerBaseActivity;
-import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCataAMOCALIgeneral;
-import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCataAMOCALImunici;
-import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCatalDestinoGene;
-import com.example.loginapp.Catalogos.CATALOGOS_ROL.IndexCatalDestinoMunicipal;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.AMOCALI.IndexCataAMOCALIgeneral;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.AMOCALI.IndexCataAMOCALImunici;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.DESTINO.IndexCatalDestinoGene;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.DESTINO.IndexCatalDestinoMunicipal;
 import com.example.loginapp.Index;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.PRODUCTOR.IndexCataProGene;
+import com.example.loginapp.Catalogos.CATALOGOS_ROL.PRODUCTOR.IndexCataProdMuni;
 import com.example.loginapp.R;
 import com.example.loginapp.databinding.ActivityIndexCatalogos2Binding;
 
@@ -50,7 +52,7 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "2"://productor
-                        i= new Intent(IndexCatalogos.this, IndexGenerales.class);
+                        i= new Intent(IndexCatalogos.this, IndexCataProGene.class);
                         startActivity(i);
                         break;
                     case "3"://distribuidor
@@ -103,7 +105,7 @@ public class IndexCatalogos extends DrawerBaseActivity {
                         startActivity(i);
                         break;
                     case "2"://productor
-                        i= new Intent(IndexCatalogos.this, IndexMunicipales.class);
+                        i= new Intent(IndexCatalogos.this, IndexCataProdMuni.class);
                         startActivity(i);
                         break;
                     case "3"://distribuidor

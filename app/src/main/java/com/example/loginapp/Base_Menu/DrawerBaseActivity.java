@@ -34,7 +34,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
     DrawerLayout drawerLayout;
     String emisorRol;
     NavigationView navigationView;
-    Intent m;
+    Intent m,c;
 
 
     public void setContentView(View view) {
@@ -52,31 +52,35 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
         switch (emisorRol){
             case "1"://admin
-                navigationView=drawerLayout.findViewById(R.id.nav_view);
-                navigationView.setNavigationItemSelectedListener(this);
+               // navigationView=drawerLayout.findViewById(R.id.nav_view);
+                //navigationView.setNavigationItemSelectedListener(this);
+                esconderAlgunosItems();
                 break;
             case "2"://productor
-                navigationView=drawerLayout.findViewById(R.id.nav_view);
-                navigationView.setNavigationItemSelectedListener(this);
+                esconderItemsProductor();
                 break;
             case "3"://distribuidor
-                navigationView=drawerLayout.findViewById(R.id.nav_view);
-                navigationView.setNavigationItemSelectedListener(this);
+               // navigationView=drawerLayout.findViewById(R.id.nav_view);
+               // navigationView.setNavigationItemSelectedListener(this);
+                esconderItemsDis();
                 break;
             case "4"://municipios
-                navigationView=drawerLayout.findViewById(R.id.nav_view);
-                navigationView.setNavigationItemSelectedListener(this);
+                // navigationView=drawerLayout.findViewById(R.id.nav_view);
+                // navigationView.setNavigationItemSelectedListener(this);
+                esconderAlgunosItems();
                 break;
             case "5"://empre recolec priva
-                navigationView=drawerLayout.findViewById(R.id.nav_view);
-                navigationView.setNavigationItemSelectedListener(this);
+                // navigationView=drawerLayout.findViewById(R.id.nav_view);
+                // navigationView.setNavigationItemSelectedListener(this);
+                esconderAlgunosItems();
                 break;
             case "6"://empre destino
                 esconderAlgunosItems();
                 break;
             case "7"://AMOCALI
-                navigationView=drawerLayout.findViewById(R.id.nav_view);
-                navigationView.setNavigationItemSelectedListener(this);
+                // navigationView=drawerLayout.findViewById(R.id.nav_view);
+                // navigationView.setNavigationItemSelectedListener(this);
+                esconderAlgunosItems();
                 break;
             case "8"://ASICA
                 esconderAlgunosItems();
@@ -96,14 +100,74 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         togggle.syncState();
     }
 
-
-    private void esconderAlgunosItems() {
+    //esconder items productor------------------------------------------------------------------------------------
+    private void esconderItemsProductor() {
         NavigationView navigationView = findViewById(R.id.nav_view);
         Menu miMenu= navigationView.getMenu();
 
-        miMenu.findItem(R.id.nav_movimientos).setVisible(false);
+        miMenu.findItem(R.id.nav_ubisdis).setVisible(false);
+        miMenu.findItem(R.id.nav_entredis).setVisible(false);
+        miMenu.findItem(R.id.nav_alertasdis).setVisible(false);
+
+        miMenu.findItem(R.id.nav_ubisjorna).setVisible(false);
+        miMenu.findItem(R.id.nav_cargjorna).setVisible(false);
+        miMenu.findItem(R.id.nav_entrejorna).setVisible(false);
+
+        miMenu.findItem(R.id.nav_reportes).setVisible(false);
 
         navigationView.setNavigationItemSelectedListener(this);
+    }
+    //esconder items distri------------------------------------------------------------------------------------
+    private void esconderItemsDis() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        Menu miMenu= navigationView.getMenu();
+
+        miMenu.findItem(R.id.nav_ubispro).setVisible(false);
+        miMenu.findItem(R.id.nav_entrepro).setVisible(false);
+
+        miMenu.findItem(R.id.nav_ubisjorna).setVisible(false);
+        miMenu.findItem(R.id.nav_cargjorna).setVisible(false);
+        miMenu.findItem(R.id.nav_entrejorna).setVisible(false);
+
+        miMenu.findItem(R.id.nav_reportes).setVisible(false);
+
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+    //esconder items jornada------------------------------------------------------------------------------------
+  /*  private void esconderItemsJorna() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        Menu miMenu = navigationView.getMenu();
+
+        miMenu.findItem(R.id.nav_ubispro).setVisible(false);
+        miMenu.findItem(R.id.nav_entrepro).setVisible(false);
+
+        miMenu.findItem(R.id.nav_ubisdis).setVisible(false);
+        miMenu.findItem(R.id.nav_entredis).setVisible(false);
+        miMenu.findItem(R.id.nav_alertasdis).setVisible(false);
+
+        miMenu.findItem(R.id.nav_reportes).setVisible(false);
+
+        navigationView.setNavigationItemSelectedListener(this);
+    }*/
+
+   private void esconderAlgunosItems() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        Menu miMenu= navigationView.getMenu();
+
+        //miMenu.findItem(R.id.nav_movimientos).setVisible(false);
+       miMenu.findItem(R.id.nav_ubispro).setVisible(false);
+       miMenu.findItem(R.id.nav_entrepro).setVisible(false);
+
+       miMenu.findItem(R.id.nav_ubisdis).setVisible(false);
+       miMenu.findItem(R.id.nav_entredis).setVisible(false);
+       miMenu.findItem(R.id.nav_alertasdis).setVisible(false);
+
+       miMenu.findItem(R.id.nav_ubisjorna).setVisible(false);
+       miMenu.findItem(R.id.nav_cargjorna).setVisible(false);
+       miMenu.findItem(R.id.nav_entrejorna).setVisible(false);
+
+       miMenu.findItem(R.id.nav_reportes).setVisible(false);
+       navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -124,13 +188,36 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 overridePendingTransition(0,0);
                 break;
 
-            case R.id.nav_catalogos://Aqui agregar la referencia a index catalogos
-                Intent c = new Intent(this, IndexCatalogos.class);
+//----------------------ubicaciones --------------------------------------------------------------------------
+            case R.id.nav_ubispro://ubicaciones productor
+                 c = new Intent(this, IndexCatalogos.class);
                 startActivity(c);
                 overridePendingTransition(0,0);
                 break;
-
-            case R.id.nav_movimientos:
+            case R.id.nav_ubisdis://ubicaciones distri
+                 c = new Intent(this, IndexCatalogos.class);
+                startActivity(c);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_ubisjorna://ubicaciones jornada
+                c = new Intent(this, IndexCatalogos.class);
+                startActivity(c);
+                overridePendingTransition(0,0);
+                break;
+//--------------------movimientos------------------------------------------------------------
+            case R.id.nav_entrepro:
+                m = new Intent(this, Index_movimi_productor.class);
+                startActivity(m);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_entredis:
+                m = new Intent(this, Index_movi_distribuidor.class);
+                startActivity(m);
+                overridePendingTransition(0,0);
+                break;
+            case R.id.nav_entrejorna:
+                break;
+           /* case R.id.nav_movimientos:
                 switch (emisorRol){
                     case "1"://admin
                         m = new Intent(this, indexmovientos.class);
@@ -163,7 +250,8 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                         overridePendingTransition(0,0);
                         break;
                 }
-                break;
+                break;*/
+            //-----------Demas items------------------------------------------------------------------------------------------
             case R.id.nav_reportes:
                 Intent r = new Intent(this, IndexReportes.class);
                 startActivity(r);

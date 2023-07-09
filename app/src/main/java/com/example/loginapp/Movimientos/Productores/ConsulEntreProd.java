@@ -28,8 +28,8 @@ public class ConsulEntreProd extends DrawerBaseActivity {
         allowActivityTitle("Movimientos/Entregas");
 
         dis=findViewById(R.id.tc1);
-        erp=findViewById(R.id.tc3);
-        muni=findViewById(R.id.tc4);
+       // erp=findViewById(R.id.tc3);
+       // muni=findViewById(R.id.tc4);
 
 
         dis.setOnClickListener(new View.OnClickListener() {
@@ -40,20 +40,20 @@ public class ConsulEntreProd extends DrawerBaseActivity {
             }
         });
 
-        erp.setOnClickListener(new View.OnClickListener() {
+      /*  erp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i=new Intent(ConsulEntreProd.this, ConsuEntreProdEmD.class);
                 startActivity(i);
             }
-        });
-        muni.setOnClickListener(new View.OnClickListener() {
+        });*/
+       /* muni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i=new Intent(ConsulEntreProd.this, ConsuEntreProdxMu.class);
                 startActivity(i);
             }
-        });
+        });*/
 
     }
 }

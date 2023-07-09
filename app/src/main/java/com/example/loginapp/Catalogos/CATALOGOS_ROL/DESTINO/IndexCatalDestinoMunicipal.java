@@ -1,4 +1,4 @@
-package com.example.loginapp.Catalogos.CATALOGOS_ROL;
+package com.example.loginapp.Catalogos.CATALOGOS_ROL.DESTINO;
 
 import androidx.cardview.widget.CardView;
 

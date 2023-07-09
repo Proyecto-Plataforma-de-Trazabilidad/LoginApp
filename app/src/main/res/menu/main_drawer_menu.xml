@@ -7,29 +7,58 @@
             android:icon="@drawable/user_solid"
             android:title="Usuario"
            />
-
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/house_solid"
-            android:title="Inicio"/>
+            android:title="Inicio"
+            />
 
         <item
-            android:id="@+id/nav_catalogos"
-            android:icon="@drawable/book_solid"
-            android:title="Catálogos"/>
+            android:id="@+id/nav_ubispro"
+            android:icon="@drawable/image"
+            android:title="Ubicaciones"
+            />
+        <item
+            android:id="@+id/nav_entrepro"
+            android:icon="@drawable/entregasrelleno"
+            android:title="Entregas"/>
 
         <item
-            android:id="@+id/nav_movimientos"
-            android:icon="@drawable/paper_plane_solid"
-            android:title="Movimientos"/>
+            android:id="@+id/nav_ubisdis"
+            android:icon="@drawable/distribuidores_relleno"
+            android:title="Ubicaciones"
+            />
+        <item
+            android:id="@+id/nav_entredis"
+            android:title="Entregas"
+            />
+        <item
+            android:id="@+id/nav_alertasdis"
+            android:title="Alertas"
+            />
+
+        <item
+            android:id="@+id/nav_ubisjorna"
+            android:icon="@drawable/group_4"
+            android:title="Ubicaciones"
+            />
+        <item
+            android:id="@+id/nav_cargjorna"
+            android:title="Cargar Jornada"
+            />
+        <item
+            android:id="@+id/nav_entrejorna"
+            android:title="Entregas"
+            />
+
+
         <item
             android:id="@+id/nav_reportes"
             android:icon="@drawable/file_circle_check_solid"
             android:title="Reportes"/>
-
         <item
             android:id="@+id/nav_ayuda"
-            android:icon="@drawable/circle_info_solid"
+            android:icon="@drawable/ayuda"
             android:title="Ayuda"/>
         <item
             android:id="@+id/nav_salir"
