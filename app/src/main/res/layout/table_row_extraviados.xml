@@ -12,6 +12,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black" />
 
     <TextView
@@ -22,6 +23,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black" />
     <TextView
         android:id="@+id/col3"
@@ -31,6 +33,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black" />
     <TextView
         android:id="@+id/col4"
@@ -40,6 +43,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black" />
 
 

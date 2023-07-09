@@ -65,10 +65,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:text="Selecciona el tipo envase:"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <Spinner
                 android:id="@+id/cboTe"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_footer"
@@ -81,10 +82,11 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-black"
                 android:text="Selecciona el productor:"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <Spinner
                 android:id="@+id/cbopro"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_footer"
@@ -98,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:text="@string/Consultar"
+                android:textSize="20dp"
                 android:backgroundTint="@color/Verdeapejal"
                 android:layout_gravity="center"
                 />
@@ -112,7 +115,7 @@
                 android:text="TOTAL PZS ORDENADAS POR QUÍMICO "
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="20dp" />
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/TEP"
                 android:layout_width="match_parent"

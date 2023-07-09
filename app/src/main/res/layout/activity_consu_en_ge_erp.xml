@@ -56,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="Consulta Entregas General "
                 android:textStyle="bold"
+                android:textSize="20dp"
                 android:padding="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
@@ -83,6 +84,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Id"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -92,6 +94,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Produc"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -102,6 +105,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Responsa."
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -111,6 +115,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Fecha"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -118,6 +123,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textSize="20dp"
                         android:background="@color/encabezado1"
                         android:textAlignment="center"
                         android:textColor="@color/white"
@@ -133,7 +139,8 @@
                 tools:layout_editor_absoluteY="-5dp">
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"/>
             </TableLayout>
 
             <TableLayout
@@ -151,6 +158,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Con."
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -159,7 +167,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Tipo E"
+                        android:text="TipoE"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -170,6 +179,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Piezas"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -180,6 +190,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Peso"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -189,7 +200,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:background="@color/encabezado1"
-                        android:text="Observaciones"
+                        android:text="Observa"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -221,6 +233,7 @@
                     android:layout_marginTop="25dp"
                     android:text="@string/Regresar"
                     android:layout_column="0"
+                    android:textSize="20dp"
                     android:layout_row="1"
                     android:backgroundTint="@color/Verdeapejal"
                     android:textColor="@color/white"

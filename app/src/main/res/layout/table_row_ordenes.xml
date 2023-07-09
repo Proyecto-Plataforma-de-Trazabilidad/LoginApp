@@ -10,6 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_weight="1"
+        android:textSize="20dp"
         android:background="@color/gris"
         android:textAlignment="center"
         android:text="TextView"
@@ -23,6 +24,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black" />
 
     <TextView
@@ -33,6 +35,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black" />
 
     <TextView
@@ -43,6 +46,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black" />
 
     <ImageButton

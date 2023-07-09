@@ -56,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/con9"
                 android:textStyle="bold"
+                android:textSize="20dp"
                 android:padding="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
@@ -77,6 +78,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Nombre"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -87,7 +89,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Domicilio"
+                        android:text="Domici"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -99,6 +102,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Latitud"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -110,6 +114,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Longitud"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -141,6 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:text="@string/Regresar"
+                    android:textSize="20dp"
                     android:layout_column="0"
                     android:layout_row="1"
                     android:backgroundTint="@color/Verdeapejal"
@@ -153,6 +159,7 @@
                     android:layout_marginTop="25dp"
                     android:text="@string/Consultar"
                     android:layout_column="2"
+                    android:textSize="20dp"
                     android:layout_row="1"
                     android:backgroundTint="@color/Verdeapejal"
                     android:layout_centerHorizontal="true"

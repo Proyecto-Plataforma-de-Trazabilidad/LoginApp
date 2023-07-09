@@ -12,6 +12,7 @@
         android:background="@color/gris"
         android:textAlignment="center"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black"/>
 
     <TextView
@@ -22,6 +23,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black"/>
 
     <TextView
@@ -32,6 +34,7 @@
         android:background="@color/gris"
         android:textAlignment="center"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black"/>
 
     <TextView
@@ -42,6 +45,7 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black"/>
 
     <TextView
@@ -52,5 +56,6 @@
         android:textAlignment="center"
         android:background="@color/gris"
         android:text="TextView"
+        android:textSize="20dp"
         android:textColor="@color/black"/>
 </TableRow>

@@ -66,10 +66,11 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Selecciona al Productor:"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <Spinner
                 android:id="@+id/cbopro"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_footer"
@@ -84,7 +85,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Fecha Inicial:"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <EditText
                 android:id="@+id/FI"
@@ -93,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:clickable="true"
+                android:textSize="20dp"
                 android:focusable="false"
                 android:maxLines="1"
                 android:layout_margin="10dp"/>
@@ -103,7 +105,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Fecha Final:"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <EditText
                 android:id="@+id/FF"
@@ -112,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:clickable="true"
+                android:textSize="20dp"
                 android:focusable="false"
                 android:maxLines="1"
                 android:layout_margin="10dp"/>
@@ -121,6 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:text="@string/Consultar"
+                android:textSize="20dp"
                 android:backgroundTint="@color/Verdeapejal"
                 android:layout_gravity="center"
                 />
@@ -135,7 +139,7 @@
                 android:text=" TOTAL DE PZS ORDENADAS"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="20dp" />
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/TPP"
                 android:layout_width="match_parent"

@@ -20,7 +20,7 @@
             />
         <item
             android:id="@+id/nav_entrepro"
-            android:icon="@drawable/entregasrelleno"
+            android:icon="@drawable/entregas2"
             android:title="Entregas"/>
 
         <item

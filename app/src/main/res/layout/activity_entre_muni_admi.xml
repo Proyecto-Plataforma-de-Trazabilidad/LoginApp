@@ -56,6 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="Consulta Entregas Distribuidor "
                 android:textStyle="bold"
+                android:textSize="20dp"
                 android:padding="20dp"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
@@ -65,10 +66,11 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Selecciona al Municipio:"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <Spinner
                 android:id="@+id/cbo"
+                android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/background_footer"
@@ -83,7 +85,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Fecha Inicial:"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <EditText
                 android:id="@+id/FI"
@@ -92,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:clickable="true"
+                android:textSize="20dp"
                 android:focusable="false"
                 android:maxLines="1"
                 android:layout_margin="10dp"/>
@@ -102,7 +105,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Fecha Final:"
                 android:textColor="@color/black"
-                android:textSize="18dp"
+                android:textSize="20dp"
                 android:padding="20dp" />
             <EditText
                 android:id="@+id/FF"
@@ -111,6 +114,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:clickable="true"
+                android:textSize="20dp"
                 android:focusable="false"
                 android:maxLines="1"
                 android:layout_margin="10dp"/>
@@ -131,6 +135,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Id"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -140,7 +145,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Productor"
+                        android:text="Produc"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -149,7 +155,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Respon."
+                        android:text="Respo."
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -159,6 +166,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Fecha"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -166,6 +174,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textSize="20dp"
                         android:background="@color/encabezado1"
                         android:textAlignment="center"
                         android:textColor="@color/white"
@@ -199,6 +208,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Con."
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -207,7 +217,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
-                        android:text="Tipo E"
+                        android:text="TipoE"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -218,6 +229,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Piezas"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -228,6 +240,7 @@
                         android:layout_weight="1"
                         android:background="@color/encabezado1"
                         android:text="Peso"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -237,7 +250,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:background="@color/encabezado1"
-                        android:text="Observaciones"
+                        android:text="Observa"
+                        android:textSize="20dp"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
@@ -268,6 +282,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
                     android:text="@string/Regresar"
+                    android:textSize="20dp"
                     android:layout_column="0"
                     android:layout_row="1"
                     android:backgroundTint="@color/Verdeapejal"

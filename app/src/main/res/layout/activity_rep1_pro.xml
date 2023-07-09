@@ -71,7 +71,7 @@
                 android:text=" TOTAL DE PRODUCTORES REGISTRADOS "
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="20dp" />
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/ProG"
                 android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                 android:text=" TOTAL DE PRODUCTORES POR ESTADO "
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="20dp" />
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/ProE"
                 android:layout_width="match_parent"
@@ -103,7 +103,7 @@
                 android:text=" TOTAL DE PRODUCTORES POR MUNICIPIO "
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="20dp" />
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/ProM"
                 android:layout_width="match_parent"
