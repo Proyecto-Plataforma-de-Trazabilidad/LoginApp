@@ -15,7 +15,7 @@
 
         <item
             android:id="@+id/nav_ubispro"
-            android:icon="@drawable/image"
+            android:icon="@drawable/producvectorizado"
             android:title="Ubicaciones"
             />
         <item
@@ -31,6 +31,7 @@
         <item
             android:id="@+id/nav_entredis"
             android:title="Entregas"
+            android:icon="@drawable/entregas2"
             />
         <item
             android:id="@+id/nav_alertasdis"
@@ -49,6 +50,7 @@
         <item
             android:id="@+id/nav_entrejorna"
             android:title="Entregas"
+            android:icon="@drawable/entregas2"
             />
 
 
